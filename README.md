@@ -22,9 +22,3 @@ This concrete syntax is based on some other proposes, mainly Cockburn. The memta
    - Steps are in one idetendation level at Main flow.
    
 # Exemple
-UC 1: Comprar_no_site
-MainFlow:
-	1. User "aaaaaa";
-	2. System "bbbbb";
-	2. User "asdas";
-	4. System "asuhdasi";
