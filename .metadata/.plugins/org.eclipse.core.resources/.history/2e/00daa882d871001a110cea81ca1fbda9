@@ -1,0 +1,11 @@
+
+package useCase.xtext.useCaseDsl.formatting2
+
+import useCase.xtext.useCaseDsl.useCaseDsl.UseCase
+import useCase.xtext.useCaseDsl.useCaseDsl.MainFlow
+import useCase.xtext.useCaseDsl.useCaseDsl.Step
+
+
+
+class UseCaseFormatter extends formatting2 {
+}

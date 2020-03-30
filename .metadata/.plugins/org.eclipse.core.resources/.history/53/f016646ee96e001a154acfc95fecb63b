@@ -1,0 +1,62 @@
+grammar useCase.xtext.useCaseDsl.UseCaseDsl with org.eclipse.xtext.common.Terminals
+
+generate useCaseDsl "http://www.xtext.useCase/useCaseDsl/UseCaseDsl"
+
+
+UseCase:
+	'UC' INT ':' QualifiedName
+	 
+	(mainflow = MainFlow)
+	//(alternativeflow = Extension)?
+	;
+
+MainFlow:
+	{MainFlow} 'MainFlow'':'
+	BEGIN
+		(steps += Step)+
+	END;
+
+	
+Extension:
+	{Extension} 'AlternativeFlow:'
+	BEGIN
+		(steps += Step)*
+	END;
+
+Step:
+	{Step} (type = (UserStep|SystemStep|ExtensionStep)) (sentence = Sentence) ';';
+
+UserStep:
+	{UserStep} name = INT '.' 'User';
+
+SystemStep:
+	{SystemStep} name = INT '.' 'System';
+ 
+ExtensionStep:
+	(startAt = [Step]) '.' name = CHAR '.';
+
+
+/********************	
+*******DataTypes*****
+*********************/
+
+//This QualifiedName allows to create a name like: buying things nice
+QualifiedName:
+	ID(WS ID)*;
+/* Strange errors that I can't make an long name with any number o WS and IDs// 
+Strangeerro:
+	(ANY_OTHER|WS)* (ID)*
+;	
+*/
+	
+Sentence:
+	(STRING)+;
+
+/***** TERMINALS RULES ******/
+terminal CHAR:
+	('a'..'z'|'A'..'Z');
+
+	
+terminal BEGIN: 'synthetic:BEGIN';  // increase indentation
+terminal END: 'synthetic:END';      // decrease indentation
+	
