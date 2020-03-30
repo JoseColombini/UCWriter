@@ -539,8 +539,8 @@ org.w3c.css.sac,1.3.1.v200903091627,file:/C:/Users/ColoJr/.p2/pool/plugins/org.w
 org.w3c.dom.events,3.0.0.draft20060413_v201105210656,file:/C:/Users/ColoJr/.p2/pool/plugins/org.w3c.dom.events_3.0.0.draft20060413_v201105210656.jar,4,false
 org.w3c.dom.smil,1.0.1.v200903091627,file:/C:/Users/ColoJr/.p2/pool/plugins/org.w3c.dom.smil_1.0.1.v200903091627.jar,4,false
 org.w3c.dom.svg,1.1.0.v201011041433,file:/C:/Users/ColoJr/.p2/pool/plugins/org.w3c.dom.svg_1.1.0.v201011041433.jar,4,false
-useCase.xtext.useCaseDsl,1.0.0.qualifier,file:/C:/Users/ColoJr/eclipse-workspace/useCase.xtext.useCaseDsl/,4,false
-useCase.xtext.useCaseDsl.ide,1.0.0.qualifier,file:/C:/Users/ColoJr/eclipse-workspace/useCase.xtext.useCaseDsl.ide/,4,false
-useCase.xtext.useCaseDsl.tests,1.0.0.qualifier,file:/C:/Users/ColoJr/eclipse-workspace/useCase.xtext.useCaseDsl.tests/,4,false
-useCase.xtext.useCaseDsl.ui,1.0.0.qualifier,file:/C:/Users/ColoJr/eclipse-workspace/useCase.xtext.useCaseDsl.ui/,4,false
-useCase.xtext.useCaseDsl.ui.tests,1.0.0.qualifier,file:/C:/Users/ColoJr/eclipse-workspace/useCase.xtext.useCaseDsl.ui.tests/,4,false
+useCase.xtext.useCaseDsl,1.0.0.qualifier,file:/D:/GitHub/UseCase-concrete-syntax/useCase.xtext.useCaseDsl/,4,false
+useCase.xtext.useCaseDsl.ide,1.0.0.qualifier,file:/D:/GitHub/UseCase-concrete-syntax/useCase.xtext.useCaseDsl.ide/,4,false
+useCase.xtext.useCaseDsl.tests,1.0.0.qualifier,file:/D:/GitHub/UseCase-concrete-syntax/useCase.xtext.useCaseDsl.tests/,4,false
+useCase.xtext.useCaseDsl.ui,1.0.0.qualifier,file:/D:/GitHub/UseCase-concrete-syntax/useCase.xtext.useCaseDsl.ui/,4,false
+useCase.xtext.useCaseDsl.ui.tests,1.0.0.qualifier,file:/D:/GitHub/UseCase-concrete-syntax/useCase.xtext.useCaseDsl.ui.tests/,4,false
