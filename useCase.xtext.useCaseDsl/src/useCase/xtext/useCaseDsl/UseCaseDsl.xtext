@@ -1,17 +1,17 @@
-grammar useCase.xtext.useCaseDsl.UseCaseDsl with org.eclipse.xtext.common.Terminals
+grammar useCase.xtext.useCaseDsl.UseCaseDsl with org.eclipse.xtext.common.Terminals 
 
 generate useCaseDsl "http://www.xtext.useCase/useCaseDsl/UseCaseDsl"
 
 
-UseCase:
-	'UC' number = INT ':' (name += LongName)+
+UseCase hidden(WS):
+	'UC' number = INT ':' (name = LongName)
 	 
 	(mainflow = MainFlow)
 	//(alternativeflow = Extension)?
 	;
 
 MainFlow:
-	{MainFlow} 'MainFlow'':'
+	{MainFlow} 	(name = 'MainFlow')':'
 	BEGIN
 		(steps += Step)+
 	END;
@@ -19,18 +19,21 @@ MainFlow:
 	
 
 Step:
-	{Step} name = INT (type = (UserStep|SystemStep/*|ExtensionStep*/)) (sentence += LongName)+;
+	{Step} (name = INT) (type = (UserStep|SystemStep/*|ExtensionStep*/)) (sentence = LongName);
 
 UserStep:
-	{UserStep} '.' 'User';
+	{UserStep}  '.' 'User';
 
 SystemStep:
 	{SystemStep} '.' 'System';
-	
+
+
 
 /************************** V 0.2 **************************************************** 
+
 ExtensionStep:
-	(startAt = [Step]) '.' name = CHAR '.';
+	'Ex' (startAt = [Step]) '.' name = CHAR '.';
+
 
 Extension:
 	{Extension} 'AlternativeFlow:'
@@ -39,12 +42,12 @@ Extension:
 	END;
 ***************************************************************************************/
 
-/**********************	
+/**********************	}
 ******* DataTypes *****
 ***********************/
 
 LongName:
-	(ID|ANY_OTHER|CHAR|':'|'.') (WS)?;
+	(ID|ANY_OTHER|CHAR|':'|'.'|'"'|"'")+;
 	
 //Bug: preciso nao capturar as palavras
 
@@ -55,7 +58,12 @@ LongName:
 terminal CHAR:
 	('a'..'z'|'A'..'Z');
 
+/*terminal fragment ESCAPED_CHAR:
+    '\\' ('n'|'t'|'r'|'\\');
 
+terminal SP:
+	' ';
+*/
 
 terminal BEGIN: 'synthetic:BEGIN';  // increase indentation
 terminal END: 'synthetic:END';      // decrease indentation

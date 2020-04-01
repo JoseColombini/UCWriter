@@ -31,6 +31,8 @@ import useCase.xtext.useCaseDsl.services.UseCaseDslGrammarAccess;
 	private final Map<String, String> tokenNameToValue = new HashMap<String, String>();
 	
 	{
+		tokenNameToValue.put("QuotationMark", "'\"'");
+		tokenNameToValue.put("Apostrophe", "'\''");
 		tokenNameToValue.put("FullStop", "'.'");
 		tokenNameToValue.put("Colon", "':'");
 		tokenNameToValue.put("UC", "'UC'");
@@ -59,16 +61,23 @@ import useCase.xtext.useCaseDsl.services.UseCaseDslGrammarAccess;
 
 // Entry rule entryRuleUseCase
 entryRuleUseCase
+@init { 
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
+}
 :
 { before(grammarAccess.getUseCaseRule()); }
 	 ruleUseCase
 { after(grammarAccess.getUseCaseRule()); } 
 	 EOF 
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Rule UseCase
 ruleUseCase 
 	@init {
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
 		int stackSize = keepStackSize();
 	}
 	:
@@ -80,6 +89,7 @@ ruleUseCase
 ;
 finally {
 	restoreStackSize(stackSize);
+	myHiddenTokenState.restore();
 }
 
 // Entry rule entryRuleMainFlow
@@ -198,9 +208,16 @@ ruleLongName
 	}
 	:
 	(
-		{ before(grammarAccess.getLongNameAccess().getGroup()); }
-		(rule__LongName__Group__0)
-		{ after(grammarAccess.getLongNameAccess().getGroup()); }
+		(
+			{ before(grammarAccess.getLongNameAccess().getAlternatives()); }
+			(rule__LongName__Alternatives)
+			{ after(grammarAccess.getLongNameAccess().getAlternatives()); }
+		)
+		(
+			{ before(grammarAccess.getLongNameAccess().getAlternatives()); }
+			(rule__LongName__Alternatives)*
+			{ after(grammarAccess.getLongNameAccess().getAlternatives()); }
+		)
 	)
 ;
 finally {
@@ -228,39 +245,45 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__LongName__Alternatives_0
+rule__LongName__Alternatives
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getLongNameAccess().getIDTerminalRuleCall_0_0()); }
+		{ before(grammarAccess.getLongNameAccess().getIDTerminalRuleCall_0()); }
 		RULE_ID
-		{ after(grammarAccess.getLongNameAccess().getIDTerminalRuleCall_0_0()); }
+		{ after(grammarAccess.getLongNameAccess().getIDTerminalRuleCall_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getLongNameAccess().getANY_OTHERTerminalRuleCall_0_1()); }
+		{ before(grammarAccess.getLongNameAccess().getANY_OTHERTerminalRuleCall_1()); }
 		RULE_ANY_OTHER
-		{ after(grammarAccess.getLongNameAccess().getANY_OTHERTerminalRuleCall_0_1()); }
+		{ after(grammarAccess.getLongNameAccess().getANY_OTHERTerminalRuleCall_1()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getLongNameAccess().getCHARTerminalRuleCall_0_2()); }
-		RULE_CHAR
-		{ after(grammarAccess.getLongNameAccess().getCHARTerminalRuleCall_0_2()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getLongNameAccess().getColonKeyword_0_3()); }
+		{ before(grammarAccess.getLongNameAccess().getColonKeyword_2()); }
 		Colon
-		{ after(grammarAccess.getLongNameAccess().getColonKeyword_0_3()); }
+		{ after(grammarAccess.getLongNameAccess().getColonKeyword_2()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getLongNameAccess().getFullStopKeyword_0_4()); }
+		{ before(grammarAccess.getLongNameAccess().getFullStopKeyword_3()); }
 		FullStop
-		{ after(grammarAccess.getLongNameAccess().getFullStopKeyword_0_4()); }
+		{ after(grammarAccess.getLongNameAccess().getFullStopKeyword_3()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getLongNameAccess().getQuotationMarkKeyword_4()); }
+		QuotationMark
+		{ after(grammarAccess.getLongNameAccess().getQuotationMarkKeyword_4()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getLongNameAccess().getApostropheKeyword_5()); }
+		Apostrophe
+		{ after(grammarAccess.getLongNameAccess().getApostropheKeyword_5()); }
 	)
 ;
 finally {
@@ -366,16 +389,9 @@ rule__UseCase__Group__3__Impl
 	}
 :
 (
-	(
-		{ before(grammarAccess.getUseCaseAccess().getNameAssignment_3()); }
-		(rule__UseCase__NameAssignment_3)
-		{ after(grammarAccess.getUseCaseAccess().getNameAssignment_3()); }
-	)
-	(
-		{ before(grammarAccess.getUseCaseAccess().getNameAssignment_3()); }
-		(rule__UseCase__NameAssignment_3)*
-		{ after(grammarAccess.getUseCaseAccess().getNameAssignment_3()); }
-	)
+	{ before(grammarAccess.getUseCaseAccess().getNameAssignment_3()); }
+	(rule__UseCase__NameAssignment_3)
+	{ after(grammarAccess.getUseCaseAccess().getNameAssignment_3()); }
 )
 ;
 finally {
@@ -454,9 +470,9 @@ rule__MainFlow__Group__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getMainFlowAccess().getMainFlowKeyword_1()); }
-	MainFlow
-	{ after(grammarAccess.getMainFlowAccess().getMainFlowKeyword_1()); }
+	{ before(grammarAccess.getMainFlowAccess().getNameAssignment_1()); }
+	(rule__MainFlow__NameAssignment_1)
+	{ after(grammarAccess.getMainFlowAccess().getNameAssignment_1()); }
 )
 ;
 finally {
@@ -676,16 +692,9 @@ rule__Step__Group__3__Impl
 	}
 :
 (
-	(
-		{ before(grammarAccess.getStepAccess().getSentenceAssignment_3()); }
-		(rule__Step__SentenceAssignment_3)
-		{ after(grammarAccess.getStepAccess().getSentenceAssignment_3()); }
-	)
-	(
-		{ before(grammarAccess.getStepAccess().getSentenceAssignment_3()); }
-		(rule__Step__SentenceAssignment_3)*
-		{ after(grammarAccess.getStepAccess().getSentenceAssignment_3()); }
-	)
+	{ before(grammarAccess.getStepAccess().getSentenceAssignment_3()); }
+	(rule__Step__SentenceAssignment_3)
+	{ after(grammarAccess.getStepAccess().getSentenceAssignment_3()); }
 )
 ;
 finally {
@@ -855,60 +864,6 @@ finally {
 }
 
 
-rule__LongName__Group__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__LongName__Group__0__Impl
-	rule__LongName__Group__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__LongName__Group__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getLongNameAccess().getAlternatives_0()); }
-	(rule__LongName__Alternatives_0)
-	{ after(grammarAccess.getLongNameAccess().getAlternatives_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__LongName__Group__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__LongName__Group__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__LongName__Group__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getLongNameAccess().getWSTerminalRuleCall_1()); }
-	(RULE_WS)?
-	{ after(grammarAccess.getLongNameAccess().getWSTerminalRuleCall_1()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
 rule__UseCase__NumberAssignment_1
 	@init {
 		int stackSize = keepStackSize();
@@ -948,6 +903,25 @@ rule__UseCase__MainflowAssignment_4
 		{ before(grammarAccess.getUseCaseAccess().getMainflowMainFlowParserRuleCall_4_0()); }
 		ruleMainFlow
 		{ after(grammarAccess.getUseCaseAccess().getMainflowMainFlowParserRuleCall_4_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__MainFlow__NameAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getMainFlowAccess().getNameMainFlowKeyword_1_0()); }
+		(
+			{ before(grammarAccess.getMainFlowAccess().getNameMainFlowKeyword_1_0()); }
+			MainFlow
+			{ after(grammarAccess.getMainFlowAccess().getNameMainFlowKeyword_1_0()); }
+		)
+		{ after(grammarAccess.getMainFlowAccess().getNameMainFlowKeyword_1_0()); }
 	)
 ;
 finally {

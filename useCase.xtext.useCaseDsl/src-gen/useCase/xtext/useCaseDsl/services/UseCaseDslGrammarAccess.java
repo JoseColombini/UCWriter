@@ -35,12 +35,11 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cMainflowAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cMainflowMainFlowParserRuleCall_4_0 = (RuleCall)cMainflowAssignment_4.eContents().get(0);
 		
-		//UseCase:
-		//	'UC' number=INT ':' name+=LongName+
-		//	mainflow=MainFlow;
+		//UseCase hidden(WS):
+		//	'UC' number=INT ':' name=LongName mainflow=MainFlow;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'UC' number=INT ':' name+=LongName+ mainflow=MainFlow
+		//'UC' number=INT ':' name=LongName mainflow=MainFlow
 		public Group getGroup() { return cGroup; }
 		
 		//'UC'
@@ -55,7 +54,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 		
-		//name+=LongName+
+		//name=LongName
 		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
 		//LongName
@@ -71,7 +70,8 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.MainFlow");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cMainFlowAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cMainFlowKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cNameMainFlowKeyword_1_0 = (Keyword)cNameAssignment_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final RuleCall cBEGINTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		private final Assignment cStepsAssignment_4 = (Assignment)cGroup.eContents().get(4);
@@ -79,20 +79,23 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cENDTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
 		
 		//MainFlow:
-		//	{MainFlow} 'MainFlow' ':'
+		//	{MainFlow} name='MainFlow' ':'
 		//	BEGIN
 		//	steps+=Step+
 		//	END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{MainFlow} 'MainFlow' ':' BEGIN steps+=Step+ END
+		//{MainFlow} name='MainFlow' ':' BEGIN steps+=Step+ END
 		public Group getGroup() { return cGroup; }
 		
 		//{MainFlow}
 		public Action getMainFlowAction_0() { return cMainFlowAction_0; }
 		
+		//name='MainFlow'
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
 		//'MainFlow'
-		public Keyword getMainFlowKeyword_1() { return cMainFlowKeyword_1; }
+		public Keyword getNameMainFlowKeyword_1_0() { return cNameMainFlowKeyword_1_0; }
 		
 		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
@@ -123,10 +126,10 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSentenceLongNameParserRuleCall_3_0 = (RuleCall)cSentenceAssignment_3.eContents().get(0);
 		
 		//Step:
-		//	{Step} name=INT type=(UserStep | SystemStep /*|ExtensionStep*/) sentence+=LongName+;
+		//	{Step} name=INT type=(UserStep | SystemStep /*|ExtensionStep*/) sentence=LongName;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Step} name=INT type=(UserStep | SystemStep /*|ExtensionStep*/) sentence+=LongName+
+		//{Step} name=INT type=(UserStep | SystemStep /*|ExtensionStep*/) sentence=LongName
 		public Group getGroup() { return cGroup; }
 		
 		//{Step}
@@ -150,7 +153,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//SystemStep
 		public RuleCall getTypeSystemStepParserRuleCall_2_0_1() { return cTypeSystemStepParserRuleCall_2_0_1; }
 		
-		//sentence+=LongName+
+		//sentence=LongName
 		public Assignment getSentenceAssignment_3() { return cSentenceAssignment_3; }
 		
 		//LongName
@@ -204,53 +207,51 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class LongNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.LongName");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
-		private final RuleCall cANY_OTHERTerminalRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
-		private final RuleCall cCHARTerminalRuleCall_0_2 = (RuleCall)cAlternatives_0.eContents().get(2);
-		private final Keyword cColonKeyword_0_3 = (Keyword)cAlternatives_0.eContents().get(3);
-		private final Keyword cFullStopKeyword_0_4 = (Keyword)cAlternatives_0.eContents().get(4);
-		private final RuleCall cWSTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cANY_OTHERTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final Keyword cColonKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cFullStopKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cQuotationMarkKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cApostropheKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
 		
 		///************************** V 0.2 **************************************************** 
+		//
 		//ExtensionStep:
-		//	(startAt = [Step]) '.' name = CHAR '.';
+		//	'Ex' (startAt = [Step]) '.' name = CHAR '.';
+		//
 		//
 		//Extension:
 		//	{Extension} 'AlternativeFlow:'
 		//	BEGIN
 		//		(steps += Step)*
 		//	END;
-		//***************************************************************************************/ /**********************	
+		//***************************************************************************************/ /**********************	}
 		//******* DataTypes *****
 		//***********************/ LongName:
-		//	(ID | ANY_OTHER | CHAR | ':' | '.') WS?;
+		//	(ID | ANY_OTHER | ':' | '.' | '"' | "'")+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(ID | ANY_OTHER | CHAR | ':' | '.') WS?
-		public Group getGroup() { return cGroup; }
-		
-		//(ID | ANY_OTHER | CHAR | ':' | '.')
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		//(ID | ANY_OTHER | ':' | '.' | '"' | "'")+
+		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//ID
-		public RuleCall getIDTerminalRuleCall_0_0() { return cIDTerminalRuleCall_0_0; }
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
 		
 		//ANY_OTHER
-		public RuleCall getANY_OTHERTerminalRuleCall_0_1() { return cANY_OTHERTerminalRuleCall_0_1; }
-		
-		//CHAR
-		public RuleCall getCHARTerminalRuleCall_0_2() { return cCHARTerminalRuleCall_0_2; }
+		public RuleCall getANY_OTHERTerminalRuleCall_1() { return cANY_OTHERTerminalRuleCall_1; }
 		
 		//':'
-		public Keyword getColonKeyword_0_3() { return cColonKeyword_0_3; }
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 		
 		//'.'
-		public Keyword getFullStopKeyword_0_4() { return cFullStopKeyword_0_4; }
+		public Keyword getFullStopKeyword_3() { return cFullStopKeyword_3; }
 		
-		//WS?
-		public RuleCall getWSTerminalRuleCall_1() { return cWSTerminalRuleCall_1; }
+		//'"'
+		public Keyword getQuotationMarkKeyword_4() { return cQuotationMarkKeyword_4; }
+		
+		//"'"
+		public Keyword getApostropheKeyword_5() { return cApostropheKeyword_5; }
 	}
 	
 	
@@ -311,9 +312,8 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//UseCase:
-	//	'UC' number=INT ':' name+=LongName+
-	//	mainflow=MainFlow;
+	//UseCase hidden(WS):
+	//	'UC' number=INT ':' name=LongName mainflow=MainFlow;
 	public UseCaseElements getUseCaseAccess() {
 		return pUseCase;
 	}
@@ -323,7 +323,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//MainFlow:
-	//	{MainFlow} 'MainFlow' ':'
+	//	{MainFlow} name='MainFlow' ':'
 	//	BEGIN
 	//	steps+=Step+
 	//	END;
@@ -336,7 +336,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Step:
-	//	{Step} name=INT type=(UserStep | SystemStep /*|ExtensionStep*/) sentence+=LongName+;
+	//	{Step} name=INT type=(UserStep | SystemStep /*|ExtensionStep*/) sentence=LongName;
 	public StepElements getStepAccess() {
 		return pStep;
 	}
@@ -366,18 +366,20 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	///************************** V 0.2 **************************************************** 
+	//
 	//ExtensionStep:
-	//	(startAt = [Step]) '.' name = CHAR '.';
+	//	'Ex' (startAt = [Step]) '.' name = CHAR '.';
+	//
 	//
 	//Extension:
 	//	{Extension} 'AlternativeFlow:'
 	//	BEGIN
 	//		(steps += Step)*
 	//	END;
-	//***************************************************************************************/ /**********************	
+	//***************************************************************************************/ /**********************	}
 	//******* DataTypes *****
 	//***********************/ LongName:
-	//	(ID | ANY_OTHER | CHAR | ':' | '.') WS?;
+	//	(ID | ANY_OTHER | ':' | '.' | '"' | "'")+;
 	public LongNameElements getLongNameAccess() {
 		return pLongName;
 	}

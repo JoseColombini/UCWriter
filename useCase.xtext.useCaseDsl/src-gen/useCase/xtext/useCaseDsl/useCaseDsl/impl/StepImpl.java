@@ -3,12 +3,8 @@
  */
 package useCase.xtext.useCaseDsl.useCaseDsl.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -16,8 +12,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import useCase.xtext.useCaseDsl.useCaseDsl.Step;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
@@ -70,14 +64,24 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
   protected EObject type;
 
   /**
-   * The cached value of the '{@link #getSentence() <em>Sentence</em>}' attribute list.
+   * The default value of the '{@link #getSentence() <em>Sentence</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getSentence()
    * @generated
    * @ordered
    */
-  protected EList<String> sentence;
+  protected static final String SENTENCE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSentence() <em>Sentence</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSentence()
+   * @generated
+   * @ordered
+   */
+  protected String sentence = SENTENCE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -181,13 +185,23 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @generated
    */
   @Override
-  public EList<String> getSentence()
+  public String getSentence()
   {
-    if (sentence == null)
-    {
-      sentence = new EDataTypeEList<String>(String.class, this, UseCaseDslPackage.STEP__SENTENCE);
-    }
     return sentence;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSentence(String newSentence)
+  {
+    String oldSentence = sentence;
+    sentence = newSentence;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.STEP__SENTENCE, oldSentence, sentence));
   }
 
   /**
@@ -231,7 +245,6 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -244,8 +257,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
         setType((EObject)newValue);
         return;
       case UseCaseDslPackage.STEP__SENTENCE:
-        getSentence().clear();
-        getSentence().addAll((Collection<? extends String>)newValue);
+        setSentence((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -268,7 +280,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
         setType((EObject)null);
         return;
       case UseCaseDslPackage.STEP__SENTENCE:
-        getSentence().clear();
+        setSentence(SENTENCE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -289,7 +301,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
       case UseCaseDslPackage.STEP__TYPE:
         return type != null;
       case UseCaseDslPackage.STEP__SENTENCE:
-        return sentence != null && !sentence.isEmpty();
+        return SENTENCE_EDEFAULT == null ? sentence != null : !SENTENCE_EDEFAULT.equals(sentence);
     }
     return super.eIsSet(featureID);
   }

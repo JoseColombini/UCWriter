@@ -5,6 +5,7 @@ package useCase.xtext.useCaseDsl.useCaseDsl.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -12,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -29,6 +31,7 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.MainFlowImpl#getName <em>Name</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.MainFlowImpl#getSteps <em>Steps</em>}</li>
  * </ul>
  *
@@ -36,6 +39,26 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
  */
 public class MainFlowImpl extends MinimalEObjectImpl.Container implements MainFlow
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getSteps() <em>Steps</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -65,6 +88,31 @@ public class MainFlowImpl extends MinimalEObjectImpl.Container implements MainFl
   protected EClass eStaticClass()
   {
     return UseCaseDslPackage.Literals.MAIN_FLOW;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.MAIN_FLOW__NAME, oldName, name));
   }
 
   /**
@@ -108,6 +156,8 @@ public class MainFlowImpl extends MinimalEObjectImpl.Container implements MainFl
   {
     switch (featureID)
     {
+      case UseCaseDslPackage.MAIN_FLOW__NAME:
+        return getName();
       case UseCaseDslPackage.MAIN_FLOW__STEPS:
         return getSteps();
     }
@@ -125,6 +175,9 @@ public class MainFlowImpl extends MinimalEObjectImpl.Container implements MainFl
   {
     switch (featureID)
     {
+      case UseCaseDslPackage.MAIN_FLOW__NAME:
+        setName((String)newValue);
+        return;
       case UseCaseDslPackage.MAIN_FLOW__STEPS:
         getSteps().clear();
         getSteps().addAll((Collection<? extends Step>)newValue);
@@ -143,6 +196,9 @@ public class MainFlowImpl extends MinimalEObjectImpl.Container implements MainFl
   {
     switch (featureID)
     {
+      case UseCaseDslPackage.MAIN_FLOW__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case UseCaseDslPackage.MAIN_FLOW__STEPS:
         getSteps().clear();
         return;
@@ -160,10 +216,29 @@ public class MainFlowImpl extends MinimalEObjectImpl.Container implements MainFl
   {
     switch (featureID)
     {
+      case UseCaseDslPackage.MAIN_FLOW__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case UseCaseDslPackage.MAIN_FLOW__STEPS:
         return steps != null && !steps.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //MainFlowImpl

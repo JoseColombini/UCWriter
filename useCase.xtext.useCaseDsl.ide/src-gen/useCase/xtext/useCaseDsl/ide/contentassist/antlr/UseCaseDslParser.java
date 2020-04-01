@@ -34,16 +34,16 @@ public class UseCaseDslParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, UseCaseDslGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getStepAccess().getTypeAlternatives_2_0(), "rule__Step__TypeAlternatives_2_0");
-			builder.put(grammarAccess.getLongNameAccess().getAlternatives_0(), "rule__LongName__Alternatives_0");
+			builder.put(grammarAccess.getLongNameAccess().getAlternatives(), "rule__LongName__Alternatives");
 			builder.put(grammarAccess.getUseCaseAccess().getGroup(), "rule__UseCase__Group__0");
 			builder.put(grammarAccess.getMainFlowAccess().getGroup(), "rule__MainFlow__Group__0");
 			builder.put(grammarAccess.getStepAccess().getGroup(), "rule__Step__Group__0");
 			builder.put(grammarAccess.getUserStepAccess().getGroup(), "rule__UserStep__Group__0");
 			builder.put(grammarAccess.getSystemStepAccess().getGroup(), "rule__SystemStep__Group__0");
-			builder.put(grammarAccess.getLongNameAccess().getGroup(), "rule__LongName__Group__0");
 			builder.put(grammarAccess.getUseCaseAccess().getNumberAssignment_1(), "rule__UseCase__NumberAssignment_1");
 			builder.put(grammarAccess.getUseCaseAccess().getNameAssignment_3(), "rule__UseCase__NameAssignment_3");
 			builder.put(grammarAccess.getUseCaseAccess().getMainflowAssignment_4(), "rule__UseCase__MainflowAssignment_4");
+			builder.put(grammarAccess.getMainFlowAccess().getNameAssignment_1(), "rule__MainFlow__NameAssignment_1");
 			builder.put(grammarAccess.getMainFlowAccess().getStepsAssignment_4(), "rule__MainFlow__StepsAssignment_4");
 			builder.put(grammarAccess.getStepAccess().getNameAssignment_1(), "rule__Step__NameAssignment_1");
 			builder.put(grammarAccess.getStepAccess().getTypeAssignment_2(), "rule__Step__TypeAssignment_2");

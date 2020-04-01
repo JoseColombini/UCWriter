@@ -3,8 +3,6 @@
  */
 package useCase.xtext.useCaseDsl.useCaseDsl;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -50,16 +48,26 @@ public interface UseCase extends EObject
   void setNumber(int value);
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute list.
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
    * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCase_Name()
-   * @model unique="false"
+   * @model
    * @generated
    */
-  EList<String> getName();
+  String getName();
+
+  /**
+   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
 
   /**
    * Returns the value of the '<em><b>Mainflow</b></em>' containment reference.

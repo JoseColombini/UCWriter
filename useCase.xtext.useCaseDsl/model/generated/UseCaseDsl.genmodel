@@ -12,6 +12,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCaseDsl.ecore#//UseCase/mainflow"/>
     </genClasses>
     <genClasses ecoreClass="UseCaseDsl.ecore#//MainFlow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//MainFlow/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCaseDsl.ecore#//MainFlow/steps"/>
     </genClasses>
     <genClasses ecoreClass="UseCaseDsl.ecore#//Step">

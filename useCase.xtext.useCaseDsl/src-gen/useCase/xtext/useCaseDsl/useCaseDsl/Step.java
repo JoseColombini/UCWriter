@@ -3,8 +3,6 @@
  */
 package useCase.xtext.useCaseDsl.useCaseDsl;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -72,15 +70,25 @@ public interface Step extends EObject
   void setType(EObject value);
 
   /**
-   * Returns the value of the '<em><b>Sentence</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Sentence</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Sentence</em>' attribute list.
+   * @return the value of the '<em>Sentence</em>' attribute.
+   * @see #setSentence(String)
    * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getStep_Sentence()
-   * @model unique="false"
+   * @model
    * @generated
    */
-  EList<String> getSentence();
+  String getSentence();
+
+  /**
+   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getSentence <em>Sentence</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Sentence</em>' attribute.
+   * @see #getSentence()
+   * @generated
+   */
+  void setSentence(String value);
 
 } // Step

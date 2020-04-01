@@ -19,6 +19,10 @@ User : 'User';
 
 UC : 'UC';
 
+QuotationMark : '"';
+
+Apostrophe : '\'';
+
 FullStop : '.';
 
 Colon : ':';

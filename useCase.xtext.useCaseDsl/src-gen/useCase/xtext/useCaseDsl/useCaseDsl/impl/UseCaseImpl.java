@@ -3,20 +3,14 @@
  */
 package useCase.xtext.useCaseDsl.useCaseDsl.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import useCase.xtext.useCaseDsl.useCaseDsl.MainFlow;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCase;
@@ -60,14 +54,24 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   protected int number = NUMBER_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute list.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected EList<String> name;
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getMainflow() <em>Mainflow</em>}' containment reference.
@@ -131,13 +135,23 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * @generated
    */
   @Override
-  public EList<String> getName()
+  public String getName()
   {
-    if (name == null)
-    {
-      name = new EDataTypeEList<String>(String.class, this, UseCaseDslPackage.USE_CASE__NAME);
-    }
     return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.USE_CASE__NAME, oldName, name));
   }
 
   /**
@@ -231,7 +245,6 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -241,8 +254,7 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         setNumber((Integer)newValue);
         return;
       case UseCaseDslPackage.USE_CASE__NAME:
-        getName().clear();
-        getName().addAll((Collection<? extends String>)newValue);
+        setName((String)newValue);
         return;
       case UseCaseDslPackage.USE_CASE__MAINFLOW:
         setMainflow((MainFlow)newValue);
@@ -265,7 +277,7 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         setNumber(NUMBER_EDEFAULT);
         return;
       case UseCaseDslPackage.USE_CASE__NAME:
-        getName().clear();
+        setName(NAME_EDEFAULT);
         return;
       case UseCaseDslPackage.USE_CASE__MAINFLOW:
         setMainflow((MainFlow)null);
@@ -287,7 +299,7 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case UseCaseDslPackage.USE_CASE__NUMBER:
         return number != NUMBER_EDEFAULT;
       case UseCaseDslPackage.USE_CASE__NAME:
-        return name != null && !name.isEmpty();
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case UseCaseDslPackage.USE_CASE__MAINFLOW:
         return mainflow != null;
     }

@@ -77,7 +77,7 @@ public interface UseCaseDslPackage extends EPackage
   int USE_CASE__NUMBER = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute list.
+   * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -114,13 +114,22 @@ public interface UseCaseDslPackage extends EPackage
   int MAIN_FLOW = 1;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAIN_FLOW__NAME = 0;
+
+  /**
    * The feature id for the '<em><b>Steps</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAIN_FLOW__STEPS = 0;
+  int MAIN_FLOW__STEPS = 1;
 
   /**
    * The number of structural features of the '<em>Main Flow</em>' class.
@@ -129,7 +138,7 @@ public interface UseCaseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAIN_FLOW_FEATURE_COUNT = 1;
+  int MAIN_FLOW_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.StepImpl <em>Step</em>}' class.
@@ -160,7 +169,7 @@ public interface UseCaseDslPackage extends EPackage
   int STEP__TYPE = 1;
 
   /**
-   * The feature id for the '<em><b>Sentence</b></em>' attribute list.
+   * The feature id for the '<em><b>Sentence</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -238,10 +247,10 @@ public interface UseCaseDslPackage extends EPackage
   EAttribute getUseCase_Number();
 
   /**
-   * Returns the meta object for the attribute list '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Name</em>'.
+   * @return the meta object for the attribute '<em>Name</em>'.
    * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getName()
    * @see #getUseCase()
    * @generated
@@ -268,6 +277,17 @@ public interface UseCaseDslPackage extends EPackage
    * @generated
    */
   EClass getMainFlow();
+
+  /**
+   * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.MainFlow#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.MainFlow#getName()
+   * @see #getMainFlow()
+   * @generated
+   */
+  EAttribute getMainFlow_Name();
 
   /**
    * Returns the meta object for the containment reference list '{@link useCase.xtext.useCaseDsl.useCaseDsl.MainFlow#getSteps <em>Steps</em>}'.
@@ -313,10 +333,10 @@ public interface UseCaseDslPackage extends EPackage
   EReference getStep_Type();
 
   /**
-   * Returns the meta object for the attribute list '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getSentence <em>Sentence</em>}'.
+   * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getSentence <em>Sentence</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Sentence</em>'.
+   * @return the meta object for the attribute '<em>Sentence</em>'.
    * @see useCase.xtext.useCaseDsl.useCaseDsl.Step#getSentence()
    * @see #getStep()
    * @generated
@@ -385,7 +405,7 @@ public interface UseCaseDslPackage extends EPackage
     EAttribute USE_CASE__NUMBER = eINSTANCE.getUseCase_Number();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -409,6 +429,14 @@ public interface UseCaseDslPackage extends EPackage
      * @generated
      */
     EClass MAIN_FLOW = eINSTANCE.getMainFlow();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAIN_FLOW__NAME = eINSTANCE.getMainFlow_Name();
 
     /**
      * The meta object literal for the '<em><b>Steps</b></em>' containment reference list feature.
@@ -445,7 +473,7 @@ public interface UseCaseDslPackage extends EPackage
     EReference STEP__TYPE = eINSTANCE.getStep_Type();
 
     /**
-     * The meta object literal for the '<em><b>Sentence</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Sentence</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

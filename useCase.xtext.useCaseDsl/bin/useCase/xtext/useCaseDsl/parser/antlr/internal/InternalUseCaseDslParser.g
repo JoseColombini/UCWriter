@@ -54,16 +54,22 @@ import useCase.xtext.useCaseDsl.services.UseCaseDslGrammarAccess;
 }
 
 // Entry rule entryRuleUseCase
-entryRuleUseCase returns [EObject current=null]:
+entryRuleUseCase returns [EObject current=null]@init {
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
+}:
 	{ newCompositeNode(grammarAccess.getUseCaseRule()); }
 	iv_ruleUseCase=ruleUseCase
 	{ $current=$iv_ruleUseCase.current; }
 	EOF;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Rule UseCase
 ruleUseCase returns [EObject current=null]
 @init {
 	enterRule();
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
 }
 @after {
 	leaveRule();
@@ -105,7 +111,7 @@ ruleUseCase returns [EObject current=null]
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
 					}
-					add(
+					set(
 						$current,
 						"name",
 						lv_name_3_0,
@@ -113,7 +119,7 @@ ruleUseCase returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)+
+		)
 		(
 			(
 				{
@@ -135,6 +141,9 @@ ruleUseCase returns [EObject current=null]
 		)
 	)
 ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 // Entry rule entryRuleMainFlow
 entryRuleMainFlow returns [EObject current=null]:
@@ -159,10 +168,20 @@ ruleMainFlow returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1=MainFlow
-		{
-			newLeafNode(otherlv_1, grammarAccess.getMainFlowAccess().getMainFlowKeyword_1());
-		}
+		(
+			(
+				lv_name_1_0=MainFlow
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getMainFlowAccess().getNameMainFlowKeyword_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getMainFlowRule());
+					}
+					setWithLastConsumed($current, "name", lv_name_1_0, "MainFlow");
+				}
+			)
+		)
 		otherlv_2=Colon
 		{
 			newLeafNode(otherlv_2, grammarAccess.getMainFlowAccess().getColonKeyword_2());
@@ -285,7 +304,7 @@ ruleStep returns [EObject current=null]
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getStepRule());
 					}
-					add(
+					set(
 						$current,
 						"sentence",
 						lv_sentence_3_0,
@@ -293,7 +312,7 @@ ruleStep returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)+
+		)
 	)
 ;
 
@@ -381,51 +400,44 @@ ruleLongName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken(
 	leaveRule();
 }:
 	(
-		(
-			this_ID_0=RULE_ID
-			{
-				$current.merge(this_ID_0);
-			}
-			{
-				newLeafNode(this_ID_0, grammarAccess.getLongNameAccess().getIDTerminalRuleCall_0_0());
-			}
-			    |
-			this_ANY_OTHER_1=RULE_ANY_OTHER
-			{
-				$current.merge(this_ANY_OTHER_1);
-			}
-			{
-				newLeafNode(this_ANY_OTHER_1, grammarAccess.getLongNameAccess().getANY_OTHERTerminalRuleCall_0_1());
-			}
-			    |
-			this_CHAR_2=RULE_CHAR
-			{
-				$current.merge(this_CHAR_2);
-			}
-			{
-				newLeafNode(this_CHAR_2, grammarAccess.getLongNameAccess().getCHARTerminalRuleCall_0_2());
-			}
-			    |
-			kw=Colon
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getLongNameAccess().getColonKeyword_0_3());
-			}
-			    |
-			kw=FullStop
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getLongNameAccess().getFullStopKeyword_0_4());
-			}
-		)
-		(
-			this_WS_5=RULE_WS
-			{
-				$current.merge(this_WS_5);
-			}
-			{
-				newLeafNode(this_WS_5, grammarAccess.getLongNameAccess().getWSTerminalRuleCall_1());
-			}
-		)?
-	)
+		this_ID_0=RULE_ID
+		{
+			$current.merge(this_ID_0);
+		}
+		{
+			newLeafNode(this_ID_0, grammarAccess.getLongNameAccess().getIDTerminalRuleCall_0());
+		}
+		    |
+		this_ANY_OTHER_1=RULE_ANY_OTHER
+		{
+			$current.merge(this_ANY_OTHER_1);
+		}
+		{
+			newLeafNode(this_ANY_OTHER_1, grammarAccess.getLongNameAccess().getANY_OTHERTerminalRuleCall_1());
+		}
+		    |
+		kw=Colon
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getLongNameAccess().getColonKeyword_2());
+		}
+		    |
+		kw=FullStop
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getLongNameAccess().getFullStopKeyword_3());
+		}
+		    |
+		kw=QuotationMark
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getLongNameAccess().getQuotationMarkKeyword_4());
+		}
+		    |
+		kw=Apostrophe
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getLongNameAccess().getApostropheKeyword_5());
+		}
+	)+
 ;
