@@ -15,14 +15,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCaseDsl.ecore#//MainFlow/steps"/>
     </genClasses>
     <genClasses ecoreClass="UseCaseDsl.ecore#//Step">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//Step/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCaseDsl.ecore#//Step/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//Step/sentence"/>
     </genClasses>
-    <genClasses ecoreClass="UseCaseDsl.ecore#//UserStep">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//UserStep/name"/>
-    </genClasses>
-    <genClasses ecoreClass="UseCaseDsl.ecore#//SystemStep">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//SystemStep/name"/>
-    </genClasses>
+    <genClasses ecoreClass="UseCaseDsl.ecore#//UserStep"/>
+    <genClasses ecoreClass="UseCaseDsl.ecore#//SystemStep"/>
   </genPackages>
 </genmodel:GenModel>

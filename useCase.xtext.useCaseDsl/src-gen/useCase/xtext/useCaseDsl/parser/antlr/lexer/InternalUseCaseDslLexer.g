@@ -23,8 +23,6 @@ FullStop : '.';
 
 Colon : ':';
 
-Semicolon : ';';
-
 RULE_CHAR : ('a'..'z'|'A'..'Z');
 
 fragment RULE_BEGIN : ;

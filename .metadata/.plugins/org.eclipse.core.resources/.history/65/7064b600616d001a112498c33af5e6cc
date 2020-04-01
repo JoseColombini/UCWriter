@@ -1,7 +1,0 @@
-package useCase.xtext.useCaseDsl.formatting2;
-
-import org.eclipse.xtext.xbase.formatting2.XbaseFormatter;
-
-@SuppressWarnings("all")
-public class DomainmodelFormatter extends XbaseFormatter {
-}

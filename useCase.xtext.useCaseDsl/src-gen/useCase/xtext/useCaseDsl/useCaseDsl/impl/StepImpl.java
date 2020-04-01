@@ -3,8 +3,12 @@
  */
 package useCase.xtext.useCaseDsl.useCaseDsl.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -12,6 +16,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import useCase.xtext.useCaseDsl.useCaseDsl.Step;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
@@ -24,6 +30,7 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.StepImpl#getName <em>Name</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.StepImpl#getType <em>Type</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.StepImpl#getSentence <em>Sentence</em>}</li>
  * </ul>
@@ -32,6 +39,26 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
  */
 public class StepImpl extends MinimalEObjectImpl.Container implements Step
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final int NAME_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected int name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -43,24 +70,14 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
   protected EObject type;
 
   /**
-   * The default value of the '{@link #getSentence() <em>Sentence</em>}' attribute.
+   * The cached value of the '{@link #getSentence() <em>Sentence</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getSentence()
    * @generated
    * @ordered
    */
-  protected static final String SENTENCE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getSentence() <em>Sentence</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSentence()
-   * @generated
-   * @ordered
-   */
-  protected String sentence = SENTENCE_EDEFAULT;
+  protected EList<String> sentence;
 
   /**
    * <!-- begin-user-doc -->
@@ -81,6 +98,31 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
   protected EClass eStaticClass()
   {
     return UseCaseDslPackage.Literals.STEP;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setName(int newName)
+  {
+    int oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.STEP__NAME, oldName, name));
   }
 
   /**
@@ -139,23 +181,13 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @generated
    */
   @Override
-  public String getSentence()
+  public EList<String> getSentence()
   {
+    if (sentence == null)
+    {
+      sentence = new EDataTypeEList<String>(String.class, this, UseCaseDslPackage.STEP__SENTENCE);
+    }
     return sentence;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setSentence(String newSentence)
-  {
-    String oldSentence = sentence;
-    sentence = newSentence;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.STEP__SENTENCE, oldSentence, sentence));
   }
 
   /**
@@ -184,6 +216,8 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
   {
     switch (featureID)
     {
+      case UseCaseDslPackage.STEP__NAME:
+        return getName();
       case UseCaseDslPackage.STEP__TYPE:
         return getType();
       case UseCaseDslPackage.STEP__SENTENCE:
@@ -197,16 +231,21 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
+      case UseCaseDslPackage.STEP__NAME:
+        setName((Integer)newValue);
+        return;
       case UseCaseDslPackage.STEP__TYPE:
         setType((EObject)newValue);
         return;
       case UseCaseDslPackage.STEP__SENTENCE:
-        setSentence((String)newValue);
+        getSentence().clear();
+        getSentence().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -222,11 +261,14 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
   {
     switch (featureID)
     {
+      case UseCaseDslPackage.STEP__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case UseCaseDslPackage.STEP__TYPE:
         setType((EObject)null);
         return;
       case UseCaseDslPackage.STEP__SENTENCE:
-        setSentence(SENTENCE_EDEFAULT);
+        getSentence().clear();
         return;
     }
     super.eUnset(featureID);
@@ -242,10 +284,12 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
   {
     switch (featureID)
     {
+      case UseCaseDslPackage.STEP__NAME:
+        return name != NAME_EDEFAULT;
       case UseCaseDslPackage.STEP__TYPE:
         return type != null;
       case UseCaseDslPackage.STEP__SENTENCE:
-        return SENTENCE_EDEFAULT == null ? sentence != null : !SENTENCE_EDEFAULT.equals(sentence);
+        return sentence != null && !sentence.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -261,7 +305,9 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (sentence: ");
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", sentence: ");
     result.append(sentence);
     result.append(')');
     return result.toString();

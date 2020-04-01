@@ -77,7 +77,7 @@ public interface UseCaseDslPackage extends EPackage
   int USE_CASE__NUMBER = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Name</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -142,22 +142,31 @@ public interface UseCaseDslPackage extends EPackage
   int STEP = 2;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STEP__NAME = 0;
+
+  /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STEP__TYPE = 0;
+  int STEP__TYPE = 1;
 
   /**
-   * The feature id for the '<em><b>Sentence</b></em>' attribute.
+   * The feature id for the '<em><b>Sentence</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STEP__SENTENCE = 1;
+  int STEP__SENTENCE = 2;
 
   /**
    * The number of structural features of the '<em>Step</em>' class.
@@ -166,7 +175,7 @@ public interface UseCaseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STEP_FEATURE_COUNT = 2;
+  int STEP_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UserStepImpl <em>User Step</em>}' class.
@@ -179,22 +188,13 @@ public interface UseCaseDslPackage extends EPackage
   int USER_STEP = 3;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int USER_STEP__NAME = 0;
-
-  /**
    * The number of structural features of the '<em>User Step</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USER_STEP_FEATURE_COUNT = 1;
+  int USER_STEP_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.SystemStepImpl <em>System Step</em>}' class.
@@ -207,22 +207,13 @@ public interface UseCaseDslPackage extends EPackage
   int SYSTEM_STEP = 4;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SYSTEM_STEP__NAME = 0;
-
-  /**
    * The number of structural features of the '<em>System Step</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SYSTEM_STEP_FEATURE_COUNT = 1;
+  int SYSTEM_STEP_FEATURE_COUNT = 0;
 
 
   /**
@@ -247,10 +238,10 @@ public interface UseCaseDslPackage extends EPackage
   EAttribute getUseCase_Number();
 
   /**
-   * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute list '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
+   * @return the meta object for the attribute list '<em>Name</em>'.
    * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getName()
    * @see #getUseCase()
    * @generated
@@ -300,6 +291,17 @@ public interface UseCaseDslPackage extends EPackage
   EClass getStep();
 
   /**
+   * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.Step#getName()
+   * @see #getStep()
+   * @generated
+   */
+  EAttribute getStep_Name();
+
+  /**
    * Returns the meta object for the containment reference '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -311,10 +313,10 @@ public interface UseCaseDslPackage extends EPackage
   EReference getStep_Type();
 
   /**
-   * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getSentence <em>Sentence</em>}'.
+   * Returns the meta object for the attribute list '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getSentence <em>Sentence</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Sentence</em>'.
+   * @return the meta object for the attribute list '<em>Sentence</em>'.
    * @see useCase.xtext.useCaseDsl.useCaseDsl.Step#getSentence()
    * @see #getStep()
    * @generated
@@ -332,17 +334,6 @@ public interface UseCaseDslPackage extends EPackage
   EClass getUserStep();
 
   /**
-   * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.UserStep#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see useCase.xtext.useCaseDsl.useCaseDsl.UserStep#getName()
-   * @see #getUserStep()
-   * @generated
-   */
-  EAttribute getUserStep_Name();
-
-  /**
    * Returns the meta object for class '{@link useCase.xtext.useCaseDsl.useCaseDsl.SystemStep <em>System Step</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -351,17 +342,6 @@ public interface UseCaseDslPackage extends EPackage
    * @generated
    */
   EClass getSystemStep();
-
-  /**
-   * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.SystemStep#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see useCase.xtext.useCaseDsl.useCaseDsl.SystemStep#getName()
-   * @see #getSystemStep()
-   * @generated
-   */
-  EAttribute getSystemStep_Name();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -405,7 +385,7 @@ public interface UseCaseDslPackage extends EPackage
     EAttribute USE_CASE__NUMBER = eINSTANCE.getUseCase_Number();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Name</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -449,6 +429,14 @@ public interface UseCaseDslPackage extends EPackage
     EClass STEP = eINSTANCE.getStep();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STEP__NAME = eINSTANCE.getStep_Name();
+
+    /**
      * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -457,7 +445,7 @@ public interface UseCaseDslPackage extends EPackage
     EReference STEP__TYPE = eINSTANCE.getStep_Type();
 
     /**
-     * The meta object literal for the '<em><b>Sentence</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Sentence</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -475,14 +463,6 @@ public interface UseCaseDslPackage extends EPackage
     EClass USER_STEP = eINSTANCE.getUserStep();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute USER_STEP__NAME = eINSTANCE.getUserStep_Name();
-
-    /**
      * The meta object literal for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.SystemStepImpl <em>System Step</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -491,14 +471,6 @@ public interface UseCaseDslPackage extends EPackage
      * @generated
      */
     EClass SYSTEM_STEP = eINSTANCE.getSystemStep();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SYSTEM_STEP__NAME = eINSTANCE.getSystemStep_Name();
 
   }
 

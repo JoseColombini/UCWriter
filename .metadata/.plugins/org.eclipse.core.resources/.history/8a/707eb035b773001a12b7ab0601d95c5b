@@ -1,0 +1,65 @@
+grammar useCase.xtext.useCaseDsl.UseCaseDsl with org.eclipse.xtext.common.Terminals
+
+generate useCaseDsl "http://www.xtext.useCase/useCaseDsl/UseCaseDsl"
+
+
+UseCase:
+	'UC' number = INT ':' (name += LongName)+
+	 
+	(mainflow = MainFlow)
+	//(alternativeflow = Extension)?
+	;
+
+MainFlow:
+	{MainFlow} 'MainFlow'':'
+	BEGIN
+		(steps += Step)+
+	END;
+
+	
+
+Step:
+	{Step} name = INT (type = (UserStep|SystemStep/*|ExtensionStep*/)) (sentence += SENTENCE)+;
+
+UserStep:
+	{UserStep} '.' 'User';
+
+SystemStep:
+	{SystemStep} '.' 'System';
+	
+
+/************************** V 0.2 **************************************************** 
+ExtensionStep:
+	(startAt = [Step]) '.' name = CHAR '.';
+
+Extension:
+	{Extension} 'AlternativeFlow:'
+	BEGIN
+		(steps += Step)*
+	END;
+***************************************************************************************/
+
+/**********************	
+******* DataTypes *****
+***********************/
+
+LongName:
+	(ID|ANY_OTHER) (WS)?;
+	
+//Bug: preciso nao capturar as palavras
+terminal SENTENCE:
+	ID -> END
+;
+
+
+/***************************	
+******* TERMINAL RULES *****
+****************************/
+//Vai ser utilizada em V0.2
+terminal CHAR:
+	('a'..'z'|'A'..'Z');
+
+
+
+terminal BEGIN: 'synthetic:BEGIN';  // increase indentation
+terminal END: 'synthetic:END';      // decrease indentation

@@ -10,12 +10,6 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>User Step</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UserStep#getName <em>Name</em>}</li>
- * </ul>
  *
  * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUserStep()
  * @model
@@ -23,26 +17,4 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface UserStep extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(int)
-   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUserStep_Name()
-   * @model
-   * @generated
-   */
-  int getName();
-
-  /**
-   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.UserStep#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(int value);
-
 } // UserStep

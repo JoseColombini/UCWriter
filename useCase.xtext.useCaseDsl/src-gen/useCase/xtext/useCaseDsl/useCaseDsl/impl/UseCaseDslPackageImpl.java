@@ -207,9 +207,20 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
+  public EAttribute getStep_Name()
+  {
+    return (EAttribute)stepEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getStep_Type()
   {
-    return (EReference)stepEClass.getEStructuralFeatures().get(0);
+    return (EReference)stepEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -220,7 +231,7 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
   @Override
   public EAttribute getStep_Sentence()
   {
-    return (EAttribute)stepEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)stepEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -240,31 +251,9 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
-  public EAttribute getUserStep_Name()
-  {
-    return (EAttribute)userStepEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getSystemStep()
   {
     return systemStepEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getSystemStep_Name()
-  {
-    return (EAttribute)systemStepEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -307,14 +296,13 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
     createEReference(mainFlowEClass, MAIN_FLOW__STEPS);
 
     stepEClass = createEClass(STEP);
+    createEAttribute(stepEClass, STEP__NAME);
     createEReference(stepEClass, STEP__TYPE);
     createEAttribute(stepEClass, STEP__SENTENCE);
 
     userStepEClass = createEClass(USER_STEP);
-    createEAttribute(userStepEClass, USER_STEP__NAME);
 
     systemStepEClass = createEClass(SYSTEM_STEP);
-    createEAttribute(systemStepEClass, SYSTEM_STEP__NAME);
   }
 
   /**
@@ -350,21 +338,20 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
     // Initialize classes and features; add operations and parameters
     initEClass(useCaseEClass, UseCase.class, "UseCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUseCase_Number(), ecorePackage.getEInt(), "number", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getUseCase_Name(), ecorePackage.getEString(), "name", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUseCase_Name(), ecorePackage.getEString(), "name", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUseCase_Mainflow(), this.getMainFlow(), null, "mainflow", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mainFlowEClass, MainFlow.class, "MainFlow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMainFlow_Steps(), this.getStep(), null, "steps", null, 0, -1, MainFlow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stepEClass, Step.class, "Step", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStep_Name(), ecorePackage.getEInt(), "name", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStep_Type(), ecorePackage.getEObject(), null, "type", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getStep_Sentence(), ecorePackage.getEString(), "sentence", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStep_Sentence(), ecorePackage.getEString(), "sentence", null, 0, -1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(userStepEClass, UserStep.class, "UserStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getUserStep_Name(), ecorePackage.getEInt(), "name", null, 0, 1, UserStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(systemStepEClass, SystemStep.class, "SystemStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSystemStep_Name(), ecorePackage.getEInt(), "name", null, 0, 1, SystemStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

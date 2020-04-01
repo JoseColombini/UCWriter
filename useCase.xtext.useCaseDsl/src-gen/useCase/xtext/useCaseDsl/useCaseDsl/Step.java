@@ -3,6 +3,8 @@
  */
 package useCase.xtext.useCaseDsl.useCaseDsl;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getName <em>Name</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getType <em>Type</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getSentence <em>Sentence</em>}</li>
  * </ul>
@@ -24,6 +27,28 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Step extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(int)
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getStep_Name()
+   * @model
+   * @generated
+   */
+  int getName();
+
+  /**
+   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(int value);
+
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
@@ -47,25 +72,15 @@ public interface Step extends EObject
   void setType(EObject value);
 
   /**
-   * Returns the value of the '<em><b>Sentence</b></em>' attribute.
+   * Returns the value of the '<em><b>Sentence</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Sentence</em>' attribute.
-   * @see #setSentence(String)
+   * @return the value of the '<em>Sentence</em>' attribute list.
    * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getStep_Sentence()
-   * @model
+   * @model unique="false"
    * @generated
    */
-  String getSentence();
-
-  /**
-   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getSentence <em>Sentence</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Sentence</em>' attribute.
-   * @see #getSentence()
-   * @generated
-   */
-  void setSentence(String value);
+  EList<String> getSentence();
 
 } // Step
