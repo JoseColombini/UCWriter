@@ -1,0 +1,9 @@
+grammar useCase.xtext.useCaseDsl.TTR with org.eclipse.xtext.common.Terminals
+
+generate ttr "http://www.xtext.useCase/testTerminal/Rules"
+
+Rule:
+	name = ID;
+
+terminal CHAR:
+	('a'..'z'|'A'..'Z');

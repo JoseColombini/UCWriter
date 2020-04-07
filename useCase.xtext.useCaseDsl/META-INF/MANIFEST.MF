@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: useCase.xtext.useCaseDsl
+Bundle-ManifestVersion: 2
+Bundle-Name: useCase.xtext.useCaseDsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: useCase.xtext.useCaseDsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: useCase.xtext.useCaseDsl.services,
+ useCase.xtext.useCaseDsl.scoping,
+ useCase.xtext.useCaseDsl.generator,
+ useCase.xtext.useCaseDsl.useCaseDsl,
+ useCase.xtext.useCaseDsl.useCaseDsl.impl,
+ useCase.xtext.useCaseDsl.parser.antlr.internal,
+ useCase.xtext.useCaseDsl.serializer,
+ useCase.xtext.useCaseDsl.validation,
+ useCase.xtext.useCaseDsl,
+ useCase.xtext.useCaseDsl.useCaseDsl.util,
+ useCase.xtext.useCaseDsl.parser.antlr,
+ useCase.xtext.useCaseDsl.parser.antlr.lexer
+Import-Package: org.apache.log4j

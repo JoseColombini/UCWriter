@@ -1,0 +1,66 @@
+grammar useCase.xtext.useCaseDsl.UseCaseDsl with org.eclipse.xtext.common.Terminals 
+
+generate useCaseDsl "http://www.xtext.useCase/useCaseDsl/UseCaseDsl"
+
+
+UseCase hidden(WS, SL_COMMENT, ML_COMMENT):
+	'UC' number = INT ':' (name = LongName)
+	 
+	(mainflow = MainFlow)
+	//(alternativeflow = Extension)?
+	;
+
+MainFlow:
+	{MainFlow} 'MainFlow'':'
+	BEGIN
+		(steps += Step)+
+	END;
+
+	
+
+Step:
+	{Step} name = INT (type = (UserStep|SystemStep/*|ExtensionStep*/)) (sentence = LongName);
+
+UserStep:
+	{UserStep} '.' 'User';
+
+SystemStep:
+	{SystemStep} '.' 'System';
+	
+
+/************************** V 0.2 **************************************************** 
+ExtensionStep:
+	(startAt = [Step]) '.' name = CHAR '.';
+
+Extension:
+	{Extension} 'AlternativeFlow:'
+	BEGIN
+		(steps += Step)*
+	END;
+***************************************************************************************/
+
+/**********************	}
+******* DataTypes *****
+***********************/
+
+LongName hidden(WS, SL_COMMENT, STRING):
+	(ID|ANY_OTHER|CHAR|':'|'.'|'"'|"'")+;
+	
+//Bug: preciso nao capturar as palavras
+
+
+/***************************	
+******* TERMINAL RULES *****
+****************************/
+terminal CHAR:
+	('a'..'z'|'A'..'Z');
+
+terminal fragment ESCAPED_CHAR:
+    '\\' ('n'|'t'|'r'|'\\');
+
+/*terminal SP:
+	' ';
+*/
+
+terminal BEGIN: 'synthetic:BEGIN';  // increase indentation
+terminal END: 'synthetic:END';      // decrease indentation
