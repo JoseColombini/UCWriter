@@ -1,6 +1,7 @@
 # UseCase-concrete-syntax
 
 This language is a result of research project supported by *FAPESP*
+grant #aaaa/nnnnn-d, São Paulo Research Foundation (FAPESP)
 
 This is a language for use case representation. The idea is to make you life easy with it.
 
