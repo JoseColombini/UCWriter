@@ -2,46 +2,53 @@ grammar useCase.xtext.useCaseDsl.UseCaseDsl with org.eclipse.xtext.common.Termin
 
 generate useCaseDsl "http://www.xtext.useCase/useCaseDsl/UseCaseDsl"
 
-
+//Use case structure
 UseCase hidden(WS):
 	'UC' number = INT ':' (name = LongName)
-	 
-	(mainflow = MainFlow)
-	//(alternativeflow = Extension)?
-	;
-
-MainFlow:
-	{MainFlow} 	(name = 'MainFlow')':'
-	BEGIN
-		(steps += Step)+
-	END;
-
 	
-
-Step:
-	{Step} (name = INT) (type = (UserStep|SystemStep/*|ExtensionStep*/)) (sentence = LongName);
-
-UserStep:
-	{UserStep}  '.' 'User';
-
-SystemStep:
-	{SystemStep} '.' 'System';
-
-
-
-/************************** V 0.2 **************************************************** 
-
-ExtensionStep:
-	'Ex' (startAt = [Step]) '.' name = CHAR '.';
-
-
-Extension:
-	{Extension} 'AlternativeFlow:'
+	(precondition = Precondition)
+	(postcondition = Postcondition)
+	 
+	(mainflow = 'MainFlow')':'
 	BEGIN
-		(steps += Step)*
-	END;
-***************************************************************************************/
+		(steps += UseCaseStep)+
+	END
+	((declareofflow = 'AlternativeFlow')':'
+	BEGIN
+		(alternativeflows += Extension)+
+	END)?;
 
+//Flows and behavorial
+Extension:
+	(startFrom = INT) '.' (name = CHAR)  '.' 'IF' (condition = Condition)
+	BEGIN
+		(steps += ExtensionStep)+
+		(INT '.' 'RETURN' 'TO' (resumeAt = INT)|end = DeadEndStep)
+	END;
+
+
+//Steps
+Step:
+	UseCaseStep|ExtensionStep;
+
+UseCaseStep:
+	{UserStep} (name = INT) '.' 'USER' (sentence = LongName)|
+	{SystemStep} (name = INT) '.' 'SYSTEM'(sentence = LongName)|
+	{RepeatingStep} (name = INT) '.' 'WHILE'(repeatingCondition = Condition);
+
+//I dont know how to use this shit
+ExtensionStep:
+	(name = INT) '.' ('USER'|'SYSTEM'|'WHILE')? (sentence = LongName);
+
+DeadEndStep:
+	ExtensionStep 'UC' 'END';
+
+//Conditions
+Precondition:
+	'Precondition'':' (condition = Condition);
+	
+Postcondition:
+	'Postcondition'':' (condition = Condition);
 /**********************	}
 ******* DataTypes *****
 ***********************/
@@ -49,8 +56,8 @@ Extension:
 LongName:
 	(ID|ANY_OTHER|CHAR|':'|'.'|'"'|"'")+;
 	
-//Bug: preciso nao capturar as palavras
-
+Condition:
+	(ID|ANY_OTHER|CHAR|':'|'.'|'"'|"'"|'AND'|'OR')+;
 
 /***************************	
 ******* TERMINAL RULES *****
@@ -67,3 +74,34 @@ terminal SP:
 
 terminal BEGIN: 'synthetic:BEGIN';  // increase indentation
 terminal END: 'synthetic:END';      // decrease indentation
+
+
+/***********************************
+ ********* Codes that I don't want to discard*****
+ * *********************************************
+ * /*MainFlow:
+	{MainFlow} 	(name = 'MainFLow') ':'
+	BEGIN
+		(steps += UseCaseStep)+
+	END;
+/
+
+*AlternativeFlow:
+	(name = 'AlternativeFlow') ':'
+	BEGIN
+		(extension += Extension)+
+	END;
+*
+* Extension:
+	(ExtensionStep)
+	BEGIN
+		(steps += UseCaseStep)+
+		(resumeAt = DeadEndStep)? 
+	END;
+/*ExtensionStep:
+	'Ex' (startAt = [Step]) '.' name = CHAR '.' (condition += Condition);
+
+
+DeadEndStep:
+	(name = INT) '.' 'Return' 'to' (resumeAt = [Step]);
+***/

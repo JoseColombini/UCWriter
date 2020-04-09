@@ -10,12 +10,15 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import useCase.xtext.useCaseDsl.useCaseDsl.MainFlow;
+import useCase.xtext.useCaseDsl.useCaseDsl.DeadEndStep;
+import useCase.xtext.useCaseDsl.useCaseDsl.Extension;
+import useCase.xtext.useCaseDsl.useCaseDsl.ExtensionStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.Step;
 import useCase.xtext.useCaseDsl.useCaseDsl.SystemStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCase;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslFactory;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
+import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.UserStep;
 
 /**
@@ -38,7 +41,7 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass mainFlowEClass = null;
+  private EClass extensionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -46,6 +49,27 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   private EClass stepEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass useCaseStepEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass extensionStepEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass deadEndStepEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -163,9 +187,9 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
-  public EReference getUseCase_Mainflow()
+  public EAttribute getUseCase_Mainflow()
   {
-    return (EReference)useCaseEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)useCaseEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -174,9 +198,9 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
-  public EClass getMainFlow()
+  public EReference getUseCase_Steps()
   {
-    return mainFlowEClass;
+    return (EReference)useCaseEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -185,9 +209,9 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
-  public EAttribute getMainFlow_Name()
+  public EAttribute getUseCase_Declareofflow()
   {
-    return (EAttribute)mainFlowEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)useCaseEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -196,9 +220,86 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
-  public EReference getMainFlow_Steps()
+  public EReference getUseCase_Alternativeflows()
   {
-    return (EReference)mainFlowEClass.getEStructuralFeatures().get(1);
+    return (EReference)useCaseEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getExtension()
+  {
+    return extensionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getExtension_StartFrom()
+  {
+    return (EAttribute)extensionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getExtension_Name()
+  {
+    return (EAttribute)extensionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getExtension_Condition()
+  {
+    return (EAttribute)extensionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExtension_Steps()
+  {
+    return (EReference)extensionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getExtension_ResumeAt()
+  {
+    return (EAttribute)extensionEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExtension_End()
+  {
+    return (EReference)extensionEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -229,9 +330,9 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
-  public EReference getStep_Type()
+  public EAttribute getStep_Sentence()
   {
-    return (EReference)stepEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)stepEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -240,9 +341,31 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
-  public EAttribute getStep_Sentence()
+  public EClass getUseCaseStep()
   {
-    return (EAttribute)stepEClass.getEStructuralFeatures().get(2);
+    return useCaseStepEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getExtensionStep()
+  {
+    return extensionStepEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDeadEndStep()
+  {
+    return deadEndStepEClass;
   }
 
   /**
@@ -301,16 +424,28 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
     useCaseEClass = createEClass(USE_CASE);
     createEAttribute(useCaseEClass, USE_CASE__NUMBER);
     createEAttribute(useCaseEClass, USE_CASE__NAME);
-    createEReference(useCaseEClass, USE_CASE__MAINFLOW);
+    createEAttribute(useCaseEClass, USE_CASE__MAINFLOW);
+    createEReference(useCaseEClass, USE_CASE__STEPS);
+    createEAttribute(useCaseEClass, USE_CASE__DECLAREOFFLOW);
+    createEReference(useCaseEClass, USE_CASE__ALTERNATIVEFLOWS);
 
-    mainFlowEClass = createEClass(MAIN_FLOW);
-    createEAttribute(mainFlowEClass, MAIN_FLOW__NAME);
-    createEReference(mainFlowEClass, MAIN_FLOW__STEPS);
+    extensionEClass = createEClass(EXTENSION);
+    createEAttribute(extensionEClass, EXTENSION__START_FROM);
+    createEAttribute(extensionEClass, EXTENSION__NAME);
+    createEAttribute(extensionEClass, EXTENSION__CONDITION);
+    createEReference(extensionEClass, EXTENSION__STEPS);
+    createEAttribute(extensionEClass, EXTENSION__RESUME_AT);
+    createEReference(extensionEClass, EXTENSION__END);
 
     stepEClass = createEClass(STEP);
     createEAttribute(stepEClass, STEP__NAME);
-    createEReference(stepEClass, STEP__TYPE);
     createEAttribute(stepEClass, STEP__SENTENCE);
+
+    useCaseStepEClass = createEClass(USE_CASE_STEP);
+
+    extensionStepEClass = createEClass(EXTENSION_STEP);
+
+    deadEndStepEClass = createEClass(DEAD_END_STEP);
 
     userStepEClass = createEClass(USER_STEP);
 
@@ -346,21 +481,38 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    useCaseStepEClass.getESuperTypes().add(this.getStep());
+    extensionStepEClass.getESuperTypes().add(this.getStep());
+    extensionStepEClass.getESuperTypes().add(this.getDeadEndStep());
+    userStepEClass.getESuperTypes().add(this.getUseCaseStep());
+    systemStepEClass.getESuperTypes().add(this.getUseCaseStep());
 
     // Initialize classes and features; add operations and parameters
     initEClass(useCaseEClass, UseCase.class, "UseCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUseCase_Number(), ecorePackage.getEInt(), "number", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUseCase_Name(), ecorePackage.getEString(), "name", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUseCase_Mainflow(), this.getMainFlow(), null, "mainflow", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUseCase_Mainflow(), ecorePackage.getEString(), "mainflow", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUseCase_Steps(), this.getUseCaseStep(), null, "steps", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUseCase_Declareofflow(), ecorePackage.getEString(), "declareofflow", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUseCase_Alternativeflows(), this.getExtension(), null, "alternativeflows", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(mainFlowEClass, MainFlow.class, "MainFlow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMainFlow_Name(), ecorePackage.getEString(), "name", null, 0, 1, MainFlow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMainFlow_Steps(), this.getStep(), null, "steps", null, 0, -1, MainFlow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(extensionEClass, Extension.class, "Extension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExtension_StartFrom(), ecorePackage.getEInt(), "startFrom", null, 0, 1, Extension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExtension_Name(), ecorePackage.getEString(), "name", null, 0, 1, Extension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExtension_Condition(), ecorePackage.getEString(), "condition", null, 0, 1, Extension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExtension_Steps(), this.getExtensionStep(), null, "steps", null, 0, -1, Extension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExtension_ResumeAt(), ecorePackage.getEInt(), "resumeAt", null, 0, 1, Extension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExtension_End(), this.getDeadEndStep(), null, "end", null, 0, 1, Extension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stepEClass, Step.class, "Step", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStep_Name(), ecorePackage.getEInt(), "name", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStep_Type(), ecorePackage.getEObject(), null, "type", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStep_Sentence(), ecorePackage.getEString(), "sentence", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(useCaseStepEClass, UseCaseStep.class, "UseCaseStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(extensionStepEClass, ExtensionStep.class, "ExtensionStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(deadEndStepEClass, DeadEndStep.class, "DeadEndStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(userStepEClass, UserStep.class, "UserStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -1,0 +1,79 @@
+grammar useCase.xtext.useCaseDsl.UseCaseDsl with org.eclipse.xtext.common.Terminals 
+
+generate useCaseDsl "http://www.xtext.useCase/useCaseDsl/UseCaseDsl"
+
+
+UseCase hidden(WS):
+	'UC' number = INT ':' (name = LongName)
+	 
+	(mainflow = MainFlow)
+	(alternativeflow = AlternativeFlow)?
+	;
+
+MainFlow:
+	{MainFlow} 	(name = 'MainFlow')':'
+	BEGIN
+		(steps += UseCaseStep)+
+	END;
+	
+AlternativeFlow:
+	(name = 'AlternativeFlow') ':'
+	BEGIN
+		(extension += Extension)+
+	END;
+
+Extension:
+	(extension = ExtensionStep)
+	BEGIN
+		(steps += UseCaseStep)+
+		(resumeAt = DeadEndStep)
+	END;
+
+
+Step:
+	UseCaseStep|ExtensionStep|DeadEndStep;	 	
+
+UseCaseStep:
+	{UserStep} (name = INT)  '.' 'User' (sentence = LongName)|
+	{SystemStep} (name = INT)  '.' 'System' (sentence = LongName);
+
+
+ExtensionStep:
+	'Ex' (startAt = [Step]) '.' name = CHAR '.' 'IF' (condition = LongName);
+	
+DeadEndStep:
+	(name = INT) '.' 'Return' 'to' (resumeAt = [Step]);
+
+
+/************************** V 0.2 **************************************************** 
+
+
+
+
+***************************************************************************************/
+
+/**********************	}
+******* DataTypes *****
+***********************/
+
+LongName:
+	(ID|ANY_OTHER|CHAR|':'|'.'|'"'|"'")+;
+	
+Condition:
+	LongName ('AND'|'OR')?;
+
+/***************************	
+******* TERMINAL RULES *****
+****************************/
+terminal CHAR:
+	('a'..'z'|'A'..'Z');
+
+/*terminal fragment ESCAPED_CHAR:
+    '\\' ('n'|'t'|'r'|'\\');
+
+terminal SP:
+	' ';
+*/
+
+terminal BEGIN: 'synthetic:BEGIN';  // increase indentation
+terminal END: 'synthetic:END';      // decrease indentation

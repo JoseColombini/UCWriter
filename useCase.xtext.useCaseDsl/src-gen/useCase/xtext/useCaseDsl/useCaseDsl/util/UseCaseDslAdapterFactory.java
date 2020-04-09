@@ -81,14 +81,29 @@ public class UseCaseDslAdapterFactory extends AdapterFactoryImpl
         return createUseCaseAdapter();
       }
       @Override
-      public Adapter caseMainFlow(MainFlow object)
+      public Adapter caseExtension(Extension object)
       {
-        return createMainFlowAdapter();
+        return createExtensionAdapter();
       }
       @Override
       public Adapter caseStep(Step object)
       {
         return createStepAdapter();
+      }
+      @Override
+      public Adapter caseUseCaseStep(UseCaseStep object)
+      {
+        return createUseCaseStepAdapter();
+      }
+      @Override
+      public Adapter caseExtensionStep(ExtensionStep object)
+      {
+        return createExtensionStepAdapter();
+      }
+      @Override
+      public Adapter caseDeadEndStep(DeadEndStep object)
+      {
+        return createDeadEndStepAdapter();
       }
       @Override
       public Adapter caseUserStep(UserStep object)
@@ -138,16 +153,16 @@ public class UseCaseDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link useCase.xtext.useCaseDsl.useCaseDsl.MainFlow <em>Main Flow</em>}'.
+   * Creates a new adapter for an object of class '{@link useCase.xtext.useCaseDsl.useCaseDsl.Extension <em>Extension</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see useCase.xtext.useCaseDsl.useCaseDsl.MainFlow
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.Extension
    * @generated
    */
-  public Adapter createMainFlowAdapter()
+  public Adapter createExtensionAdapter()
   {
     return null;
   }
@@ -163,6 +178,51 @@ public class UseCaseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStepAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep <em>Use Case Step</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep
+   * @generated
+   */
+  public Adapter createUseCaseStepAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link useCase.xtext.useCaseDsl.useCaseDsl.ExtensionStep <em>Extension Step</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.ExtensionStep
+   * @generated
+   */
+  public Adapter createExtensionStepAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link useCase.xtext.useCaseDsl.useCaseDsl.DeadEndStep <em>Dead End Step</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.DeadEndStep
+   * @generated
+   */
+  public Adapter createDeadEndStepAdapter()
   {
     return null;
   }

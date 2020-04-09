@@ -5,8 +5,6 @@ package useCase.xtext.useCaseDsl.useCaseDsl.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import useCase.xtext.useCaseDsl.useCaseDsl.SystemStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
 
@@ -17,7 +15,7 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
  *
  * @generated
  */
-public class SystemStepImpl extends MinimalEObjectImpl.Container implements SystemStep
+public class SystemStepImpl extends UseCaseStepImpl implements SystemStep
 {
   /**
    * <!-- begin-user-doc -->

@@ -3,6 +3,8 @@
  */
 package useCase.xtext.useCaseDsl.useCaseDsl;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,6 +19,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getNumber <em>Number</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getName <em>Name</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getMainflow <em>Mainflow</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getSteps <em>Steps</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getDeclareofflow <em>Declareofflow</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getAlternativeflows <em>Alternativeflows</em>}</li>
  * </ul>
  *
  * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCase()
@@ -70,25 +75,71 @@ public interface UseCase extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Mainflow</b></em>' containment reference.
+   * Returns the value of the '<em><b>Mainflow</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Mainflow</em>' containment reference.
-   * @see #setMainflow(MainFlow)
+   * @return the value of the '<em>Mainflow</em>' attribute.
+   * @see #setMainflow(String)
    * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCase_Mainflow()
-   * @model containment="true"
+   * @model
    * @generated
    */
-  MainFlow getMainflow();
+  String getMainflow();
 
   /**
-   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getMainflow <em>Mainflow</em>}' containment reference.
+   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getMainflow <em>Mainflow</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Mainflow</em>' containment reference.
+   * @param value the new value of the '<em>Mainflow</em>' attribute.
    * @see #getMainflow()
    * @generated
    */
-  void setMainflow(MainFlow value);
+  void setMainflow(String value);
+
+  /**
+   * Returns the value of the '<em><b>Steps</b></em>' containment reference list.
+   * The list contents are of type {@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Steps</em>' containment reference list.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCase_Steps()
+   * @model containment="true"
+   * @generated
+   */
+  EList<UseCaseStep> getSteps();
+
+  /**
+   * Returns the value of the '<em><b>Declareofflow</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Declareofflow</em>' attribute.
+   * @see #setDeclareofflow(String)
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCase_Declareofflow()
+   * @model
+   * @generated
+   */
+  String getDeclareofflow();
+
+  /**
+   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getDeclareofflow <em>Declareofflow</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Declareofflow</em>' attribute.
+   * @see #getDeclareofflow()
+   * @generated
+   */
+  void setDeclareofflow(String value);
+
+  /**
+   * Returns the value of the '<em><b>Alternativeflows</b></em>' containment reference list.
+   * The list contents are of type {@link useCase.xtext.useCaseDsl.useCaseDsl.Extension}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Alternativeflows</em>' containment reference list.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCase_Alternativeflows()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Extension> getAlternativeflows();
 
 } // UseCase

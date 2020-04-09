@@ -3,8 +3,12 @@
  */
 package useCase.xtext.useCaseDsl.useCaseDsl.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -12,9 +16,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import useCase.xtext.useCaseDsl.useCaseDsl.MainFlow;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
+import useCase.xtext.useCaseDsl.useCaseDsl.Extension;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCase;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
+import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +35,9 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getName <em>Name</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getMainflow <em>Mainflow</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getSteps <em>Steps</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getDeclareofflow <em>Declareofflow</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getAlternativeflows <em>Alternativeflows</em>}</li>
  * </ul>
  *
  * @generated
@@ -74,14 +85,64 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getMainflow() <em>Mainflow</em>}' containment reference.
+   * The default value of the '{@link #getMainflow() <em>Mainflow</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMainflow()
    * @generated
    * @ordered
    */
-  protected MainFlow mainflow;
+  protected static final String MAINFLOW_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getMainflow() <em>Mainflow</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMainflow()
+   * @generated
+   * @ordered
+   */
+  protected String mainflow = MAINFLOW_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getSteps() <em>Steps</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSteps()
+   * @generated
+   * @ordered
+   */
+  protected EList<UseCaseStep> steps;
+
+  /**
+   * The default value of the '{@link #getDeclareofflow() <em>Declareofflow</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDeclareofflow()
+   * @generated
+   * @ordered
+   */
+  protected static final String DECLAREOFFLOW_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDeclareofflow() <em>Declareofflow</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDeclareofflow()
+   * @generated
+   * @ordered
+   */
+  protected String declareofflow = DECLAREOFFLOW_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getAlternativeflows() <em>Alternativeflows</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAlternativeflows()
+   * @generated
+   * @ordered
+   */
+  protected EList<Extension> alternativeflows;
 
   /**
    * <!-- begin-user-doc -->
@@ -160,7 +221,7 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * @generated
    */
   @Override
-  public MainFlow getMainflow()
+  public String getMainflow()
   {
     return mainflow;
   }
@@ -170,16 +231,13 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetMainflow(MainFlow newMainflow, NotificationChain msgs)
+  @Override
+  public void setMainflow(String newMainflow)
   {
-    MainFlow oldMainflow = mainflow;
+    String oldMainflow = mainflow;
     mainflow = newMainflow;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.USE_CASE__MAINFLOW, oldMainflow, newMainflow);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.USE_CASE__MAINFLOW, oldMainflow, mainflow));
   }
 
   /**
@@ -188,20 +246,53 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * @generated
    */
   @Override
-  public void setMainflow(MainFlow newMainflow)
+  public EList<UseCaseStep> getSteps()
   {
-    if (newMainflow != mainflow)
+    if (steps == null)
     {
-      NotificationChain msgs = null;
-      if (mainflow != null)
-        msgs = ((InternalEObject)mainflow).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UseCaseDslPackage.USE_CASE__MAINFLOW, null, msgs);
-      if (newMainflow != null)
-        msgs = ((InternalEObject)newMainflow).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UseCaseDslPackage.USE_CASE__MAINFLOW, null, msgs);
-      msgs = basicSetMainflow(newMainflow, msgs);
-      if (msgs != null) msgs.dispatch();
+      steps = new EObjectContainmentEList<UseCaseStep>(UseCaseStep.class, this, UseCaseDslPackage.USE_CASE__STEPS);
     }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.USE_CASE__MAINFLOW, newMainflow, newMainflow));
+    return steps;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getDeclareofflow()
+  {
+    return declareofflow;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setDeclareofflow(String newDeclareofflow)
+  {
+    String oldDeclareofflow = declareofflow;
+    declareofflow = newDeclareofflow;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.USE_CASE__DECLAREOFFLOW, oldDeclareofflow, declareofflow));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Extension> getAlternativeflows()
+  {
+    if (alternativeflows == null)
+    {
+      alternativeflows = new EObjectContainmentEList<Extension>(Extension.class, this, UseCaseDslPackage.USE_CASE__ALTERNATIVEFLOWS);
+    }
+    return alternativeflows;
   }
 
   /**
@@ -214,8 +305,10 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   {
     switch (featureID)
     {
-      case UseCaseDslPackage.USE_CASE__MAINFLOW:
-        return basicSetMainflow(null, msgs);
+      case UseCaseDslPackage.USE_CASE__STEPS:
+        return ((InternalEList<?>)getSteps()).basicRemove(otherEnd, msgs);
+      case UseCaseDslPackage.USE_CASE__ALTERNATIVEFLOWS:
+        return ((InternalEList<?>)getAlternativeflows()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -236,6 +329,12 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return getName();
       case UseCaseDslPackage.USE_CASE__MAINFLOW:
         return getMainflow();
+      case UseCaseDslPackage.USE_CASE__STEPS:
+        return getSteps();
+      case UseCaseDslPackage.USE_CASE__DECLAREOFFLOW:
+        return getDeclareofflow();
+      case UseCaseDslPackage.USE_CASE__ALTERNATIVEFLOWS:
+        return getAlternativeflows();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -245,6 +344,7 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -257,7 +357,18 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         setName((String)newValue);
         return;
       case UseCaseDslPackage.USE_CASE__MAINFLOW:
-        setMainflow((MainFlow)newValue);
+        setMainflow((String)newValue);
+        return;
+      case UseCaseDslPackage.USE_CASE__STEPS:
+        getSteps().clear();
+        getSteps().addAll((Collection<? extends UseCaseStep>)newValue);
+        return;
+      case UseCaseDslPackage.USE_CASE__DECLAREOFFLOW:
+        setDeclareofflow((String)newValue);
+        return;
+      case UseCaseDslPackage.USE_CASE__ALTERNATIVEFLOWS:
+        getAlternativeflows().clear();
+        getAlternativeflows().addAll((Collection<? extends Extension>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -280,7 +391,16 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         setName(NAME_EDEFAULT);
         return;
       case UseCaseDslPackage.USE_CASE__MAINFLOW:
-        setMainflow((MainFlow)null);
+        setMainflow(MAINFLOW_EDEFAULT);
+        return;
+      case UseCaseDslPackage.USE_CASE__STEPS:
+        getSteps().clear();
+        return;
+      case UseCaseDslPackage.USE_CASE__DECLAREOFFLOW:
+        setDeclareofflow(DECLAREOFFLOW_EDEFAULT);
+        return;
+      case UseCaseDslPackage.USE_CASE__ALTERNATIVEFLOWS:
+        getAlternativeflows().clear();
         return;
     }
     super.eUnset(featureID);
@@ -301,7 +421,13 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case UseCaseDslPackage.USE_CASE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case UseCaseDslPackage.USE_CASE__MAINFLOW:
-        return mainflow != null;
+        return MAINFLOW_EDEFAULT == null ? mainflow != null : !MAINFLOW_EDEFAULT.equals(mainflow);
+      case UseCaseDslPackage.USE_CASE__STEPS:
+        return steps != null && !steps.isEmpty();
+      case UseCaseDslPackage.USE_CASE__DECLAREOFFLOW:
+        return DECLAREOFFLOW_EDEFAULT == null ? declareofflow != null : !DECLAREOFFLOW_EDEFAULT.equals(declareofflow);
+      case UseCaseDslPackage.USE_CASE__ALTERNATIVEFLOWS:
+        return alternativeflows != null && !alternativeflows.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -321,6 +447,10 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
     result.append(number);
     result.append(", name: ");
     result.append(name);
+    result.append(", mainflow: ");
+    result.append(mainflow);
+    result.append(", declareofflow: ");
+    result.append(declareofflow);
     result.append(')');
     return result.toString();
   }

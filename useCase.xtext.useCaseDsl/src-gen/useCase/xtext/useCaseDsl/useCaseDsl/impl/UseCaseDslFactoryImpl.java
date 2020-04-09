@@ -66,8 +66,11 @@ public class UseCaseDslFactoryImpl extends EFactoryImpl implements UseCaseDslFac
     switch (eClass.getClassifierID())
     {
       case UseCaseDslPackage.USE_CASE: return createUseCase();
-      case UseCaseDslPackage.MAIN_FLOW: return createMainFlow();
+      case UseCaseDslPackage.EXTENSION: return createExtension();
       case UseCaseDslPackage.STEP: return createStep();
+      case UseCaseDslPackage.USE_CASE_STEP: return createUseCaseStep();
+      case UseCaseDslPackage.EXTENSION_STEP: return createExtensionStep();
+      case UseCaseDslPackage.DEAD_END_STEP: return createDeadEndStep();
       case UseCaseDslPackage.USER_STEP: return createUserStep();
       case UseCaseDslPackage.SYSTEM_STEP: return createSystemStep();
       default:
@@ -93,10 +96,10 @@ public class UseCaseDslFactoryImpl extends EFactoryImpl implements UseCaseDslFac
    * @generated
    */
   @Override
-  public MainFlow createMainFlow()
+  public Extension createExtension()
   {
-    MainFlowImpl mainFlow = new MainFlowImpl();
-    return mainFlow;
+    ExtensionImpl extension = new ExtensionImpl();
+    return extension;
   }
 
   /**
@@ -109,6 +112,42 @@ public class UseCaseDslFactoryImpl extends EFactoryImpl implements UseCaseDslFac
   {
     StepImpl step = new StepImpl();
     return step;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public UseCaseStep createUseCaseStep()
+  {
+    UseCaseStepImpl useCaseStep = new UseCaseStepImpl();
+    return useCaseStep;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExtensionStep createExtensionStep()
+  {
+    ExtensionStepImpl extensionStep = new ExtensionStepImpl();
+    return extensionStep;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DeadEndStep createDeadEndStep()
+  {
+    DeadEndStepImpl deadEndStep = new DeadEndStepImpl();
+    return deadEndStep;
   }
 
   /**
