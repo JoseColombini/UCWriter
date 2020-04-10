@@ -1,0 +1,107 @@
+grammar useCase.xtext.useCaseDsl.UseCaseDsl with org.eclipse.xtext.common.Terminals 
+
+generate useCaseDsl "http://www.xtext.useCase/useCaseDsl/UseCaseDsl"
+
+//Use case structure
+UseCase hidden(WS):
+	'UC' number = INT ':' (name = LongName)
+	
+	(precondition = Precondition)
+	(postcondition = Postcondition)
+	 
+	(mainflow = 'MAINFLOW')':'
+	BEGIN
+		(steps += UseCaseStep)+
+	END
+	((declareofflow = 'ALTERNATIVEFLOW')':'
+	BEGIN
+		(alternativeflows += Extension)+
+	END)?;
+
+//Flows and behavorial
+Extension:
+	(startFrom = INT) '.' (name = CHAR)  '.' 'IF' (condition = Condition)
+	BEGIN
+		(steps += ExtensionStep)+
+		(INT '.' 'RETURN' 'TO' (resumeAt = INT)|end = DeadEndStep)
+	END;
+
+
+//Steps
+Step:
+	UseCaseStep|ExtensionStep;
+
+UseCaseStep:
+	{UserStep} (name = INT) '.' 'USER' (sentence = LongName)|
+	{SystemStep} (name = INT) '.' 'SYSTEM'(sentence = LongName)|
+	{RepeatingStep} (name = INT) '.' 'WHILE'(repeatingCondition = Condition);
+
+//I dont know how to use this shit
+ExtensionStep:
+	(name = INT) '.' ('USER'|'SYSTEM'|'WHILE')? (sentence = LongName);
+
+DeadEndStep:
+	ExtensionStep 'UC' 'END';
+
+//Conditions
+Precondition:
+	'PRECONDITION'':' (condition = Condition);
+	
+Postcondition:
+	'POSTCONDITION'':' (condition = Condition);
+/**********************	}
+******* DataTypes *****
+***********************/
+
+LongName:
+	(ID|ANY_OTHER|CHAR|':'|'.'|'"'|"'")+;
+	
+Condition:
+	(ID|ANY_OTHER|CHAR|':'|'.'|'"'|"'"|'AND'|'OR')+;
+
+/***************************	
+******* TERMINAL RULES *****
+****************************/
+terminal CHAR:
+	('a'..'z'|'A'..'Z');
+
+/*terminal fragment ESCAPED_CHAR:
+    '\\' ('n'|'t'|'r'|'\\');
+
+terminal SP:
+	' ';
+*/
+
+terminal BEGIN: 'synthetic:BEGIN';  // increase indentation
+terminal END: 'synthetic:END';      // decrease indentation
+
+
+/***********************************
+ ********* Codes that I don't want to discard*****
+ * *********************************************
+ * /*MainFlow:
+	{MainFlow} 	(name = 'MainFLow') ':'
+	BEGIN
+		(steps += UseCaseStep)+
+	END;
+/
+
+*AlternativeFlow:
+	(name = 'AlternativeFlow') ':'
+	BEGIN
+		(extension += Extension)+
+	END;
+*
+* Extension:
+	(ExtensionStep)
+	BEGIN
+		(steps += UseCaseStep)+
+		(resumeAt = DeadEndStep)? 
+	END;
+/*ExtensionStep:
+	'Ex' (startAt = [Step]) '.' name = CHAR '.' (condition += Condition);
+
+
+DeadEndStep:
+	(name = INT) '.' 'Return' 'to' (resumeAt = [Step]);
+***/

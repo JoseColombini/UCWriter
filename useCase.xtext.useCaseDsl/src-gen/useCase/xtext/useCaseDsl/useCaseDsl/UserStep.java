@@ -9,6 +9,12 @@ package useCase.xtext.useCaseDsl.useCaseDsl;
  * A representation of the model object '<em><b>User Step</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UserStep#getSentence <em>Sentence</em>}</li>
+ * </ul>
  *
  * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUserStep()
  * @model
@@ -16,4 +22,26 @@ package useCase.xtext.useCaseDsl.useCaseDsl;
  */
 public interface UserStep extends UseCaseStep
 {
+  /**
+   * Returns the value of the '<em><b>Sentence</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Sentence</em>' attribute.
+   * @see #setSentence(String)
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUserStep_Sentence()
+   * @model
+   * @generated
+   */
+  String getSentence();
+
+  /**
+   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.UserStep#getSentence <em>Sentence</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Sentence</em>' attribute.
+   * @see #getSentence()
+   * @generated
+   */
+  void setSentence(String value);
+
 } // UserStep

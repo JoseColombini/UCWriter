@@ -1,5 +1,4 @@
 INDEX VERSION 1.131+D:\GitHub\UseCase-concrete-syntax\.metadata\.plugins\org.eclipse.jdt.core
-613588500.index
 1909458977.index
 2510019112.index
 1381765871.index
@@ -13,7 +12,6 @@ INDEX VERSION 1.131+D:\GitHub\UseCase-concrete-syntax\.metadata\.plugins\org.ecl
 1626136935.index
 902811565.index
 2626340981.index
-1437997280.index
 1526244801.index
 3048834036.index
 2443252757.index
@@ -52,7 +50,6 @@ INDEX VERSION 1.131+D:\GitHub\UseCase-concrete-syntax\.metadata\.plugins\org.ecl
 263433754.index
 1686667591.index
 2923281121.index
-3069401875.index
 1896113649.index
 2950772284.index
 92824289.index
@@ -85,8 +82,6 @@ INDEX VERSION 1.131+D:\GitHub\UseCase-concrete-syntax\.metadata\.plugins\org.ecl
 4246576596.index
 2545551742.index
 1449508783.index
-2254098505.index
-3492321244.index
 3144586714.index
 2609180580.index
 2741738621.index

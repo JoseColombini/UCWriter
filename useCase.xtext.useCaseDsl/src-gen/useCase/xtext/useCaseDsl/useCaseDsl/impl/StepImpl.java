@@ -22,7 +22,6 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
  * </p>
  * <ul>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.StepImpl#getName <em>Name</em>}</li>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.StepImpl#getSentence <em>Sentence</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,26 +47,6 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @ordered
    */
   protected int name = NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getSentence() <em>Sentence</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSentence()
-   * @generated
-   * @ordered
-   */
-  protected static final String SENTENCE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getSentence() <em>Sentence</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSentence()
-   * @generated
-   * @ordered
-   */
-  protected String sentence = SENTENCE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,39 +100,12 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @generated
    */
   @Override
-  public String getSentence()
-  {
-    return sentence;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setSentence(String newSentence)
-  {
-    String oldSentence = sentence;
-    sentence = newSentence;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.STEP__SENTENCE, oldSentence, sentence));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case UseCaseDslPackage.STEP__NAME:
         return getName();
-      case UseCaseDslPackage.STEP__SENTENCE:
-        return getSentence();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -170,9 +122,6 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
     {
       case UseCaseDslPackage.STEP__NAME:
         setName((Integer)newValue);
-        return;
-      case UseCaseDslPackage.STEP__SENTENCE:
-        setSentence((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -191,9 +140,6 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
       case UseCaseDslPackage.STEP__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case UseCaseDslPackage.STEP__SENTENCE:
-        setSentence(SENTENCE_EDEFAULT);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -210,8 +156,6 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
     {
       case UseCaseDslPackage.STEP__NAME:
         return name != NAME_EDEFAULT;
-      case UseCaseDslPackage.STEP__SENTENCE:
-        return SENTENCE_EDEFAULT == null ? sentence != null : !SENTENCE_EDEFAULT.equals(sentence);
     }
     return super.eIsSet(featureID);
   }
@@ -229,8 +173,6 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", sentence: ");
-    result.append(sentence);
     result.append(')');
     return result.toString();
   }

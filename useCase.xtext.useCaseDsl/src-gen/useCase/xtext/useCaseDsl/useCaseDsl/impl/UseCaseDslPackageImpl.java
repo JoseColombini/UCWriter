@@ -13,6 +13,9 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import useCase.xtext.useCaseDsl.useCaseDsl.DeadEndStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.Extension;
 import useCase.xtext.useCaseDsl.useCaseDsl.ExtensionStep;
+import useCase.xtext.useCaseDsl.useCaseDsl.Postcondition;
+import useCase.xtext.useCaseDsl.useCaseDsl.Precondition;
+import useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.Step;
 import useCase.xtext.useCaseDsl.useCaseDsl.SystemStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCase;
@@ -76,6 +79,20 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass preconditionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass postconditionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass userStepEClass = null;
 
   /**
@@ -84,6 +101,13 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   private EClass systemStepEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass repeatingStepEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -187,9 +211,9 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
-  public EAttribute getUseCase_Mainflow()
+  public EReference getUseCase_Precondition()
   {
-    return (EAttribute)useCaseEClass.getEStructuralFeatures().get(2);
+    return (EReference)useCaseEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -198,7 +222,7 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
-  public EReference getUseCase_Steps()
+  public EReference getUseCase_Postcondition()
   {
     return (EReference)useCaseEClass.getEStructuralFeatures().get(3);
   }
@@ -209,7 +233,7 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
-  public EAttribute getUseCase_Declareofflow()
+  public EAttribute getUseCase_Mainflow()
   {
     return (EAttribute)useCaseEClass.getEStructuralFeatures().get(4);
   }
@@ -220,9 +244,31 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
-  public EReference getUseCase_Alternativeflows()
+  public EReference getUseCase_Steps()
   {
     return (EReference)useCaseEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getUseCase_Declareofflow()
+  {
+    return (EAttribute)useCaseEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getUseCase_Alternativeflows()
+  {
+    return (EReference)useCaseEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -330,17 +376,6 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
-  public EAttribute getStep_Sentence()
-  {
-    return (EAttribute)stepEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getUseCaseStep()
   {
     return useCaseStepEClass;
@@ -363,9 +398,64 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
+  public EAttribute getExtensionStep_Sentence()
+  {
+    return (EAttribute)extensionStepEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getDeadEndStep()
   {
     return deadEndStepEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPrecondition()
+  {
+    return preconditionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPrecondition_Condition()
+  {
+    return (EAttribute)preconditionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getPostcondition()
+  {
+    return postconditionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getPostcondition_Condition()
+  {
+    return (EAttribute)postconditionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -385,9 +475,53 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
+  public EAttribute getUserStep_Sentence()
+  {
+    return (EAttribute)userStepEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getSystemStep()
   {
     return systemStepEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSystemStep_Sentence()
+  {
+    return (EAttribute)systemStepEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRepeatingStep()
+  {
+    return repeatingStepEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRepeatingStep_RepeatingCondition()
+  {
+    return (EAttribute)repeatingStepEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -424,6 +558,8 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
     useCaseEClass = createEClass(USE_CASE);
     createEAttribute(useCaseEClass, USE_CASE__NUMBER);
     createEAttribute(useCaseEClass, USE_CASE__NAME);
+    createEReference(useCaseEClass, USE_CASE__PRECONDITION);
+    createEReference(useCaseEClass, USE_CASE__POSTCONDITION);
     createEAttribute(useCaseEClass, USE_CASE__MAINFLOW);
     createEReference(useCaseEClass, USE_CASE__STEPS);
     createEAttribute(useCaseEClass, USE_CASE__DECLAREOFFLOW);
@@ -439,17 +575,28 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
 
     stepEClass = createEClass(STEP);
     createEAttribute(stepEClass, STEP__NAME);
-    createEAttribute(stepEClass, STEP__SENTENCE);
 
     useCaseStepEClass = createEClass(USE_CASE_STEP);
 
     extensionStepEClass = createEClass(EXTENSION_STEP);
+    createEAttribute(extensionStepEClass, EXTENSION_STEP__SENTENCE);
 
     deadEndStepEClass = createEClass(DEAD_END_STEP);
 
+    preconditionEClass = createEClass(PRECONDITION);
+    createEAttribute(preconditionEClass, PRECONDITION__CONDITION);
+
+    postconditionEClass = createEClass(POSTCONDITION);
+    createEAttribute(postconditionEClass, POSTCONDITION__CONDITION);
+
     userStepEClass = createEClass(USER_STEP);
+    createEAttribute(userStepEClass, USER_STEP__SENTENCE);
 
     systemStepEClass = createEClass(SYSTEM_STEP);
+    createEAttribute(systemStepEClass, SYSTEM_STEP__SENTENCE);
+
+    repeatingStepEClass = createEClass(REPEATING_STEP);
+    createEAttribute(repeatingStepEClass, REPEATING_STEP__REPEATING_CONDITION);
   }
 
   /**
@@ -483,14 +630,17 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
     // Add supertypes to classes
     useCaseStepEClass.getESuperTypes().add(this.getStep());
     extensionStepEClass.getESuperTypes().add(this.getStep());
-    extensionStepEClass.getESuperTypes().add(this.getDeadEndStep());
+    deadEndStepEClass.getESuperTypes().add(this.getExtensionStep());
     userStepEClass.getESuperTypes().add(this.getUseCaseStep());
     systemStepEClass.getESuperTypes().add(this.getUseCaseStep());
+    repeatingStepEClass.getESuperTypes().add(this.getUseCaseStep());
 
     // Initialize classes and features; add operations and parameters
     initEClass(useCaseEClass, UseCase.class, "UseCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUseCase_Number(), ecorePackage.getEInt(), "number", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUseCase_Name(), ecorePackage.getEString(), "name", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUseCase_Precondition(), this.getPrecondition(), null, "precondition", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUseCase_Postcondition(), this.getPostcondition(), null, "postcondition", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUseCase_Mainflow(), ecorePackage.getEString(), "mainflow", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUseCase_Steps(), this.getUseCaseStep(), null, "steps", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUseCase_Declareofflow(), ecorePackage.getEString(), "declareofflow", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -506,17 +656,28 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
 
     initEClass(stepEClass, Step.class, "Step", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStep_Name(), ecorePackage.getEInt(), "name", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getStep_Sentence(), ecorePackage.getEString(), "sentence", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(useCaseStepEClass, UseCaseStep.class, "UseCaseStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(extensionStepEClass, ExtensionStep.class, "ExtensionStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExtensionStep_Sentence(), ecorePackage.getEString(), "sentence", null, 0, 1, ExtensionStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(deadEndStepEClass, DeadEndStep.class, "DeadEndStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(preconditionEClass, Precondition.class, "Precondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPrecondition_Condition(), ecorePackage.getEString(), "condition", null, 0, 1, Precondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(postconditionEClass, Postcondition.class, "Postcondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPostcondition_Condition(), ecorePackage.getEString(), "condition", null, 0, 1, Postcondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(userStepEClass, UserStep.class, "UserStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUserStep_Sentence(), ecorePackage.getEString(), "sentence", null, 0, 1, UserStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(systemStepEClass, SystemStep.class, "SystemStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSystemStep_Sentence(), ecorePackage.getEString(), "sentence", null, 0, 1, SystemStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(repeatingStepEClass, RepeatingStep.class, "RepeatingStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRepeatingStep_RepeatingCondition(), ecorePackage.getEString(), "repeatingCondition", null, 0, 1, RepeatingStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

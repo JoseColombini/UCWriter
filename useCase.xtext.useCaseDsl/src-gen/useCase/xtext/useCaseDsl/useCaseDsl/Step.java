@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getName <em>Name</em>}</li>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getSentence <em>Sentence</em>}</li>
  * </ul>
  *
  * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getStep()
@@ -45,27 +44,5 @@ public interface Step extends EObject
    * @generated
    */
   void setName(int value);
-
-  /**
-   * Returns the value of the '<em><b>Sentence</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Sentence</em>' attribute.
-   * @see #setSentence(String)
-   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getStep_Sentence()
-   * @model
-   * @generated
-   */
-  String getSentence();
-
-  /**
-   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getSentence <em>Sentence</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Sentence</em>' attribute.
-   * @see #getSentence()
-   * @generated
-   */
-  void setSentence(String value);
 
 } // Step

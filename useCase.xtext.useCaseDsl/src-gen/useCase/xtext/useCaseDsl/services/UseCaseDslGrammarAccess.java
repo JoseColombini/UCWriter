@@ -32,35 +32,41 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cNameLongNameParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Assignment cMainflowAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final Keyword cMainflowMainFlowKeyword_4_0 = (Keyword)cMainflowAssignment_4.eContents().get(0);
-		private final Keyword cColonKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final RuleCall cBEGINTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
-		private final Assignment cStepsAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cStepsUseCaseStepParserRuleCall_7_0 = (RuleCall)cStepsAssignment_7.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
-		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
-		private final Assignment cDeclareofflowAssignment_9_0 = (Assignment)cGroup_9.eContents().get(0);
-		private final Keyword cDeclareofflowAlternativeFlowKeyword_9_0_0 = (Keyword)cDeclareofflowAssignment_9_0.eContents().get(0);
-		private final Keyword cColonKeyword_9_1 = (Keyword)cGroup_9.eContents().get(1);
-		private final RuleCall cBEGINTerminalRuleCall_9_2 = (RuleCall)cGroup_9.eContents().get(2);
-		private final Assignment cAlternativeflowsAssignment_9_3 = (Assignment)cGroup_9.eContents().get(3);
-		private final RuleCall cAlternativeflowsExtensionParserRuleCall_9_3_0 = (RuleCall)cAlternativeflowsAssignment_9_3.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_9_4 = (RuleCall)cGroup_9.eContents().get(4);
+		private final Assignment cPreconditionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cPreconditionPreconditionParserRuleCall_4_0 = (RuleCall)cPreconditionAssignment_4.eContents().get(0);
+		private final Assignment cPostconditionAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cPostconditionPostconditionParserRuleCall_5_0 = (RuleCall)cPostconditionAssignment_5.eContents().get(0);
+		private final Assignment cMainflowAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final Keyword cMainflowMAINFLOWKeyword_6_0 = (Keyword)cMainflowAssignment_6.eContents().get(0);
+		private final Keyword cColonKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final RuleCall cBEGINTerminalRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
+		private final Assignment cStepsAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cStepsUseCaseStepParserRuleCall_9_0 = (RuleCall)cStepsAssignment_9.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_10 = (RuleCall)cGroup.eContents().get(10);
+		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
+		private final Assignment cDeclareofflowAssignment_11_0 = (Assignment)cGroup_11.eContents().get(0);
+		private final Keyword cDeclareofflowALTERNATIVEFLOWKeyword_11_0_0 = (Keyword)cDeclareofflowAssignment_11_0.eContents().get(0);
+		private final Keyword cColonKeyword_11_1 = (Keyword)cGroup_11.eContents().get(1);
+		private final RuleCall cBEGINTerminalRuleCall_11_2 = (RuleCall)cGroup_11.eContents().get(2);
+		private final Assignment cAlternativeflowsAssignment_11_3 = (Assignment)cGroup_11.eContents().get(3);
+		private final RuleCall cAlternativeflowsExtensionParserRuleCall_11_3_0 = (RuleCall)cAlternativeflowsAssignment_11_3.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_11_4 = (RuleCall)cGroup_11.eContents().get(4);
 		
 		////Use case structure
 		//UseCase hidden(WS):
-		//	'UC' number=INT ':' name=LongName mainflow='MainFlow' ':'
+		//	'UC' number=INT ':' name=LongName precondition=Precondition?
+		//	postcondition=Postcondition?
+		//	mainflow='MAINFLOW' ':'
 		//	BEGIN
 		//	steps+=UseCaseStep+
-		//	END (declareofflow='AlternativeFlow' ':'
+		//	END (declareofflow='ALTERNATIVEFLOW' ':'
 		//	BEGIN
 		//	alternativeflows+=Extension+
 		//	END)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'UC' number=INT ':' name=LongName mainflow='MainFlow' ':' BEGIN steps+=UseCaseStep+ END (declareofflow='AlternativeFlow'
-		//':' BEGIN alternativeflows+=Extension+ END)?
+		//'UC' number=INT ':' name=LongName precondition=Precondition? postcondition=Postcondition? mainflow='MAINFLOW' ':' BEGIN
+		//steps+=UseCaseStep+ END (declareofflow='ALTERNATIVEFLOW' ':' BEGIN alternativeflows+=Extension+ END)?
 		public Group getGroup() { return cGroup; }
 		
 		//'UC'
@@ -81,50 +87,62 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//LongName
 		public RuleCall getNameLongNameParserRuleCall_3_0() { return cNameLongNameParserRuleCall_3_0; }
 		
-		//mainflow='MainFlow'
-		public Assignment getMainflowAssignment_4() { return cMainflowAssignment_4; }
+		//precondition=Precondition?
+		public Assignment getPreconditionAssignment_4() { return cPreconditionAssignment_4; }
 		
-		//'MainFlow'
-		public Keyword getMainflowMainFlowKeyword_4_0() { return cMainflowMainFlowKeyword_4_0; }
+		//Precondition
+		public RuleCall getPreconditionPreconditionParserRuleCall_4_0() { return cPreconditionPreconditionParserRuleCall_4_0; }
+		
+		//postcondition=Postcondition?
+		public Assignment getPostconditionAssignment_5() { return cPostconditionAssignment_5; }
+		
+		//Postcondition
+		public RuleCall getPostconditionPostconditionParserRuleCall_5_0() { return cPostconditionPostconditionParserRuleCall_5_0; }
+		
+		//mainflow='MAINFLOW'
+		public Assignment getMainflowAssignment_6() { return cMainflowAssignment_6; }
+		
+		//'MAINFLOW'
+		public Keyword getMainflowMAINFLOWKeyword_6_0() { return cMainflowMAINFLOWKeyword_6_0; }
 		
 		//':'
-		public Keyword getColonKeyword_5() { return cColonKeyword_5; }
+		public Keyword getColonKeyword_7() { return cColonKeyword_7; }
 		
 		//BEGIN
-		public RuleCall getBEGINTerminalRuleCall_6() { return cBEGINTerminalRuleCall_6; }
+		public RuleCall getBEGINTerminalRuleCall_8() { return cBEGINTerminalRuleCall_8; }
 		
 		//steps+=UseCaseStep+
-		public Assignment getStepsAssignment_7() { return cStepsAssignment_7; }
+		public Assignment getStepsAssignment_9() { return cStepsAssignment_9; }
 		
 		//UseCaseStep
-		public RuleCall getStepsUseCaseStepParserRuleCall_7_0() { return cStepsUseCaseStepParserRuleCall_7_0; }
+		public RuleCall getStepsUseCaseStepParserRuleCall_9_0() { return cStepsUseCaseStepParserRuleCall_9_0; }
 		
 		//END
-		public RuleCall getENDTerminalRuleCall_8() { return cENDTerminalRuleCall_8; }
+		public RuleCall getENDTerminalRuleCall_10() { return cENDTerminalRuleCall_10; }
 		
-		//(declareofflow='AlternativeFlow' ':' BEGIN alternativeflows+=Extension+ END)?
-		public Group getGroup_9() { return cGroup_9; }
+		//(declareofflow='ALTERNATIVEFLOW' ':' BEGIN alternativeflows+=Extension+ END)?
+		public Group getGroup_11() { return cGroup_11; }
 		
-		//declareofflow='AlternativeFlow'
-		public Assignment getDeclareofflowAssignment_9_0() { return cDeclareofflowAssignment_9_0; }
+		//declareofflow='ALTERNATIVEFLOW'
+		public Assignment getDeclareofflowAssignment_11_0() { return cDeclareofflowAssignment_11_0; }
 		
-		//'AlternativeFlow'
-		public Keyword getDeclareofflowAlternativeFlowKeyword_9_0_0() { return cDeclareofflowAlternativeFlowKeyword_9_0_0; }
+		//'ALTERNATIVEFLOW'
+		public Keyword getDeclareofflowALTERNATIVEFLOWKeyword_11_0_0() { return cDeclareofflowALTERNATIVEFLOWKeyword_11_0_0; }
 		
 		//':'
-		public Keyword getColonKeyword_9_1() { return cColonKeyword_9_1; }
+		public Keyword getColonKeyword_11_1() { return cColonKeyword_11_1; }
 		
 		//BEGIN
-		public RuleCall getBEGINTerminalRuleCall_9_2() { return cBEGINTerminalRuleCall_9_2; }
+		public RuleCall getBEGINTerminalRuleCall_11_2() { return cBEGINTerminalRuleCall_11_2; }
 		
 		//alternativeflows+=Extension+
-		public Assignment getAlternativeflowsAssignment_9_3() { return cAlternativeflowsAssignment_9_3; }
+		public Assignment getAlternativeflowsAssignment_11_3() { return cAlternativeflowsAssignment_11_3; }
 		
 		//Extension
-		public RuleCall getAlternativeflowsExtensionParserRuleCall_9_3_0() { return cAlternativeflowsExtensionParserRuleCall_9_3_0; }
+		public RuleCall getAlternativeflowsExtensionParserRuleCall_11_3_0() { return cAlternativeflowsExtensionParserRuleCall_11_3_0; }
 		
 		//END
-		public RuleCall getENDTerminalRuleCall_9_4() { return cENDTerminalRuleCall_9_4; }
+		public RuleCall getENDTerminalRuleCall_11_4() { return cENDTerminalRuleCall_11_4; }
 	}
 	public class ExtensionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.Extension");
@@ -145,8 +163,8 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_8_0 = (Group)cAlternatives_8.eContents().get(0);
 		private final RuleCall cINTTerminalRuleCall_8_0_0 = (RuleCall)cGroup_8_0.eContents().get(0);
 		private final Keyword cFullStopKeyword_8_0_1 = (Keyword)cGroup_8_0.eContents().get(1);
-		private final Keyword cReturnKeyword_8_0_2 = (Keyword)cGroup_8_0.eContents().get(2);
-		private final Keyword cToKeyword_8_0_3 = (Keyword)cGroup_8_0.eContents().get(3);
+		private final Keyword cRETURNKeyword_8_0_2 = (Keyword)cGroup_8_0.eContents().get(2);
+		private final Keyword cTOKeyword_8_0_3 = (Keyword)cGroup_8_0.eContents().get(3);
 		private final Assignment cResumeAtAssignment_8_0_4 = (Assignment)cGroup_8_0.eContents().get(4);
 		private final RuleCall cResumeAtINTTerminalRuleCall_8_0_4_0 = (RuleCall)cResumeAtAssignment_8_0_4.eContents().get(0);
 		private final Assignment cEndAssignment_8_1 = (Assignment)cAlternatives_8.eContents().get(1);
@@ -156,10 +174,10 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		////Flows and behavorial
 		//Extension:
 		//	startFrom=INT '.' name=CHAR '.' 'IF' condition=Condition BEGIN
-		//	steps+=ExtensionStep+ (INT '.' 'Return' 'to' resumeAt=INT | end=DeadEndStep) END;
+		//	steps+=ExtensionStep+ (INT '.' 'RETURN' 'TO' resumeAt=INT | end=DeadEndStep) END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//startFrom=INT '.' name=CHAR '.' 'IF' condition=Condition BEGIN steps+=ExtensionStep+ (INT '.' 'Return' 'to' resumeAt=INT
+		//startFrom=INT '.' name=CHAR '.' 'IF' condition=Condition BEGIN steps+=ExtensionStep+ (INT '.' 'RETURN' 'TO' resumeAt=INT
 		//| end=DeadEndStep) END
 		public Group getGroup() { return cGroup; }
 		
@@ -199,10 +217,10 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ExtensionStep
 		public RuleCall getStepsExtensionStepParserRuleCall_7_0() { return cStepsExtensionStepParserRuleCall_7_0; }
 		
-		//(INT '.' 'Return' 'to' resumeAt=INT | end=DeadEndStep)
+		//(INT '.' 'RETURN' 'TO' resumeAt=INT | end=DeadEndStep)
 		public Alternatives getAlternatives_8() { return cAlternatives_8; }
 		
-		//INT '.' 'Return' 'to' resumeAt=INT
+		//INT '.' 'RETURN' 'TO' resumeAt=INT
 		public Group getGroup_8_0() { return cGroup_8_0; }
 		
 		//INT
@@ -211,11 +229,11 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'.'
 		public Keyword getFullStopKeyword_8_0_1() { return cFullStopKeyword_8_0_1; }
 		
-		//'Return'
-		public Keyword getReturnKeyword_8_0_2() { return cReturnKeyword_8_0_2; }
+		//'RETURN'
+		public Keyword getRETURNKeyword_8_0_2() { return cRETURNKeyword_8_0_2; }
 		
-		//'to'
-		public Keyword getToKeyword_8_0_3() { return cToKeyword_8_0_3; }
+		//'TO'
+		public Keyword getTOKeyword_8_0_3() { return cTOKeyword_8_0_3; }
 		
 		//resumeAt=INT
 		public Assignment getResumeAtAssignment_8_0_4() { return cResumeAtAssignment_8_0_4; }
@@ -260,7 +278,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
 		private final RuleCall cNameINTTerminalRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
 		private final Keyword cFullStopKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Keyword cUserKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
+		private final Keyword cUSERKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
 		private final Assignment cSentenceAssignment_0_4 = (Assignment)cGroup_0.eContents().get(4);
 		private final RuleCall cSentenceLongNameParserRuleCall_0_4_0 = (RuleCall)cSentenceAssignment_0_4.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
@@ -268,18 +286,28 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cNameINTTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
 		private final Keyword cFullStopKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
-		private final Keyword cSystemKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		private final Keyword cSYSTEMKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
 		private final Assignment cSentenceAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
 		private final RuleCall cSentenceLongNameParserRuleCall_1_4_0 = (RuleCall)cSentenceAssignment_1_4.eContents().get(0);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Action cRepeatingStepAction_2_0 = (Action)cGroup_2.eContents().get(0);
+		private final Assignment cNameAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cNameINTTerminalRuleCall_2_1_0 = (RuleCall)cNameAssignment_2_1.eContents().get(0);
+		private final Keyword cFullStopKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final Keyword cWHILEKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		private final Assignment cRepeatingConditionAssignment_2_4 = (Assignment)cGroup_2.eContents().get(4);
+		private final RuleCall cRepeatingConditionConditionParserRuleCall_2_4_0 = (RuleCall)cRepeatingConditionAssignment_2_4.eContents().get(0);
 		
 		//UseCaseStep:
-		//	{UserStep} name=INT '.' 'User' sentence=LongName | {SystemStep} name=INT '.' 'System' sentence=LongName;
+		//	{UserStep} name=INT '.' 'USER' sentence=LongName | {SystemStep} name=INT '.' 'SYSTEM' sentence=LongName |
+		//	{RepeatingStep} name=INT '.' 'WHILE' repeatingCondition=Condition;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{UserStep} name=INT '.' 'User' sentence=LongName | {SystemStep} name=INT '.' 'System' sentence=LongName
+		//{UserStep} name=INT '.' 'USER' sentence=LongName | {SystemStep} name=INT '.' 'SYSTEM' sentence=LongName |
+		//{RepeatingStep} name=INT '.' 'WHILE' repeatingCondition=Condition
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{UserStep} name=INT '.' 'User' sentence=LongName
+		//{UserStep} name=INT '.' 'USER' sentence=LongName
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//{UserStep}
@@ -294,8 +322,8 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'.'
 		public Keyword getFullStopKeyword_0_2() { return cFullStopKeyword_0_2; }
 		
-		//'User'
-		public Keyword getUserKeyword_0_3() { return cUserKeyword_0_3; }
+		//'USER'
+		public Keyword getUSERKeyword_0_3() { return cUSERKeyword_0_3; }
 		
 		//sentence=LongName
 		public Assignment getSentenceAssignment_0_4() { return cSentenceAssignment_0_4; }
@@ -303,7 +331,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//LongName
 		public RuleCall getSentenceLongNameParserRuleCall_0_4_0() { return cSentenceLongNameParserRuleCall_0_4_0; }
 		
-		//{SystemStep} name=INT '.' 'System' sentence=LongName
+		//{SystemStep} name=INT '.' 'SYSTEM' sentence=LongName
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//{SystemStep}
@@ -318,33 +346,115 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'.'
 		public Keyword getFullStopKeyword_1_2() { return cFullStopKeyword_1_2; }
 		
-		//'System'
-		public Keyword getSystemKeyword_1_3() { return cSystemKeyword_1_3; }
+		//'SYSTEM'
+		public Keyword getSYSTEMKeyword_1_3() { return cSYSTEMKeyword_1_3; }
 		
 		//sentence=LongName
 		public Assignment getSentenceAssignment_1_4() { return cSentenceAssignment_1_4; }
 		
 		//LongName
 		public RuleCall getSentenceLongNameParserRuleCall_1_4_0() { return cSentenceLongNameParserRuleCall_1_4_0; }
+		
+		//{RepeatingStep} name=INT '.' 'WHILE' repeatingCondition=Condition
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//{RepeatingStep}
+		public Action getRepeatingStepAction_2_0() { return cRepeatingStepAction_2_0; }
+		
+		//name=INT
+		public Assignment getNameAssignment_2_1() { return cNameAssignment_2_1; }
+		
+		//INT
+		public RuleCall getNameINTTerminalRuleCall_2_1_0() { return cNameINTTerminalRuleCall_2_1_0; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_2_2() { return cFullStopKeyword_2_2; }
+		
+		//'WHILE'
+		public Keyword getWHILEKeyword_2_3() { return cWHILEKeyword_2_3; }
+		
+		//repeatingCondition=Condition
+		public Assignment getRepeatingConditionAssignment_2_4() { return cRepeatingConditionAssignment_2_4; }
+		
+		//Condition
+		public RuleCall getRepeatingConditionConditionParserRuleCall_2_4_0() { return cRepeatingConditionConditionParserRuleCall_2_4_0; }
 	}
 	public class ExtensionStepElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.ExtensionStep");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Assignment cNameAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final RuleCall cNameINTTerminalRuleCall_0_0_0 = (RuleCall)cNameAssignment_0_0.eContents().get(0);
+		private final Keyword cFullStopKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Alternatives cAlternatives_0_2 = (Alternatives)cGroup_0.eContents().get(2);
+		private final Keyword cUSERKeyword_0_2_0 = (Keyword)cAlternatives_0_2.eContents().get(0);
+		private final Keyword cSYSTEMKeyword_0_2_1 = (Keyword)cAlternatives_0_2.eContents().get(1);
+		private final Keyword cWHILEKeyword_0_2_2 = (Keyword)cAlternatives_0_2.eContents().get(2);
+		private final Assignment cSentenceAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final RuleCall cSentenceLongNameParserRuleCall_0_3_0 = (RuleCall)cSentenceAssignment_0_3.eContents().get(0);
+		private final RuleCall cDeadEndStepParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		////I dont know how to use this shit
+		//ExtensionStep:
+		//	name=INT '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName | DeadEndStep;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=INT '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName | DeadEndStep
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//name=INT '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//name=INT
+		public Assignment getNameAssignment_0_0() { return cNameAssignment_0_0; }
+		
+		//INT
+		public RuleCall getNameINTTerminalRuleCall_0_0_0() { return cNameINTTerminalRuleCall_0_0_0; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_0_1() { return cFullStopKeyword_0_1; }
+		
+		//('USER' | 'SYSTEM' | 'WHILE')?
+		public Alternatives getAlternatives_0_2() { return cAlternatives_0_2; }
+		
+		//'USER'
+		public Keyword getUSERKeyword_0_2_0() { return cUSERKeyword_0_2_0; }
+		
+		//'SYSTEM'
+		public Keyword getSYSTEMKeyword_0_2_1() { return cSYSTEMKeyword_0_2_1; }
+		
+		//'WHILE'
+		public Keyword getWHILEKeyword_0_2_2() { return cWHILEKeyword_0_2_2; }
+		
+		//sentence=LongName
+		public Assignment getSentenceAssignment_0_3() { return cSentenceAssignment_0_3; }
+		
+		//LongName
+		public RuleCall getSentenceLongNameParserRuleCall_0_3_0() { return cSentenceLongNameParserRuleCall_0_3_0; }
+		
+		//DeadEndStep
+		public RuleCall getDeadEndStepParserRuleCall_1() { return cDeadEndStepParserRuleCall_1; }
+	}
+	public class DeadEndStepElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.DeadEndStep");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNameINTTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Keyword cUserKeyword_2_0 = (Keyword)cAlternatives_2.eContents().get(0);
-		private final Keyword cSystemKeyword_2_1 = (Keyword)cAlternatives_2.eContents().get(1);
+		private final Keyword cUSERKeyword_2_0 = (Keyword)cAlternatives_2.eContents().get(0);
+		private final Keyword cSYSTEMKeyword_2_1 = (Keyword)cAlternatives_2.eContents().get(1);
+		private final Keyword cWHILEKeyword_2_2 = (Keyword)cAlternatives_2.eContents().get(2);
 		private final Assignment cSentenceAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cSentenceLongNameParserRuleCall_3_0 = (RuleCall)cSentenceAssignment_3.eContents().get(0);
+		private final Keyword cUCKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cENDKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		////I dont know how to use this shit
-		//ExtensionStep:
-		//	name=INT '.' ('User' | 'System')? sentence=LongName;
+		//DeadEndStep:
+		//	name=INT '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName? 'UC' 'END';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=INT '.' ('User' | 'System')? sentence=LongName
+		//name=INT '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName? 'UC' 'END'
 		public Group getGroup() { return cGroup; }
 		
 		//name=INT
@@ -356,43 +466,84 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'.'
 		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
 		
-		//('User' | 'System')?
+		//('USER' | 'SYSTEM' | 'WHILE')?
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 		
-		//'User'
-		public Keyword getUserKeyword_2_0() { return cUserKeyword_2_0; }
+		//'USER'
+		public Keyword getUSERKeyword_2_0() { return cUSERKeyword_2_0; }
 		
-		//'System'
-		public Keyword getSystemKeyword_2_1() { return cSystemKeyword_2_1; }
+		//'SYSTEM'
+		public Keyword getSYSTEMKeyword_2_1() { return cSYSTEMKeyword_2_1; }
 		
-		//sentence=LongName
+		//'WHILE'
+		public Keyword getWHILEKeyword_2_2() { return cWHILEKeyword_2_2; }
+		
+		//sentence=LongName?
 		public Assignment getSentenceAssignment_3() { return cSentenceAssignment_3; }
 		
 		//LongName
 		public RuleCall getSentenceLongNameParserRuleCall_3_0() { return cSentenceLongNameParserRuleCall_3_0; }
-	}
-	public class DeadEndStepElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.DeadEndStep");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cExtensionStepParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Keyword cUCKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cENDKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		
-		//DeadEndStep:
-		//	ExtensionStep 'UC' 'END';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//ExtensionStep 'UC' 'END'
-		public Group getGroup() { return cGroup; }
-		
-		//ExtensionStep
-		public RuleCall getExtensionStepParserRuleCall_0() { return cExtensionStepParserRuleCall_0; }
 		
 		//'UC'
-		public Keyword getUCKeyword_1() { return cUCKeyword_1; }
+		public Keyword getUCKeyword_4() { return cUCKeyword_4; }
 		
 		//'END'
-		public Keyword getENDKeyword_2() { return cENDKeyword_2; }
+		public Keyword getENDKeyword_5() { return cENDKeyword_5; }
+	}
+	public class PreconditionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.Precondition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPRECONDITIONKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cConditionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cConditionConditionParserRuleCall_2_0 = (RuleCall)cConditionAssignment_2.eContents().get(0);
+		
+		////Conditions
+		//Precondition:
+		//	'PRECONDITION' ':' condition=Condition;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'PRECONDITION' ':' condition=Condition
+		public Group getGroup() { return cGroup; }
+		
+		//'PRECONDITION'
+		public Keyword getPRECONDITIONKeyword_0() { return cPRECONDITIONKeyword_0; }
+		
+		//':'
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		
+		//condition=Condition
+		public Assignment getConditionAssignment_2() { return cConditionAssignment_2; }
+		
+		//Condition
+		public RuleCall getConditionConditionParserRuleCall_2_0() { return cConditionConditionParserRuleCall_2_0; }
+	}
+	public class PostconditionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.Postcondition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPOSTCONDITIONKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cConditionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cConditionConditionParserRuleCall_2_0 = (RuleCall)cConditionAssignment_2.eContents().get(0);
+		
+		//Postcondition:
+		//	'POSTCONDITION' ':' condition=Condition;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'POSTCONDITION' ':' condition=Condition
+		public Group getGroup() { return cGroup; }
+		
+		//'POSTCONDITION'
+		public Keyword getPOSTCONDITIONKeyword_0() { return cPOSTCONDITIONKeyword_0; }
+		
+		//':'
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		
+		//condition=Condition
+		public Assignment getConditionAssignment_2() { return cConditionAssignment_2; }
+		
+		//Condition
+		public RuleCall getConditionConditionParserRuleCall_2_0() { return cConditionConditionParserRuleCall_2_0; }
 	}
 	public class LongNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.LongName");
@@ -490,6 +641,8 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final UseCaseStepElements pUseCaseStep;
 	private final ExtensionStepElements pExtensionStep;
 	private final DeadEndStepElements pDeadEndStep;
+	private final PreconditionElements pPrecondition;
+	private final PostconditionElements pPostcondition;
 	private final LongNameElements pLongName;
 	private final ConditionElements pCondition;
 	private final TerminalRule tCHAR;
@@ -511,6 +664,8 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pUseCaseStep = new UseCaseStepElements();
 		this.pExtensionStep = new ExtensionStepElements();
 		this.pDeadEndStep = new DeadEndStepElements();
+		this.pPrecondition = new PreconditionElements();
+		this.pPostcondition = new PostconditionElements();
 		this.pLongName = new LongNameElements();
 		this.pCondition = new ConditionElements();
 		this.tCHAR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.CHAR");
@@ -547,10 +702,12 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////Use case structure
 	//UseCase hidden(WS):
-	//	'UC' number=INT ':' name=LongName mainflow='MainFlow' ':'
+	//	'UC' number=INT ':' name=LongName precondition=Precondition?
+	//	postcondition=Postcondition?
+	//	mainflow='MAINFLOW' ':'
 	//	BEGIN
 	//	steps+=UseCaseStep+
-	//	END (declareofflow='AlternativeFlow' ':'
+	//	END (declareofflow='ALTERNATIVEFLOW' ':'
 	//	BEGIN
 	//	alternativeflows+=Extension+
 	//	END)?;
@@ -565,7 +722,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	////Flows and behavorial
 	//Extension:
 	//	startFrom=INT '.' name=CHAR '.' 'IF' condition=Condition BEGIN
-	//	steps+=ExtensionStep+ (INT '.' 'Return' 'to' resumeAt=INT | end=DeadEndStep) END;
+	//	steps+=ExtensionStep+ (INT '.' 'RETURN' 'TO' resumeAt=INT | end=DeadEndStep) END;
 	public ExtensionElements getExtensionAccess() {
 		return pExtension;
 	}
@@ -586,7 +743,8 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//UseCaseStep:
-	//	{UserStep} name=INT '.' 'User' sentence=LongName | {SystemStep} name=INT '.' 'System' sentence=LongName;
+	//	{UserStep} name=INT '.' 'USER' sentence=LongName | {SystemStep} name=INT '.' 'SYSTEM' sentence=LongName |
+	//	{RepeatingStep} name=INT '.' 'WHILE' repeatingCondition=Condition;
 	public UseCaseStepElements getUseCaseStepAccess() {
 		return pUseCaseStep;
 	}
@@ -597,7 +755,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////I dont know how to use this shit
 	//ExtensionStep:
-	//	name=INT '.' ('User' | 'System')? sentence=LongName;
+	//	name=INT '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName | DeadEndStep;
 	public ExtensionStepElements getExtensionStepAccess() {
 		return pExtensionStep;
 	}
@@ -607,13 +765,34 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DeadEndStep:
-	//	ExtensionStep 'UC' 'END';
+	//	name=INT '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName? 'UC' 'END';
 	public DeadEndStepElements getDeadEndStepAccess() {
 		return pDeadEndStep;
 	}
 	
 	public ParserRule getDeadEndStepRule() {
 		return getDeadEndStepAccess().getRule();
+	}
+	
+	////Conditions
+	//Precondition:
+	//	'PRECONDITION' ':' condition=Condition;
+	public PreconditionElements getPreconditionAccess() {
+		return pPrecondition;
+	}
+	
+	public ParserRule getPreconditionRule() {
+		return getPreconditionAccess().getRule();
+	}
+	
+	//Postcondition:
+	//	'POSTCONDITION' ':' condition=Condition;
+	public PostconditionElements getPostconditionAccess() {
+		return pPostcondition;
+	}
+	
+	public ParserRule getPostconditionRule() {
+		return getPostconditionAccess().getRule();
 	}
 	
 	///**********************	}

@@ -78,6 +78,24 @@ public interface UseCaseDslFactory extends EFactory
   DeadEndStep createDeadEndStep();
 
   /**
+   * Returns a new object of class '<em>Precondition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Precondition</em>'.
+   * @generated
+   */
+  Precondition createPrecondition();
+
+  /**
+   * Returns a new object of class '<em>Postcondition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Postcondition</em>'.
+   * @generated
+   */
+  Postcondition createPostcondition();
+
+  /**
    * Returns a new object of class '<em>User Step</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -94,6 +112,15 @@ public interface UseCaseDslFactory extends EFactory
    * @generated
    */
   SystemStep createSystemStep();
+
+  /**
+   * Returns a new object of class '<em>Repeating Step</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Repeating Step</em>'.
+   * @generated
+   */
+  RepeatingStep createRepeatingStep();
 
   /**
    * Returns the package supported by this factory.

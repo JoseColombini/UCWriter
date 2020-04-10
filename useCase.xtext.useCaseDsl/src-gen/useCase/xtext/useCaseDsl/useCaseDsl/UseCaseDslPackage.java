@@ -86,13 +86,31 @@ public interface UseCaseDslPackage extends EPackage
   int USE_CASE__NAME = 1;
 
   /**
+   * The feature id for the '<em><b>Precondition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE__PRECONDITION = 2;
+
+  /**
+   * The feature id for the '<em><b>Postcondition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE__POSTCONDITION = 3;
+
+  /**
    * The feature id for the '<em><b>Mainflow</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USE_CASE__MAINFLOW = 2;
+  int USE_CASE__MAINFLOW = 4;
 
   /**
    * The feature id for the '<em><b>Steps</b></em>' containment reference list.
@@ -101,7 +119,7 @@ public interface UseCaseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE__STEPS = 3;
+  int USE_CASE__STEPS = 5;
 
   /**
    * The feature id for the '<em><b>Declareofflow</b></em>' attribute.
@@ -110,7 +128,7 @@ public interface UseCaseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE__DECLAREOFFLOW = 4;
+  int USE_CASE__DECLAREOFFLOW = 6;
 
   /**
    * The feature id for the '<em><b>Alternativeflows</b></em>' containment reference list.
@@ -119,7 +137,7 @@ public interface UseCaseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE__ALTERNATIVEFLOWS = 5;
+  int USE_CASE__ALTERNATIVEFLOWS = 7;
 
   /**
    * The number of structural features of the '<em>Use Case</em>' class.
@@ -128,7 +146,7 @@ public interface UseCaseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USE_CASE_FEATURE_COUNT = 6;
+  int USE_CASE_FEATURE_COUNT = 8;
 
   /**
    * The meta object id for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.ExtensionImpl <em>Extension</em>}' class.
@@ -223,22 +241,13 @@ public interface UseCaseDslPackage extends EPackage
   int STEP__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Sentence</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STEP__SENTENCE = 1;
-
-  /**
    * The number of structural features of the '<em>Step</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STEP_FEATURE_COUNT = 2;
+  int STEP_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseStepImpl <em>Use Case Step</em>}' class.
@@ -258,15 +267,6 @@ public interface UseCaseDslPackage extends EPackage
    * @ordered
    */
   int USE_CASE_STEP__NAME = STEP__NAME;
-
-  /**
-   * The feature id for the '<em><b>Sentence</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int USE_CASE_STEP__SENTENCE = STEP__SENTENCE;
 
   /**
    * The number of structural features of the '<em>Use Case Step</em>' class.
@@ -303,7 +303,7 @@ public interface UseCaseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXTENSION_STEP__SENTENCE = STEP__SENTENCE;
+  int EXTENSION_STEP__SENTENCE = STEP_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Extension Step</em>' class.
@@ -312,7 +312,7 @@ public interface UseCaseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXTENSION_STEP_FEATURE_COUNT = STEP_FEATURE_COUNT + 0;
+  int EXTENSION_STEP_FEATURE_COUNT = STEP_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.DeadEndStepImpl <em>Dead End Step</em>}' class.
@@ -325,13 +325,87 @@ public interface UseCaseDslPackage extends EPackage
   int DEAD_END_STEP = 5;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEAD_END_STEP__NAME = EXTENSION_STEP__NAME;
+
+  /**
+   * The feature id for the '<em><b>Sentence</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEAD_END_STEP__SENTENCE = EXTENSION_STEP__SENTENCE;
+
+  /**
    * The number of structural features of the '<em>Dead End Step</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEAD_END_STEP_FEATURE_COUNT = 0;
+  int DEAD_END_STEP_FEATURE_COUNT = EXTENSION_STEP_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.PreconditionImpl <em>Precondition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.impl.PreconditionImpl
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseDslPackageImpl#getPrecondition()
+   * @generated
+   */
+  int PRECONDITION = 6;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRECONDITION__CONDITION = 0;
+
+  /**
+   * The number of structural features of the '<em>Precondition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRECONDITION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.PostconditionImpl <em>Postcondition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.impl.PostconditionImpl
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseDslPackageImpl#getPostcondition()
+   * @generated
+   */
+  int POSTCONDITION = 7;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTCONDITION__CONDITION = 0;
+
+  /**
+   * The number of structural features of the '<em>Postcondition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int POSTCONDITION_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UserStepImpl <em>User Step</em>}' class.
@@ -341,7 +415,7 @@ public interface UseCaseDslPackage extends EPackage
    * @see useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseDslPackageImpl#getUserStep()
    * @generated
    */
-  int USER_STEP = 6;
+  int USER_STEP = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -359,7 +433,7 @@ public interface UseCaseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USER_STEP__SENTENCE = USE_CASE_STEP__SENTENCE;
+  int USER_STEP__SENTENCE = USE_CASE_STEP_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>User Step</em>' class.
@@ -368,7 +442,7 @@ public interface UseCaseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int USER_STEP_FEATURE_COUNT = USE_CASE_STEP_FEATURE_COUNT + 0;
+  int USER_STEP_FEATURE_COUNT = USE_CASE_STEP_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.SystemStepImpl <em>System Step</em>}' class.
@@ -378,7 +452,7 @@ public interface UseCaseDslPackage extends EPackage
    * @see useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseDslPackageImpl#getSystemStep()
    * @generated
    */
-  int SYSTEM_STEP = 7;
+  int SYSTEM_STEP = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -396,7 +470,7 @@ public interface UseCaseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SYSTEM_STEP__SENTENCE = USE_CASE_STEP__SENTENCE;
+  int SYSTEM_STEP__SENTENCE = USE_CASE_STEP_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>System Step</em>' class.
@@ -405,7 +479,44 @@ public interface UseCaseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SYSTEM_STEP_FEATURE_COUNT = USE_CASE_STEP_FEATURE_COUNT + 0;
+  int SYSTEM_STEP_FEATURE_COUNT = USE_CASE_STEP_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.RepeatingStepImpl <em>Repeating Step</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.impl.RepeatingStepImpl
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseDslPackageImpl#getRepeatingStep()
+   * @generated
+   */
+  int REPEATING_STEP = 10;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPEATING_STEP__NAME = USE_CASE_STEP__NAME;
+
+  /**
+   * The feature id for the '<em><b>Repeating Condition</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPEATING_STEP__REPEATING_CONDITION = USE_CASE_STEP_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Repeating Step</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPEATING_STEP_FEATURE_COUNT = USE_CASE_STEP_FEATURE_COUNT + 1;
 
 
   /**
@@ -439,6 +550,28 @@ public interface UseCaseDslPackage extends EPackage
    * @generated
    */
   EAttribute getUseCase_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getPrecondition <em>Precondition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Precondition</em>'.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getPrecondition()
+   * @see #getUseCase()
+   * @generated
+   */
+  EReference getUseCase_Precondition();
+
+  /**
+   * Returns the meta object for the containment reference '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getPostcondition <em>Postcondition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Postcondition</em>'.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getPostcondition()
+   * @see #getUseCase()
+   * @generated
+   */
+  EReference getUseCase_Postcondition();
 
   /**
    * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getMainflow <em>Mainflow</em>}'.
@@ -582,17 +715,6 @@ public interface UseCaseDslPackage extends EPackage
   EAttribute getStep_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getSentence <em>Sentence</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Sentence</em>'.
-   * @see useCase.xtext.useCaseDsl.useCaseDsl.Step#getSentence()
-   * @see #getStep()
-   * @generated
-   */
-  EAttribute getStep_Sentence();
-
-  /**
    * Returns the meta object for class '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep <em>Use Case Step</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -613,6 +735,17 @@ public interface UseCaseDslPackage extends EPackage
   EClass getExtensionStep();
 
   /**
+   * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.ExtensionStep#getSentence <em>Sentence</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Sentence</em>'.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.ExtensionStep#getSentence()
+   * @see #getExtensionStep()
+   * @generated
+   */
+  EAttribute getExtensionStep_Sentence();
+
+  /**
    * Returns the meta object for class '{@link useCase.xtext.useCaseDsl.useCaseDsl.DeadEndStep <em>Dead End Step</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -621,6 +754,48 @@ public interface UseCaseDslPackage extends EPackage
    * @generated
    */
   EClass getDeadEndStep();
+
+  /**
+   * Returns the meta object for class '{@link useCase.xtext.useCaseDsl.useCaseDsl.Precondition <em>Precondition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Precondition</em>'.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.Precondition
+   * @generated
+   */
+  EClass getPrecondition();
+
+  /**
+   * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.Precondition#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Condition</em>'.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.Precondition#getCondition()
+   * @see #getPrecondition()
+   * @generated
+   */
+  EAttribute getPrecondition_Condition();
+
+  /**
+   * Returns the meta object for class '{@link useCase.xtext.useCaseDsl.useCaseDsl.Postcondition <em>Postcondition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Postcondition</em>'.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.Postcondition
+   * @generated
+   */
+  EClass getPostcondition();
+
+  /**
+   * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.Postcondition#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Condition</em>'.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.Postcondition#getCondition()
+   * @see #getPostcondition()
+   * @generated
+   */
+  EAttribute getPostcondition_Condition();
 
   /**
    * Returns the meta object for class '{@link useCase.xtext.useCaseDsl.useCaseDsl.UserStep <em>User Step</em>}'.
@@ -633,6 +808,17 @@ public interface UseCaseDslPackage extends EPackage
   EClass getUserStep();
 
   /**
+   * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.UserStep#getSentence <em>Sentence</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Sentence</em>'.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UserStep#getSentence()
+   * @see #getUserStep()
+   * @generated
+   */
+  EAttribute getUserStep_Sentence();
+
+  /**
    * Returns the meta object for class '{@link useCase.xtext.useCaseDsl.useCaseDsl.SystemStep <em>System Step</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -641,6 +827,38 @@ public interface UseCaseDslPackage extends EPackage
    * @generated
    */
   EClass getSystemStep();
+
+  /**
+   * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.SystemStep#getSentence <em>Sentence</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Sentence</em>'.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.SystemStep#getSentence()
+   * @see #getSystemStep()
+   * @generated
+   */
+  EAttribute getSystemStep_Sentence();
+
+  /**
+   * Returns the meta object for class '{@link useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep <em>Repeating Step</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Repeating Step</em>'.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep
+   * @generated
+   */
+  EClass getRepeatingStep();
+
+  /**
+   * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep#getRepeatingCondition <em>Repeating Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Repeating Condition</em>'.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep#getRepeatingCondition()
+   * @see #getRepeatingStep()
+   * @generated
+   */
+  EAttribute getRepeatingStep_RepeatingCondition();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -690,6 +908,22 @@ public interface UseCaseDslPackage extends EPackage
      * @generated
      */
     EAttribute USE_CASE__NAME = eINSTANCE.getUseCase_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Precondition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USE_CASE__PRECONDITION = eINSTANCE.getUseCase_Precondition();
+
+    /**
+     * The meta object literal for the '<em><b>Postcondition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference USE_CASE__POSTCONDITION = eINSTANCE.getUseCase_Postcondition();
 
     /**
      * The meta object literal for the '<em><b>Mainflow</b></em>' attribute feature.
@@ -800,14 +1034,6 @@ public interface UseCaseDslPackage extends EPackage
     EAttribute STEP__NAME = eINSTANCE.getStep_Name();
 
     /**
-     * The meta object literal for the '<em><b>Sentence</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute STEP__SENTENCE = eINSTANCE.getStep_Sentence();
-
-    /**
      * The meta object literal for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseStepImpl <em>Use Case Step</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -828,6 +1054,14 @@ public interface UseCaseDslPackage extends EPackage
     EClass EXTENSION_STEP = eINSTANCE.getExtensionStep();
 
     /**
+     * The meta object literal for the '<em><b>Sentence</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXTENSION_STEP__SENTENCE = eINSTANCE.getExtensionStep_Sentence();
+
+    /**
      * The meta object literal for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.DeadEndStepImpl <em>Dead End Step</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -836,6 +1070,42 @@ public interface UseCaseDslPackage extends EPackage
      * @generated
      */
     EClass DEAD_END_STEP = eINSTANCE.getDeadEndStep();
+
+    /**
+     * The meta object literal for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.PreconditionImpl <em>Precondition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see useCase.xtext.useCaseDsl.useCaseDsl.impl.PreconditionImpl
+     * @see useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseDslPackageImpl#getPrecondition()
+     * @generated
+     */
+    EClass PRECONDITION = eINSTANCE.getPrecondition();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRECONDITION__CONDITION = eINSTANCE.getPrecondition_Condition();
+
+    /**
+     * The meta object literal for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.PostconditionImpl <em>Postcondition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see useCase.xtext.useCaseDsl.useCaseDsl.impl.PostconditionImpl
+     * @see useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseDslPackageImpl#getPostcondition()
+     * @generated
+     */
+    EClass POSTCONDITION = eINSTANCE.getPostcondition();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute POSTCONDITION__CONDITION = eINSTANCE.getPostcondition_Condition();
 
     /**
      * The meta object literal for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UserStepImpl <em>User Step</em>}' class.
@@ -848,6 +1118,14 @@ public interface UseCaseDslPackage extends EPackage
     EClass USER_STEP = eINSTANCE.getUserStep();
 
     /**
+     * The meta object literal for the '<em><b>Sentence</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute USER_STEP__SENTENCE = eINSTANCE.getUserStep_Sentence();
+
+    /**
      * The meta object literal for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.SystemStepImpl <em>System Step</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -856,6 +1134,32 @@ public interface UseCaseDslPackage extends EPackage
      * @generated
      */
     EClass SYSTEM_STEP = eINSTANCE.getSystemStep();
+
+    /**
+     * The meta object literal for the '<em><b>Sentence</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SYSTEM_STEP__SENTENCE = eINSTANCE.getSystemStep_Sentence();
+
+    /**
+     * The meta object literal for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.RepeatingStepImpl <em>Repeating Step</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see useCase.xtext.useCaseDsl.useCaseDsl.impl.RepeatingStepImpl
+     * @see useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseDslPackageImpl#getRepeatingStep()
+     * @generated
+     */
+    EClass REPEATING_STEP = eINSTANCE.getRepeatingStep();
+
+    /**
+     * The meta object literal for the '<em><b>Repeating Condition</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REPEATING_STEP__REPEATING_CONDITION = eINSTANCE.getRepeatingStep_RepeatingCondition();
 
   }
 

@@ -15,8 +15,12 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import useCase.xtext.useCaseDsl.services.UseCaseDslGrammarAccess;
+import useCase.xtext.useCaseDsl.useCaseDsl.DeadEndStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.Extension;
 import useCase.xtext.useCaseDsl.useCaseDsl.ExtensionStep;
+import useCase.xtext.useCaseDsl.useCaseDsl.Postcondition;
+import useCase.xtext.useCaseDsl.useCaseDsl.Precondition;
+import useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.SystemStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCase;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
@@ -36,11 +40,23 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == UseCaseDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case UseCaseDslPackage.DEAD_END_STEP:
+				sequence_DeadEndStep(context, (DeadEndStep) semanticObject); 
+				return; 
 			case UseCaseDslPackage.EXTENSION:
 				sequence_Extension(context, (Extension) semanticObject); 
 				return; 
 			case UseCaseDslPackage.EXTENSION_STEP:
 				sequence_ExtensionStep(context, (ExtensionStep) semanticObject); 
+				return; 
+			case UseCaseDslPackage.POSTCONDITION:
+				sequence_Postcondition(context, (Postcondition) semanticObject); 
+				return; 
+			case UseCaseDslPackage.PRECONDITION:
+				sequence_Precondition(context, (Precondition) semanticObject); 
+				return; 
+			case UseCaseDslPackage.REPEATING_STEP:
+				sequence_UseCaseStep(context, (RepeatingStep) semanticObject); 
 				return; 
 			case UseCaseDslPackage.SYSTEM_STEP:
 				sequence_UseCaseStep(context, (SystemStep) semanticObject); 
@@ -58,9 +74,22 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     Step returns DeadEndStep
+	 *     ExtensionStep returns DeadEndStep
+	 *     DeadEndStep returns DeadEndStep
+	 *
+	 * Constraint:
+	 *     (name=INT sentence=LongName?)
+	 */
+	protected void sequence_DeadEndStep(ISerializationContext context, DeadEndStep semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Step returns ExtensionStep
 	 *     ExtensionStep returns ExtensionStep
-	 *     DeadEndStep returns ExtensionStep
 	 *
 	 * Constraint:
 	 *     (name=INT sentence=LongName)
@@ -69,12 +98,12 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, UseCaseDslPackage.Literals.STEP__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.STEP__NAME));
-			if (transientValues.isValueTransient(semanticObject, UseCaseDslPackage.Literals.STEP__SENTENCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.STEP__SENTENCE));
+			if (transientValues.isValueTransient(semanticObject, UseCaseDslPackage.Literals.EXTENSION_STEP__SENTENCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.EXTENSION_STEP__SENTENCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExtensionStepAccess().getNameINTTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getExtensionStepAccess().getSentenceLongNameParserRuleCall_3_0(), semanticObject.getSentence());
+		feeder.accept(grammarAccess.getExtensionStepAccess().getNameINTTerminalRuleCall_0_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getExtensionStepAccess().getSentenceLongNameParserRuleCall_0_3_0(), semanticObject.getSentence());
 		feeder.finish();
 	}
 	
@@ -93,6 +122,64 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     Postcondition returns Postcondition
+	 *
+	 * Constraint:
+	 *     condition=Condition
+	 */
+	protected void sequence_Postcondition(ISerializationContext context, Postcondition semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UseCaseDslPackage.Literals.POSTCONDITION__CONDITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.POSTCONDITION__CONDITION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPostconditionAccess().getConditionConditionParserRuleCall_2_0(), semanticObject.getCondition());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Precondition returns Precondition
+	 *
+	 * Constraint:
+	 *     condition=Condition
+	 */
+	protected void sequence_Precondition(ISerializationContext context, Precondition semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UseCaseDslPackage.Literals.PRECONDITION__CONDITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.PRECONDITION__CONDITION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPreconditionAccess().getConditionConditionParserRuleCall_2_0(), semanticObject.getCondition());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Step returns RepeatingStep
+	 *     UseCaseStep returns RepeatingStep
+	 *
+	 * Constraint:
+	 *     (name=INT repeatingCondition=Condition)
+	 */
+	protected void sequence_UseCaseStep(ISerializationContext context, RepeatingStep semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UseCaseDslPackage.Literals.STEP__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.STEP__NAME));
+			if (transientValues.isValueTransient(semanticObject, UseCaseDslPackage.Literals.REPEATING_STEP__REPEATING_CONDITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.REPEATING_STEP__REPEATING_CONDITION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getUseCaseStepAccess().getNameINTTerminalRuleCall_2_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getUseCaseStepAccess().getRepeatingConditionConditionParserRuleCall_2_4_0(), semanticObject.getRepeatingCondition());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Step returns SystemStep
 	 *     UseCaseStep returns SystemStep
 	 *
@@ -103,8 +190,8 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, UseCaseDslPackage.Literals.STEP__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.STEP__NAME));
-			if (transientValues.isValueTransient(semanticObject, UseCaseDslPackage.Literals.STEP__SENTENCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.STEP__SENTENCE));
+			if (transientValues.isValueTransient(semanticObject, UseCaseDslPackage.Literals.SYSTEM_STEP__SENTENCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.SYSTEM_STEP__SENTENCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getUseCaseStepAccess().getNameINTTerminalRuleCall_1_1_0(), semanticObject.getName());
@@ -125,8 +212,8 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, UseCaseDslPackage.Literals.STEP__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.STEP__NAME));
-			if (transientValues.isValueTransient(semanticObject, UseCaseDslPackage.Literals.STEP__SENTENCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.STEP__SENTENCE));
+			if (transientValues.isValueTransient(semanticObject, UseCaseDslPackage.Literals.USER_STEP__SENTENCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.USER_STEP__SENTENCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getUseCaseStepAccess().getNameINTTerminalRuleCall_0_1_0(), semanticObject.getName());
@@ -140,7 +227,15 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     UseCase returns UseCase
 	 *
 	 * Constraint:
-	 *     (number=INT name=LongName mainflow='MainFlow' steps+=UseCaseStep+ (declareofflow='AlternativeFlow' alternativeflows+=Extension+)?)
+	 *     (
+	 *         number=INT 
+	 *         name=LongName 
+	 *         precondition=Precondition? 
+	 *         postcondition=Postcondition? 
+	 *         mainflow='MAINFLOW' 
+	 *         steps+=UseCaseStep+ 
+	 *         (declareofflow='ALTERNATIVEFLOW' alternativeflows+=Extension+)?
+	 *     )
 	 */
 	protected void sequence_UseCase(ISerializationContext context, UseCase semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

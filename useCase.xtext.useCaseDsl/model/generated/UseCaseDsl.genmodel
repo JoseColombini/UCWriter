@@ -9,6 +9,8 @@
     <genClasses ecoreClass="UseCaseDsl.ecore#//UseCase">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//UseCase/number"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//UseCase/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCaseDsl.ecore#//UseCase/precondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCaseDsl.ecore#//UseCase/postcondition"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//UseCase/mainflow"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCaseDsl.ecore#//UseCase/steps"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//UseCase/declareofflow"/>
@@ -24,12 +26,26 @@
     </genClasses>
     <genClasses ecoreClass="UseCaseDsl.ecore#//Step">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//Step/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//Step/sentence"/>
     </genClasses>
     <genClasses ecoreClass="UseCaseDsl.ecore#//UseCaseStep"/>
-    <genClasses ecoreClass="UseCaseDsl.ecore#//ExtensionStep"/>
+    <genClasses ecoreClass="UseCaseDsl.ecore#//ExtensionStep">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//ExtensionStep/sentence"/>
+    </genClasses>
     <genClasses ecoreClass="UseCaseDsl.ecore#//DeadEndStep"/>
-    <genClasses ecoreClass="UseCaseDsl.ecore#//UserStep"/>
-    <genClasses ecoreClass="UseCaseDsl.ecore#//SystemStep"/>
+    <genClasses ecoreClass="UseCaseDsl.ecore#//Precondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//Precondition/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCaseDsl.ecore#//Postcondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//Postcondition/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCaseDsl.ecore#//UserStep">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//UserStep/sentence"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCaseDsl.ecore#//SystemStep">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//SystemStep/sentence"/>
+    </genClasses>
+    <genClasses ecoreClass="UseCaseDsl.ecore#//RepeatingStep">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//RepeatingStep/repeatingCondition"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

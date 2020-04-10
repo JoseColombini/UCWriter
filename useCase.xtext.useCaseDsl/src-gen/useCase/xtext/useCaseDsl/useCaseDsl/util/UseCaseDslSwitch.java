@@ -107,7 +107,6 @@ public class UseCaseDslSwitch<T> extends Switch<T>
         ExtensionStep extensionStep = (ExtensionStep)theEObject;
         T result = caseExtensionStep(extensionStep);
         if (result == null) result = caseStep(extensionStep);
-        if (result == null) result = caseDeadEndStep(extensionStep);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -115,6 +114,22 @@ public class UseCaseDslSwitch<T> extends Switch<T>
       {
         DeadEndStep deadEndStep = (DeadEndStep)theEObject;
         T result = caseDeadEndStep(deadEndStep);
+        if (result == null) result = caseExtensionStep(deadEndStep);
+        if (result == null) result = caseStep(deadEndStep);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCaseDslPackage.PRECONDITION:
+      {
+        Precondition precondition = (Precondition)theEObject;
+        T result = casePrecondition(precondition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCaseDslPackage.POSTCONDITION:
+      {
+        Postcondition postcondition = (Postcondition)theEObject;
+        T result = casePostcondition(postcondition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -133,6 +148,15 @@ public class UseCaseDslSwitch<T> extends Switch<T>
         T result = caseSystemStep(systemStep);
         if (result == null) result = caseUseCaseStep(systemStep);
         if (result == null) result = caseStep(systemStep);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UseCaseDslPackage.REPEATING_STEP:
+      {
+        RepeatingStep repeatingStep = (RepeatingStep)theEObject;
+        T result = caseRepeatingStep(repeatingStep);
+        if (result == null) result = caseUseCaseStep(repeatingStep);
+        if (result == null) result = caseStep(repeatingStep);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -237,6 +261,38 @@ public class UseCaseDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Precondition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Precondition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePrecondition(Precondition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Postcondition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Postcondition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePostcondition(Postcondition object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>User Step</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -264,6 +320,22 @@ public class UseCaseDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseSystemStep(SystemStep object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Repeating Step</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Repeating Step</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRepeatingStep(RepeatingStep object)
   {
     return null;
   }

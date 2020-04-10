@@ -3,7 +3,6 @@
  */
 package useCase.xtext.useCaseDsl.useCaseDsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,6 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface DeadEndStep extends EObject
+public interface DeadEndStep extends ExtensionStep
 {
 } // DeadEndStep

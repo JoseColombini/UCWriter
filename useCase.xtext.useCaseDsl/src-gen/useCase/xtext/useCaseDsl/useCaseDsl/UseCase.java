@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getNumber <em>Number</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getName <em>Name</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getPrecondition <em>Precondition</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getPostcondition <em>Postcondition</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getMainflow <em>Mainflow</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getSteps <em>Steps</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getDeclareofflow <em>Declareofflow</em>}</li>
@@ -73,6 +75,50 @@ public interface UseCase extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Precondition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Precondition</em>' containment reference.
+   * @see #setPrecondition(Precondition)
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCase_Precondition()
+   * @model containment="true"
+   * @generated
+   */
+  Precondition getPrecondition();
+
+  /**
+   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getPrecondition <em>Precondition</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Precondition</em>' containment reference.
+   * @see #getPrecondition()
+   * @generated
+   */
+  void setPrecondition(Precondition value);
+
+  /**
+   * Returns the value of the '<em><b>Postcondition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Postcondition</em>' containment reference.
+   * @see #setPostcondition(Postcondition)
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCase_Postcondition()
+   * @model containment="true"
+   * @generated
+   */
+  Postcondition getPostcondition();
+
+  /**
+   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getPostcondition <em>Postcondition</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Postcondition</em>' containment reference.
+   * @see #getPostcondition()
+   * @generated
+   */
+  void setPostcondition(Postcondition value);
 
   /**
    * Returns the value of the '<em><b>Mainflow</b></em>' attribute.

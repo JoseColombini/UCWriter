@@ -5,8 +5,6 @@ package useCase.xtext.useCaseDsl.useCaseDsl.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import useCase.xtext.useCaseDsl.useCaseDsl.DeadEndStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
 
@@ -17,7 +15,7 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
  *
  * @generated
  */
-public class DeadEndStepImpl extends MinimalEObjectImpl.Container implements DeadEndStep
+public class DeadEndStepImpl extends ExtensionStepImpl implements DeadEndStep
 {
   /**
    * <!-- begin-user-doc -->

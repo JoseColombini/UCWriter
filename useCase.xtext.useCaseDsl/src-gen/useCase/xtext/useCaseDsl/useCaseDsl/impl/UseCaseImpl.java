@@ -20,6 +20,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import useCase.xtext.useCaseDsl.useCaseDsl.Extension;
+import useCase.xtext.useCaseDsl.useCaseDsl.Postcondition;
+import useCase.xtext.useCaseDsl.useCaseDsl.Precondition;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCase;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
@@ -34,6 +36,8 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
  * <ul>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getName <em>Name</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getPrecondition <em>Precondition</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getPostcondition <em>Postcondition</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getMainflow <em>Mainflow</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getSteps <em>Steps</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getDeclareofflow <em>Declareofflow</em>}</li>
@@ -83,6 +87,26 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getPrecondition() <em>Precondition</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPrecondition()
+   * @generated
+   * @ordered
+   */
+  protected Precondition precondition;
+
+  /**
+   * The cached value of the '{@link #getPostcondition() <em>Postcondition</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPostcondition()
+   * @generated
+   * @ordered
+   */
+  protected Postcondition postcondition;
 
   /**
    * The default value of the '{@link #getMainflow() <em>Mainflow</em>}' attribute.
@@ -221,6 +245,106 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * @generated
    */
   @Override
+  public Precondition getPrecondition()
+  {
+    return precondition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPrecondition(Precondition newPrecondition, NotificationChain msgs)
+  {
+    Precondition oldPrecondition = precondition;
+    precondition = newPrecondition;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.USE_CASE__PRECONDITION, oldPrecondition, newPrecondition);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setPrecondition(Precondition newPrecondition)
+  {
+    if (newPrecondition != precondition)
+    {
+      NotificationChain msgs = null;
+      if (precondition != null)
+        msgs = ((InternalEObject)precondition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UseCaseDslPackage.USE_CASE__PRECONDITION, null, msgs);
+      if (newPrecondition != null)
+        msgs = ((InternalEObject)newPrecondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UseCaseDslPackage.USE_CASE__PRECONDITION, null, msgs);
+      msgs = basicSetPrecondition(newPrecondition, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.USE_CASE__PRECONDITION, newPrecondition, newPrecondition));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Postcondition getPostcondition()
+  {
+    return postcondition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetPostcondition(Postcondition newPostcondition, NotificationChain msgs)
+  {
+    Postcondition oldPostcondition = postcondition;
+    postcondition = newPostcondition;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.USE_CASE__POSTCONDITION, oldPostcondition, newPostcondition);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setPostcondition(Postcondition newPostcondition)
+  {
+    if (newPostcondition != postcondition)
+    {
+      NotificationChain msgs = null;
+      if (postcondition != null)
+        msgs = ((InternalEObject)postcondition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UseCaseDslPackage.USE_CASE__POSTCONDITION, null, msgs);
+      if (newPostcondition != null)
+        msgs = ((InternalEObject)newPostcondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UseCaseDslPackage.USE_CASE__POSTCONDITION, null, msgs);
+      msgs = basicSetPostcondition(newPostcondition, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.USE_CASE__POSTCONDITION, newPostcondition, newPostcondition));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public String getMainflow()
   {
     return mainflow;
@@ -305,6 +429,10 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   {
     switch (featureID)
     {
+      case UseCaseDslPackage.USE_CASE__PRECONDITION:
+        return basicSetPrecondition(null, msgs);
+      case UseCaseDslPackage.USE_CASE__POSTCONDITION:
+        return basicSetPostcondition(null, msgs);
       case UseCaseDslPackage.USE_CASE__STEPS:
         return ((InternalEList<?>)getSteps()).basicRemove(otherEnd, msgs);
       case UseCaseDslPackage.USE_CASE__ALTERNATIVEFLOWS:
@@ -327,6 +455,10 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return getNumber();
       case UseCaseDslPackage.USE_CASE__NAME:
         return getName();
+      case UseCaseDslPackage.USE_CASE__PRECONDITION:
+        return getPrecondition();
+      case UseCaseDslPackage.USE_CASE__POSTCONDITION:
+        return getPostcondition();
       case UseCaseDslPackage.USE_CASE__MAINFLOW:
         return getMainflow();
       case UseCaseDslPackage.USE_CASE__STEPS:
@@ -355,6 +487,12 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return;
       case UseCaseDslPackage.USE_CASE__NAME:
         setName((String)newValue);
+        return;
+      case UseCaseDslPackage.USE_CASE__PRECONDITION:
+        setPrecondition((Precondition)newValue);
+        return;
+      case UseCaseDslPackage.USE_CASE__POSTCONDITION:
+        setPostcondition((Postcondition)newValue);
         return;
       case UseCaseDslPackage.USE_CASE__MAINFLOW:
         setMainflow((String)newValue);
@@ -390,6 +528,12 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case UseCaseDslPackage.USE_CASE__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case UseCaseDslPackage.USE_CASE__PRECONDITION:
+        setPrecondition((Precondition)null);
+        return;
+      case UseCaseDslPackage.USE_CASE__POSTCONDITION:
+        setPostcondition((Postcondition)null);
+        return;
       case UseCaseDslPackage.USE_CASE__MAINFLOW:
         setMainflow(MAINFLOW_EDEFAULT);
         return;
@@ -420,6 +564,10 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return number != NUMBER_EDEFAULT;
       case UseCaseDslPackage.USE_CASE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case UseCaseDslPackage.USE_CASE__PRECONDITION:
+        return precondition != null;
+      case UseCaseDslPackage.USE_CASE__POSTCONDITION:
+        return postcondition != null;
       case UseCaseDslPackage.USE_CASE__MAINFLOW:
         return MAINFLOW_EDEFAULT == null ? mainflow != null : !MAINFLOW_EDEFAULT.equals(mainflow);
       case UseCaseDslPackage.USE_CASE__STEPS:

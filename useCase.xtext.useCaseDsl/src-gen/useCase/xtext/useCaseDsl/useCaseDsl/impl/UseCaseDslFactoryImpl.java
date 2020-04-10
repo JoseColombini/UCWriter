@@ -71,8 +71,11 @@ public class UseCaseDslFactoryImpl extends EFactoryImpl implements UseCaseDslFac
       case UseCaseDslPackage.USE_CASE_STEP: return createUseCaseStep();
       case UseCaseDslPackage.EXTENSION_STEP: return createExtensionStep();
       case UseCaseDslPackage.DEAD_END_STEP: return createDeadEndStep();
+      case UseCaseDslPackage.PRECONDITION: return createPrecondition();
+      case UseCaseDslPackage.POSTCONDITION: return createPostcondition();
       case UseCaseDslPackage.USER_STEP: return createUserStep();
       case UseCaseDslPackage.SYSTEM_STEP: return createSystemStep();
+      case UseCaseDslPackage.REPEATING_STEP: return createRepeatingStep();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -156,6 +159,30 @@ public class UseCaseDslFactoryImpl extends EFactoryImpl implements UseCaseDslFac
    * @generated
    */
   @Override
+  public Precondition createPrecondition()
+  {
+    PreconditionImpl precondition = new PreconditionImpl();
+    return precondition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Postcondition createPostcondition()
+  {
+    PostconditionImpl postcondition = new PostconditionImpl();
+    return postcondition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public UserStep createUserStep()
   {
     UserStepImpl userStep = new UserStepImpl();
@@ -172,6 +199,18 @@ public class UseCaseDslFactoryImpl extends EFactoryImpl implements UseCaseDslFac
   {
     SystemStepImpl systemStep = new SystemStepImpl();
     return systemStep;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RepeatingStep createRepeatingStep()
+  {
+    RepeatingStepImpl repeatingStep = new RepeatingStepImpl();
+    return repeatingStep;
   }
 
   /**

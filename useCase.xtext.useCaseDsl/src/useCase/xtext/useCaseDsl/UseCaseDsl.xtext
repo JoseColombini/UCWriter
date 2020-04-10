@@ -6,14 +6,14 @@ generate useCaseDsl "http://www.xtext.useCase/useCaseDsl/UseCaseDsl"
 UseCase hidden(WS):
 	'UC' number = INT ':' (name = LongName)
 	
-	(precondition = Precondition)
-	(postcondition = Postcondition)
+	(precondition = Precondition)?
+	(postcondition = Postcondition)?
 	 
-	(mainflow = 'MainFlow')':'
+	(mainflow = 'MAINFLOW')':'
 	BEGIN
 		(steps += UseCaseStep)+
 	END
-	((declareofflow = 'AlternativeFlow')':'
+	((declareofflow = 'ALTERNATIVEFLOW')':'
 	BEGIN
 		(alternativeflows += Extension)+
 	END)?;
@@ -26,7 +26,6 @@ Extension:
 		(INT '.' 'RETURN' 'TO' (resumeAt = INT)|end = DeadEndStep)
 	END;
 
-
 //Steps
 Step:
 	UseCaseStep|ExtensionStep;
@@ -38,17 +37,18 @@ UseCaseStep:
 
 //I dont know how to use this shit
 ExtensionStep:
-	(name = INT) '.' ('USER'|'SYSTEM'|'WHILE')? (sentence = LongName);
+	(name = INT) '.' ('USER'|'SYSTEM'|'WHILE')? (sentence = LongName)|
+	DeadEndStep;
 
 DeadEndStep:
-	ExtensionStep 'UC' 'END';
+	(name = INT) '.' ('USER'|'SYSTEM'|'WHILE')? (sentence = LongName)? 'UC' 'END';
 
 //Conditions
 Precondition:
-	'Precondition'':' (condition = Condition);
+	'PRECONDITION'':' (condition = Condition);
 	
 Postcondition:
-	'Postcondition'':' (condition = Condition);
+	'POSTCONDITION'':' (condition = Condition);
 /**********************	}
 ******* DataTypes *****
 ***********************/
