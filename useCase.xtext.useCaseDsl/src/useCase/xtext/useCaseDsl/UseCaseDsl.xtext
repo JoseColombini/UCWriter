@@ -4,10 +4,10 @@ generate useCaseDsl "http://www.xtext.useCase/useCaseDsl/UseCaseDsl"
 
 //Use case structure
 UseCase:
-	'UC' number = INT ':' (name = LongName)
+	'UC' number = INT ':' (name = LongName) NL
 	
-	(precondition = Precondition)?
-	(postcondition = Postcondition)?
+	(precondition = Precondition NL)?
+	(postcondition = Postcondition NL)?
 	 
 	(mainflow = 'MAINFLOW')':'
 	BEGIN
@@ -78,6 +78,8 @@ terminal SP:
 terminal BEGIN: 'synthetic:BEGIN';  // increase indentation
 terminal END: 'synthetic:END';      // decrease indentation
 
+terminal NL:
+	(' ')*('\r')?('\n');
 
 /***********************************
  ********* Codes that I don't want to discard*****

@@ -114,72 +114,88 @@ ruleUseCase returns [EObject current=null]
 				}
 			)
 		)
+		this_NL_4=RULE_NL
+		{
+			newLeafNode(this_NL_4, grammarAccess.getUseCaseAccess().getNLTerminalRuleCall_4());
+		}
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getUseCaseAccess().getPreconditionPreconditionParserRuleCall_4_0());
-				}
-				lv_precondition_4_0=rulePrecondition
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getUseCaseAccess().getPreconditionPreconditionParserRuleCall_5_0_0());
 					}
-					set(
-						$current,
-						"precondition",
-						lv_precondition_4_0,
-						"useCase.xtext.useCaseDsl.UseCaseDsl.Precondition");
-					afterParserOrEnumRuleCall();
-				}
+					lv_precondition_5_0=rulePrecondition
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getUseCaseRule());
+						}
+						set(
+							$current,
+							"precondition",
+							lv_precondition_5_0,
+							"useCase.xtext.useCaseDsl.UseCaseDsl.Precondition");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
+			this_NL_6=RULE_NL
+			{
+				newLeafNode(this_NL_6, grammarAccess.getUseCaseAccess().getNLTerminalRuleCall_5_1());
+			}
 		)?
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getUseCaseAccess().getPostconditionPostconditionParserRuleCall_5_0());
-				}
-				lv_postcondition_5_0=rulePostcondition
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getUseCaseAccess().getPostconditionPostconditionParserRuleCall_6_0_0());
 					}
-					set(
-						$current,
-						"postcondition",
-						lv_postcondition_5_0,
-						"useCase.xtext.useCaseDsl.UseCaseDsl.Postcondition");
-					afterParserOrEnumRuleCall();
-				}
+					lv_postcondition_7_0=rulePostcondition
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getUseCaseRule());
+						}
+						set(
+							$current,
+							"postcondition",
+							lv_postcondition_7_0,
+							"useCase.xtext.useCaseDsl.UseCaseDsl.Postcondition");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
+			this_NL_8=RULE_NL
+			{
+				newLeafNode(this_NL_8, grammarAccess.getUseCaseAccess().getNLTerminalRuleCall_6_1());
+			}
 		)?
 		(
 			(
-				lv_mainflow_6_0=MAINFLOW
+				lv_mainflow_9_0=MAINFLOW
 				{
-					newLeafNode(lv_mainflow_6_0, grammarAccess.getUseCaseAccess().getMainflowMAINFLOWKeyword_6_0());
+					newLeafNode(lv_mainflow_9_0, grammarAccess.getUseCaseAccess().getMainflowMAINFLOWKeyword_7_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getUseCaseRule());
 					}
-					setWithLastConsumed($current, "mainflow", lv_mainflow_6_0, "MAINFLOW");
+					setWithLastConsumed($current, "mainflow", lv_mainflow_9_0, "MAINFLOW");
 				}
 			)
 		)
-		otherlv_7=Colon
+		otherlv_10=Colon
 		{
-			newLeafNode(otherlv_7, grammarAccess.getUseCaseAccess().getColonKeyword_7());
+			newLeafNode(otherlv_10, grammarAccess.getUseCaseAccess().getColonKeyword_8());
 		}
-		this_BEGIN_8=RULE_BEGIN
+		this_BEGIN_11=RULE_BEGIN
 		{
-			newLeafNode(this_BEGIN_8, grammarAccess.getUseCaseAccess().getBEGINTerminalRuleCall_8());
+			newLeafNode(this_BEGIN_11, grammarAccess.getUseCaseAccess().getBEGINTerminalRuleCall_9());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getUseCaseAccess().getStepsUseCaseStepParserRuleCall_9_0());
+					newCompositeNode(grammarAccess.getUseCaseAccess().getStepsUseCaseStepParserRuleCall_10_0());
 				}
-				lv_steps_9_0=ruleUseCaseStep
+				lv_steps_12_0=ruleUseCaseStep
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
@@ -187,45 +203,45 @@ ruleUseCase returns [EObject current=null]
 					add(
 						$current,
 						"steps",
-						lv_steps_9_0,
+						lv_steps_12_0,
 						"useCase.xtext.useCaseDsl.UseCaseDsl.UseCaseStep");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)+
-		this_END_10=RULE_END
+		this_END_13=RULE_END
 		{
-			newLeafNode(this_END_10, grammarAccess.getUseCaseAccess().getENDTerminalRuleCall_10());
+			newLeafNode(this_END_13, grammarAccess.getUseCaseAccess().getENDTerminalRuleCall_11());
 		}
 		(
 			(
 				(
-					lv_declareofflow_11_0=ALTERNATIVEFLOW
+					lv_declareofflow_14_0=ALTERNATIVEFLOW
 					{
-						newLeafNode(lv_declareofflow_11_0, grammarAccess.getUseCaseAccess().getDeclareofflowALTERNATIVEFLOWKeyword_11_0_0());
+						newLeafNode(lv_declareofflow_14_0, grammarAccess.getUseCaseAccess().getDeclareofflowALTERNATIVEFLOWKeyword_12_0_0());
 					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getUseCaseRule());
 						}
-						setWithLastConsumed($current, "declareofflow", lv_declareofflow_11_0, "ALTERNATIVEFLOW");
+						setWithLastConsumed($current, "declareofflow", lv_declareofflow_14_0, "ALTERNATIVEFLOW");
 					}
 				)
 			)
-			otherlv_12=Colon
+			otherlv_15=Colon
 			{
-				newLeafNode(otherlv_12, grammarAccess.getUseCaseAccess().getColonKeyword_11_1());
+				newLeafNode(otherlv_15, grammarAccess.getUseCaseAccess().getColonKeyword_12_1());
 			}
-			this_BEGIN_13=RULE_BEGIN
+			this_BEGIN_16=RULE_BEGIN
 			{
-				newLeafNode(this_BEGIN_13, grammarAccess.getUseCaseAccess().getBEGINTerminalRuleCall_11_2());
+				newLeafNode(this_BEGIN_16, grammarAccess.getUseCaseAccess().getBEGINTerminalRuleCall_12_2());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getUseCaseAccess().getAlternativeflowsExtensionParserRuleCall_11_3_0());
+						newCompositeNode(grammarAccess.getUseCaseAccess().getAlternativeflowsExtensionParserRuleCall_12_3_0());
 					}
-					lv_alternativeflows_14_0=ruleExtension
+					lv_alternativeflows_17_0=ruleExtension
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getUseCaseRule());
@@ -233,15 +249,15 @@ ruleUseCase returns [EObject current=null]
 						add(
 							$current,
 							"alternativeflows",
-							lv_alternativeflows_14_0,
+							lv_alternativeflows_17_0,
 							"useCase.xtext.useCaseDsl.UseCaseDsl.Extension");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)+
-			this_END_15=RULE_END
+			this_END_18=RULE_END
 			{
-				newLeafNode(this_END_15, grammarAccess.getUseCaseAccess().getENDTerminalRuleCall_11_4());
+				newLeafNode(this_END_18, grammarAccess.getUseCaseAccess().getENDTerminalRuleCall_12_4());
 			}
 		)?
 	)

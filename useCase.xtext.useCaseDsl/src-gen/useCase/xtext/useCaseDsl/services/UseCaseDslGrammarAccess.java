@@ -32,30 +32,34 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cNameLongNameParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Assignment cPreconditionAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cPreconditionPreconditionParserRuleCall_4_0 = (RuleCall)cPreconditionAssignment_4.eContents().get(0);
-		private final Assignment cPostconditionAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cPostconditionPostconditionParserRuleCall_5_0 = (RuleCall)cPostconditionAssignment_5.eContents().get(0);
-		private final Assignment cMainflowAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final Keyword cMainflowMAINFLOWKeyword_6_0 = (Keyword)cMainflowAssignment_6.eContents().get(0);
-		private final Keyword cColonKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final RuleCall cBEGINTerminalRuleCall_8 = (RuleCall)cGroup.eContents().get(8);
-		private final Assignment cStepsAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cStepsUseCaseStepParserRuleCall_9_0 = (RuleCall)cStepsAssignment_9.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_10 = (RuleCall)cGroup.eContents().get(10);
-		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
-		private final Assignment cDeclareofflowAssignment_11_0 = (Assignment)cGroup_11.eContents().get(0);
-		private final Keyword cDeclareofflowALTERNATIVEFLOWKeyword_11_0_0 = (Keyword)cDeclareofflowAssignment_11_0.eContents().get(0);
-		private final Keyword cColonKeyword_11_1 = (Keyword)cGroup_11.eContents().get(1);
-		private final RuleCall cBEGINTerminalRuleCall_11_2 = (RuleCall)cGroup_11.eContents().get(2);
-		private final Assignment cAlternativeflowsAssignment_11_3 = (Assignment)cGroup_11.eContents().get(3);
-		private final RuleCall cAlternativeflowsExtensionParserRuleCall_11_3_0 = (RuleCall)cAlternativeflowsAssignment_11_3.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_11_4 = (RuleCall)cGroup_11.eContents().get(4);
+		private final RuleCall cNLTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Assignment cPreconditionAssignment_5_0 = (Assignment)cGroup_5.eContents().get(0);
+		private final RuleCall cPreconditionPreconditionParserRuleCall_5_0_0 = (RuleCall)cPreconditionAssignment_5_0.eContents().get(0);
+		private final RuleCall cNLTerminalRuleCall_5_1 = (RuleCall)cGroup_5.eContents().get(1);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Assignment cPostconditionAssignment_6_0 = (Assignment)cGroup_6.eContents().get(0);
+		private final RuleCall cPostconditionPostconditionParserRuleCall_6_0_0 = (RuleCall)cPostconditionAssignment_6_0.eContents().get(0);
+		private final RuleCall cNLTerminalRuleCall_6_1 = (RuleCall)cGroup_6.eContents().get(1);
+		private final Assignment cMainflowAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final Keyword cMainflowMAINFLOWKeyword_7_0 = (Keyword)cMainflowAssignment_7.eContents().get(0);
+		private final Keyword cColonKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final RuleCall cBEGINTerminalRuleCall_9 = (RuleCall)cGroup.eContents().get(9);
+		private final Assignment cStepsAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cStepsUseCaseStepParserRuleCall_10_0 = (RuleCall)cStepsAssignment_10.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_11 = (RuleCall)cGroup.eContents().get(11);
+		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
+		private final Assignment cDeclareofflowAssignment_12_0 = (Assignment)cGroup_12.eContents().get(0);
+		private final Keyword cDeclareofflowALTERNATIVEFLOWKeyword_12_0_0 = (Keyword)cDeclareofflowAssignment_12_0.eContents().get(0);
+		private final Keyword cColonKeyword_12_1 = (Keyword)cGroup_12.eContents().get(1);
+		private final RuleCall cBEGINTerminalRuleCall_12_2 = (RuleCall)cGroup_12.eContents().get(2);
+		private final Assignment cAlternativeflowsAssignment_12_3 = (Assignment)cGroup_12.eContents().get(3);
+		private final RuleCall cAlternativeflowsExtensionParserRuleCall_12_3_0 = (RuleCall)cAlternativeflowsAssignment_12_3.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_12_4 = (RuleCall)cGroup_12.eContents().get(4);
 		
 		////Use case structure
 		//UseCase:
-		//	'UC' number=INT ':' name=LongName precondition=Precondition?
-		//	postcondition=Postcondition?
+		//	'UC' number=INT ':' name=LongName NL (precondition=Precondition NL)? (postcondition=Postcondition NL)?
 		//	mainflow='MAINFLOW' ':'
 		//	BEGIN
 		//	steps+=UseCaseStep+
@@ -65,8 +69,9 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//	END)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'UC' number=INT ':' name=LongName precondition=Precondition? postcondition=Postcondition? mainflow='MAINFLOW' ':' BEGIN
-		//steps+=UseCaseStep+ END (declareofflow='ALTERNATIVEFLOW' ':' BEGIN alternativeflows+=Extension+ END)?
+		//'UC' number=INT ':' name=LongName NL (precondition=Precondition NL)? (postcondition=Postcondition NL)?
+		//mainflow='MAINFLOW' ':' BEGIN steps+=UseCaseStep+ END (declareofflow='ALTERNATIVEFLOW' ':' BEGIN
+		//alternativeflows+=Extension+ END)?
 		public Group getGroup() { return cGroup; }
 		
 		//'UC'
@@ -87,62 +92,77 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//LongName
 		public RuleCall getNameLongNameParserRuleCall_3_0() { return cNameLongNameParserRuleCall_3_0; }
 		
-		//precondition=Precondition?
-		public Assignment getPreconditionAssignment_4() { return cPreconditionAssignment_4; }
+		//NL
+		public RuleCall getNLTerminalRuleCall_4() { return cNLTerminalRuleCall_4; }
+		
+		//(precondition=Precondition NL)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//precondition=Precondition
+		public Assignment getPreconditionAssignment_5_0() { return cPreconditionAssignment_5_0; }
 		
 		//Precondition
-		public RuleCall getPreconditionPreconditionParserRuleCall_4_0() { return cPreconditionPreconditionParserRuleCall_4_0; }
+		public RuleCall getPreconditionPreconditionParserRuleCall_5_0_0() { return cPreconditionPreconditionParserRuleCall_5_0_0; }
 		
-		//postcondition=Postcondition?
-		public Assignment getPostconditionAssignment_5() { return cPostconditionAssignment_5; }
+		//NL
+		public RuleCall getNLTerminalRuleCall_5_1() { return cNLTerminalRuleCall_5_1; }
+		
+		//(postcondition=Postcondition NL)?
+		public Group getGroup_6() { return cGroup_6; }
+		
+		//postcondition=Postcondition
+		public Assignment getPostconditionAssignment_6_0() { return cPostconditionAssignment_6_0; }
 		
 		//Postcondition
-		public RuleCall getPostconditionPostconditionParserRuleCall_5_0() { return cPostconditionPostconditionParserRuleCall_5_0; }
+		public RuleCall getPostconditionPostconditionParserRuleCall_6_0_0() { return cPostconditionPostconditionParserRuleCall_6_0_0; }
+		
+		//NL
+		public RuleCall getNLTerminalRuleCall_6_1() { return cNLTerminalRuleCall_6_1; }
 		
 		//mainflow='MAINFLOW'
-		public Assignment getMainflowAssignment_6() { return cMainflowAssignment_6; }
+		public Assignment getMainflowAssignment_7() { return cMainflowAssignment_7; }
 		
 		//'MAINFLOW'
-		public Keyword getMainflowMAINFLOWKeyword_6_0() { return cMainflowMAINFLOWKeyword_6_0; }
+		public Keyword getMainflowMAINFLOWKeyword_7_0() { return cMainflowMAINFLOWKeyword_7_0; }
 		
 		//':'
-		public Keyword getColonKeyword_7() { return cColonKeyword_7; }
+		public Keyword getColonKeyword_8() { return cColonKeyword_8; }
 		
 		//BEGIN
-		public RuleCall getBEGINTerminalRuleCall_8() { return cBEGINTerminalRuleCall_8; }
+		public RuleCall getBEGINTerminalRuleCall_9() { return cBEGINTerminalRuleCall_9; }
 		
 		//steps+=UseCaseStep+
-		public Assignment getStepsAssignment_9() { return cStepsAssignment_9; }
+		public Assignment getStepsAssignment_10() { return cStepsAssignment_10; }
 		
 		//UseCaseStep
-		public RuleCall getStepsUseCaseStepParserRuleCall_9_0() { return cStepsUseCaseStepParserRuleCall_9_0; }
+		public RuleCall getStepsUseCaseStepParserRuleCall_10_0() { return cStepsUseCaseStepParserRuleCall_10_0; }
 		
 		//END
-		public RuleCall getENDTerminalRuleCall_10() { return cENDTerminalRuleCall_10; }
+		public RuleCall getENDTerminalRuleCall_11() { return cENDTerminalRuleCall_11; }
 		
 		//(declareofflow='ALTERNATIVEFLOW' ':' BEGIN alternativeflows+=Extension+ END)?
-		public Group getGroup_11() { return cGroup_11; }
+		public Group getGroup_12() { return cGroup_12; }
 		
 		//declareofflow='ALTERNATIVEFLOW'
-		public Assignment getDeclareofflowAssignment_11_0() { return cDeclareofflowAssignment_11_0; }
+		public Assignment getDeclareofflowAssignment_12_0() { return cDeclareofflowAssignment_12_0; }
 		
 		//'ALTERNATIVEFLOW'
-		public Keyword getDeclareofflowALTERNATIVEFLOWKeyword_11_0_0() { return cDeclareofflowALTERNATIVEFLOWKeyword_11_0_0; }
+		public Keyword getDeclareofflowALTERNATIVEFLOWKeyword_12_0_0() { return cDeclareofflowALTERNATIVEFLOWKeyword_12_0_0; }
 		
 		//':'
-		public Keyword getColonKeyword_11_1() { return cColonKeyword_11_1; }
+		public Keyword getColonKeyword_12_1() { return cColonKeyword_12_1; }
 		
 		//BEGIN
-		public RuleCall getBEGINTerminalRuleCall_11_2() { return cBEGINTerminalRuleCall_11_2; }
+		public RuleCall getBEGINTerminalRuleCall_12_2() { return cBEGINTerminalRuleCall_12_2; }
 		
 		//alternativeflows+=Extension+
-		public Assignment getAlternativeflowsAssignment_11_3() { return cAlternativeflowsAssignment_11_3; }
+		public Assignment getAlternativeflowsAssignment_12_3() { return cAlternativeflowsAssignment_12_3; }
 		
 		//Extension
-		public RuleCall getAlternativeflowsExtensionParserRuleCall_11_3_0() { return cAlternativeflowsExtensionParserRuleCall_11_3_0; }
+		public RuleCall getAlternativeflowsExtensionParserRuleCall_12_3_0() { return cAlternativeflowsExtensionParserRuleCall_12_3_0; }
 		
 		//END
-		public RuleCall getENDTerminalRuleCall_11_4() { return cENDTerminalRuleCall_11_4; }
+		public RuleCall getENDTerminalRuleCall_12_4() { return cENDTerminalRuleCall_12_4; }
 	}
 	public class ExtensionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.Extension");
@@ -689,6 +709,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tCHAR;
 	private final TerminalRule tBEGIN;
 	private final TerminalRule tEND;
+	private final TerminalRule tNL;
 	
 	private final Grammar grammar;
 	
@@ -712,6 +733,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.tCHAR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.CHAR");
 		this.tBEGIN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.BEGIN");
 		this.tEND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.END");
+		this.tNL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.NL");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -743,8 +765,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////Use case structure
 	//UseCase:
-	//	'UC' number=INT ':' name=LongName precondition=Precondition?
-	//	postcondition=Postcondition?
+	//	'UC' number=INT ':' name=LongName NL (precondition=Precondition NL)? (postcondition=Postcondition NL)?
 	//	mainflow='MAINFLOW' ':'
 	//	BEGIN
 	//	steps+=UseCaseStep+
@@ -875,6 +896,12 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	'synthetic:END';
 	public TerminalRule getENDRule() {
 		return tEND;
+	}
+	
+	//terminal NL:
+	//	' '* '\r'? '\n';
+	public TerminalRule getNLRule() {
+		return tNL;
 	}
 	
 	//terminal ID:
