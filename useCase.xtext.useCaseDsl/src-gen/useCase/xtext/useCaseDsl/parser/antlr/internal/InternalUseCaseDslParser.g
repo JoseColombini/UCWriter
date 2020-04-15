@@ -54,22 +54,16 @@ import useCase.xtext.useCaseDsl.services.UseCaseDslGrammarAccess;
 }
 
 // Entry rule entryRuleUseCase
-entryRuleUseCase returns [EObject current=null]@init {
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
-}:
+entryRuleUseCase returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getUseCaseRule()); }
 	iv_ruleUseCase=ruleUseCase
 	{ $current=$iv_ruleUseCase.current; }
 	EOF;
-finally {
-	myHiddenTokenState.restore();
-}
 
 // Rule UseCase
 ruleUseCase returns [EObject current=null]
 @init {
 	enterRule();
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS");
 }
 @after {
 	leaveRule();
@@ -252,9 +246,6 @@ ruleUseCase returns [EObject current=null]
 		)?
 	)
 ;
-finally {
-	myHiddenTokenState.restore();
-}
 
 // Entry rule entryRuleExtension
 entryRuleExtension returns [EObject current=null]:
@@ -606,6 +597,57 @@ ruleUseCaseStep returns [EObject current=null]
 					}
 				)
 			)
+			this_BEGIN_15=RULE_BEGIN
+			{
+				newLeafNode(this_BEGIN_15, grammarAccess.getUseCaseStepAccess().getBEGINTerminalRuleCall_2_5());
+			}
+			(
+				(
+					(
+						lv_father_16_0=RULE_INT
+						{
+							newLeafNode(lv_father_16_0, grammarAccess.getUseCaseStepAccess().getFatherINTTerminalRuleCall_2_6_0_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getUseCaseStepRule());
+							}
+							addWithLastConsumed(
+								$current,
+								"father",
+								lv_father_16_0,
+								"org.eclipse.xtext.common.Terminals.INT");
+						}
+					)
+				)
+				otherlv_17=FullStop
+				{
+					newLeafNode(otherlv_17, grammarAccess.getUseCaseStepAccess().getFullStopKeyword_2_6_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getUseCaseStepAccess().getRepeatflowUseCaseStepParserRuleCall_2_6_2_0());
+						}
+						lv_repeatflow_18_0=ruleUseCaseStep
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getUseCaseStepRule());
+							}
+							add(
+								$current,
+								"repeatflow",
+								lv_repeatflow_18_0,
+								"useCase.xtext.useCaseDsl.UseCaseDsl.UseCaseStep");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)+
+			this_END_19=RULE_END
+			{
+				newLeafNode(this_END_19, grammarAccess.getUseCaseStepAccess().getENDTerminalRuleCall_2_7());
+			}
 		)
 	)
 ;
@@ -797,10 +839,20 @@ rulePrecondition returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0=PRECONDITION
-		{
-			newLeafNode(otherlv_0, grammarAccess.getPreconditionAccess().getPRECONDITIONKeyword_0());
-		}
+		(
+			(
+				lv_name_0_0=PRECONDITION
+				{
+					newLeafNode(lv_name_0_0, grammarAccess.getPreconditionAccess().getNamePRECONDITIONKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getPreconditionRule());
+					}
+					setWithLastConsumed($current, "name", lv_name_0_0, "PRECONDITION");
+				}
+			)
+		)
 		otherlv_1=Colon
 		{
 			newLeafNode(otherlv_1, grammarAccess.getPreconditionAccess().getColonKeyword_1());
@@ -843,10 +895,20 @@ rulePostcondition returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0=POSTCONDITION
-		{
-			newLeafNode(otherlv_0, grammarAccess.getPostconditionAccess().getPOSTCONDITIONKeyword_0());
-		}
+		(
+			(
+				lv_name_0_0=POSTCONDITION
+				{
+					newLeafNode(lv_name_0_0, grammarAccess.getPostconditionAccess().getNamePOSTCONDITIONKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getPostconditionRule());
+					}
+					setWithLastConsumed($current, "name", lv_name_0_0, "POSTCONDITION");
+				}
+			)
+		)
 		otherlv_1=Colon
 		{
 			newLeafNode(otherlv_1, grammarAccess.getPostconditionAccess().getColonKeyword_1());

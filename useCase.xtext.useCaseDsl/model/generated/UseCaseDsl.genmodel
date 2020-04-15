@@ -33,9 +33,11 @@
     </genClasses>
     <genClasses ecoreClass="UseCaseDsl.ecore#//DeadEndStep"/>
     <genClasses ecoreClass="UseCaseDsl.ecore#//Precondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//Precondition/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//Precondition/condition"/>
     </genClasses>
     <genClasses ecoreClass="UseCaseDsl.ecore#//Postcondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//Postcondition/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//Postcondition/condition"/>
     </genClasses>
     <genClasses ecoreClass="UseCaseDsl.ecore#//UserStep">
@@ -46,6 +48,8 @@
     </genClasses>
     <genClasses ecoreClass="UseCaseDsl.ecore#//RepeatingStep">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//RepeatingStep/repeatingCondition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//RepeatingStep/father"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCaseDsl.ecore#//RepeatingStep/repeatflow"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -3,6 +3,7 @@
  */
 package useCase.xtext.useCaseDsl.useCaseDsl;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +15,8 @@ package useCase.xtext.useCaseDsl.useCaseDsl;
  * </p>
  * <ul>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep#getRepeatingCondition <em>Repeating Condition</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep#getFather <em>Father</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep#getRepeatflow <em>Repeatflow</em>}</li>
  * </ul>
  *
  * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getRepeatingStep()
@@ -43,5 +46,29 @@ public interface RepeatingStep extends UseCaseStep
    * @generated
    */
   void setRepeatingCondition(String value);
+
+  /**
+   * Returns the value of the '<em><b>Father</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.Integer}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Father</em>' attribute list.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getRepeatingStep_Father()
+   * @model unique="false"
+   * @generated
+   */
+  EList<Integer> getFather();
+
+  /**
+   * Returns the value of the '<em><b>Repeatflow</b></em>' containment reference list.
+   * The list contents are of type {@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Repeatflow</em>' containment reference list.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getRepeatingStep_Repeatflow()
+   * @model containment="true"
+   * @generated
+   */
+  EList<UseCaseStep> getRepeatflow();
 
 } // RepeatingStep

@@ -48,6 +48,7 @@ public class UseCaseDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getUseCaseStepAccess().getGroup_0(), "rule__UseCaseStep__Group_0__0");
 			builder.put(grammarAccess.getUseCaseStepAccess().getGroup_1(), "rule__UseCaseStep__Group_1__0");
 			builder.put(grammarAccess.getUseCaseStepAccess().getGroup_2(), "rule__UseCaseStep__Group_2__0");
+			builder.put(grammarAccess.getUseCaseStepAccess().getGroup_2_6(), "rule__UseCaseStep__Group_2_6__0");
 			builder.put(grammarAccess.getExtensionStepAccess().getGroup_0(), "rule__ExtensionStep__Group_0__0");
 			builder.put(grammarAccess.getDeadEndStepAccess().getGroup(), "rule__DeadEndStep__Group__0");
 			builder.put(grammarAccess.getPreconditionAccess().getGroup(), "rule__Precondition__Group__0");
@@ -72,11 +73,15 @@ public class UseCaseDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getUseCaseStepAccess().getSentenceAssignment_1_4(), "rule__UseCaseStep__SentenceAssignment_1_4");
 			builder.put(grammarAccess.getUseCaseStepAccess().getNameAssignment_2_1(), "rule__UseCaseStep__NameAssignment_2_1");
 			builder.put(grammarAccess.getUseCaseStepAccess().getRepeatingConditionAssignment_2_4(), "rule__UseCaseStep__RepeatingConditionAssignment_2_4");
+			builder.put(grammarAccess.getUseCaseStepAccess().getFatherAssignment_2_6_0(), "rule__UseCaseStep__FatherAssignment_2_6_0");
+			builder.put(grammarAccess.getUseCaseStepAccess().getRepeatflowAssignment_2_6_2(), "rule__UseCaseStep__RepeatflowAssignment_2_6_2");
 			builder.put(grammarAccess.getExtensionStepAccess().getNameAssignment_0_0(), "rule__ExtensionStep__NameAssignment_0_0");
 			builder.put(grammarAccess.getExtensionStepAccess().getSentenceAssignment_0_3(), "rule__ExtensionStep__SentenceAssignment_0_3");
 			builder.put(grammarAccess.getDeadEndStepAccess().getNameAssignment_0(), "rule__DeadEndStep__NameAssignment_0");
 			builder.put(grammarAccess.getDeadEndStepAccess().getSentenceAssignment_3(), "rule__DeadEndStep__SentenceAssignment_3");
+			builder.put(grammarAccess.getPreconditionAccess().getNameAssignment_0(), "rule__Precondition__NameAssignment_0");
 			builder.put(grammarAccess.getPreconditionAccess().getConditionAssignment_2(), "rule__Precondition__ConditionAssignment_2");
+			builder.put(grammarAccess.getPostconditionAccess().getNameAssignment_0(), "rule__Postcondition__NameAssignment_0");
 			builder.put(grammarAccess.getPostconditionAccess().getConditionAssignment_2(), "rule__Postcondition__ConditionAssignment_2");
 		}
 	}

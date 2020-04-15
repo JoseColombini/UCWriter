@@ -21,6 +21,7 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.PreconditionImpl#getName <em>Name</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.PreconditionImpl#getCondition <em>Condition</em>}</li>
  * </ul>
  *
@@ -28,6 +29,26 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
  */
 public class PreconditionImpl extends MinimalEObjectImpl.Container implements Precondition
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The default value of the '{@link #getCondition() <em>Condition</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -75,6 +96,31 @@ public class PreconditionImpl extends MinimalEObjectImpl.Container implements Pr
    * @generated
    */
   @Override
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.PRECONDITION__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public String getCondition()
   {
     return condition;
@@ -104,6 +150,8 @@ public class PreconditionImpl extends MinimalEObjectImpl.Container implements Pr
   {
     switch (featureID)
     {
+      case UseCaseDslPackage.PRECONDITION__NAME:
+        return getName();
       case UseCaseDslPackage.PRECONDITION__CONDITION:
         return getCondition();
     }
@@ -120,6 +168,9 @@ public class PreconditionImpl extends MinimalEObjectImpl.Container implements Pr
   {
     switch (featureID)
     {
+      case UseCaseDslPackage.PRECONDITION__NAME:
+        setName((String)newValue);
+        return;
       case UseCaseDslPackage.PRECONDITION__CONDITION:
         setCondition((String)newValue);
         return;
@@ -137,6 +188,9 @@ public class PreconditionImpl extends MinimalEObjectImpl.Container implements Pr
   {
     switch (featureID)
     {
+      case UseCaseDslPackage.PRECONDITION__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case UseCaseDslPackage.PRECONDITION__CONDITION:
         setCondition(CONDITION_EDEFAULT);
         return;
@@ -154,6 +208,8 @@ public class PreconditionImpl extends MinimalEObjectImpl.Container implements Pr
   {
     switch (featureID)
     {
+      case UseCaseDslPackage.PRECONDITION__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case UseCaseDslPackage.PRECONDITION__CONDITION:
         return CONDITION_EDEFAULT == null ? condition != null : !CONDITION_EDEFAULT.equals(condition);
     }
@@ -171,7 +227,9 @@ public class PreconditionImpl extends MinimalEObjectImpl.Container implements Pr
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (condition: ");
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", condition: ");
     result.append(condition);
     result.append(')');
     return result.toString();
