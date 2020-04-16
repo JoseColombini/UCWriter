@@ -11,19 +11,21 @@ package useCase.xtext.useCaseDsl.ide.contentassist.antlr.lexer;
 import org.eclipse.xtext.ide.editor.contentassist.antlr.internal.Lexer;
 }
 
-ALTERNATIVEFLOW : 'ALTERNATIVEFLOW';
-
 POSTCONDITION : 'POSTCONDITION';
 
 PRECONDITION : 'PRECONDITION';
 
-MAINFLOW : 'MAINFLOW';
+ALTERNATIVE : 'ALTERNATIVE';
 
 RETURN : 'RETURN';
 
 SYSTEM : 'SYSTEM';
 
 WHILE : 'WHILE';
+
+FLOW : 'FLOW';
+
+MAIN : 'MAIN';
 
 USER : 'USER';
 
@@ -52,8 +54,6 @@ RULE_CHAR : ('a'..'z'|'A'..'Z');
 fragment RULE_BEGIN : ;
 
 fragment RULE_END : ;
-
-RULE_NL : ' '* '\r'? '\n';
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

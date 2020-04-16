@@ -24,6 +24,15 @@ public interface UseCaseDslFactory extends EFactory
   UseCaseDslFactory eINSTANCE = useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseDslFactoryImpl.init();
 
   /**
+   * Returns a new object of class '<em>Use Case Document</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Use Case Document</em>'.
+   * @generated
+   */
+  UseCaseDocument createUseCaseDocument();
+
+  /**
    * Returns a new object of class '<em>Use Case</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

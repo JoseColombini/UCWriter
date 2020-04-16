@@ -32,7 +32,7 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
  * </p>
  * <ul>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.RepeatingStepImpl#getRepeatingCondition <em>Repeating Condition</em>}</li>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.RepeatingStepImpl#getFather <em>Father</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.RepeatingStepImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.RepeatingStepImpl#getRepeatflow <em>Repeatflow</em>}</li>
  * </ul>
  *
@@ -61,14 +61,14 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
   protected String repeatingCondition = REPEATING_CONDITION_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getFather() <em>Father</em>}' attribute list.
+   * The cached value of the '{@link #getParent() <em>Parent</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFather()
+   * @see #getParent()
    * @generated
    * @ordered
    */
-  protected EList<Integer> father;
+  protected EList<Integer> parent;
 
   /**
    * The cached value of the '{@link #getRepeatflow() <em>Repeatflow</em>}' containment reference list.
@@ -132,13 +132,13 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
    * @generated
    */
   @Override
-  public EList<Integer> getFather()
+  public EList<Integer> getParent()
   {
-    if (father == null)
+    if (parent == null)
     {
-      father = new EDataTypeEList<Integer>(Integer.class, this, UseCaseDslPackage.REPEATING_STEP__FATHER);
+      parent = new EDataTypeEList<Integer>(Integer.class, this, UseCaseDslPackage.REPEATING_STEP__PARENT);
     }
-    return father;
+    return parent;
   }
 
   /**
@@ -184,8 +184,8 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
     {
       case UseCaseDslPackage.REPEATING_STEP__REPEATING_CONDITION:
         return getRepeatingCondition();
-      case UseCaseDslPackage.REPEATING_STEP__FATHER:
-        return getFather();
+      case UseCaseDslPackage.REPEATING_STEP__PARENT:
+        return getParent();
       case UseCaseDslPackage.REPEATING_STEP__REPEATFLOW:
         return getRepeatflow();
     }
@@ -206,9 +206,9 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
       case UseCaseDslPackage.REPEATING_STEP__REPEATING_CONDITION:
         setRepeatingCondition((String)newValue);
         return;
-      case UseCaseDslPackage.REPEATING_STEP__FATHER:
-        getFather().clear();
-        getFather().addAll((Collection<? extends Integer>)newValue);
+      case UseCaseDslPackage.REPEATING_STEP__PARENT:
+        getParent().clear();
+        getParent().addAll((Collection<? extends Integer>)newValue);
         return;
       case UseCaseDslPackage.REPEATING_STEP__REPEATFLOW:
         getRepeatflow().clear();
@@ -231,8 +231,8 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
       case UseCaseDslPackage.REPEATING_STEP__REPEATING_CONDITION:
         setRepeatingCondition(REPEATING_CONDITION_EDEFAULT);
         return;
-      case UseCaseDslPackage.REPEATING_STEP__FATHER:
-        getFather().clear();
+      case UseCaseDslPackage.REPEATING_STEP__PARENT:
+        getParent().clear();
         return;
       case UseCaseDslPackage.REPEATING_STEP__REPEATFLOW:
         getRepeatflow().clear();
@@ -253,8 +253,8 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
     {
       case UseCaseDslPackage.REPEATING_STEP__REPEATING_CONDITION:
         return REPEATING_CONDITION_EDEFAULT == null ? repeatingCondition != null : !REPEATING_CONDITION_EDEFAULT.equals(repeatingCondition);
-      case UseCaseDslPackage.REPEATING_STEP__FATHER:
-        return father != null && !father.isEmpty();
+      case UseCaseDslPackage.REPEATING_STEP__PARENT:
+        return parent != null && !parent.isEmpty();
       case UseCaseDslPackage.REPEATING_STEP__REPEATFLOW:
         return repeatflow != null && !repeatflow.isEmpty();
     }
@@ -274,8 +274,8 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (repeatingCondition: ");
     result.append(repeatingCondition);
-    result.append(", father: ");
-    result.append(father);
+    result.append(", parent: ");
+    result.append(parent);
     result.append(')');
     return result.toString();
   }

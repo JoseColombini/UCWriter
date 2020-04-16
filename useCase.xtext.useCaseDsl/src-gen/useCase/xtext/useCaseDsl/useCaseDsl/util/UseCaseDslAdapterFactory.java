@@ -76,6 +76,11 @@ public class UseCaseDslAdapterFactory extends AdapterFactoryImpl
     new UseCaseDslSwitch<Adapter>()
     {
       @Override
+      public Adapter caseUseCaseDocument(UseCaseDocument object)
+      {
+        return createUseCaseDocumentAdapter();
+      }
+      @Override
       public Adapter caseUseCase(UseCase object)
       {
         return createUseCaseAdapter();
@@ -151,6 +156,21 @@ public class UseCaseDslAdapterFactory extends AdapterFactoryImpl
     return modelSwitch.doSwitch((EObject)target);
   }
 
+
+  /**
+   * Creates a new adapter for an object of class '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDocument <em>Use Case Document</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDocument
+   * @generated
+   */
+  public Adapter createUseCaseDocumentAdapter()
+  {
+    return null;
+  }
 
   /**
    * Creates a new adapter for an object of class '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase <em>Use Case</em>}'.

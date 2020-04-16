@@ -39,8 +39,6 @@ public class UseCaseDslSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getENDToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getINTRule())
 			return getINTToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getNLRule())
-			return getNLToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -63,16 +61,6 @@ public class UseCaseDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "";
-	}
-	
-	/**
-	 * terminal NL:
-	 * 	(' ')*('\r')?('\n');
-	 */
-	protected String getNLToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "\n";
 	}
 	
 	@Override

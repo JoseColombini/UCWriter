@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep#getRepeatingCondition <em>Repeating Condition</em>}</li>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep#getFather <em>Father</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep#getParent <em>Parent</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep#getRepeatflow <em>Repeatflow</em>}</li>
  * </ul>
  *
@@ -48,16 +48,16 @@ public interface RepeatingStep extends UseCaseStep
   void setRepeatingCondition(String value);
 
   /**
-   * Returns the value of the '<em><b>Father</b></em>' attribute list.
+   * Returns the value of the '<em><b>Parent</b></em>' attribute list.
    * The list contents are of type {@link java.lang.Integer}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Father</em>' attribute list.
-   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getRepeatingStep_Father()
+   * @return the value of the '<em>Parent</em>' attribute list.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getRepeatingStep_Parent()
    * @model unique="false"
    * @generated
    */
-  EList<Integer> getFather();
+  EList<Integer> getParent();
 
   /**
    * Returns the value of the '<em><b>Repeatflow</b></em>' containment reference list.

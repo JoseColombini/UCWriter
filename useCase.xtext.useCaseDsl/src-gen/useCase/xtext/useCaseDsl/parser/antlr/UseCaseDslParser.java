@@ -42,7 +42,7 @@ public class UseCaseDslParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "UseCase";
+		return "UseCaseDocument";
 	}
 
 	public UseCaseDslGrammarAccess getGrammarAccess() {

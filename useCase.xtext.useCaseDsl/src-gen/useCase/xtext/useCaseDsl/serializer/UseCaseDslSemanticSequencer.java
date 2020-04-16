@@ -21,8 +21,10 @@ import useCase.xtext.useCaseDsl.useCaseDsl.ExtensionStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.Postcondition;
 import useCase.xtext.useCaseDsl.useCaseDsl.Precondition;
 import useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep;
+import useCase.xtext.useCaseDsl.useCaseDsl.Step;
 import useCase.xtext.useCaseDsl.useCaseDsl.SystemStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCase;
+import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDocument;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
 import useCase.xtext.useCaseDsl.useCaseDsl.UserStep;
 
@@ -58,11 +60,17 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case UseCaseDslPackage.REPEATING_STEP:
 				sequence_UseCaseStep(context, (RepeatingStep) semanticObject); 
 				return; 
+			case UseCaseDslPackage.STEP:
+				sequence_Step(context, (Step) semanticObject); 
+				return; 
 			case UseCaseDslPackage.SYSTEM_STEP:
 				sequence_UseCaseStep(context, (SystemStep) semanticObject); 
 				return; 
 			case UseCaseDslPackage.USE_CASE:
 				sequence_UseCase(context, (UseCase) semanticObject); 
+				return; 
+			case UseCaseDslPackage.USE_CASE_DOCUMENT:
+				sequence_UseCaseDocument(context, (UseCaseDocument) semanticObject); 
 				return; 
 			case UseCaseDslPackage.USER_STEP:
 				sequence_UseCaseStep(context, (UserStep) semanticObject); 
@@ -113,7 +121,7 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Extension returns Extension
 	 *
 	 * Constraint:
-	 *     (startFrom=INT name=CHAR condition=Condition steps+=ExtensionStep+ (resumeAt=INT | end=DeadEndStep))
+	 *     (startFrom=INT name=CHAR condition=Condition steps+=ExtensionStep* (resumeAt=INT | end=DeadEndStep))
 	 */
 	protected void sequence_Extension(ISerializationContext context, Extension semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -164,11 +172,44 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     Step returns Step
+	 *
+	 * Constraint:
+	 *     (name=INT reference=LongName)
+	 */
+	protected void sequence_Step(ISerializationContext context, Step semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UseCaseDslPackage.Literals.STEP__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.STEP__NAME));
+			if (transientValues.isValueTransient(semanticObject, UseCaseDslPackage.Literals.STEP__REFERENCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.STEP__REFERENCE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getStepAccess().getNameINTTerminalRuleCall_0_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getStepAccess().getReferenceLongNameParserRuleCall_0_2_0(), semanticObject.getReference());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     UseCaseDocument returns UseCaseDocument
+	 *
+	 * Constraint:
+	 *     usecase+=UseCase+
+	 */
+	protected void sequence_UseCaseDocument(ISerializationContext context, UseCaseDocument semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Step returns RepeatingStep
 	 *     UseCaseStep returns RepeatingStep
 	 *
 	 * Constraint:
-	 *     (name=INT repeatingCondition=Condition (father+=INT repeatflow+=UseCaseStep)+)
+	 *     (name=INT repeatingCondition=Condition (parent+=INT repeatflow+=UseCaseStep)+)
 	 */
 	protected void sequence_UseCaseStep(ISerializationContext context, RepeatingStep semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -229,9 +270,8 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         name=LongName 
 	 *         precondition=Precondition? 
 	 *         postcondition=Postcondition? 
-	 *         mainflow='MAINFLOW' 
 	 *         steps+=UseCaseStep+ 
-	 *         (declareofflow='ALTERNATIVEFLOW' alternativeflows+=Extension+)?
+	 *         alternativeflows+=Extension*
 	 *     )
 	 */
 	protected void sequence_UseCase(ISerializationContext context, UseCase semanticObject) {

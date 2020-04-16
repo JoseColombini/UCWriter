@@ -38,9 +38,7 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getName <em>Name</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getPrecondition <em>Precondition</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getPostcondition <em>Postcondition</em>}</li>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getMainflow <em>Mainflow</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getSteps <em>Steps</em>}</li>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getDeclareofflow <em>Declareofflow</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseImpl#getAlternativeflows <em>Alternativeflows</em>}</li>
  * </ul>
  *
@@ -109,26 +107,6 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
   protected Postcondition postcondition;
 
   /**
-   * The default value of the '{@link #getMainflow() <em>Mainflow</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMainflow()
-   * @generated
-   * @ordered
-   */
-  protected static final String MAINFLOW_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getMainflow() <em>Mainflow</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMainflow()
-   * @generated
-   * @ordered
-   */
-  protected String mainflow = MAINFLOW_EDEFAULT;
-
-  /**
    * The cached value of the '{@link #getSteps() <em>Steps</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -137,26 +115,6 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * @ordered
    */
   protected EList<UseCaseStep> steps;
-
-  /**
-   * The default value of the '{@link #getDeclareofflow() <em>Declareofflow</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDeclareofflow()
-   * @generated
-   * @ordered
-   */
-  protected static final String DECLAREOFFLOW_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDeclareofflow() <em>Declareofflow</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDeclareofflow()
-   * @generated
-   * @ordered
-   */
-  protected String declareofflow = DECLAREOFFLOW_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getAlternativeflows() <em>Alternativeflows</em>}' containment reference list.
@@ -345,31 +303,6 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
    * @generated
    */
   @Override
-  public String getMainflow()
-  {
-    return mainflow;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setMainflow(String newMainflow)
-  {
-    String oldMainflow = mainflow;
-    mainflow = newMainflow;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.USE_CASE__MAINFLOW, oldMainflow, mainflow));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EList<UseCaseStep> getSteps()
   {
     if (steps == null)
@@ -377,31 +310,6 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       steps = new EObjectContainmentEList<UseCaseStep>(UseCaseStep.class, this, UseCaseDslPackage.USE_CASE__STEPS);
     }
     return steps;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getDeclareofflow()
-  {
-    return declareofflow;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setDeclareofflow(String newDeclareofflow)
-  {
-    String oldDeclareofflow = declareofflow;
-    declareofflow = newDeclareofflow;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.USE_CASE__DECLAREOFFLOW, oldDeclareofflow, declareofflow));
   }
 
   /**
@@ -459,12 +367,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return getPrecondition();
       case UseCaseDslPackage.USE_CASE__POSTCONDITION:
         return getPostcondition();
-      case UseCaseDslPackage.USE_CASE__MAINFLOW:
-        return getMainflow();
       case UseCaseDslPackage.USE_CASE__STEPS:
         return getSteps();
-      case UseCaseDslPackage.USE_CASE__DECLAREOFFLOW:
-        return getDeclareofflow();
       case UseCaseDslPackage.USE_CASE__ALTERNATIVEFLOWS:
         return getAlternativeflows();
     }
@@ -494,15 +398,9 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case UseCaseDslPackage.USE_CASE__POSTCONDITION:
         setPostcondition((Postcondition)newValue);
         return;
-      case UseCaseDslPackage.USE_CASE__MAINFLOW:
-        setMainflow((String)newValue);
-        return;
       case UseCaseDslPackage.USE_CASE__STEPS:
         getSteps().clear();
         getSteps().addAll((Collection<? extends UseCaseStep>)newValue);
-        return;
-      case UseCaseDslPackage.USE_CASE__DECLAREOFFLOW:
-        setDeclareofflow((String)newValue);
         return;
       case UseCaseDslPackage.USE_CASE__ALTERNATIVEFLOWS:
         getAlternativeflows().clear();
@@ -534,14 +432,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
       case UseCaseDslPackage.USE_CASE__POSTCONDITION:
         setPostcondition((Postcondition)null);
         return;
-      case UseCaseDslPackage.USE_CASE__MAINFLOW:
-        setMainflow(MAINFLOW_EDEFAULT);
-        return;
       case UseCaseDslPackage.USE_CASE__STEPS:
         getSteps().clear();
-        return;
-      case UseCaseDslPackage.USE_CASE__DECLAREOFFLOW:
-        setDeclareofflow(DECLAREOFFLOW_EDEFAULT);
         return;
       case UseCaseDslPackage.USE_CASE__ALTERNATIVEFLOWS:
         getAlternativeflows().clear();
@@ -568,12 +460,8 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
         return precondition != null;
       case UseCaseDslPackage.USE_CASE__POSTCONDITION:
         return postcondition != null;
-      case UseCaseDslPackage.USE_CASE__MAINFLOW:
-        return MAINFLOW_EDEFAULT == null ? mainflow != null : !MAINFLOW_EDEFAULT.equals(mainflow);
       case UseCaseDslPackage.USE_CASE__STEPS:
         return steps != null && !steps.isEmpty();
-      case UseCaseDslPackage.USE_CASE__DECLAREOFFLOW:
-        return DECLAREOFFLOW_EDEFAULT == null ? declareofflow != null : !DECLAREOFFLOW_EDEFAULT.equals(declareofflow);
       case UseCaseDslPackage.USE_CASE__ALTERNATIVEFLOWS:
         return alternativeflows != null && !alternativeflows.isEmpty();
     }
@@ -595,10 +483,6 @@ public class UseCaseImpl extends MinimalEObjectImpl.Container implements UseCase
     result.append(number);
     result.append(", name: ");
     result.append(name);
-    result.append(", mainflow: ");
-    result.append(mainflow);
-    result.append(", declareofflow: ");
-    result.append(declareofflow);
     result.append(')');
     return result.toString();
   }

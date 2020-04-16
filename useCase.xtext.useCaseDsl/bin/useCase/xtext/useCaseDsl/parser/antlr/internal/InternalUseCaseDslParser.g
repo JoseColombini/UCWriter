@@ -36,7 +36,7 @@ import useCase.xtext.useCaseDsl.services.UseCaseDslGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "UseCase";
+    	return "UseCaseDocument";
    	}
 
    	@Override
@@ -52,6 +52,42 @@ import useCase.xtext.useCaseDsl.services.UseCaseDslGrammarAccess;
         appendSkippedTokens();
     }
 }
+
+// Entry rule entryRuleUseCaseDocument
+entryRuleUseCaseDocument returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getUseCaseDocumentRule()); }
+	iv_ruleUseCaseDocument=ruleUseCaseDocument
+	{ $current=$iv_ruleUseCaseDocument.current; }
+	EOF;
+
+// Rule UseCaseDocument
+ruleUseCaseDocument returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				newCompositeNode(grammarAccess.getUseCaseDocumentAccess().getUsecaseUseCaseParserRuleCall_0());
+			}
+			lv_usecase_0_0=ruleUseCase
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getUseCaseDocumentRule());
+				}
+				add(
+					$current,
+					"usecase",
+					lv_usecase_0_0,
+					"useCase.xtext.useCaseDsl.UseCaseDsl.UseCase");
+				afterParserOrEnumRuleCall();
+			}
+		)
+	)+
+;
 
 // Entry rule entryRuleUseCase
 entryRuleUseCase returns [EObject current=null]:
@@ -114,88 +150,66 @@ ruleUseCase returns [EObject current=null]
 				}
 			)
 		)
-		this_NL_4=RULE_NL
-		{
-			newLeafNode(this_NL_4, grammarAccess.getUseCaseAccess().getNLTerminalRuleCall_4());
-		}
 		(
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getUseCaseAccess().getPreconditionPreconditionParserRuleCall_5_0_0());
-					}
-					lv_precondition_5_0=rulePrecondition
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getUseCaseRule());
-						}
-						set(
-							$current,
-							"precondition",
-							lv_precondition_5_0,
-							"useCase.xtext.useCaseDsl.UseCaseDsl.Precondition");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			this_NL_6=RULE_NL
-			{
-				newLeafNode(this_NL_6, grammarAccess.getUseCaseAccess().getNLTerminalRuleCall_5_1());
-			}
-		)?
-		(
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getUseCaseAccess().getPostconditionPostconditionParserRuleCall_6_0_0());
-					}
-					lv_postcondition_7_0=rulePostcondition
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getUseCaseRule());
-						}
-						set(
-							$current,
-							"postcondition",
-							lv_postcondition_7_0,
-							"useCase.xtext.useCaseDsl.UseCaseDsl.Postcondition");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			this_NL_8=RULE_NL
-			{
-				newLeafNode(this_NL_8, grammarAccess.getUseCaseAccess().getNLTerminalRuleCall_6_1());
-			}
-		)?
-		(
-			(
-				lv_mainflow_9_0=MAINFLOW
 				{
-					newLeafNode(lv_mainflow_9_0, grammarAccess.getUseCaseAccess().getMainflowMAINFLOWKeyword_7_0());
+					newCompositeNode(grammarAccess.getUseCaseAccess().getPreconditionPreconditionParserRuleCall_4_0());
 				}
+				lv_precondition_4_0=rulePrecondition
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getUseCaseRule());
+						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
 					}
-					setWithLastConsumed($current, "mainflow", lv_mainflow_9_0, "MAINFLOW");
+					set(
+						$current,
+						"precondition",
+						lv_precondition_4_0,
+						"useCase.xtext.useCaseDsl.UseCaseDsl.Precondition");
+					afterParserOrEnumRuleCall();
 				}
 			)
-		)
-		otherlv_10=Colon
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getUseCaseAccess().getPostconditionPostconditionParserRuleCall_5_0());
+				}
+				lv_postcondition_5_0=rulePostcondition
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
+					}
+					set(
+						$current,
+						"postcondition",
+						lv_postcondition_5_0,
+						"useCase.xtext.useCaseDsl.UseCaseDsl.Postcondition");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		otherlv_6=MAIN
 		{
-			newLeafNode(otherlv_10, grammarAccess.getUseCaseAccess().getColonKeyword_8());
+			newLeafNode(otherlv_6, grammarAccess.getUseCaseAccess().getMAINKeyword_6());
 		}
-		this_BEGIN_11=RULE_BEGIN
+		otherlv_7=FLOW
 		{
-			newLeafNode(this_BEGIN_11, grammarAccess.getUseCaseAccess().getBEGINTerminalRuleCall_9());
+			newLeafNode(otherlv_7, grammarAccess.getUseCaseAccess().getFLOWKeyword_7());
+		}
+		otherlv_8=Colon
+		{
+			newLeafNode(otherlv_8, grammarAccess.getUseCaseAccess().getColonKeyword_8());
+		}
+		this_BEGIN_9=RULE_BEGIN
+		{
+			newLeafNode(this_BEGIN_9, grammarAccess.getUseCaseAccess().getBEGINTerminalRuleCall_9());
 		}
 		(
 			(
 				{
 					newCompositeNode(grammarAccess.getUseCaseAccess().getStepsUseCaseStepParserRuleCall_10_0());
 				}
-				lv_steps_12_0=ruleUseCaseStep
+				lv_steps_10_0=ruleUseCaseStep
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getUseCaseRule());
@@ -203,45 +217,41 @@ ruleUseCase returns [EObject current=null]
 					add(
 						$current,
 						"steps",
-						lv_steps_12_0,
+						lv_steps_10_0,
 						"useCase.xtext.useCaseDsl.UseCaseDsl.UseCaseStep");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)+
-		this_END_13=RULE_END
+		this_END_11=RULE_END
 		{
-			newLeafNode(this_END_13, grammarAccess.getUseCaseAccess().getENDTerminalRuleCall_11());
+			newLeafNode(this_END_11, grammarAccess.getUseCaseAccess().getENDTerminalRuleCall_11());
 		}
 		(
 			(
-				(
-					lv_declareofflow_14_0=ALTERNATIVEFLOW
-					{
-						newLeafNode(lv_declareofflow_14_0, grammarAccess.getUseCaseAccess().getDeclareofflowALTERNATIVEFLOWKeyword_12_0_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getUseCaseRule());
-						}
-						setWithLastConsumed($current, "declareofflow", lv_declareofflow_14_0, "ALTERNATIVEFLOW");
-					}
-				)
+				otherlv_12=ALTERNATIVE
+				{
+					newLeafNode(otherlv_12, grammarAccess.getUseCaseAccess().getALTERNATIVEKeyword_12_0_0());
+				}
+				otherlv_13=FLOW
+				{
+					newLeafNode(otherlv_13, grammarAccess.getUseCaseAccess().getFLOWKeyword_12_0_1());
+				}
 			)
-			otherlv_15=Colon
+			otherlv_14=Colon
 			{
-				newLeafNode(otherlv_15, grammarAccess.getUseCaseAccess().getColonKeyword_12_1());
+				newLeafNode(otherlv_14, grammarAccess.getUseCaseAccess().getColonKeyword_12_1());
 			}
-			this_BEGIN_16=RULE_BEGIN
+			this_BEGIN_15=RULE_BEGIN
 			{
-				newLeafNode(this_BEGIN_16, grammarAccess.getUseCaseAccess().getBEGINTerminalRuleCall_12_2());
+				newLeafNode(this_BEGIN_15, grammarAccess.getUseCaseAccess().getBEGINTerminalRuleCall_12_2());
 			}
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getUseCaseAccess().getAlternativeflowsExtensionParserRuleCall_12_3_0());
 					}
-					lv_alternativeflows_17_0=ruleExtension
+					lv_alternativeflows_16_0=ruleExtension
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getUseCaseRule());
@@ -249,15 +259,15 @@ ruleUseCase returns [EObject current=null]
 						add(
 							$current,
 							"alternativeflows",
-							lv_alternativeflows_17_0,
+							lv_alternativeflows_16_0,
 							"useCase.xtext.useCaseDsl.UseCaseDsl.Extension");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)+
-			this_END_18=RULE_END
+			this_END_17=RULE_END
 			{
-				newLeafNode(this_END_18, grammarAccess.getUseCaseAccess().getENDTerminalRuleCall_12_4());
+				newLeafNode(this_END_17, grammarAccess.getUseCaseAccess().getENDTerminalRuleCall_12_4());
 			}
 		)?
 	)
@@ -368,7 +378,7 @@ ruleExtension returns [EObject current=null]
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)+
+		)*
 		(
 			(
 				this_INT_8=RULE_INT
@@ -620,9 +630,9 @@ ruleUseCaseStep returns [EObject current=null]
 			(
 				(
 					(
-						lv_father_16_0=RULE_INT
+						lv_parent_16_0=RULE_INT
 						{
-							newLeafNode(lv_father_16_0, grammarAccess.getUseCaseStepAccess().getFatherINTTerminalRuleCall_2_6_0_0());
+							newLeafNode(lv_parent_16_0, grammarAccess.getUseCaseStepAccess().getParentINTTerminalRuleCall_2_6_0_0());
 						}
 						{
 							if ($current==null) {
@@ -630,8 +640,8 @@ ruleUseCaseStep returns [EObject current=null]
 							}
 							addWithLastConsumed(
 								$current,
-								"father",
-								lv_father_16_0,
+								"parent",
+								lv_parent_16_0,
 								"org.eclipse.xtext.common.Terminals.INT");
 						}
 					)

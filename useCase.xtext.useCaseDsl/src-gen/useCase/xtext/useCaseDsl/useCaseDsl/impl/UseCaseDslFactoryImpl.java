@@ -65,6 +65,7 @@ public class UseCaseDslFactoryImpl extends EFactoryImpl implements UseCaseDslFac
   {
     switch (eClass.getClassifierID())
     {
+      case UseCaseDslPackage.USE_CASE_DOCUMENT: return createUseCaseDocument();
       case UseCaseDslPackage.USE_CASE: return createUseCase();
       case UseCaseDslPackage.EXTENSION: return createExtension();
       case UseCaseDslPackage.STEP: return createStep();
@@ -79,6 +80,18 @@ public class UseCaseDslFactoryImpl extends EFactoryImpl implements UseCaseDslFac
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public UseCaseDocument createUseCaseDocument()
+  {
+    UseCaseDocumentImpl useCaseDocument = new UseCaseDocumentImpl();
+    return useCaseDocument;
   }
 
   /**

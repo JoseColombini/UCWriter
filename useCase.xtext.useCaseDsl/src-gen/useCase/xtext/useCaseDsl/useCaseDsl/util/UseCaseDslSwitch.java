@@ -73,6 +73,13 @@ public class UseCaseDslSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
+      case UseCaseDslPackage.USE_CASE_DOCUMENT:
+      {
+        UseCaseDocument useCaseDocument = (UseCaseDocument)theEObject;
+        T result = caseUseCaseDocument(useCaseDocument);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case UseCaseDslPackage.USE_CASE:
       {
         UseCase useCase = (UseCase)theEObject;
@@ -162,6 +169,22 @@ public class UseCaseDslSwitch<T> extends Switch<T>
       }
       default: return defaultCase(theEObject);
     }
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Use Case Document</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Use Case Document</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUseCaseDocument(UseCaseDocument object)
+  {
+    return null;
   }
 
   /**

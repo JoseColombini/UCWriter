@@ -19,6 +19,7 @@ import useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.Step;
 import useCase.xtext.useCaseDsl.useCaseDsl.SystemStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCase;
+import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDocument;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslFactory;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
@@ -32,6 +33,13 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UserStep;
  */
 public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPackage
 {
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass useCaseDocumentEClass = null;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -178,6 +186,28 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
+  public EClass getUseCaseDocument()
+  {
+    return useCaseDocumentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getUseCaseDocument_Usecase()
+  {
+    return (EReference)useCaseDocumentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getUseCase()
   {
     return useCaseEClass;
@@ -233,31 +263,9 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
-  public EAttribute getUseCase_Mainflow()
-  {
-    return (EAttribute)useCaseEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EReference getUseCase_Steps()
   {
-    return (EReference)useCaseEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getUseCase_Declareofflow()
-  {
-    return (EAttribute)useCaseEClass.getEStructuralFeatures().get(6);
+    return (EReference)useCaseEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -268,7 +276,7 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
   @Override
   public EReference getUseCase_Alternativeflows()
   {
-    return (EReference)useCaseEClass.getEStructuralFeatures().get(7);
+    return (EReference)useCaseEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -368,6 +376,17 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
   public EAttribute getStep_Name()
   {
     return (EAttribute)stepEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getStep_Reference()
+  {
+    return (EAttribute)stepEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -552,7 +571,7 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
-  public EAttribute getRepeatingStep_Father()
+  public EAttribute getRepeatingStep_Parent()
   {
     return (EAttribute)repeatingStepEClass.getEStructuralFeatures().get(1);
   }
@@ -599,14 +618,15 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
     isCreated = true;
 
     // Create classes and their features
+    useCaseDocumentEClass = createEClass(USE_CASE_DOCUMENT);
+    createEReference(useCaseDocumentEClass, USE_CASE_DOCUMENT__USECASE);
+
     useCaseEClass = createEClass(USE_CASE);
     createEAttribute(useCaseEClass, USE_CASE__NUMBER);
     createEAttribute(useCaseEClass, USE_CASE__NAME);
     createEReference(useCaseEClass, USE_CASE__PRECONDITION);
     createEReference(useCaseEClass, USE_CASE__POSTCONDITION);
-    createEAttribute(useCaseEClass, USE_CASE__MAINFLOW);
     createEReference(useCaseEClass, USE_CASE__STEPS);
-    createEAttribute(useCaseEClass, USE_CASE__DECLAREOFFLOW);
     createEReference(useCaseEClass, USE_CASE__ALTERNATIVEFLOWS);
 
     extensionEClass = createEClass(EXTENSION);
@@ -619,6 +639,7 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
 
     stepEClass = createEClass(STEP);
     createEAttribute(stepEClass, STEP__NAME);
+    createEAttribute(stepEClass, STEP__REFERENCE);
 
     useCaseStepEClass = createEClass(USE_CASE_STEP);
 
@@ -643,7 +664,7 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
 
     repeatingStepEClass = createEClass(REPEATING_STEP);
     createEAttribute(repeatingStepEClass, REPEATING_STEP__REPEATING_CONDITION);
-    createEAttribute(repeatingStepEClass, REPEATING_STEP__FATHER);
+    createEAttribute(repeatingStepEClass, REPEATING_STEP__PARENT);
     createEReference(repeatingStepEClass, REPEATING_STEP__REPEATFLOW);
   }
 
@@ -684,14 +705,15 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
     repeatingStepEClass.getESuperTypes().add(this.getUseCaseStep());
 
     // Initialize classes and features; add operations and parameters
+    initEClass(useCaseDocumentEClass, UseCaseDocument.class, "UseCaseDocument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUseCaseDocument_Usecase(), this.getUseCase(), null, "usecase", null, 0, -1, UseCaseDocument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(useCaseEClass, UseCase.class, "UseCase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUseCase_Number(), ecorePackage.getEInt(), "number", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUseCase_Name(), ecorePackage.getEString(), "name", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUseCase_Precondition(), this.getPrecondition(), null, "precondition", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUseCase_Postcondition(), this.getPostcondition(), null, "postcondition", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getUseCase_Mainflow(), ecorePackage.getEString(), "mainflow", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUseCase_Steps(), this.getUseCaseStep(), null, "steps", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getUseCase_Declareofflow(), ecorePackage.getEString(), "declareofflow", null, 0, 1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUseCase_Alternativeflows(), this.getExtension(), null, "alternativeflows", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(extensionEClass, Extension.class, "Extension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -704,6 +726,7 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
 
     initEClass(stepEClass, Step.class, "Step", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStep_Name(), ecorePackage.getEInt(), "name", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStep_Reference(), ecorePackage.getEString(), "reference", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(useCaseStepEClass, UseCaseStep.class, "UseCaseStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -728,7 +751,7 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
 
     initEClass(repeatingStepEClass, RepeatingStep.class, "RepeatingStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRepeatingStep_RepeatingCondition(), ecorePackage.getEString(), "repeatingCondition", null, 0, 1, RepeatingStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRepeatingStep_Father(), ecorePackage.getEInt(), "father", null, 0, -1, RepeatingStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRepeatingStep_Parent(), ecorePackage.getEInt(), "parent", null, 0, -1, RepeatingStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRepeatingStep_Repeatflow(), this.getUseCaseStep(), null, "repeatflow", null, 0, -1, RepeatingStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
