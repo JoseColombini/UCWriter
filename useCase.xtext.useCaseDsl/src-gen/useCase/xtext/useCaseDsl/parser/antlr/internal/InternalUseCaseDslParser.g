@@ -291,31 +291,33 @@ ruleExtension returns [EObject current=null]
 	(
 		(
 			(
-				lv_startFrom_0_0=RULE_INT
-				{
-					newLeafNode(lv_startFrom_0_0, grammarAccess.getExtensionAccess().getStartFromINTTerminalRuleCall_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getExtensionRule());
+				(
+					lv_startFrom_0_0=RULE_INT
+					{
+						newLeafNode(lv_startFrom_0_0, grammarAccess.getExtensionAccess().getStartFromINTTerminalRuleCall_0_0_0());
 					}
-					setWithLastConsumed(
-						$current,
-						"startFrom",
-						lv_startFrom_0_0,
-						"org.eclipse.xtext.common.Terminals.INT");
-				}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getExtensionRule());
+						}
+						addWithLastConsumed(
+							$current,
+							"startFrom",
+							lv_startFrom_0_0,
+							"org.eclipse.xtext.common.Terminals.INT");
+					}
+				)
 			)
-		)
-		otherlv_1=FullStop
-		{
-			newLeafNode(otherlv_1, grammarAccess.getExtensionAccess().getFullStopKeyword_1());
-		}
+			otherlv_1=FullStop
+			{
+				newLeafNode(otherlv_1, grammarAccess.getExtensionAccess().getFullStopKeyword_0_1());
+			}
+		)+
 		(
 			(
 				lv_name_2_0=RULE_CHAR
 				{
-					newLeafNode(lv_name_2_0, grammarAccess.getExtensionAccess().getNameCHARTerminalRuleCall_2_0());
+					newLeafNode(lv_name_2_0, grammarAccess.getExtensionAccess().getNameCHARTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -331,16 +333,16 @@ ruleExtension returns [EObject current=null]
 		)
 		otherlv_3=FullStop
 		{
-			newLeafNode(otherlv_3, grammarAccess.getExtensionAccess().getFullStopKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getExtensionAccess().getFullStopKeyword_2());
 		}
 		otherlv_4=IF
 		{
-			newLeafNode(otherlv_4, grammarAccess.getExtensionAccess().getIFKeyword_4());
+			newLeafNode(otherlv_4, grammarAccess.getExtensionAccess().getIFKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getExtensionAccess().getConditionConditionParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getExtensionAccess().getConditionConditionParserRuleCall_4_0());
 				}
 				lv_condition_5_0=ruleCondition
 				{
@@ -358,12 +360,12 @@ ruleExtension returns [EObject current=null]
 		)
 		this_BEGIN_6=RULE_BEGIN
 		{
-			newLeafNode(this_BEGIN_6, grammarAccess.getExtensionAccess().getBEGINTerminalRuleCall_6());
+			newLeafNode(this_BEGIN_6, grammarAccess.getExtensionAccess().getBEGINTerminalRuleCall_5());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getExtensionAccess().getStepsExtensionStepParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getExtensionAccess().getStepsExtensionStepParserRuleCall_6_0());
 				}
 				lv_steps_7_0=ruleExtensionStep
 				{
@@ -383,46 +385,54 @@ ruleExtension returns [EObject current=null]
 			(
 				this_INT_8=RULE_INT
 				{
-					newLeafNode(this_INT_8, grammarAccess.getExtensionAccess().getINTTerminalRuleCall_8_0_0());
+					newLeafNode(this_INT_8, grammarAccess.getExtensionAccess().getINTTerminalRuleCall_7_0_0());
 				}
 				otherlv_9=FullStop
 				{
-					newLeafNode(otherlv_9, grammarAccess.getExtensionAccess().getFullStopKeyword_8_0_1());
+					newLeafNode(otherlv_9, grammarAccess.getExtensionAccess().getFullStopKeyword_7_0_1());
 				}
 				otherlv_10=RETURN
 				{
-					newLeafNode(otherlv_10, grammarAccess.getExtensionAccess().getRETURNKeyword_8_0_2());
+					newLeafNode(otherlv_10, grammarAccess.getExtensionAccess().getRETURNKeyword_7_0_2());
 				}
 				otherlv_11=TO
 				{
-					newLeafNode(otherlv_11, grammarAccess.getExtensionAccess().getTOKeyword_8_0_3());
+					newLeafNode(otherlv_11, grammarAccess.getExtensionAccess().getTOKeyword_7_0_3());
 				}
 				(
 					(
-						lv_resumeAt_12_0=RULE_INT
-						{
-							newLeafNode(lv_resumeAt_12_0, grammarAccess.getExtensionAccess().getResumeAtINTTerminalRuleCall_8_0_4_0());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getExtensionRule());
+						(
+							lv_resumeAt_12_0=RULE_INT
+							{
+								newLeafNode(lv_resumeAt_12_0, grammarAccess.getExtensionAccess().getResumeAtINTTerminalRuleCall_7_0_4_0_0());
 							}
-							setWithLastConsumed(
-								$current,
-								"resumeAt",
-								lv_resumeAt_12_0,
-								"org.eclipse.xtext.common.Terminals.INT");
-						}
+							{
+								if ($current==null) {
+									$current = createModelElement(grammarAccess.getExtensionRule());
+								}
+								addWithLastConsumed(
+									$current,
+									"resumeAt",
+									lv_resumeAt_12_0,
+									"org.eclipse.xtext.common.Terminals.INT");
+							}
+						)
 					)
-				)
+					(
+						otherlv_13=FullStop
+						{
+							newLeafNode(otherlv_13, grammarAccess.getExtensionAccess().getFullStopKeyword_7_0_4_1());
+						}
+					)?
+				)+
 			)
 			    |
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getExtensionAccess().getEndDeadEndStepParserRuleCall_8_1_0());
+						newCompositeNode(grammarAccess.getExtensionAccess().getEndDeadEndStepParserRuleCall_7_1_0());
 					}
-					lv_end_13_0=ruleDeadEndStep
+					lv_end_14_0=ruleDeadEndStep
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getExtensionRule());
@@ -430,16 +440,16 @@ ruleExtension returns [EObject current=null]
 						set(
 							$current,
 							"end",
-							lv_end_13_0,
+							lv_end_14_0,
 							"useCase.xtext.useCaseDsl.UseCaseDsl.DeadEndStep");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)
-		this_END_14=RULE_END
+		this_END_15=RULE_END
 		{
-			newLeafNode(this_END_14, grammarAccess.getExtensionAccess().getENDTerminalRuleCall_9());
+			newLeafNode(this_END_15, grammarAccess.getExtensionAccess().getENDTerminalRuleCall_8());
 		}
 	)
 ;
@@ -630,30 +640,32 @@ ruleUseCaseStep returns [EObject current=null]
 			(
 				(
 					(
-						lv_parent_16_0=RULE_INT
-						{
-							newLeafNode(lv_parent_16_0, grammarAccess.getUseCaseStepAccess().getParentINTTerminalRuleCall_2_6_0_0());
-						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getUseCaseStepRule());
+						(
+							lv_parent_16_0=RULE_INT
+							{
+								newLeafNode(lv_parent_16_0, grammarAccess.getUseCaseStepAccess().getParentINTTerminalRuleCall_2_6_0_0_0());
 							}
-							addWithLastConsumed(
-								$current,
-								"parent",
-								lv_parent_16_0,
-								"org.eclipse.xtext.common.Terminals.INT");
-						}
+							{
+								if ($current==null) {
+									$current = createModelElement(grammarAccess.getUseCaseStepRule());
+								}
+								addWithLastConsumed(
+									$current,
+									"parent",
+									lv_parent_16_0,
+									"org.eclipse.xtext.common.Terminals.INT");
+							}
+						)
 					)
-				)
-				otherlv_17=FullStop
-				{
-					newLeafNode(otherlv_17, grammarAccess.getUseCaseStepAccess().getFullStopKeyword_2_6_1());
-				}
+					otherlv_17=FullStop
+					{
+						newLeafNode(otherlv_17, grammarAccess.getUseCaseStepAccess().getFullStopKeyword_2_6_0_1());
+					}
+				)+
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getUseCaseStepAccess().getRepeatflowUseCaseStepParserRuleCall_2_6_2_0());
+							newCompositeNode(grammarAccess.getUseCaseStepAccess().getRepeatflowUseCaseStepParserRuleCall_2_6_1_0());
 						}
 						lv_repeatflow_18_0=ruleUseCaseStep
 						{

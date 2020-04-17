@@ -31,26 +31,16 @@ import org.eclipse.emf.ecore.EObject;
 public interface Extension extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Start From</b></em>' attribute.
+   * Returns the value of the '<em><b>Start From</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.Integer}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Start From</em>' attribute.
-   * @see #setStartFrom(int)
+   * @return the value of the '<em>Start From</em>' attribute list.
    * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getExtension_StartFrom()
-   * @model
+   * @model unique="false"
    * @generated
    */
-  int getStartFrom();
-
-  /**
-   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.Extension#getStartFrom <em>Start From</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Start From</em>' attribute.
-   * @see #getStartFrom()
-   * @generated
-   */
-  void setStartFrom(int value);
+  EList<Integer> getStartFrom();
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -109,26 +99,16 @@ public interface Extension extends EObject
   EList<ExtensionStep> getSteps();
 
   /**
-   * Returns the value of the '<em><b>Resume At</b></em>' attribute.
+   * Returns the value of the '<em><b>Resume At</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.Integer}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Resume At</em>' attribute.
-   * @see #setResumeAt(int)
+   * @return the value of the '<em>Resume At</em>' attribute list.
    * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getExtension_ResumeAt()
-   * @model
+   * @model unique="false"
    * @generated
    */
-  int getResumeAt();
-
-  /**
-   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.Extension#getResumeAt <em>Resume At</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Resume At</em>' attribute.
-   * @see #getResumeAt()
-   * @generated
-   */
-  void setResumeAt(int value);
+  EList<Integer> getResumeAt();
 
   /**
    * Returns the value of the '<em><b>End</b></em>' containment reference.

@@ -23,10 +23,10 @@ UseCase:
 
 //Flows and behavorial
 Extension:
-	(startFrom = INT) '.' (name = CHAR)  '.' 'IF' (condition = Condition)
+	(startFrom += INT'.')+ (name = CHAR)  '.' 'IF' (condition = Condition)
 	BEGIN
 		(steps += ExtensionStep)*
-		(INT '.' 'RETURN' 'TO' (resumeAt = INT)|end = DeadEndStep)
+		(INT '.' 'RETURN' 'TO' (resumeAt += INT('.')?)+|end = DeadEndStep)
 	END;
 
 //Steps
@@ -39,7 +39,7 @@ UseCaseStep:
 	{SystemStep} (name = INT) '.' 'SYSTEM'(sentence = LongName)|
 	{RepeatingStep} (name = INT) '.' 'WHILE'(repeatingCondition = Condition)
 	BEGIN
-		((parent += INT)'.'(repeatflow += UseCaseStep))+
+		((parent += INT'.')+(repeatflow += UseCaseStep))+
 	END;
 
 //I dont know how to use this shit

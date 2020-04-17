@@ -169,7 +169,7 @@ public interface UseCaseDslPackage extends EPackage
   int EXTENSION = 2;
 
   /**
-   * The feature id for the '<em><b>Start From</b></em>' attribute.
+   * The feature id for the '<em><b>Start From</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -205,7 +205,7 @@ public interface UseCaseDslPackage extends EPackage
   int EXTENSION__STEPS = 3;
 
   /**
-   * The feature id for the '<em><b>Resume At</b></em>' attribute.
+   * The feature id for the '<em><b>Resume At</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -736,10 +736,10 @@ public interface UseCaseDslPackage extends EPackage
   EClass getExtension();
 
   /**
-   * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.Extension#getStartFrom <em>Start From</em>}'.
+   * Returns the meta object for the attribute list '{@link useCase.xtext.useCaseDsl.useCaseDsl.Extension#getStartFrom <em>Start From</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Start From</em>'.
+   * @return the meta object for the attribute list '<em>Start From</em>'.
    * @see useCase.xtext.useCaseDsl.useCaseDsl.Extension#getStartFrom()
    * @see #getExtension()
    * @generated
@@ -780,10 +780,10 @@ public interface UseCaseDslPackage extends EPackage
   EReference getExtension_Steps();
 
   /**
-   * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.Extension#getResumeAt <em>Resume At</em>}'.
+   * Returns the meta object for the attribute list '{@link useCase.xtext.useCaseDsl.useCaseDsl.Extension#getResumeAt <em>Resume At</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Resume At</em>'.
+   * @return the meta object for the attribute list '<em>Resume At</em>'.
    * @see useCase.xtext.useCaseDsl.useCaseDsl.Extension#getResumeAt()
    * @see #getExtension()
    * @generated
@@ -1133,7 +1133,7 @@ public interface UseCaseDslPackage extends EPackage
     EClass EXTENSION = eINSTANCE.getExtension();
 
     /**
-     * The meta object literal for the '<em><b>Start From</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Start From</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1165,7 +1165,7 @@ public interface UseCaseDslPackage extends EPackage
     EReference EXTENSION__STEPS = eINSTANCE.getExtension_Steps();
 
     /**
-     * The meta object literal for the '<em><b>Resume At</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Resume At</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated

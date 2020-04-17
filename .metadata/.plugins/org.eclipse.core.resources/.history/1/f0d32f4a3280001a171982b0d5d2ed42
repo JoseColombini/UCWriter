@@ -2,18 +2,21 @@ grammar useCase.xtext.useCaseDsl.UseCaseDsl with org.eclipse.xtext.common.Termin
 
 generate useCaseDsl "http://www.xtext.useCase/useCaseDsl/UseCaseDsl"
 
+UseCaseDocument:
+	(usecase += UseCase)+;
+
 //Use case structure
-UseCase hidden(WS):
-	'UC' number = INT ':' (name = LongName) EOL
+UseCase:
+	'UC' number = INT ':' (name = LongName)
 	
-	(precondition = Precondition EOL)?
-	(postcondition = Postcondition EOL)?
+	( precondition = Precondition)?
+	( postcondition = Postcondition)?
 	 
-	(mainflow = 'MAINFLOW')':'
+	'MAIN''FLOW'':'
 	BEGIN
 		(steps += UseCaseStep)+
 	END
-	((declareofflow = 'ALTERNATIVEFLOW')':'
+	(('ALTERNATIVE' 'FLOW')':'
 	BEGIN
 		(alternativeflows += Extension)+
 	END)?;
@@ -22,12 +25,13 @@ UseCase hidden(WS):
 Extension:
 	(startFrom = INT) '.' (name = CHAR)  '.' 'IF' (condition = Condition)
 	BEGIN
-		(steps += ExtensionStep)+
+		(steps += ExtensionStep)*
 		(INT '.' 'RETURN' 'TO' (resumeAt = INT)|end = DeadEndStep)
 	END;
 
 //Steps
 Step:
+	(name = INT) '.' (reference = LongName)|
 	UseCaseStep|ExtensionStep;
 
 UseCaseStep:
@@ -35,7 +39,7 @@ UseCaseStep:
 	{SystemStep} (name = INT) '.' 'SYSTEM'(sentence = LongName)|
 	{RepeatingStep} (name = INT) '.' 'WHILE'(repeatingCondition = Condition)
 	BEGIN
-		(repeatflow += UseCaseStep)+
+		((parent += INT'.')+(repeatflow += UseCaseStep))+
 	END;
 
 //I dont know how to use this shit
@@ -77,10 +81,6 @@ terminal SP:
 
 terminal BEGIN: 'synthetic:BEGIN';  // increase indentation
 terminal END: 'synthetic:END';      // decrease indentation
-
-terminal EOL:
-	('\r'? '\n');
-
 
 /***********************************
  ********* Codes that I don't want to discard*****

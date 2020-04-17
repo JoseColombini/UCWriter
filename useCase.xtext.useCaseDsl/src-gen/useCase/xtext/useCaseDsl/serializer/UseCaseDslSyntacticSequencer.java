@@ -23,12 +23,14 @@ public class UseCaseDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected UseCaseDslGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_DeadEndStep___SYSTEMKeyword_2_1_or_USERKeyword_2_0_or_WHILEKeyword_2_2__q;
 	protected AbstractElementAlias match_ExtensionStep___SYSTEMKeyword_0_2_1_or_USERKeyword_0_2_0_or_WHILEKeyword_0_2_2__q;
+	protected AbstractElementAlias match_Extension_FullStopKeyword_7_0_4_1_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (UseCaseDslGrammarAccess) access;
 		match_DeadEndStep___SYSTEMKeyword_2_1_or_USERKeyword_2_0_or_WHILEKeyword_2_2__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getDeadEndStepAccess().getSYSTEMKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getDeadEndStepAccess().getUSERKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getDeadEndStepAccess().getWHILEKeyword_2_2()));
 		match_ExtensionStep___SYSTEMKeyword_0_2_1_or_USERKeyword_0_2_0_or_WHILEKeyword_0_2_2__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getExtensionStepAccess().getSYSTEMKeyword_0_2_1()), new TokenAlias(false, false, grammarAccess.getExtensionStepAccess().getUSERKeyword_0_2_0()), new TokenAlias(false, false, grammarAccess.getExtensionStepAccess().getWHILEKeyword_0_2_2()));
+		match_Extension_FullStopKeyword_7_0_4_1_q = new TokenAlias(false, true, grammarAccess.getExtensionAccess().getFullStopKeyword_7_0_4_1());
 	}
 	
 	@Override
@@ -73,6 +75,8 @@ public class UseCaseDslSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_DeadEndStep___SYSTEMKeyword_2_1_or_USERKeyword_2_0_or_WHILEKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ExtensionStep___SYSTEMKeyword_0_2_1_or_USERKeyword_0_2_0_or_WHILEKeyword_0_2_2__q.equals(syntax))
 				emit_ExtensionStep___SYSTEMKeyword_0_2_1_or_USERKeyword_0_2_0_or_WHILEKeyword_0_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Extension_FullStopKeyword_7_0_4_1_q.equals(syntax))
+				emit_Extension_FullStopKeyword_7_0_4_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -97,6 +101,18 @@ public class UseCaseDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     name=INT '.' (ambiguity) sentence=LongName
 	 */
 	protected void emit_ExtensionStep___SYSTEMKeyword_0_2_1_or_USERKeyword_0_2_0_or_WHILEKeyword_0_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '.'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     resumeAt+=INT (ambiguity) END (rule end)
+	 *     resumeAt+=INT (ambiguity) resumeAt+=INT
+	 */
+	protected void emit_Extension_FullStopKeyword_7_0_4_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
