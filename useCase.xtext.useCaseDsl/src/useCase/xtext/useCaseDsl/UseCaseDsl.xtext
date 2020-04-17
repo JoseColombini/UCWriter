@@ -23,32 +23,32 @@ UseCase:
 
 //Flows and behavorial
 Extension:
-	(startFrom += INT'.')+ (name = CHAR)  '.' 'IF' (condition = Condition)
+	(startFrom += StepName'.')+ (name = CHAR)  '.' 'IF' (condition = Condition)
 	BEGIN
 		(steps += ExtensionStep)*
-		(INT '.' 'RETURN' 'TO' (resumeAt += INT('.')?)+|end = DeadEndStep)
+		(INT '.' 'RETURN' 'TO' (resumeAt += StepName('.')?)+|end = DeadEndStep)
 	END;
 
 //Steps
 Step:
-	(name = INT) '.' (reference = LongName)|
+	(name = StepName) '.' (reference = LongName)|
 	UseCaseStep|ExtensionStep;
 
 UseCaseStep:
-	{UserStep} (name = INT) '.' 'USER' (sentence = LongName)|
-	{SystemStep} (name = INT) '.' 'SYSTEM'(sentence = LongName)|
-	{RepeatingStep} (name = INT) '.' 'WHILE'(repeatingCondition = Condition)
+	{UserStep} (name = StepName) '.' 'USER' (sentence = LongName)|
+	{SystemStep} (name = StepName) '.' 'SYSTEM'(sentence = LongName)|
+	{RepeatingStep} (name = StepName) '.' 'WHILE'(repeatingCondition = Condition)
 	BEGIN
-		((parent += INT'.')+(repeatflow += UseCaseStep))+
+		((parent += StepName'.')+(repeatflow += UseCaseStep))+
 	END;
 
 //I dont know how to use this shit
 ExtensionStep:
-	(name = INT) '.' ('USER'|'SYSTEM'|'WHILE')? (sentence = LongName)|
+	(name = StepName) '.' ('USER'|'SYSTEM'|'WHILE')? (sentence = LongName)|
 	DeadEndStep;
 
 DeadEndStep:
-	(name = INT) '.' ('USER'|'SYSTEM'|'WHILE')? (sentence = LongName)? 'UC' 'END';
+	(name = StepName) '.' ('USER'|'SYSTEM'|'WHILE')? (sentence = LongName)? 'UC' 'END';
 
 //Conditions
 Precondition:
@@ -65,6 +65,10 @@ LongName:
 	
 Condition:
 	(ID|ANY_OTHER|CHAR|':'|'.'|'"'|"'"|'AND'|'OR')+;
+	
+StepName:
+	INT
+;
 
 /***************************	
 ******* TERMINAL RULES *****

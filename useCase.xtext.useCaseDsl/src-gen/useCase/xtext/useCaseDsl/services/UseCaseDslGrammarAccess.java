@@ -168,7 +168,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
 		private final Assignment cStartFromAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
-		private final RuleCall cStartFromINTTerminalRuleCall_0_0_0 = (RuleCall)cStartFromAssignment_0_0.eContents().get(0);
+		private final RuleCall cStartFromStepNameParserRuleCall_0_0_0 = (RuleCall)cStartFromAssignment_0_0.eContents().get(0);
 		private final Keyword cFullStopKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameCHARTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
@@ -187,7 +187,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTOKeyword_7_0_3 = (Keyword)cGroup_7_0.eContents().get(3);
 		private final Group cGroup_7_0_4 = (Group)cGroup_7_0.eContents().get(4);
 		private final Assignment cResumeAtAssignment_7_0_4_0 = (Assignment)cGroup_7_0_4.eContents().get(0);
-		private final RuleCall cResumeAtINTTerminalRuleCall_7_0_4_0_0 = (RuleCall)cResumeAtAssignment_7_0_4_0.eContents().get(0);
+		private final RuleCall cResumeAtStepNameParserRuleCall_7_0_4_0_0 = (RuleCall)cResumeAtAssignment_7_0_4_0.eContents().get(0);
 		private final Keyword cFullStopKeyword_7_0_4_1 = (Keyword)cGroup_7_0_4.eContents().get(1);
 		private final Assignment cEndAssignment_7_1 = (Assignment)cAlternatives_7.eContents().get(1);
 		private final RuleCall cEndDeadEndStepParserRuleCall_7_1_0 = (RuleCall)cEndAssignment_7_1.eContents().get(0);
@@ -195,22 +195,22 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		////Flows and behavorial
 		//Extension:
-		//	(startFrom+=INT '.')+ name=CHAR '.' 'IF' condition=Condition BEGIN
-		//	steps+=ExtensionStep* (INT '.' 'RETURN' 'TO' (resumeAt+=INT '.'?)+ | end=DeadEndStep) END;
+		//	(startFrom+=StepName '.')+ name=CHAR '.' 'IF' condition=Condition BEGIN
+		//	steps+=ExtensionStep* (INT '.' 'RETURN' 'TO' (resumeAt+=StepName '.'?)+ | end=DeadEndStep) END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(startFrom+=INT '.')+ name=CHAR '.' 'IF' condition=Condition BEGIN steps+=ExtensionStep* (INT '.' 'RETURN' 'TO'
-		//(resumeAt+=INT '.'?)+ | end=DeadEndStep) END
+		//(startFrom+=StepName '.')+ name=CHAR '.' 'IF' condition=Condition BEGIN steps+=ExtensionStep* (INT '.' 'RETURN' 'TO'
+		//(resumeAt+=StepName '.'?)+ | end=DeadEndStep) END
 		public Group getGroup() { return cGroup; }
 		
-		//(startFrom+=INT '.')+
+		//(startFrom+=StepName '.')+
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//startFrom+=INT
+		//startFrom+=StepName
 		public Assignment getStartFromAssignment_0_0() { return cStartFromAssignment_0_0; }
 		
-		//INT
-		public RuleCall getStartFromINTTerminalRuleCall_0_0_0() { return cStartFromINTTerminalRuleCall_0_0_0; }
+		//StepName
+		public RuleCall getStartFromStepNameParserRuleCall_0_0_0() { return cStartFromStepNameParserRuleCall_0_0_0; }
 		
 		//'.'
 		public Keyword getFullStopKeyword_0_1() { return cFullStopKeyword_0_1; }
@@ -242,10 +242,10 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ExtensionStep
 		public RuleCall getStepsExtensionStepParserRuleCall_6_0() { return cStepsExtensionStepParserRuleCall_6_0; }
 		
-		//(INT '.' 'RETURN' 'TO' (resumeAt+=INT '.'?)+ | end=DeadEndStep)
+		//(INT '.' 'RETURN' 'TO' (resumeAt+=StepName '.'?)+ | end=DeadEndStep)
 		public Alternatives getAlternatives_7() { return cAlternatives_7; }
 		
-		//INT '.' 'RETURN' 'TO' (resumeAt+=INT '.'?)+
+		//INT '.' 'RETURN' 'TO' (resumeAt+=StepName '.'?)+
 		public Group getGroup_7_0() { return cGroup_7_0; }
 		
 		//INT
@@ -260,14 +260,14 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'TO'
 		public Keyword getTOKeyword_7_0_3() { return cTOKeyword_7_0_3; }
 		
-		//(resumeAt+=INT '.'?)+
+		//(resumeAt+=StepName '.'?)+
 		public Group getGroup_7_0_4() { return cGroup_7_0_4; }
 		
-		//resumeAt+=INT
+		//resumeAt+=StepName
 		public Assignment getResumeAtAssignment_7_0_4_0() { return cResumeAtAssignment_7_0_4_0; }
 		
-		//INT
-		public RuleCall getResumeAtINTTerminalRuleCall_7_0_4_0_0() { return cResumeAtINTTerminalRuleCall_7_0_4_0_0; }
+		//StepName
+		public RuleCall getResumeAtStepNameParserRuleCall_7_0_4_0_0() { return cResumeAtStepNameParserRuleCall_7_0_4_0_0; }
 		
 		//'.'?
 		public Keyword getFullStopKeyword_7_0_4_1() { return cFullStopKeyword_7_0_4_1; }
@@ -286,7 +286,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Assignment cNameAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
-		private final RuleCall cNameINTTerminalRuleCall_0_0_0 = (RuleCall)cNameAssignment_0_0.eContents().get(0);
+		private final RuleCall cNameStepNameParserRuleCall_0_0_0 = (RuleCall)cNameAssignment_0_0.eContents().get(0);
 		private final Keyword cFullStopKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final Assignment cReferenceAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
 		private final RuleCall cReferenceLongNameParserRuleCall_0_2_0 = (RuleCall)cReferenceAssignment_0_2.eContents().get(0);
@@ -295,20 +295,20 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		////Steps
 		//Step:
-		//	name=INT '.' reference=LongName | UseCaseStep | ExtensionStep;
+		//	name=StepName '.' reference=LongName | UseCaseStep | ExtensionStep;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=INT '.' reference=LongName | UseCaseStep | ExtensionStep
+		//name=StepName '.' reference=LongName | UseCaseStep | ExtensionStep
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//name=INT '.' reference=LongName
+		//name=StepName '.' reference=LongName
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//name=INT
+		//name=StepName
 		public Assignment getNameAssignment_0_0() { return cNameAssignment_0_0; }
 		
-		//INT
-		public RuleCall getNameINTTerminalRuleCall_0_0_0() { return cNameINTTerminalRuleCall_0_0_0; }
+		//StepName
+		public RuleCall getNameStepNameParserRuleCall_0_0_0() { return cNameStepNameParserRuleCall_0_0_0; }
 		
 		//'.'
 		public Keyword getFullStopKeyword_0_1() { return cFullStopKeyword_0_1; }
@@ -331,7 +331,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Action cUserStepAction_0_0 = (Action)cGroup_0.eContents().get(0);
 		private final Assignment cNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cNameINTTerminalRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
+		private final RuleCall cNameStepNameParserRuleCall_0_1_0 = (RuleCall)cNameAssignment_0_1.eContents().get(0);
 		private final Keyword cFullStopKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
 		private final Keyword cUSERKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
 		private final Assignment cSentenceAssignment_0_4 = (Assignment)cGroup_0.eContents().get(4);
@@ -339,7 +339,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Action cSystemStepAction_1_0 = (Action)cGroup_1.eContents().get(0);
 		private final Assignment cNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cNameINTTerminalRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
+		private final RuleCall cNameStepNameParserRuleCall_1_1_0 = (RuleCall)cNameAssignment_1_1.eContents().get(0);
 		private final Keyword cFullStopKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
 		private final Keyword cSYSTEMKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
 		private final Assignment cSentenceAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
@@ -347,7 +347,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final Action cRepeatingStepAction_2_0 = (Action)cGroup_2.eContents().get(0);
 		private final Assignment cNameAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cNameINTTerminalRuleCall_2_1_0 = (RuleCall)cNameAssignment_2_1.eContents().get(0);
+		private final RuleCall cNameStepNameParserRuleCall_2_1_0 = (RuleCall)cNameAssignment_2_1.eContents().get(0);
 		private final Keyword cFullStopKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		private final Keyword cWHILEKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
 		private final Assignment cRepeatingConditionAssignment_2_4 = (Assignment)cGroup_2.eContents().get(4);
@@ -356,34 +356,35 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_2_6 = (Group)cGroup_2.eContents().get(6);
 		private final Group cGroup_2_6_0 = (Group)cGroup_2_6.eContents().get(0);
 		private final Assignment cParentAssignment_2_6_0_0 = (Assignment)cGroup_2_6_0.eContents().get(0);
-		private final RuleCall cParentINTTerminalRuleCall_2_6_0_0_0 = (RuleCall)cParentAssignment_2_6_0_0.eContents().get(0);
+		private final RuleCall cParentStepNameParserRuleCall_2_6_0_0_0 = (RuleCall)cParentAssignment_2_6_0_0.eContents().get(0);
 		private final Keyword cFullStopKeyword_2_6_0_1 = (Keyword)cGroup_2_6_0.eContents().get(1);
 		private final Assignment cRepeatflowAssignment_2_6_1 = (Assignment)cGroup_2_6.eContents().get(1);
 		private final RuleCall cRepeatflowUseCaseStepParserRuleCall_2_6_1_0 = (RuleCall)cRepeatflowAssignment_2_6_1.eContents().get(0);
 		private final RuleCall cENDTerminalRuleCall_2_7 = (RuleCall)cGroup_2.eContents().get(7);
 		
 		//UseCaseStep:
-		//	{UserStep} name=INT '.' 'USER' sentence=LongName | {SystemStep} name=INT '.' 'SYSTEM' sentence=LongName |
-		//	{RepeatingStep} name=INT '.' 'WHILE' repeatingCondition=Condition BEGIN ((parent+=INT '.')+ repeatflow+=UseCaseStep)+
+		//	{UserStep} name=StepName '.' 'USER' sentence=LongName | {SystemStep} name=StepName '.' 'SYSTEM' sentence=LongName |
+		//	{RepeatingStep} name=StepName '.' 'WHILE' repeatingCondition=Condition BEGIN ((parent+=StepName '.')+
+		//	repeatflow+=UseCaseStep)+
 		//	END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{UserStep} name=INT '.' 'USER' sentence=LongName | {SystemStep} name=INT '.' 'SYSTEM' sentence=LongName |
-		//{RepeatingStep} name=INT '.' 'WHILE' repeatingCondition=Condition BEGIN ((parent+=INT '.')+ repeatflow+=UseCaseStep)+
-		//END
+		//{UserStep} name=StepName '.' 'USER' sentence=LongName | {SystemStep} name=StepName '.' 'SYSTEM' sentence=LongName |
+		//{RepeatingStep} name=StepName '.' 'WHILE' repeatingCondition=Condition BEGIN ((parent+=StepName '.')+
+		//repeatflow+=UseCaseStep)+ END
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//{UserStep} name=INT '.' 'USER' sentence=LongName
+		//{UserStep} name=StepName '.' 'USER' sentence=LongName
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//{UserStep}
 		public Action getUserStepAction_0_0() { return cUserStepAction_0_0; }
 		
-		//name=INT
+		//name=StepName
 		public Assignment getNameAssignment_0_1() { return cNameAssignment_0_1; }
 		
-		//INT
-		public RuleCall getNameINTTerminalRuleCall_0_1_0() { return cNameINTTerminalRuleCall_0_1_0; }
+		//StepName
+		public RuleCall getNameStepNameParserRuleCall_0_1_0() { return cNameStepNameParserRuleCall_0_1_0; }
 		
 		//'.'
 		public Keyword getFullStopKeyword_0_2() { return cFullStopKeyword_0_2; }
@@ -397,17 +398,17 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//LongName
 		public RuleCall getSentenceLongNameParserRuleCall_0_4_0() { return cSentenceLongNameParserRuleCall_0_4_0; }
 		
-		//{SystemStep} name=INT '.' 'SYSTEM' sentence=LongName
+		//{SystemStep} name=StepName '.' 'SYSTEM' sentence=LongName
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//{SystemStep}
 		public Action getSystemStepAction_1_0() { return cSystemStepAction_1_0; }
 		
-		//name=INT
+		//name=StepName
 		public Assignment getNameAssignment_1_1() { return cNameAssignment_1_1; }
 		
-		//INT
-		public RuleCall getNameINTTerminalRuleCall_1_1_0() { return cNameINTTerminalRuleCall_1_1_0; }
+		//StepName
+		public RuleCall getNameStepNameParserRuleCall_1_1_0() { return cNameStepNameParserRuleCall_1_1_0; }
 		
 		//'.'
 		public Keyword getFullStopKeyword_1_2() { return cFullStopKeyword_1_2; }
@@ -421,18 +422,18 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//LongName
 		public RuleCall getSentenceLongNameParserRuleCall_1_4_0() { return cSentenceLongNameParserRuleCall_1_4_0; }
 		
-		//{RepeatingStep} name=INT '.' 'WHILE' repeatingCondition=Condition BEGIN ((parent+=INT '.')+ repeatflow+=UseCaseStep)+
-		//END
+		//{RepeatingStep} name=StepName '.' 'WHILE' repeatingCondition=Condition BEGIN ((parent+=StepName '.')+
+		//repeatflow+=UseCaseStep)+ END
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//{RepeatingStep}
 		public Action getRepeatingStepAction_2_0() { return cRepeatingStepAction_2_0; }
 		
-		//name=INT
+		//name=StepName
 		public Assignment getNameAssignment_2_1() { return cNameAssignment_2_1; }
 		
-		//INT
-		public RuleCall getNameINTTerminalRuleCall_2_1_0() { return cNameINTTerminalRuleCall_2_1_0; }
+		//StepName
+		public RuleCall getNameStepNameParserRuleCall_2_1_0() { return cNameStepNameParserRuleCall_2_1_0; }
 		
 		//'.'
 		public Keyword getFullStopKeyword_2_2() { return cFullStopKeyword_2_2; }
@@ -449,17 +450,17 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//BEGIN
 		public RuleCall getBEGINTerminalRuleCall_2_5() { return cBEGINTerminalRuleCall_2_5; }
 		
-		//((parent+=INT '.')+ repeatflow+=UseCaseStep)+
+		//((parent+=StepName '.')+ repeatflow+=UseCaseStep)+
 		public Group getGroup_2_6() { return cGroup_2_6; }
 		
-		//(parent+=INT '.')+
+		//(parent+=StepName '.')+
 		public Group getGroup_2_6_0() { return cGroup_2_6_0; }
 		
-		//parent+=INT
+		//parent+=StepName
 		public Assignment getParentAssignment_2_6_0_0() { return cParentAssignment_2_6_0_0; }
 		
-		//INT
-		public RuleCall getParentINTTerminalRuleCall_2_6_0_0_0() { return cParentINTTerminalRuleCall_2_6_0_0_0; }
+		//StepName
+		public RuleCall getParentStepNameParserRuleCall_2_6_0_0_0() { return cParentStepNameParserRuleCall_2_6_0_0_0; }
 		
 		//'.'
 		public Keyword getFullStopKeyword_2_6_0_1() { return cFullStopKeyword_2_6_0_1; }
@@ -478,7 +479,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Assignment cNameAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
-		private final RuleCall cNameINTTerminalRuleCall_0_0_0 = (RuleCall)cNameAssignment_0_0.eContents().get(0);
+		private final RuleCall cNameStepNameParserRuleCall_0_0_0 = (RuleCall)cNameAssignment_0_0.eContents().get(0);
 		private final Keyword cFullStopKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final Alternatives cAlternatives_0_2 = (Alternatives)cGroup_0.eContents().get(2);
 		private final Keyword cUSERKeyword_0_2_0 = (Keyword)cAlternatives_0_2.eContents().get(0);
@@ -490,20 +491,20 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		////I dont know how to use this shit
 		//ExtensionStep:
-		//	name=INT '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName | DeadEndStep;
+		//	name=StepName '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName | DeadEndStep;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=INT '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName | DeadEndStep
+		//name=StepName '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName | DeadEndStep
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//name=INT '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName
+		//name=StepName '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//name=INT
+		//name=StepName
 		public Assignment getNameAssignment_0_0() { return cNameAssignment_0_0; }
 		
-		//INT
-		public RuleCall getNameINTTerminalRuleCall_0_0_0() { return cNameINTTerminalRuleCall_0_0_0; }
+		//StepName
+		public RuleCall getNameStepNameParserRuleCall_0_0_0() { return cNameStepNameParserRuleCall_0_0_0; }
 		
 		//'.'
 		public Keyword getFullStopKeyword_0_1() { return cFullStopKeyword_0_1; }
@@ -533,7 +534,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.DeadEndStep");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameINTTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final RuleCall cNameStepNameParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
 		private final Keyword cUSERKeyword_2_0 = (Keyword)cAlternatives_2.eContents().get(0);
@@ -545,17 +546,17 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cENDKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//DeadEndStep:
-		//	name=INT '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName? 'UC' 'END';
+		//	name=StepName '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName? 'UC' 'END';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=INT '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName? 'UC' 'END'
+		//name=StepName '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName? 'UC' 'END'
 		public Group getGroup() { return cGroup; }
 		
-		//name=INT
+		//name=StepName
 		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 		
-		//INT
-		public RuleCall getNameINTTerminalRuleCall_0_0() { return cNameINTTerminalRuleCall_0_0; }
+		//StepName
+		public RuleCall getNameStepNameParserRuleCall_0_0() { return cNameStepNameParserRuleCall_0_0; }
 		
 		//'.'
 		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
@@ -735,6 +736,17 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'OR'
 		public Keyword getORKeyword_8() { return cORKeyword_8; }
 	}
+	public class StepNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.StepName");
+		private final RuleCall cINTTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//StepName:
+		//	INT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//INT
+		public RuleCall getINTTerminalRuleCall() { return cINTTerminalRuleCall; }
+	}
 	
 	
 	private final UseCaseDocumentElements pUseCaseDocument;
@@ -748,6 +760,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final PostconditionElements pPostcondition;
 	private final LongNameElements pLongName;
 	private final ConditionElements pCondition;
+	private final StepNameElements pStepName;
 	private final TerminalRule tCHAR;
 	private final TerminalRule tBEGIN;
 	private final TerminalRule tEND;
@@ -772,6 +785,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.pPostcondition = new PostconditionElements();
 		this.pLongName = new LongNameElements();
 		this.pCondition = new ConditionElements();
+		this.pStepName = new StepNameElements();
 		this.tCHAR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.CHAR");
 		this.tBEGIN = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.BEGIN");
 		this.tEND = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.END");
@@ -835,8 +849,8 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////Flows and behavorial
 	//Extension:
-	//	(startFrom+=INT '.')+ name=CHAR '.' 'IF' condition=Condition BEGIN
-	//	steps+=ExtensionStep* (INT '.' 'RETURN' 'TO' (resumeAt+=INT '.'?)+ | end=DeadEndStep) END;
+	//	(startFrom+=StepName '.')+ name=CHAR '.' 'IF' condition=Condition BEGIN
+	//	steps+=ExtensionStep* (INT '.' 'RETURN' 'TO' (resumeAt+=StepName '.'?)+ | end=DeadEndStep) END;
 	public ExtensionElements getExtensionAccess() {
 		return pExtension;
 	}
@@ -847,7 +861,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////Steps
 	//Step:
-	//	name=INT '.' reference=LongName | UseCaseStep | ExtensionStep;
+	//	name=StepName '.' reference=LongName | UseCaseStep | ExtensionStep;
 	public StepElements getStepAccess() {
 		return pStep;
 	}
@@ -857,8 +871,9 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//UseCaseStep:
-	//	{UserStep} name=INT '.' 'USER' sentence=LongName | {SystemStep} name=INT '.' 'SYSTEM' sentence=LongName |
-	//	{RepeatingStep} name=INT '.' 'WHILE' repeatingCondition=Condition BEGIN ((parent+=INT '.')+ repeatflow+=UseCaseStep)+
+	//	{UserStep} name=StepName '.' 'USER' sentence=LongName | {SystemStep} name=StepName '.' 'SYSTEM' sentence=LongName |
+	//	{RepeatingStep} name=StepName '.' 'WHILE' repeatingCondition=Condition BEGIN ((parent+=StepName '.')+
+	//	repeatflow+=UseCaseStep)+
 	//	END;
 	public UseCaseStepElements getUseCaseStepAccess() {
 		return pUseCaseStep;
@@ -870,7 +885,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////I dont know how to use this shit
 	//ExtensionStep:
-	//	name=INT '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName | DeadEndStep;
+	//	name=StepName '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName | DeadEndStep;
 	public ExtensionStepElements getExtensionStepAccess() {
 		return pExtensionStep;
 	}
@@ -880,7 +895,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DeadEndStep:
-	//	name=INT '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName? 'UC' 'END';
+	//	name=StepName '.' ('USER' | 'SYSTEM' | 'WHILE')? sentence=LongName? 'UC' 'END';
 	public DeadEndStepElements getDeadEndStepAccess() {
 		return pDeadEndStep;
 	}
@@ -930,6 +945,16 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getConditionRule() {
 		return getConditionAccess().getRule();
+	}
+	
+	//StepName:
+	//	INT;
+	public StepNameElements getStepNameAccess() {
+		return pStepName;
+	}
+	
+	public ParserRule getStepNameRule() {
+		return getStepNameAccess().getRule();
 	}
 	
 	//terminal CHAR:

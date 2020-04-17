@@ -37,7 +37,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @generated
    * @ordered
    */
-  protected static final int NAME_EDEFAULT = 0;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -47,7 +47,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @generated
    * @ordered
    */
-  protected int name = NAME_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getReference() <em>Reference</em>}' attribute.
@@ -96,7 +96,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @generated
    */
   @Override
-  public int getName()
+  public String getName()
   {
     return name;
   }
@@ -107,9 +107,9 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @generated
    */
   @Override
-  public void setName(int newName)
+  public void setName(String newName)
   {
-    int oldName = name;
+    String oldName = name;
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.STEP__NAME, oldName, name));
@@ -169,7 +169,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
     switch (featureID)
     {
       case UseCaseDslPackage.STEP__NAME:
-        setName((Integer)newValue);
+        setName((String)newValue);
         return;
       case UseCaseDslPackage.STEP__REFERENCE:
         setReference((String)newValue);
@@ -209,7 +209,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
     switch (featureID)
     {
       case UseCaseDslPackage.STEP__NAME:
-        return name != NAME_EDEFAULT;
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case UseCaseDslPackage.STEP__REFERENCE:
         return REFERENCE_EDEFAULT == null ? reference != null : !REFERENCE_EDEFAULT.equals(reference);
     }

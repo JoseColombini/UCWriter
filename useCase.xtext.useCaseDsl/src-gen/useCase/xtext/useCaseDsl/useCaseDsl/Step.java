@@ -29,12 +29,12 @@ public interface Step extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(int)
+   * @see #setName(String)
    * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getStep_Name()
    * @model
    * @generated
    */
-  int getName();
+  String getName();
 
   /**
    * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getName <em>Name</em>}' attribute.
@@ -44,7 +44,7 @@ public interface Step extends EObject
    * @see #getName()
    * @generated
    */
-  void setName(int value);
+  void setName(String value);
 
   /**
    * Returns the value of the '<em><b>Reference</b></em>' attribute.

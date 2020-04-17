@@ -86,8 +86,8 @@ public class UseCaseDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ('USER' | 'SYSTEM' | 'WHILE')?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     name=INT '.' (ambiguity) 'UC' 'END' (rule end)
-	 *     name=INT '.' (ambiguity) sentence=LongName
+	 *     name=StepName '.' (ambiguity) 'UC' 'END' (rule end)
+	 *     name=StepName '.' (ambiguity) sentence=LongName
 	 */
 	protected void emit_DeadEndStep___SYSTEMKeyword_2_1_or_USERKeyword_2_0_or_WHILEKeyword_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -98,7 +98,7 @@ public class UseCaseDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ('USER' | 'SYSTEM' | 'WHILE')?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     name=INT '.' (ambiguity) sentence=LongName
+	 *     name=StepName '.' (ambiguity) sentence=LongName
 	 */
 	protected void emit_ExtensionStep___SYSTEMKeyword_0_2_1_or_USERKeyword_0_2_0_or_WHILEKeyword_0_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -109,8 +109,8 @@ public class UseCaseDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '.'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     resumeAt+=INT (ambiguity) END (rule end)
-	 *     resumeAt+=INT (ambiguity) resumeAt+=INT
+	 *     resumeAt+=StepName (ambiguity) END (rule end)
+	 *     resumeAt+=StepName (ambiguity) resumeAt+=StepName
 	 */
 	protected void emit_Extension_FullStopKeyword_7_0_4_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

@@ -292,19 +292,20 @@ ruleExtension returns [EObject current=null]
 		(
 			(
 				(
-					lv_startFrom_0_0=RULE_INT
 					{
-						newLeafNode(lv_startFrom_0_0, grammarAccess.getExtensionAccess().getStartFromINTTerminalRuleCall_0_0_0());
+						newCompositeNode(grammarAccess.getExtensionAccess().getStartFromStepNameParserRuleCall_0_0_0());
 					}
+					lv_startFrom_0_0=ruleStepName
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getExtensionRule());
+							$current = createModelElementForParent(grammarAccess.getExtensionRule());
 						}
-						addWithLastConsumed(
+						add(
 							$current,
 							"startFrom",
 							lv_startFrom_0_0,
-							"org.eclipse.xtext.common.Terminals.INT");
+							"useCase.xtext.useCaseDsl.UseCaseDsl.StepName");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)
@@ -402,19 +403,20 @@ ruleExtension returns [EObject current=null]
 				(
 					(
 						(
-							lv_resumeAt_12_0=RULE_INT
 							{
-								newLeafNode(lv_resumeAt_12_0, grammarAccess.getExtensionAccess().getResumeAtINTTerminalRuleCall_7_0_4_0_0());
+								newCompositeNode(grammarAccess.getExtensionAccess().getResumeAtStepNameParserRuleCall_7_0_4_0_0());
 							}
+							lv_resumeAt_12_0=ruleStepName
 							{
 								if ($current==null) {
-									$current = createModelElement(grammarAccess.getExtensionRule());
+									$current = createModelElementForParent(grammarAccess.getExtensionRule());
 								}
-								addWithLastConsumed(
+								add(
 									$current,
 									"resumeAt",
 									lv_resumeAt_12_0,
-									"org.eclipse.xtext.common.Terminals.INT");
+									"useCase.xtext.useCaseDsl.UseCaseDsl.StepName");
+								afterParserOrEnumRuleCall();
 							}
 						)
 					)
@@ -480,19 +482,20 @@ ruleUseCaseStep returns [EObject current=null]
 			)
 			(
 				(
-					lv_name_1_0=RULE_INT
 					{
-						newLeafNode(lv_name_1_0, grammarAccess.getUseCaseStepAccess().getNameINTTerminalRuleCall_0_1_0());
+						newCompositeNode(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_0_1_0());
 					}
+					lv_name_1_0=ruleStepName
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getUseCaseStepRule());
+							$current = createModelElementForParent(grammarAccess.getUseCaseStepRule());
 						}
-						setWithLastConsumed(
+						set(
 							$current,
 							"name",
 							lv_name_1_0,
-							"org.eclipse.xtext.common.Terminals.INT");
+							"useCase.xtext.useCaseDsl.UseCaseDsl.StepName");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)
@@ -535,19 +538,20 @@ ruleUseCaseStep returns [EObject current=null]
 			)
 			(
 				(
-					lv_name_6_0=RULE_INT
 					{
-						newLeafNode(lv_name_6_0, grammarAccess.getUseCaseStepAccess().getNameINTTerminalRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_1_1_0());
 					}
+					lv_name_6_0=ruleStepName
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getUseCaseStepRule());
+							$current = createModelElementForParent(grammarAccess.getUseCaseStepRule());
 						}
-						setWithLastConsumed(
+						set(
 							$current,
 							"name",
 							lv_name_6_0,
-							"org.eclipse.xtext.common.Terminals.INT");
+							"useCase.xtext.useCaseDsl.UseCaseDsl.StepName");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)
@@ -590,19 +594,20 @@ ruleUseCaseStep returns [EObject current=null]
 			)
 			(
 				(
-					lv_name_11_0=RULE_INT
 					{
-						newLeafNode(lv_name_11_0, grammarAccess.getUseCaseStepAccess().getNameINTTerminalRuleCall_2_1_0());
+						newCompositeNode(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_2_1_0());
 					}
+					lv_name_11_0=ruleStepName
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getUseCaseStepRule());
+							$current = createModelElementForParent(grammarAccess.getUseCaseStepRule());
 						}
-						setWithLastConsumed(
+						set(
 							$current,
 							"name",
 							lv_name_11_0,
-							"org.eclipse.xtext.common.Terminals.INT");
+							"useCase.xtext.useCaseDsl.UseCaseDsl.StepName");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)
@@ -641,19 +646,20 @@ ruleUseCaseStep returns [EObject current=null]
 				(
 					(
 						(
-							lv_parent_16_0=RULE_INT
 							{
-								newLeafNode(lv_parent_16_0, grammarAccess.getUseCaseStepAccess().getParentINTTerminalRuleCall_2_6_0_0_0());
+								newCompositeNode(grammarAccess.getUseCaseStepAccess().getParentStepNameParserRuleCall_2_6_0_0_0());
 							}
+							lv_parent_16_0=ruleStepName
 							{
 								if ($current==null) {
-									$current = createModelElement(grammarAccess.getUseCaseStepRule());
+									$current = createModelElementForParent(grammarAccess.getUseCaseStepRule());
 								}
-								addWithLastConsumed(
+								add(
 									$current,
 									"parent",
 									lv_parent_16_0,
-									"org.eclipse.xtext.common.Terminals.INT");
+									"useCase.xtext.useCaseDsl.UseCaseDsl.StepName");
+								afterParserOrEnumRuleCall();
 							}
 						)
 					)
@@ -709,19 +715,20 @@ ruleExtensionStep returns [EObject current=null]
 		(
 			(
 				(
-					lv_name_0_0=RULE_INT
 					{
-						newLeafNode(lv_name_0_0, grammarAccess.getExtensionStepAccess().getNameINTTerminalRuleCall_0_0_0());
+						newCompositeNode(grammarAccess.getExtensionStepAccess().getNameStepNameParserRuleCall_0_0_0());
 					}
+					lv_name_0_0=ruleStepName
 					{
 						if ($current==null) {
-							$current = createModelElement(grammarAccess.getExtensionStepRule());
+							$current = createModelElementForParent(grammarAccess.getExtensionStepRule());
 						}
-						setWithLastConsumed(
+						set(
 							$current,
 							"name",
 							lv_name_0_0,
-							"org.eclipse.xtext.common.Terminals.INT");
+							"useCase.xtext.useCaseDsl.UseCaseDsl.StepName");
+						afterParserOrEnumRuleCall();
 					}
 				)
 			)
@@ -795,19 +802,20 @@ ruleDeadEndStep returns [EObject current=null]
 	(
 		(
 			(
-				lv_name_0_0=RULE_INT
 				{
-					newLeafNode(lv_name_0_0, grammarAccess.getDeadEndStepAccess().getNameINTTerminalRuleCall_0_0());
+					newCompositeNode(grammarAccess.getDeadEndStepAccess().getNameStepNameParserRuleCall_0_0());
 				}
+				lv_name_0_0=ruleStepName
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDeadEndStepRule());
+						$current = createModelElementForParent(grammarAccess.getDeadEndStepRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"name",
 						lv_name_0_0,
-						"org.eclipse.xtext.common.Terminals.INT");
+						"useCase.xtext.useCaseDsl.UseCaseDsl.StepName");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -1115,4 +1123,28 @@ ruleCondition returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken
 			newLeafNode(kw, grammarAccess.getConditionAccess().getORKeyword_8());
 		}
 	)+
+;
+
+// Entry rule entryRuleStepName
+entryRuleStepName returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getStepNameRule()); }
+	iv_ruleStepName=ruleStepName
+	{ $current=$iv_ruleStepName.current.getText(); }
+	EOF;
+
+// Rule StepName
+ruleStepName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	this_INT_0=RULE_INT
+	{
+		$current.merge(this_INT_0);
+	}
+	{
+		newLeafNode(this_INT_0, grammarAccess.getStepNameAccess().getINTTerminalRuleCall());
+	}
 ;

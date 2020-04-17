@@ -68,7 +68,7 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
    * @generated
    * @ordered
    */
-  protected EList<Integer> parent;
+  protected EList<String> parent;
 
   /**
    * The cached value of the '{@link #getRepeatflow() <em>Repeatflow</em>}' containment reference list.
@@ -132,11 +132,11 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
    * @generated
    */
   @Override
-  public EList<Integer> getParent()
+  public EList<String> getParent()
   {
     if (parent == null)
     {
-      parent = new EDataTypeEList<Integer>(Integer.class, this, UseCaseDslPackage.REPEATING_STEP__PARENT);
+      parent = new EDataTypeEList<String>(String.class, this, UseCaseDslPackage.REPEATING_STEP__PARENT);
     }
     return parent;
   }
@@ -208,7 +208,7 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
         return;
       case UseCaseDslPackage.REPEATING_STEP__PARENT:
         getParent().clear();
-        getParent().addAll((Collection<? extends Integer>)newValue);
+        getParent().addAll((Collection<? extends String>)newValue);
         return;
       case UseCaseDslPackage.REPEATING_STEP__REPEATFLOW:
         getRepeatflow().clear();

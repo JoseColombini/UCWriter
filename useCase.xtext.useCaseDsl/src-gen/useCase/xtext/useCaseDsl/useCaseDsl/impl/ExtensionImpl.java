@@ -53,7 +53,7 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
    * @generated
    * @ordered
    */
-  protected EList<Integer> startFrom;
+  protected EList<String> startFrom;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -113,7 +113,7 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
    * @generated
    * @ordered
    */
-  protected EList<Integer> resumeAt;
+  protected EList<String> resumeAt;
 
   /**
    * The cached value of the '{@link #getEnd() <em>End</em>}' containment reference.
@@ -152,11 +152,11 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
    * @generated
    */
   @Override
-  public EList<Integer> getStartFrom()
+  public EList<String> getStartFrom()
   {
     if (startFrom == null)
     {
-      startFrom = new EDataTypeEList<Integer>(Integer.class, this, UseCaseDslPackage.EXTENSION__START_FROM);
+      startFrom = new EDataTypeEList<String>(String.class, this, UseCaseDslPackage.EXTENSION__START_FROM);
     }
     return startFrom;
   }
@@ -232,11 +232,11 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
    * @generated
    */
   @Override
-  public EList<Integer> getResumeAt()
+  public EList<String> getResumeAt()
   {
     if (resumeAt == null)
     {
-      resumeAt = new EDataTypeEList<Integer>(Integer.class, this, UseCaseDslPackage.EXTENSION__RESUME_AT);
+      resumeAt = new EDataTypeEList<String>(String.class, this, UseCaseDslPackage.EXTENSION__RESUME_AT);
     }
     return resumeAt;
   }
@@ -348,7 +348,7 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
     {
       case UseCaseDslPackage.EXTENSION__START_FROM:
         getStartFrom().clear();
-        getStartFrom().addAll((Collection<? extends Integer>)newValue);
+        getStartFrom().addAll((Collection<? extends String>)newValue);
         return;
       case UseCaseDslPackage.EXTENSION__NAME:
         setName((String)newValue);
@@ -362,7 +362,7 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
         return;
       case UseCaseDslPackage.EXTENSION__RESUME_AT:
         getResumeAt().clear();
-        getResumeAt().addAll((Collection<? extends Integer>)newValue);
+        getResumeAt().addAll((Collection<? extends String>)newValue);
         return;
       case UseCaseDslPackage.EXTENSION__END:
         setEnd((DeadEndStep)newValue);

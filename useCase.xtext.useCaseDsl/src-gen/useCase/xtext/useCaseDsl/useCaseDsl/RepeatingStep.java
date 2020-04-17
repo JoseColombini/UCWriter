@@ -49,7 +49,7 @@ public interface RepeatingStep extends UseCaseStep
 
   /**
    * Returns the value of the '<em><b>Parent</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.Integer}.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Parent</em>' attribute list.
@@ -57,7 +57,7 @@ public interface RepeatingStep extends UseCaseStep
    * @model unique="false"
    * @generated
    */
-  EList<Integer> getParent();
+  EList<String> getParent();
 
   /**
    * Returns the value of the '<em><b>Repeatflow</b></em>' containment reference list.

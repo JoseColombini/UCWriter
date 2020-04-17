@@ -87,7 +87,7 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     DeadEndStep returns DeadEndStep
 	 *
 	 * Constraint:
-	 *     (name=INT sentence=LongName?)
+	 *     (name=StepName sentence=LongName?)
 	 */
 	protected void sequence_DeadEndStep(ISerializationContext context, DeadEndStep semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -100,7 +100,7 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ExtensionStep returns ExtensionStep
 	 *
 	 * Constraint:
-	 *     (name=INT sentence=LongName)
+	 *     (name=StepName sentence=LongName)
 	 */
 	protected void sequence_ExtensionStep(ISerializationContext context, ExtensionStep semanticObject) {
 		if (errorAcceptor != null) {
@@ -110,7 +110,7 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.EXTENSION_STEP__SENTENCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExtensionStepAccess().getNameINTTerminalRuleCall_0_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getExtensionStepAccess().getNameStepNameParserRuleCall_0_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getExtensionStepAccess().getSentenceLongNameParserRuleCall_0_3_0(), semanticObject.getSentence());
 		feeder.finish();
 	}
@@ -121,7 +121,7 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Extension returns Extension
 	 *
 	 * Constraint:
-	 *     (startFrom+=INT+ name=CHAR condition=Condition steps+=ExtensionStep* (resumeAt+=INT+ | end=DeadEndStep))
+	 *     (startFrom+=StepName+ name=CHAR condition=Condition steps+=ExtensionStep* (resumeAt+=StepName+ | end=DeadEndStep))
 	 */
 	protected void sequence_Extension(ISerializationContext context, Extension semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -175,7 +175,7 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Step returns Step
 	 *
 	 * Constraint:
-	 *     (name=INT reference=LongName)
+	 *     (name=StepName reference=LongName)
 	 */
 	protected void sequence_Step(ISerializationContext context, Step semanticObject) {
 		if (errorAcceptor != null) {
@@ -185,7 +185,7 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.STEP__REFERENCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getStepAccess().getNameINTTerminalRuleCall_0_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getStepAccess().getNameStepNameParserRuleCall_0_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getStepAccess().getReferenceLongNameParserRuleCall_0_2_0(), semanticObject.getReference());
 		feeder.finish();
 	}
@@ -209,7 +209,7 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     UseCaseStep returns RepeatingStep
 	 *
 	 * Constraint:
-	 *     (name=INT repeatingCondition=Condition (parent+=INT+ repeatflow+=UseCaseStep)+)
+	 *     (name=StepName repeatingCondition=Condition (parent+=StepName+ repeatflow+=UseCaseStep)+)
 	 */
 	protected void sequence_UseCaseStep(ISerializationContext context, RepeatingStep semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -222,7 +222,7 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     UseCaseStep returns SystemStep
 	 *
 	 * Constraint:
-	 *     (name=INT sentence=LongName)
+	 *     (name=StepName sentence=LongName)
 	 */
 	protected void sequence_UseCaseStep(ISerializationContext context, SystemStep semanticObject) {
 		if (errorAcceptor != null) {
@@ -232,7 +232,7 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.SYSTEM_STEP__SENTENCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getUseCaseStepAccess().getNameINTTerminalRuleCall_1_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_1_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getUseCaseStepAccess().getSentenceLongNameParserRuleCall_1_4_0(), semanticObject.getSentence());
 		feeder.finish();
 	}
@@ -244,7 +244,7 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     UseCaseStep returns UserStep
 	 *
 	 * Constraint:
-	 *     (name=INT sentence=LongName)
+	 *     (name=StepName sentence=LongName)
 	 */
 	protected void sequence_UseCaseStep(ISerializationContext context, UserStep semanticObject) {
 		if (errorAcceptor != null) {
@@ -254,7 +254,7 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.USER_STEP__SENTENCE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getUseCaseStepAccess().getNameINTTerminalRuleCall_0_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_0_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getUseCaseStepAccess().getSentenceLongNameParserRuleCall_0_4_0(), semanticObject.getSentence());
 		feeder.finish();
 	}

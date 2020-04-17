@@ -32,7 +32,7 @@ public interface Extension extends EObject
 {
   /**
    * Returns the value of the '<em><b>Start From</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.Integer}.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Start From</em>' attribute list.
@@ -40,7 +40,7 @@ public interface Extension extends EObject
    * @model unique="false"
    * @generated
    */
-  EList<Integer> getStartFrom();
+  EList<String> getStartFrom();
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -100,7 +100,7 @@ public interface Extension extends EObject
 
   /**
    * Returns the value of the '<em><b>Resume At</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.Integer}.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Resume At</em>' attribute list.
@@ -108,7 +108,7 @@ public interface Extension extends EObject
    * @model unique="false"
    * @generated
    */
-  EList<Integer> getResumeAt();
+  EList<String> getResumeAt();
 
   /**
    * Returns the value of the '<em><b>End</b></em>' containment reference.

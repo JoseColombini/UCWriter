@@ -341,6 +341,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleStepName
+entryRuleStepName
+:
+{ before(grammarAccess.getStepNameRule()); }
+	 ruleStepName
+{ after(grammarAccess.getStepNameRule()); } 
+	 EOF 
+;
+
+// Rule StepName
+ruleStepName 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getStepNameAccess().getINTTerminalRuleCall()); }
+		RULE_INT
+		{ after(grammarAccess.getStepNameAccess().getINTTerminalRuleCall()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__Extension__Alternatives_7
 	@init {
 		int stackSize = keepStackSize();
@@ -2783,9 +2808,9 @@ rule__Extension__StartFromAssignment_0_0
 	}
 :
 	(
-		{ before(grammarAccess.getExtensionAccess().getStartFromINTTerminalRuleCall_0_0_0()); }
-		RULE_INT
-		{ after(grammarAccess.getExtensionAccess().getStartFromINTTerminalRuleCall_0_0_0()); }
+		{ before(grammarAccess.getExtensionAccess().getStartFromStepNameParserRuleCall_0_0_0()); }
+		ruleStepName
+		{ after(grammarAccess.getExtensionAccess().getStartFromStepNameParserRuleCall_0_0_0()); }
 	)
 ;
 finally {
@@ -2843,9 +2868,9 @@ rule__Extension__ResumeAtAssignment_7_0_4_0
 	}
 :
 	(
-		{ before(grammarAccess.getExtensionAccess().getResumeAtINTTerminalRuleCall_7_0_4_0_0()); }
-		RULE_INT
-		{ after(grammarAccess.getExtensionAccess().getResumeAtINTTerminalRuleCall_7_0_4_0_0()); }
+		{ before(grammarAccess.getExtensionAccess().getResumeAtStepNameParserRuleCall_7_0_4_0_0()); }
+		ruleStepName
+		{ after(grammarAccess.getExtensionAccess().getResumeAtStepNameParserRuleCall_7_0_4_0_0()); }
 	)
 ;
 finally {
@@ -2873,9 +2898,9 @@ rule__UseCaseStep__NameAssignment_0_1
 	}
 :
 	(
-		{ before(grammarAccess.getUseCaseStepAccess().getNameINTTerminalRuleCall_0_1_0()); }
-		RULE_INT
-		{ after(grammarAccess.getUseCaseStepAccess().getNameINTTerminalRuleCall_0_1_0()); }
+		{ before(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_0_1_0()); }
+		ruleStepName
+		{ after(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_0_1_0()); }
 	)
 ;
 finally {
@@ -2903,9 +2928,9 @@ rule__UseCaseStep__NameAssignment_1_1
 	}
 :
 	(
-		{ before(grammarAccess.getUseCaseStepAccess().getNameINTTerminalRuleCall_1_1_0()); }
-		RULE_INT
-		{ after(grammarAccess.getUseCaseStepAccess().getNameINTTerminalRuleCall_1_1_0()); }
+		{ before(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_1_1_0()); }
+		ruleStepName
+		{ after(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_1_1_0()); }
 	)
 ;
 finally {
@@ -2933,9 +2958,9 @@ rule__UseCaseStep__NameAssignment_2_1
 	}
 :
 	(
-		{ before(grammarAccess.getUseCaseStepAccess().getNameINTTerminalRuleCall_2_1_0()); }
-		RULE_INT
-		{ after(grammarAccess.getUseCaseStepAccess().getNameINTTerminalRuleCall_2_1_0()); }
+		{ before(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_2_1_0()); }
+		ruleStepName
+		{ after(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_2_1_0()); }
 	)
 ;
 finally {
@@ -2963,9 +2988,9 @@ rule__UseCaseStep__ParentAssignment_2_6_0_0
 	}
 :
 	(
-		{ before(grammarAccess.getUseCaseStepAccess().getParentINTTerminalRuleCall_2_6_0_0_0()); }
-		RULE_INT
-		{ after(grammarAccess.getUseCaseStepAccess().getParentINTTerminalRuleCall_2_6_0_0_0()); }
+		{ before(grammarAccess.getUseCaseStepAccess().getParentStepNameParserRuleCall_2_6_0_0_0()); }
+		ruleStepName
+		{ after(grammarAccess.getUseCaseStepAccess().getParentStepNameParserRuleCall_2_6_0_0_0()); }
 	)
 ;
 finally {
@@ -2993,9 +3018,9 @@ rule__ExtensionStep__NameAssignment_0_0
 	}
 :
 	(
-		{ before(grammarAccess.getExtensionStepAccess().getNameINTTerminalRuleCall_0_0_0()); }
-		RULE_INT
-		{ after(grammarAccess.getExtensionStepAccess().getNameINTTerminalRuleCall_0_0_0()); }
+		{ before(grammarAccess.getExtensionStepAccess().getNameStepNameParserRuleCall_0_0_0()); }
+		ruleStepName
+		{ after(grammarAccess.getExtensionStepAccess().getNameStepNameParserRuleCall_0_0_0()); }
 	)
 ;
 finally {
@@ -3023,9 +3048,9 @@ rule__DeadEndStep__NameAssignment_0
 	}
 :
 	(
-		{ before(grammarAccess.getDeadEndStepAccess().getNameINTTerminalRuleCall_0_0()); }
-		RULE_INT
-		{ after(grammarAccess.getDeadEndStepAccess().getNameINTTerminalRuleCall_0_0()); }
+		{ before(grammarAccess.getDeadEndStepAccess().getNameStepNameParserRuleCall_0_0()); }
+		ruleStepName
+		{ after(grammarAccess.getDeadEndStepAccess().getNameStepNameParserRuleCall_0_0()); }
 	)
 ;
 finally {
