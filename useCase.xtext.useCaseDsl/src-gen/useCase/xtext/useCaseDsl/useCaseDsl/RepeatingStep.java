@@ -48,16 +48,16 @@ public interface RepeatingStep extends UseCaseStep
   void setRepeatingCondition(String value);
 
   /**
-   * Returns the value of the '<em><b>Parent</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Parent</b></em>' reference list.
+   * The list contents are of type {@link useCase.xtext.useCaseDsl.useCaseDsl.Step}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Parent</em>' attribute list.
+   * @return the value of the '<em>Parent</em>' reference list.
    * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getRepeatingStep_Parent()
-   * @model unique="false"
+   * @model
    * @generated
    */
-  EList<String> getParent();
+  EList<Step> getParent();
 
   /**
    * Returns the value of the '<em><b>Repeatflow</b></em>' containment reference list.

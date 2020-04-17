@@ -121,7 +121,7 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Extension returns Extension
 	 *
 	 * Constraint:
-	 *     (startFrom+=StepName+ name=CHAR condition=Condition steps+=ExtensionStep* (resumeAt+=StepName+ | end=DeadEndStep))
+	 *     (startFrom+=[Step|StepName]+ name=CHAR condition=Condition steps+=ExtensionStep* (resumeAt+=StepName+ | end=DeadEndStep))
 	 */
 	protected void sequence_Extension(ISerializationContext context, Extension semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -209,7 +209,7 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     UseCaseStep returns RepeatingStep
 	 *
 	 * Constraint:
-	 *     (name=StepName repeatingCondition=Condition (parent+=StepName+ repeatflow+=UseCaseStep)+)
+	 *     (name=StepName repeatingCondition=Condition (parent+=[Step|StepName]+ repeatflow+=UseCaseStep)+)
 	 */
 	protected void sequence_UseCaseStep(ISerializationContext context, RepeatingStep semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

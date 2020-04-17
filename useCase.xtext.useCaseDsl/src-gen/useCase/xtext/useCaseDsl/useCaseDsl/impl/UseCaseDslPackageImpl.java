@@ -296,9 +296,9 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
-  public EAttribute getExtension_StartFrom()
+  public EReference getExtension_StartFrom()
   {
-    return (EAttribute)extensionEClass.getEStructuralFeatures().get(0);
+    return (EReference)extensionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -571,9 +571,9 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
-  public EAttribute getRepeatingStep_Parent()
+  public EReference getRepeatingStep_Parent()
   {
-    return (EAttribute)repeatingStepEClass.getEStructuralFeatures().get(1);
+    return (EReference)repeatingStepEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -630,7 +630,7 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
     createEReference(useCaseEClass, USE_CASE__ALTERNATIVEFLOWS);
 
     extensionEClass = createEClass(EXTENSION);
-    createEAttribute(extensionEClass, EXTENSION__START_FROM);
+    createEReference(extensionEClass, EXTENSION__START_FROM);
     createEAttribute(extensionEClass, EXTENSION__NAME);
     createEAttribute(extensionEClass, EXTENSION__CONDITION);
     createEReference(extensionEClass, EXTENSION__STEPS);
@@ -664,7 +664,7 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
 
     repeatingStepEClass = createEClass(REPEATING_STEP);
     createEAttribute(repeatingStepEClass, REPEATING_STEP__REPEATING_CONDITION);
-    createEAttribute(repeatingStepEClass, REPEATING_STEP__PARENT);
+    createEReference(repeatingStepEClass, REPEATING_STEP__PARENT);
     createEReference(repeatingStepEClass, REPEATING_STEP__REPEATFLOW);
   }
 
@@ -717,7 +717,7 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
     initEReference(getUseCase_Alternativeflows(), this.getExtension(), null, "alternativeflows", null, 0, -1, UseCase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(extensionEClass, Extension.class, "Extension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getExtension_StartFrom(), ecorePackage.getEString(), "startFrom", null, 0, -1, Extension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExtension_StartFrom(), this.getStep(), null, "startFrom", null, 0, -1, Extension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExtension_Name(), ecorePackage.getEString(), "name", null, 0, 1, Extension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExtension_Condition(), ecorePackage.getEString(), "condition", null, 0, 1, Extension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExtension_Steps(), this.getExtensionStep(), null, "steps", null, 0, -1, Extension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -751,7 +751,7 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
 
     initEClass(repeatingStepEClass, RepeatingStep.class, "RepeatingStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRepeatingStep_RepeatingCondition(), ecorePackage.getEString(), "repeatingCondition", null, 0, 1, RepeatingStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRepeatingStep_Parent(), ecorePackage.getEString(), "parent", null, 0, -1, RepeatingStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRepeatingStep_Parent(), this.getStep(), null, "parent", null, 0, -1, RepeatingStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRepeatingStep_Repeatflow(), this.getUseCaseStep(), null, "repeatflow", null, 0, -1, RepeatingStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource

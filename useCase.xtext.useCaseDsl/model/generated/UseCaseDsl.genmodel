@@ -18,7 +18,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCaseDsl.ecore#//UseCase/alternativeflows"/>
     </genClasses>
     <genClasses ecoreClass="UseCaseDsl.ecore#//Extension">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//Extension/startFrom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UseCaseDsl.ecore#//Extension/startFrom"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//Extension/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//Extension/condition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCaseDsl.ecore#//Extension/steps"/>
@@ -50,7 +50,7 @@
     </genClasses>
     <genClasses ecoreClass="UseCaseDsl.ecore#//RepeatingStep">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//RepeatingStep/repeatingCondition"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//RepeatingStep/parent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UseCaseDsl.ecore#//RepeatingStep/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCaseDsl.ecore#//RepeatingStep/repeatflow"/>
     </genClasses>
   </genPackages>

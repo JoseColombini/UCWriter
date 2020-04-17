@@ -18,11 +18,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import useCase.xtext.useCaseDsl.useCaseDsl.DeadEndStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.Extension;
 import useCase.xtext.useCaseDsl.useCaseDsl.ExtensionStep;
+import useCase.xtext.useCaseDsl.useCaseDsl.Step;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
 
 /**
@@ -46,14 +48,14 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
 public class ExtensionImpl extends MinimalEObjectImpl.Container implements Extension
 {
   /**
-   * The cached value of the '{@link #getStartFrom() <em>Start From</em>}' attribute list.
+   * The cached value of the '{@link #getStartFrom() <em>Start From</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getStartFrom()
    * @generated
    * @ordered
    */
-  protected EList<String> startFrom;
+  protected EList<Step> startFrom;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -152,11 +154,11 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
    * @generated
    */
   @Override
-  public EList<String> getStartFrom()
+  public EList<Step> getStartFrom()
   {
     if (startFrom == null)
     {
-      startFrom = new EDataTypeEList<String>(String.class, this, UseCaseDslPackage.EXTENSION__START_FROM);
+      startFrom = new EObjectResolvingEList<Step>(Step.class, this, UseCaseDslPackage.EXTENSION__START_FROM);
     }
     return startFrom;
   }
@@ -348,7 +350,7 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
     {
       case UseCaseDslPackage.EXTENSION__START_FROM:
         getStartFrom().clear();
-        getStartFrom().addAll((Collection<? extends String>)newValue);
+        getStartFrom().addAll((Collection<? extends Step>)newValue);
         return;
       case UseCaseDslPackage.EXTENSION__NAME:
         setName((String)newValue);
@@ -440,9 +442,7 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (startFrom: ");
-    result.append(startFrom);
-    result.append(", name: ");
+    result.append(" (name: ");
     result.append(name);
     result.append(", condition: ");
     result.append(condition);

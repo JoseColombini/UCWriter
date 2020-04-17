@@ -23,7 +23,7 @@ UseCase:
 
 //Flows and behavorial
 Extension:
-	(startFrom += StepName'.')+ (name = CHAR)  '.' 'IF' (condition = Condition)
+	(startFrom += [Step|StepName]'.')+ (name = CHAR)  '.' 'IF' (condition = Condition)
 	BEGIN
 		(steps += ExtensionStep)*
 		(INT '.' 'RETURN' 'TO' (resumeAt += StepName('.')?)+|end = DeadEndStep)
@@ -39,7 +39,7 @@ UseCaseStep:
 	{SystemStep} (name = StepName) '.' 'SYSTEM'(sentence = LongName)|
 	{RepeatingStep} (name = StepName) '.' 'WHILE'(repeatingCondition = Condition)
 	BEGIN
-		((parent += StepName'.')+(repeatflow += UseCaseStep))+
+		((parent += [Step|StepName]'.')+ (repeatflow += UseCaseStep))+
 	END;
 
 //I dont know how to use this shit

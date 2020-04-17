@@ -293,18 +293,15 @@ ruleExtension returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getExtensionAccess().getStartFromStepNameParserRuleCall_0_0_0());
-					}
-					lv_startFrom_0_0=ruleStepName
-					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getExtensionRule());
+							$current = createModelElement(grammarAccess.getExtensionRule());
 						}
-						add(
-							$current,
-							"startFrom",
-							lv_startFrom_0_0,
-							"useCase.xtext.useCaseDsl.UseCaseDsl.StepName");
+					}
+					{
+						newCompositeNode(grammarAccess.getExtensionAccess().getStartFromStepCrossReference_0_0_0());
+					}
+					ruleStepName
+					{
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -647,18 +644,15 @@ ruleUseCaseStep returns [EObject current=null]
 					(
 						(
 							{
-								newCompositeNode(grammarAccess.getUseCaseStepAccess().getParentStepNameParserRuleCall_2_6_0_0_0());
-							}
-							lv_parent_16_0=ruleStepName
-							{
 								if ($current==null) {
-									$current = createModelElementForParent(grammarAccess.getUseCaseStepRule());
+									$current = createModelElement(grammarAccess.getUseCaseStepRule());
 								}
-								add(
-									$current,
-									"parent",
-									lv_parent_16_0,
-									"useCase.xtext.useCaseDsl.UseCaseDsl.StepName");
+							}
+							{
+								newCompositeNode(grammarAccess.getUseCaseStepAccess().getParentStepCrossReference_2_6_0_0_0());
+							}
+							ruleStepName
+							{
 								afterParserOrEnumRuleCall();
 							}
 						)

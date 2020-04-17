@@ -169,7 +169,7 @@ public interface UseCaseDslPackage extends EPackage
   int EXTENSION = 2;
 
   /**
-   * The feature id for the '<em><b>Start From</b></em>' attribute list.
+   * The feature id for the '<em><b>Start From</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -601,7 +601,7 @@ public interface UseCaseDslPackage extends EPackage
   int REPEATING_STEP__REPEATING_CONDITION = USE_CASE_STEP_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Parent</b></em>' attribute list.
+   * The feature id for the '<em><b>Parent</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -736,15 +736,15 @@ public interface UseCaseDslPackage extends EPackage
   EClass getExtension();
 
   /**
-   * Returns the meta object for the attribute list '{@link useCase.xtext.useCaseDsl.useCaseDsl.Extension#getStartFrom <em>Start From</em>}'.
+   * Returns the meta object for the reference list '{@link useCase.xtext.useCaseDsl.useCaseDsl.Extension#getStartFrom <em>Start From</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Start From</em>'.
+   * @return the meta object for the reference list '<em>Start From</em>'.
    * @see useCase.xtext.useCaseDsl.useCaseDsl.Extension#getStartFrom()
    * @see #getExtension()
    * @generated
    */
-  EAttribute getExtension_StartFrom();
+  EReference getExtension_StartFrom();
 
   /**
    * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.Extension#getName <em>Name</em>}'.
@@ -1002,15 +1002,15 @@ public interface UseCaseDslPackage extends EPackage
   EAttribute getRepeatingStep_RepeatingCondition();
 
   /**
-   * Returns the meta object for the attribute list '{@link useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep#getParent <em>Parent</em>}'.
+   * Returns the meta object for the reference list '{@link useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep#getParent <em>Parent</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Parent</em>'.
+   * @return the meta object for the reference list '<em>Parent</em>'.
    * @see useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep#getParent()
    * @see #getRepeatingStep()
    * @generated
    */
-  EAttribute getRepeatingStep_Parent();
+  EReference getRepeatingStep_Parent();
 
   /**
    * Returns the meta object for the containment reference list '{@link useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep#getRepeatflow <em>Repeatflow</em>}'.
@@ -1133,12 +1133,12 @@ public interface UseCaseDslPackage extends EPackage
     EClass EXTENSION = eINSTANCE.getExtension();
 
     /**
-     * The meta object literal for the '<em><b>Start From</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Start From</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute EXTENSION__START_FROM = eINSTANCE.getExtension_StartFrom();
+    EReference EXTENSION__START_FROM = eINSTANCE.getExtension_StartFrom();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1351,12 +1351,12 @@ public interface UseCaseDslPackage extends EPackage
     EAttribute REPEATING_STEP__REPEATING_CONDITION = eINSTANCE.getRepeatingStep_RepeatingCondition();
 
     /**
-     * The meta object literal for the '<em><b>Parent</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Parent</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute REPEATING_STEP__PARENT = eINSTANCE.getRepeatingStep_Parent();
+    EReference REPEATING_STEP__PARENT = eINSTANCE.getRepeatingStep_Parent();
 
     /**
      * The meta object literal for the '<em><b>Repeatflow</b></em>' containment reference list feature.

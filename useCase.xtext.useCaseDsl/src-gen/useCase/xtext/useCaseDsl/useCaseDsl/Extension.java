@@ -31,16 +31,16 @@ import org.eclipse.emf.ecore.EObject;
 public interface Extension extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Start From</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Start From</b></em>' reference list.
+   * The list contents are of type {@link useCase.xtext.useCaseDsl.useCaseDsl.Step}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Start From</em>' attribute list.
+   * @return the value of the '<em>Start From</em>' reference list.
    * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getExtension_StartFrom()
-   * @model unique="false"
+   * @model
    * @generated
    */
-  EList<String> getStartFrom();
+  EList<Step> getStartFrom();
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

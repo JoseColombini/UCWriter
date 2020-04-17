@@ -9,6 +9,7 @@ import java.util.List;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.CrossReference;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -168,7 +169,8 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
 		private final Assignment cStartFromAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
-		private final RuleCall cStartFromStepNameParserRuleCall_0_0_0 = (RuleCall)cStartFromAssignment_0_0.eContents().get(0);
+		private final CrossReference cStartFromStepCrossReference_0_0_0 = (CrossReference)cStartFromAssignment_0_0.eContents().get(0);
+		private final RuleCall cStartFromStepStepNameParserRuleCall_0_0_0_1 = (RuleCall)cStartFromStepCrossReference_0_0_0.eContents().get(1);
 		private final Keyword cFullStopKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameCHARTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
@@ -195,22 +197,25 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		////Flows and behavorial
 		//Extension:
-		//	(startFrom+=StepName '.')+ name=CHAR '.' 'IF' condition=Condition BEGIN
+		//	(startFrom+=[Step|StepName] '.')+ name=CHAR '.' 'IF' condition=Condition BEGIN
 		//	steps+=ExtensionStep* (INT '.' 'RETURN' 'TO' (resumeAt+=StepName '.'?)+ | end=DeadEndStep) END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(startFrom+=StepName '.')+ name=CHAR '.' 'IF' condition=Condition BEGIN steps+=ExtensionStep* (INT '.' 'RETURN' 'TO'
-		//(resumeAt+=StepName '.'?)+ | end=DeadEndStep) END
+		//(startFrom+=[Step|StepName] '.')+ name=CHAR '.' 'IF' condition=Condition BEGIN steps+=ExtensionStep* (INT '.' 'RETURN'
+		//'TO' (resumeAt+=StepName '.'?)+ | end=DeadEndStep) END
 		public Group getGroup() { return cGroup; }
 		
-		//(startFrom+=StepName '.')+
+		//(startFrom+=[Step|StepName] '.')+
 		public Group getGroup_0() { return cGroup_0; }
 		
-		//startFrom+=StepName
+		//startFrom+=[Step|StepName]
 		public Assignment getStartFromAssignment_0_0() { return cStartFromAssignment_0_0; }
 		
+		//[Step|StepName]
+		public CrossReference getStartFromStepCrossReference_0_0_0() { return cStartFromStepCrossReference_0_0_0; }
+		
 		//StepName
-		public RuleCall getStartFromStepNameParserRuleCall_0_0_0() { return cStartFromStepNameParserRuleCall_0_0_0; }
+		public RuleCall getStartFromStepStepNameParserRuleCall_0_0_0_1() { return cStartFromStepStepNameParserRuleCall_0_0_0_1; }
 		
 		//'.'
 		public Keyword getFullStopKeyword_0_1() { return cFullStopKeyword_0_1; }
@@ -356,7 +361,8 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_2_6 = (Group)cGroup_2.eContents().get(6);
 		private final Group cGroup_2_6_0 = (Group)cGroup_2_6.eContents().get(0);
 		private final Assignment cParentAssignment_2_6_0_0 = (Assignment)cGroup_2_6_0.eContents().get(0);
-		private final RuleCall cParentStepNameParserRuleCall_2_6_0_0_0 = (RuleCall)cParentAssignment_2_6_0_0.eContents().get(0);
+		private final CrossReference cParentStepCrossReference_2_6_0_0_0 = (CrossReference)cParentAssignment_2_6_0_0.eContents().get(0);
+		private final RuleCall cParentStepStepNameParserRuleCall_2_6_0_0_0_1 = (RuleCall)cParentStepCrossReference_2_6_0_0_0.eContents().get(1);
 		private final Keyword cFullStopKeyword_2_6_0_1 = (Keyword)cGroup_2_6_0.eContents().get(1);
 		private final Assignment cRepeatflowAssignment_2_6_1 = (Assignment)cGroup_2_6.eContents().get(1);
 		private final RuleCall cRepeatflowUseCaseStepParserRuleCall_2_6_1_0 = (RuleCall)cRepeatflowAssignment_2_6_1.eContents().get(0);
@@ -364,13 +370,13 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//UseCaseStep:
 		//	{UserStep} name=StepName '.' 'USER' sentence=LongName | {SystemStep} name=StepName '.' 'SYSTEM' sentence=LongName |
-		//	{RepeatingStep} name=StepName '.' 'WHILE' repeatingCondition=Condition BEGIN ((parent+=StepName '.')+
+		//	{RepeatingStep} name=StepName '.' 'WHILE' repeatingCondition=Condition BEGIN ((parent+=[Step|StepName] '.')+
 		//	repeatflow+=UseCaseStep)+
 		//	END;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{UserStep} name=StepName '.' 'USER' sentence=LongName | {SystemStep} name=StepName '.' 'SYSTEM' sentence=LongName |
-		//{RepeatingStep} name=StepName '.' 'WHILE' repeatingCondition=Condition BEGIN ((parent+=StepName '.')+
+		//{RepeatingStep} name=StepName '.' 'WHILE' repeatingCondition=Condition BEGIN ((parent+=[Step|StepName] '.')+
 		//repeatflow+=UseCaseStep)+ END
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
@@ -422,7 +428,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//LongName
 		public RuleCall getSentenceLongNameParserRuleCall_1_4_0() { return cSentenceLongNameParserRuleCall_1_4_0; }
 		
-		//{RepeatingStep} name=StepName '.' 'WHILE' repeatingCondition=Condition BEGIN ((parent+=StepName '.')+
+		//{RepeatingStep} name=StepName '.' 'WHILE' repeatingCondition=Condition BEGIN ((parent+=[Step|StepName] '.')+
 		//repeatflow+=UseCaseStep)+ END
 		public Group getGroup_2() { return cGroup_2; }
 		
@@ -450,17 +456,20 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//BEGIN
 		public RuleCall getBEGINTerminalRuleCall_2_5() { return cBEGINTerminalRuleCall_2_5; }
 		
-		//((parent+=StepName '.')+ repeatflow+=UseCaseStep)+
+		//((parent+=[Step|StepName] '.')+ repeatflow+=UseCaseStep)+
 		public Group getGroup_2_6() { return cGroup_2_6; }
 		
-		//(parent+=StepName '.')+
+		//(parent+=[Step|StepName] '.')+
 		public Group getGroup_2_6_0() { return cGroup_2_6_0; }
 		
-		//parent+=StepName
+		//parent+=[Step|StepName]
 		public Assignment getParentAssignment_2_6_0_0() { return cParentAssignment_2_6_0_0; }
 		
+		//[Step|StepName]
+		public CrossReference getParentStepCrossReference_2_6_0_0_0() { return cParentStepCrossReference_2_6_0_0_0; }
+		
 		//StepName
-		public RuleCall getParentStepNameParserRuleCall_2_6_0_0_0() { return cParentStepNameParserRuleCall_2_6_0_0_0; }
+		public RuleCall getParentStepStepNameParserRuleCall_2_6_0_0_0_1() { return cParentStepStepNameParserRuleCall_2_6_0_0_0_1; }
 		
 		//'.'
 		public Keyword getFullStopKeyword_2_6_0_1() { return cFullStopKeyword_2_6_0_1; }
@@ -849,7 +858,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////Flows and behavorial
 	//Extension:
-	//	(startFrom+=StepName '.')+ name=CHAR '.' 'IF' condition=Condition BEGIN
+	//	(startFrom+=[Step|StepName] '.')+ name=CHAR '.' 'IF' condition=Condition BEGIN
 	//	steps+=ExtensionStep* (INT '.' 'RETURN' 'TO' (resumeAt+=StepName '.'?)+ | end=DeadEndStep) END;
 	public ExtensionElements getExtensionAccess() {
 		return pExtension;
@@ -872,7 +881,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//UseCaseStep:
 	//	{UserStep} name=StepName '.' 'USER' sentence=LongName | {SystemStep} name=StepName '.' 'SYSTEM' sentence=LongName |
-	//	{RepeatingStep} name=StepName '.' 'WHILE' repeatingCondition=Condition BEGIN ((parent+=StepName '.')+
+	//	{RepeatingStep} name=StepName '.' 'WHILE' repeatingCondition=Condition BEGIN ((parent+=[Step|StepName] '.')+
 	//	repeatflow+=UseCaseStep)+
 	//	END;
 	public UseCaseStepElements getUseCaseStepAccess() {
