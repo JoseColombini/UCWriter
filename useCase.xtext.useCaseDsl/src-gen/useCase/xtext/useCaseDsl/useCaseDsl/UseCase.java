@@ -3,6 +3,8 @@
  */
 package useCase.xtext.useCaseDsl.useCaseDsl;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,7 +18,10 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getNumber <em>Number</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getName <em>Name</em>}</li>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getMainflow <em>Mainflow</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getPrecondition <em>Precondition</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getPostcondition <em>Postcondition</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getSteps <em>Steps</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getAlternativeflows <em>Alternativeflows</em>}</li>
  * </ul>
  *
  * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCase()
@@ -70,25 +75,71 @@ public interface UseCase extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Mainflow</b></em>' containment reference.
+   * Returns the value of the '<em><b>Precondition</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Mainflow</em>' containment reference.
-   * @see #setMainflow(MainFlow)
-   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCase_Mainflow()
+   * @return the value of the '<em>Precondition</em>' containment reference.
+   * @see #setPrecondition(Precondition)
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCase_Precondition()
    * @model containment="true"
    * @generated
    */
-  MainFlow getMainflow();
+  Precondition getPrecondition();
 
   /**
-   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getMainflow <em>Mainflow</em>}' containment reference.
+   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getPrecondition <em>Precondition</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Mainflow</em>' containment reference.
-   * @see #getMainflow()
+   * @param value the new value of the '<em>Precondition</em>' containment reference.
+   * @see #getPrecondition()
    * @generated
    */
-  void setMainflow(MainFlow value);
+  void setPrecondition(Precondition value);
+
+  /**
+   * Returns the value of the '<em><b>Postcondition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Postcondition</em>' containment reference.
+   * @see #setPostcondition(Postcondition)
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCase_Postcondition()
+   * @model containment="true"
+   * @generated
+   */
+  Postcondition getPostcondition();
+
+  /**
+   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase#getPostcondition <em>Postcondition</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Postcondition</em>' containment reference.
+   * @see #getPostcondition()
+   * @generated
+   */
+  void setPostcondition(Postcondition value);
+
+  /**
+   * Returns the value of the '<em><b>Steps</b></em>' containment reference list.
+   * The list contents are of type {@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Steps</em>' containment reference list.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCase_Steps()
+   * @model containment="true"
+   * @generated
+   */
+  EList<UseCaseStep> getSteps();
+
+  /**
+   * Returns the value of the '<em><b>Alternativeflows</b></em>' containment reference list.
+   * The list contents are of type {@link useCase.xtext.useCaseDsl.useCaseDsl.Extension}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Alternativeflows</em>' containment reference list.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCase_Alternativeflows()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Extension> getAlternativeflows();
 
 } // UseCase

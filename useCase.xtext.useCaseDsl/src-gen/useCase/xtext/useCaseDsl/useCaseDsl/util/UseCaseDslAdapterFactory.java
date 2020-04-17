@@ -76,19 +76,49 @@ public class UseCaseDslAdapterFactory extends AdapterFactoryImpl
     new UseCaseDslSwitch<Adapter>()
     {
       @Override
+      public Adapter caseUseCaseDocument(UseCaseDocument object)
+      {
+        return createUseCaseDocumentAdapter();
+      }
+      @Override
       public Adapter caseUseCase(UseCase object)
       {
         return createUseCaseAdapter();
       }
       @Override
-      public Adapter caseMainFlow(MainFlow object)
+      public Adapter caseExtension(Extension object)
       {
-        return createMainFlowAdapter();
+        return createExtensionAdapter();
       }
       @Override
       public Adapter caseStep(Step object)
       {
         return createStepAdapter();
+      }
+      @Override
+      public Adapter caseUseCaseStep(UseCaseStep object)
+      {
+        return createUseCaseStepAdapter();
+      }
+      @Override
+      public Adapter caseExtensionStep(ExtensionStep object)
+      {
+        return createExtensionStepAdapter();
+      }
+      @Override
+      public Adapter caseDeadEndStep(DeadEndStep object)
+      {
+        return createDeadEndStepAdapter();
+      }
+      @Override
+      public Adapter casePrecondition(Precondition object)
+      {
+        return createPreconditionAdapter();
+      }
+      @Override
+      public Adapter casePostcondition(Postcondition object)
+      {
+        return createPostconditionAdapter();
       }
       @Override
       public Adapter caseUserStep(UserStep object)
@@ -99,6 +129,11 @@ public class UseCaseDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSystemStep(SystemStep object)
       {
         return createSystemStepAdapter();
+      }
+      @Override
+      public Adapter caseRepeatingStep(RepeatingStep object)
+      {
+        return createRepeatingStepAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -123,6 +158,21 @@ public class UseCaseDslAdapterFactory extends AdapterFactoryImpl
 
 
   /**
+   * Creates a new adapter for an object of class '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDocument <em>Use Case Document</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDocument
+   * @generated
+   */
+  public Adapter createUseCaseDocumentAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCase <em>Use Case</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -138,16 +188,16 @@ public class UseCaseDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link useCase.xtext.useCaseDsl.useCaseDsl.MainFlow <em>Main Flow</em>}'.
+   * Creates a new adapter for an object of class '{@link useCase.xtext.useCaseDsl.useCaseDsl.Extension <em>Extension</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see useCase.xtext.useCaseDsl.useCaseDsl.MainFlow
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.Extension
    * @generated
    */
-  public Adapter createMainFlowAdapter()
+  public Adapter createExtensionAdapter()
   {
     return null;
   }
@@ -163,6 +213,81 @@ public class UseCaseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStepAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep <em>Use Case Step</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep
+   * @generated
+   */
+  public Adapter createUseCaseStepAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link useCase.xtext.useCaseDsl.useCaseDsl.ExtensionStep <em>Extension Step</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.ExtensionStep
+   * @generated
+   */
+  public Adapter createExtensionStepAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link useCase.xtext.useCaseDsl.useCaseDsl.DeadEndStep <em>Dead End Step</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.DeadEndStep
+   * @generated
+   */
+  public Adapter createDeadEndStepAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link useCase.xtext.useCaseDsl.useCaseDsl.Precondition <em>Precondition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.Precondition
+   * @generated
+   */
+  public Adapter createPreconditionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link useCase.xtext.useCaseDsl.useCaseDsl.Postcondition <em>Postcondition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.Postcondition
+   * @generated
+   */
+  public Adapter createPostconditionAdapter()
   {
     return null;
   }
@@ -193,6 +318,21 @@ public class UseCaseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSystemStepAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep <em>Repeating Step</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep
+   * @generated
+   */
+  public Adapter createRepeatingStepAdapter()
   {
     return null;
   }

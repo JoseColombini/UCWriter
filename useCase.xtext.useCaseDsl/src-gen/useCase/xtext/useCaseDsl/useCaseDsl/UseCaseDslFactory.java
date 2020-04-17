@@ -24,6 +24,15 @@ public interface UseCaseDslFactory extends EFactory
   UseCaseDslFactory eINSTANCE = useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseDslFactoryImpl.init();
 
   /**
+   * Returns a new object of class '<em>Use Case Document</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Use Case Document</em>'.
+   * @generated
+   */
+  UseCaseDocument createUseCaseDocument();
+
+  /**
    * Returns a new object of class '<em>Use Case</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -33,13 +42,13 @@ public interface UseCaseDslFactory extends EFactory
   UseCase createUseCase();
 
   /**
-   * Returns a new object of class '<em>Main Flow</em>'.
+   * Returns a new object of class '<em>Extension</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Main Flow</em>'.
+   * @return a new object of class '<em>Extension</em>'.
    * @generated
    */
-  MainFlow createMainFlow();
+  Extension createExtension();
 
   /**
    * Returns a new object of class '<em>Step</em>'.
@@ -49,6 +58,51 @@ public interface UseCaseDslFactory extends EFactory
    * @generated
    */
   Step createStep();
+
+  /**
+   * Returns a new object of class '<em>Use Case Step</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Use Case Step</em>'.
+   * @generated
+   */
+  UseCaseStep createUseCaseStep();
+
+  /**
+   * Returns a new object of class '<em>Extension Step</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Extension Step</em>'.
+   * @generated
+   */
+  ExtensionStep createExtensionStep();
+
+  /**
+   * Returns a new object of class '<em>Dead End Step</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dead End Step</em>'.
+   * @generated
+   */
+  DeadEndStep createDeadEndStep();
+
+  /**
+   * Returns a new object of class '<em>Precondition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Precondition</em>'.
+   * @generated
+   */
+  Precondition createPrecondition();
+
+  /**
+   * Returns a new object of class '<em>Postcondition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Postcondition</em>'.
+   * @generated
+   */
+  Postcondition createPostcondition();
 
   /**
    * Returns a new object of class '<em>User Step</em>'.
@@ -67,6 +121,15 @@ public interface UseCaseDslFactory extends EFactory
    * @generated
    */
   SystemStep createSystemStep();
+
+  /**
+   * Returns a new object of class '<em>Repeating Step</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Repeating Step</em>'.
+   * @generated
+   */
+  RepeatingStep createRepeatingStep();
 
   /**
    * Returns the package supported by this factory.

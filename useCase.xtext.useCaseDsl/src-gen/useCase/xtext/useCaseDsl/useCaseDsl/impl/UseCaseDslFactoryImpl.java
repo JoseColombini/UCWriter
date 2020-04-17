@@ -65,14 +65,33 @@ public class UseCaseDslFactoryImpl extends EFactoryImpl implements UseCaseDslFac
   {
     switch (eClass.getClassifierID())
     {
+      case UseCaseDslPackage.USE_CASE_DOCUMENT: return createUseCaseDocument();
       case UseCaseDslPackage.USE_CASE: return createUseCase();
-      case UseCaseDslPackage.MAIN_FLOW: return createMainFlow();
+      case UseCaseDslPackage.EXTENSION: return createExtension();
       case UseCaseDslPackage.STEP: return createStep();
+      case UseCaseDslPackage.USE_CASE_STEP: return createUseCaseStep();
+      case UseCaseDslPackage.EXTENSION_STEP: return createExtensionStep();
+      case UseCaseDslPackage.DEAD_END_STEP: return createDeadEndStep();
+      case UseCaseDslPackage.PRECONDITION: return createPrecondition();
+      case UseCaseDslPackage.POSTCONDITION: return createPostcondition();
       case UseCaseDslPackage.USER_STEP: return createUserStep();
       case UseCaseDslPackage.SYSTEM_STEP: return createSystemStep();
+      case UseCaseDslPackage.REPEATING_STEP: return createRepeatingStep();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public UseCaseDocument createUseCaseDocument()
+  {
+    UseCaseDocumentImpl useCaseDocument = new UseCaseDocumentImpl();
+    return useCaseDocument;
   }
 
   /**
@@ -93,10 +112,10 @@ public class UseCaseDslFactoryImpl extends EFactoryImpl implements UseCaseDslFac
    * @generated
    */
   @Override
-  public MainFlow createMainFlow()
+  public Extension createExtension()
   {
-    MainFlowImpl mainFlow = new MainFlowImpl();
-    return mainFlow;
+    ExtensionImpl extension = new ExtensionImpl();
+    return extension;
   }
 
   /**
@@ -109,6 +128,66 @@ public class UseCaseDslFactoryImpl extends EFactoryImpl implements UseCaseDslFac
   {
     StepImpl step = new StepImpl();
     return step;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public UseCaseStep createUseCaseStep()
+  {
+    UseCaseStepImpl useCaseStep = new UseCaseStepImpl();
+    return useCaseStep;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExtensionStep createExtensionStep()
+  {
+    ExtensionStepImpl extensionStep = new ExtensionStepImpl();
+    return extensionStep;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DeadEndStep createDeadEndStep()
+  {
+    DeadEndStepImpl deadEndStep = new DeadEndStepImpl();
+    return deadEndStep;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Precondition createPrecondition()
+  {
+    PreconditionImpl precondition = new PreconditionImpl();
+    return precondition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Postcondition createPostcondition()
+  {
+    PostconditionImpl postcondition = new PostconditionImpl();
+    return postcondition;
   }
 
   /**
@@ -133,6 +212,18 @@ public class UseCaseDslFactoryImpl extends EFactoryImpl implements UseCaseDslFac
   {
     SystemStepImpl systemStep = new SystemStepImpl();
     return systemStep;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RepeatingStep createRepeatingStep()
+  {
+    RepeatingStepImpl repeatingStep = new RepeatingStepImpl();
+    return repeatingStep;
   }
 
   /**

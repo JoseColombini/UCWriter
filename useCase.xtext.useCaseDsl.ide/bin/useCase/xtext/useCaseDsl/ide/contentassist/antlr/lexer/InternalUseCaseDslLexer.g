@@ -11,11 +11,33 @@ package useCase.xtext.useCaseDsl.ide.contentassist.antlr.lexer;
 import org.eclipse.xtext.ide.editor.contentassist.antlr.internal.Lexer;
 }
 
-MainFlow : 'MainFlow';
+POSTCONDITION : 'POSTCONDITION';
 
-KW_System : 'System';
+PRECONDITION : 'PRECONDITION';
 
-User : 'User';
+ALTERNATIVE : 'ALTERNATIVE';
+
+RETURN : 'RETURN';
+
+SYSTEM : 'SYSTEM';
+
+WHILE : 'WHILE';
+
+FLOW : 'FLOW';
+
+MAIN : 'MAIN';
+
+USER : 'USER';
+
+AND : 'AND';
+
+END : 'END';
+
+IF : 'IF';
+
+OR : 'OR';
+
+TO : 'TO';
 
 UC : 'UC';
 

@@ -4,11 +4,8 @@
 package useCase.xtext.useCaseDsl.useCaseDsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -25,8 +22,7 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
  * </p>
  * <ul>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.StepImpl#getName <em>Name</em>}</li>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.StepImpl#getType <em>Type</em>}</li>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.StepImpl#getSentence <em>Sentence</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.StepImpl#getReference <em>Reference</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,7 +37,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @generated
    * @ordered
    */
-  protected static final int NAME_EDEFAULT = 0;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -51,37 +47,27 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @generated
    * @ordered
    */
-  protected int name = NAME_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
+   * The default value of the '{@link #getReference() <em>Reference</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getReference()
    * @generated
    * @ordered
    */
-  protected EObject type;
+  protected static final String REFERENCE_EDEFAULT = null;
 
   /**
-   * The default value of the '{@link #getSentence() <em>Sentence</em>}' attribute.
+   * The cached value of the '{@link #getReference() <em>Reference</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSentence()
+   * @see #getReference()
    * @generated
    * @ordered
    */
-  protected static final String SENTENCE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getSentence() <em>Sentence</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSentence()
-   * @generated
-   * @ordered
-   */
-  protected String sentence = SENTENCE_EDEFAULT;
+  protected String reference = REFERENCE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -110,7 +96,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @generated
    */
   @Override
-  public int getName()
+  public String getName()
   {
     return name;
   }
@@ -121,9 +107,9 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @generated
    */
   @Override
-  public void setName(int newName)
+  public void setName(String newName)
   {
-    int oldName = name;
+    String oldName = name;
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.STEP__NAME, oldName, name));
@@ -135,9 +121,9 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @generated
    */
   @Override
-  public EObject getType()
+  public String getReference()
   {
-    return type;
+    return reference;
   }
 
   /**
@@ -145,79 +131,13 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(EObject newType, NotificationChain msgs)
+  @Override
+  public void setReference(String newReference)
   {
-    EObject oldType = type;
-    type = newType;
+    String oldReference = reference;
+    reference = newReference;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.STEP__TYPE, oldType, newType);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setType(EObject newType)
-  {
-    if (newType != type)
-    {
-      NotificationChain msgs = null;
-      if (type != null)
-        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UseCaseDslPackage.STEP__TYPE, null, msgs);
-      if (newType != null)
-        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UseCaseDslPackage.STEP__TYPE, null, msgs);
-      msgs = basicSetType(newType, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.STEP__TYPE, newType, newType));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getSentence()
-  {
-    return sentence;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setSentence(String newSentence)
-  {
-    String oldSentence = sentence;
-    sentence = newSentence;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.STEP__SENTENCE, oldSentence, sentence));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case UseCaseDslPackage.STEP__TYPE:
-        return basicSetType(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.STEP__REFERENCE, oldReference, reference));
   }
 
   /**
@@ -232,10 +152,8 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
     {
       case UseCaseDslPackage.STEP__NAME:
         return getName();
-      case UseCaseDslPackage.STEP__TYPE:
-        return getType();
-      case UseCaseDslPackage.STEP__SENTENCE:
-        return getSentence();
+      case UseCaseDslPackage.STEP__REFERENCE:
+        return getReference();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -251,13 +169,10 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
     switch (featureID)
     {
       case UseCaseDslPackage.STEP__NAME:
-        setName((Integer)newValue);
+        setName((String)newValue);
         return;
-      case UseCaseDslPackage.STEP__TYPE:
-        setType((EObject)newValue);
-        return;
-      case UseCaseDslPackage.STEP__SENTENCE:
-        setSentence((String)newValue);
+      case UseCaseDslPackage.STEP__REFERENCE:
+        setReference((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -276,11 +191,8 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
       case UseCaseDslPackage.STEP__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case UseCaseDslPackage.STEP__TYPE:
-        setType((EObject)null);
-        return;
-      case UseCaseDslPackage.STEP__SENTENCE:
-        setSentence(SENTENCE_EDEFAULT);
+      case UseCaseDslPackage.STEP__REFERENCE:
+        setReference(REFERENCE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -297,11 +209,9 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
     switch (featureID)
     {
       case UseCaseDslPackage.STEP__NAME:
-        return name != NAME_EDEFAULT;
-      case UseCaseDslPackage.STEP__TYPE:
-        return type != null;
-      case UseCaseDslPackage.STEP__SENTENCE:
-        return SENTENCE_EDEFAULT == null ? sentence != null : !SENTENCE_EDEFAULT.equals(sentence);
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case UseCaseDslPackage.STEP__REFERENCE:
+        return REFERENCE_EDEFAULT == null ? reference != null : !REFERENCE_EDEFAULT.equals(reference);
     }
     return super.eIsSet(featureID);
   }
@@ -319,8 +229,8 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", sentence: ");
-    result.append(sentence);
+    result.append(", reference: ");
+    result.append(reference);
     result.append(')');
     return result.toString();
   }

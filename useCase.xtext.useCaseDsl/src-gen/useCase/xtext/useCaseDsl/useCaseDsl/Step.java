@@ -15,8 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getName <em>Name</em>}</li>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getType <em>Type</em>}</li>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getSentence <em>Sentence</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getReference <em>Reference</em>}</li>
  * </ul>
  *
  * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getStep()
@@ -30,12 +29,12 @@ public interface Step extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(int)
+   * @see #setName(String)
    * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getStep_Name()
    * @model
    * @generated
    */
-  int getName();
+  String getName();
 
   /**
    * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getName <em>Name</em>}' attribute.
@@ -45,50 +44,28 @@ public interface Step extends EObject
    * @see #getName()
    * @generated
    */
-  void setName(int value);
+  void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Type</b></em>' containment reference.
+   * Returns the value of the '<em><b>Reference</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' containment reference.
-   * @see #setType(EObject)
-   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getStep_Type()
-   * @model containment="true"
-   * @generated
-   */
-  EObject getType();
-
-  /**
-   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getType <em>Type</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' containment reference.
-   * @see #getType()
-   * @generated
-   */
-  void setType(EObject value);
-
-  /**
-   * Returns the value of the '<em><b>Sentence</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Sentence</em>' attribute.
-   * @see #setSentence(String)
-   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getStep_Sentence()
+   * @return the value of the '<em>Reference</em>' attribute.
+   * @see #setReference(String)
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getStep_Reference()
    * @model
    * @generated
    */
-  String getSentence();
+  String getReference();
 
   /**
-   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getSentence <em>Sentence</em>}' attribute.
+   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getReference <em>Reference</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Sentence</em>' attribute.
-   * @see #getSentence()
+   * @param value the new value of the '<em>Reference</em>' attribute.
+   * @see #getReference()
    * @generated
    */
-  void setSentence(String value);
+  void setReference(String value);
 
 } // Step
