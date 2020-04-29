@@ -16,9 +16,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import useCase.xtext.useCaseDsl.useCaseDsl.DeadEndStep;
@@ -48,14 +46,14 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
 public class ExtensionImpl extends MinimalEObjectImpl.Container implements Extension
 {
   /**
-   * The cached value of the '{@link #getStartFrom() <em>Start From</em>}' reference list.
+   * The cached value of the '{@link #getStartFrom() <em>Start From</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getStartFrom()
    * @generated
    * @ordered
    */
-  protected EList<Step> startFrom;
+  protected Step startFrom;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -108,14 +106,14 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
   protected EList<ExtensionStep> steps;
 
   /**
-   * The cached value of the '{@link #getResumeAt() <em>Resume At</em>}' attribute list.
+   * The cached value of the '{@link #getResumeAt() <em>Resume At</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getResumeAt()
    * @generated
    * @ordered
    */
-  protected EList<String> resumeAt;
+  protected Step resumeAt;
 
   /**
    * The cached value of the '{@link #getEnd() <em>End</em>}' containment reference.
@@ -154,13 +152,43 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
    * @generated
    */
   @Override
-  public EList<Step> getStartFrom()
+  public Step getStartFrom()
   {
-    if (startFrom == null)
+    if (startFrom != null && startFrom.eIsProxy())
     {
-      startFrom = new EObjectResolvingEList<Step>(Step.class, this, UseCaseDslPackage.EXTENSION__START_FROM);
+      InternalEObject oldStartFrom = (InternalEObject)startFrom;
+      startFrom = (Step)eResolveProxy(oldStartFrom);
+      if (startFrom != oldStartFrom)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UseCaseDslPackage.EXTENSION__START_FROM, oldStartFrom, startFrom));
+      }
     }
     return startFrom;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Step basicGetStartFrom()
+  {
+    return startFrom;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setStartFrom(Step newStartFrom)
+  {
+    Step oldStartFrom = startFrom;
+    startFrom = newStartFrom;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.EXTENSION__START_FROM, oldStartFrom, startFrom));
   }
 
   /**
@@ -234,13 +262,43 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
    * @generated
    */
   @Override
-  public EList<String> getResumeAt()
+  public Step getResumeAt()
   {
-    if (resumeAt == null)
+    if (resumeAt != null && resumeAt.eIsProxy())
     {
-      resumeAt = new EDataTypeEList<String>(String.class, this, UseCaseDslPackage.EXTENSION__RESUME_AT);
+      InternalEObject oldResumeAt = (InternalEObject)resumeAt;
+      resumeAt = (Step)eResolveProxy(oldResumeAt);
+      if (resumeAt != oldResumeAt)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UseCaseDslPackage.EXTENSION__RESUME_AT, oldResumeAt, resumeAt));
+      }
     }
     return resumeAt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Step basicGetResumeAt()
+  {
+    return resumeAt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setResumeAt(Step newResumeAt)
+  {
+    Step oldResumeAt = resumeAt;
+    resumeAt = newResumeAt;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.EXTENSION__RESUME_AT, oldResumeAt, resumeAt));
   }
 
   /**
@@ -322,7 +380,8 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
     switch (featureID)
     {
       case UseCaseDslPackage.EXTENSION__START_FROM:
-        return getStartFrom();
+        if (resolve) return getStartFrom();
+        return basicGetStartFrom();
       case UseCaseDslPackage.EXTENSION__NAME:
         return getName();
       case UseCaseDslPackage.EXTENSION__CONDITION:
@@ -330,7 +389,8 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
       case UseCaseDslPackage.EXTENSION__STEPS:
         return getSteps();
       case UseCaseDslPackage.EXTENSION__RESUME_AT:
-        return getResumeAt();
+        if (resolve) return getResumeAt();
+        return basicGetResumeAt();
       case UseCaseDslPackage.EXTENSION__END:
         return getEnd();
     }
@@ -349,8 +409,7 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
     switch (featureID)
     {
       case UseCaseDslPackage.EXTENSION__START_FROM:
-        getStartFrom().clear();
-        getStartFrom().addAll((Collection<? extends Step>)newValue);
+        setStartFrom((Step)newValue);
         return;
       case UseCaseDslPackage.EXTENSION__NAME:
         setName((String)newValue);
@@ -363,8 +422,7 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
         getSteps().addAll((Collection<? extends ExtensionStep>)newValue);
         return;
       case UseCaseDslPackage.EXTENSION__RESUME_AT:
-        getResumeAt().clear();
-        getResumeAt().addAll((Collection<? extends String>)newValue);
+        setResumeAt((Step)newValue);
         return;
       case UseCaseDslPackage.EXTENSION__END:
         setEnd((DeadEndStep)newValue);
@@ -384,7 +442,7 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
     switch (featureID)
     {
       case UseCaseDslPackage.EXTENSION__START_FROM:
-        getStartFrom().clear();
+        setStartFrom((Step)null);
         return;
       case UseCaseDslPackage.EXTENSION__NAME:
         setName(NAME_EDEFAULT);
@@ -396,7 +454,7 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
         getSteps().clear();
         return;
       case UseCaseDslPackage.EXTENSION__RESUME_AT:
-        getResumeAt().clear();
+        setResumeAt((Step)null);
         return;
       case UseCaseDslPackage.EXTENSION__END:
         setEnd((DeadEndStep)null);
@@ -416,7 +474,7 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
     switch (featureID)
     {
       case UseCaseDslPackage.EXTENSION__START_FROM:
-        return startFrom != null && !startFrom.isEmpty();
+        return startFrom != null;
       case UseCaseDslPackage.EXTENSION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case UseCaseDslPackage.EXTENSION__CONDITION:
@@ -424,7 +482,7 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
       case UseCaseDslPackage.EXTENSION__STEPS:
         return steps != null && !steps.isEmpty();
       case UseCaseDslPackage.EXTENSION__RESUME_AT:
-        return resumeAt != null && !resumeAt.isEmpty();
+        return resumeAt != null;
       case UseCaseDslPackage.EXTENSION__END:
         return end != null;
     }
@@ -446,8 +504,6 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
     result.append(name);
     result.append(", condition: ");
     result.append(condition);
-    result.append(", resumeAt: ");
-    result.append(resumeAt);
     result.append(')');
     return result.toString();
   }

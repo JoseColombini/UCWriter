@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getName <em>Name</em>}</li>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getReference <em>Reference</em>}</li>
  * </ul>
  *
  * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getStep()
@@ -45,27 +44,5 @@ public interface Step extends EObject
    * @generated
    */
   void setName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Reference</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Reference</em>' attribute.
-   * @see #setReference(String)
-   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getStep_Reference()
-   * @model
-   * @generated
-   */
-  String getReference();
-
-  /**
-   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getReference <em>Reference</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Reference</em>' attribute.
-   * @see #getReference()
-   * @generated
-   */
-  void setReference(String value);
 
 } // Step

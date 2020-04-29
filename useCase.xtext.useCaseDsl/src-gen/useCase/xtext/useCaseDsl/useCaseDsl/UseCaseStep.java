@@ -9,6 +9,13 @@ package useCase.xtext.useCaseDsl.useCaseDsl;
  * A representation of the model object '<em><b>Use Case Step</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep#getParent <em>Parent</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep#getReference <em>Reference</em>}</li>
+ * </ul>
  *
  * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCaseStep()
  * @model
@@ -16,4 +23,48 @@ package useCase.xtext.useCaseDsl.useCaseDsl;
  */
 public interface UseCaseStep extends Step
 {
+  /**
+   * Returns the value of the '<em><b>Parent</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parent</em>' reference.
+   * @see #setParent(Step)
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCaseStep_Parent()
+   * @model
+   * @generated
+   */
+  Step getParent();
+
+  /**
+   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep#getParent <em>Parent</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parent</em>' reference.
+   * @see #getParent()
+   * @generated
+   */
+  void setParent(Step value);
+
+  /**
+   * Returns the value of the '<em><b>Reference</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Reference</em>' reference.
+   * @see #setReference(UseCase)
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCaseStep_Reference()
+   * @model
+   * @generated
+   */
+  UseCase getReference();
+
+  /**
+   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep#getReference <em>Reference</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Reference</em>' reference.
+   * @see #getReference()
+   * @generated
+   */
+  void setReference(UseCase value);
+
 } // UseCaseStep

@@ -21,7 +21,6 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.PostconditionImpl#getName <em>Name</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.PostconditionImpl#getCondition <em>Condition</em>}</li>
  * </ul>
  *
@@ -29,26 +28,6 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
  */
 public class PostconditionImpl extends MinimalEObjectImpl.Container implements Postcondition
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The default value of the '{@link #getCondition() <em>Condition</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -96,31 +75,6 @@ public class PostconditionImpl extends MinimalEObjectImpl.Container implements P
    * @generated
    */
   @Override
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.POSTCONDITION__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public String getCondition()
   {
     return condition;
@@ -150,8 +104,6 @@ public class PostconditionImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case UseCaseDslPackage.POSTCONDITION__NAME:
-        return getName();
       case UseCaseDslPackage.POSTCONDITION__CONDITION:
         return getCondition();
     }
@@ -168,9 +120,6 @@ public class PostconditionImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case UseCaseDslPackage.POSTCONDITION__NAME:
-        setName((String)newValue);
-        return;
       case UseCaseDslPackage.POSTCONDITION__CONDITION:
         setCondition((String)newValue);
         return;
@@ -188,9 +137,6 @@ public class PostconditionImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case UseCaseDslPackage.POSTCONDITION__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case UseCaseDslPackage.POSTCONDITION__CONDITION:
         setCondition(CONDITION_EDEFAULT);
         return;
@@ -208,8 +154,6 @@ public class PostconditionImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case UseCaseDslPackage.POSTCONDITION__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case UseCaseDslPackage.POSTCONDITION__CONDITION:
         return CONDITION_EDEFAULT == null ? condition != null : !CONDITION_EDEFAULT.equals(condition);
     }
@@ -227,9 +171,7 @@ public class PostconditionImpl extends MinimalEObjectImpl.Container implements P
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", condition: ");
+    result.append(" (condition: ");
     result.append(condition);
     result.append(')');
     return result.toString();

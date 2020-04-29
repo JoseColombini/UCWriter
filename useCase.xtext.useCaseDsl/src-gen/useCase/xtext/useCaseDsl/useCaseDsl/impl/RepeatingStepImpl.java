@@ -16,11 +16,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep;
-import useCase.xtext.useCaseDsl.useCaseDsl.Step;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
 
@@ -33,7 +31,6 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
  * </p>
  * <ul>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.RepeatingStepImpl#getRepeatingCondition <em>Repeating Condition</em>}</li>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.RepeatingStepImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.RepeatingStepImpl#getRepeatflow <em>Repeatflow</em>}</li>
  * </ul>
  *
@@ -60,16 +57,6 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
    * @ordered
    */
   protected String repeatingCondition = REPEATING_CONDITION_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getParent() <em>Parent</em>}' reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getParent()
-   * @generated
-   * @ordered
-   */
-  protected EList<Step> parent;
 
   /**
    * The cached value of the '{@link #getRepeatflow() <em>Repeatflow</em>}' containment reference list.
@@ -133,21 +120,6 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
    * @generated
    */
   @Override
-  public EList<Step> getParent()
-  {
-    if (parent == null)
-    {
-      parent = new EObjectResolvingEList<Step>(Step.class, this, UseCaseDslPackage.REPEATING_STEP__PARENT);
-    }
-    return parent;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EList<UseCaseStep> getRepeatflow()
   {
     if (repeatflow == null)
@@ -185,8 +157,6 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
     {
       case UseCaseDslPackage.REPEATING_STEP__REPEATING_CONDITION:
         return getRepeatingCondition();
-      case UseCaseDslPackage.REPEATING_STEP__PARENT:
-        return getParent();
       case UseCaseDslPackage.REPEATING_STEP__REPEATFLOW:
         return getRepeatflow();
     }
@@ -206,10 +176,6 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
     {
       case UseCaseDslPackage.REPEATING_STEP__REPEATING_CONDITION:
         setRepeatingCondition((String)newValue);
-        return;
-      case UseCaseDslPackage.REPEATING_STEP__PARENT:
-        getParent().clear();
-        getParent().addAll((Collection<? extends Step>)newValue);
         return;
       case UseCaseDslPackage.REPEATING_STEP__REPEATFLOW:
         getRepeatflow().clear();
@@ -232,9 +198,6 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
       case UseCaseDslPackage.REPEATING_STEP__REPEATING_CONDITION:
         setRepeatingCondition(REPEATING_CONDITION_EDEFAULT);
         return;
-      case UseCaseDslPackage.REPEATING_STEP__PARENT:
-        getParent().clear();
-        return;
       case UseCaseDslPackage.REPEATING_STEP__REPEATFLOW:
         getRepeatflow().clear();
         return;
@@ -254,8 +217,6 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
     {
       case UseCaseDslPackage.REPEATING_STEP__REPEATING_CONDITION:
         return REPEATING_CONDITION_EDEFAULT == null ? repeatingCondition != null : !REPEATING_CONDITION_EDEFAULT.equals(repeatingCondition);
-      case UseCaseDslPackage.REPEATING_STEP__PARENT:
-        return parent != null && !parent.isEmpty();
       case UseCaseDslPackage.REPEATING_STEP__REPEATFLOW:
         return repeatflow != null && !repeatflow.isEmpty();
     }

@@ -6,18 +6,27 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="name"/>
+		<item key="selection" value="(name = StepName)"/>
 		<list key="findhistory">
+			<item value="(name = StepName)"/>
+			<item value="END"/>
+			<item value="getRoot"/>
+			<item value="getContainer"/>
+			<item value="getRoo"/>
+			<item value="getContei"/>
+			<item value="getCon"/>
+			<item value="refe"/>
 			<item value="name"/>
 			<item value="name]"/>
 			<item value="INT"/>
 		</list>
 		<list key="replacehistory">
+			<item value="(name = StepName)&apos;.&apos;"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1154"/>
-		<item key="DIALOG_Y_ORIGIN" value="211"/>
+		<item key="DIALOG_X_ORIGIN" value="1531"/>
+		<item key="DIALOG_Y_ORIGIN" value="265"/>
 		<item key="DIALOG_WIDTH" value="327"/>
 		<item key="DIALOG_HEIGHT" value="436"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-30|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>

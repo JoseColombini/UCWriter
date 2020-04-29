@@ -2,6 +2,9 @@ grammar useCase.xtext.useCaseDsl.UseCaseDsl with org.eclipse.xtext.common.Termin
 
 generate useCaseDsl "http://www.xtext.useCase/useCaseDsl/UseCaseDsl"
 
+
+
+
 UseCaseDocument:
 	(usecase += UseCase)+;
 
@@ -23,39 +26,43 @@ UseCase:
 
 //Flows and behavorial
 Extension:
-	(startFrom += [Step|StepName]'.')+ (name = CHAR)  '.' 'IF' (condition = Condition)
+	(startFrom = [UseCaseStep|QualifiedStepName] | startFrom =[ExtensionStep|QualifiedExtensionStepName])
+	'.' (name = CHAR)'.' 'IF' (condition = Condition)
 	BEGIN
 		(steps += ExtensionStep)*
-		(INT '.' 'RETURN' 'TO' (resumeAt += StepName('.')?)+|end = DeadEndStep)
+		((StepName'.' 'RETURN' 'TO' 
+			(resumeAt = [UseCaseStep|QualifiedStepName] |
+			 resumeAt = [ExtensionStep|QualifiedExtensionStepName])) |
+		(end = DeadEndStep))
 	END;
 
 //Steps
 Step:
-	(name = StepName) '.' (reference = LongName)|
 	UseCaseStep|ExtensionStep;
 
 UseCaseStep:
-	{UserStep} (name = StepName) '.' 'USER' (sentence = LongName)|
-	{SystemStep} (name = StepName) '.' 'SYSTEM'(sentence = LongName)|
-	{RepeatingStep} (name = StepName) '.' 'WHILE'(repeatingCondition = Condition)
+	(parent = [Step|QualifiedStepName] '.')? (name = StepName)'.' 'INCLUDE'(reference = [UseCase|LongName])|
+	{UserStep} (parent = [Step|QualifiedStepName] '.')? (name = StepName)'.' 'USER' (sentence = LongName)|
+	{SystemStep} (parent = [Step|QualifiedStepName] '.')? (name = StepName)'.' 'SYSTEM'(sentence = LongName)|
+	{RepeatingStep}(parent = [Step|QualifiedStepName] '.')? (name = StepName)'.' 'WHILE'(repeatingCondition = Condition)
 	BEGIN
-		((parent += [Step|StepName]'.')+ (repeatflow += UseCaseStep))+
+		(/*(parent += [RepeatingStep|StepName]'.')+*/(repeatflow += UseCaseStep))+
 	END;
 
 //I dont know how to use this shit
 ExtensionStep:
-	(name = StepName) '.' ('USER'|'SYSTEM'|'WHILE')? (sentence = LongName)|
+	(name = StepName)'.' ('USER'|'SYSTEM'|'WHILE')? (sentence = LongName)|
 	DeadEndStep;
 
 DeadEndStep:
-	(name = StepName) '.' ('USER'|'SYSTEM'|'WHILE')? (sentence = LongName)? 'UC' 'END';
+	(name = StepName)'.' ('USER'|'SYSTEM'|'WHILE')? (sentence = LongName)? 'UC' 'END';
 
 //Conditions
 Precondition:
-	(name = 'PRECONDITION')':' (condition = Condition);
+	('PRECONDITION')':' (condition = Condition);
 	
 Postcondition:
-	(name = 'POSTCONDITION')':' (condition = Condition);
+	('POSTCONDITION')':' (condition = Condition);
 /**********************	}
 ******* DataTypes *****
 ***********************/
@@ -65,10 +72,19 @@ LongName:
 	
 Condition:
 	(ID|ANY_OTHER|CHAR|':'|'.'|'"'|"'"|'AND'|'OR')+;
-	
+
 StepName:
 	INT
 ;
+
+QualifiedStepName:
+	StepName('.'StepName)*
+;
+
+QualifiedExtensionStepName:
+	CHAR'.'QualifiedStepName;
+
+
 
 /***************************	
 ******* TERMINAL RULES *****

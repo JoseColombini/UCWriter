@@ -3,8 +3,15 @@
  */
 package useCase.xtext.useCaseDsl.useCaseDsl.impl;
 
-import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import useCase.xtext.useCaseDsl.useCaseDsl.Step;
+import useCase.xtext.useCaseDsl.useCaseDsl.UseCase;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
 
@@ -12,11 +19,38 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Use Case Step</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseStepImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseStepImpl#getReference <em>Reference</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class UseCaseStepImpl extends StepImpl implements UseCaseStep
 {
+  /**
+   * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParent()
+   * @generated
+   * @ordered
+   */
+  protected Step parent;
+
+  /**
+   * The cached value of the '{@link #getReference() <em>Reference</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getReference()
+   * @generated
+   * @ordered
+   */
+  protected UseCase reference;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +70,174 @@ public class UseCaseStepImpl extends StepImpl implements UseCaseStep
   protected EClass eStaticClass()
   {
     return UseCaseDslPackage.Literals.USE_CASE_STEP;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Step getParent()
+  {
+    if (parent != null && parent.eIsProxy())
+    {
+      InternalEObject oldParent = (InternalEObject)parent;
+      parent = (Step)eResolveProxy(oldParent);
+      if (parent != oldParent)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UseCaseDslPackage.USE_CASE_STEP__PARENT, oldParent, parent));
+      }
+    }
+    return parent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Step basicGetParent()
+  {
+    return parent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setParent(Step newParent)
+  {
+    Step oldParent = parent;
+    parent = newParent;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.USE_CASE_STEP__PARENT, oldParent, parent));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public UseCase getReference()
+  {
+    if (reference != null && reference.eIsProxy())
+    {
+      InternalEObject oldReference = (InternalEObject)reference;
+      reference = (UseCase)eResolveProxy(oldReference);
+      if (reference != oldReference)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UseCaseDslPackage.USE_CASE_STEP__REFERENCE, oldReference, reference));
+      }
+    }
+    return reference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UseCase basicGetReference()
+  {
+    return reference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setReference(UseCase newReference)
+  {
+    UseCase oldReference = reference;
+    reference = newReference;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.USE_CASE_STEP__REFERENCE, oldReference, reference));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case UseCaseDslPackage.USE_CASE_STEP__PARENT:
+        if (resolve) return getParent();
+        return basicGetParent();
+      case UseCaseDslPackage.USE_CASE_STEP__REFERENCE:
+        if (resolve) return getReference();
+        return basicGetReference();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case UseCaseDslPackage.USE_CASE_STEP__PARENT:
+        setParent((Step)newValue);
+        return;
+      case UseCaseDslPackage.USE_CASE_STEP__REFERENCE:
+        setReference((UseCase)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case UseCaseDslPackage.USE_CASE_STEP__PARENT:
+        setParent((Step)null);
+        return;
+      case UseCaseDslPackage.USE_CASE_STEP__REFERENCE:
+        setReference((UseCase)null);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case UseCaseDslPackage.USE_CASE_STEP__PARENT:
+        return parent != null;
+      case UseCaseDslPackage.USE_CASE_STEP__REFERENCE:
+        return reference != null;
+    }
+    return super.eIsSet(featureID);
   }
 
 } //UseCaseStepImpl
