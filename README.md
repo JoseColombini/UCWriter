@@ -1,9 +1,8 @@
 # UseCase-concrete-syntax
 
 This language is a result of research project supported by *FAPESP*
-grant #aaaa/nnnnn-d, São Paulo Research Foundation (FAPESP)
+grant #2019/12641-7, São Paulo Research Foundation (FAPESP)
 
-*grant #2019/12641-7, São Paulo Research Foundation (FAPESP)*
 **The opinions, hypotheses and conclusions or recommendations express in this material are responsibilities of the authors and note necessarily reflect the vision of FAPESP** (free translate from the line below)
 *"As opiniões, hipóteses e conclusões ou recomendações expressas neste material são de responsabilidade do(s) autor(es) e não necessariamente refletem a visão da FAPESP"*
 
@@ -53,11 +52,6 @@ This concrete syntax is based on some other proposes, mainly Cockburn. The metam
      - TO
      - PRECONDITION
      - POSTCONDITION
-
-
-
-
-
 
   ## Bugs
      - Symbol ', " are causing problems everywhere
