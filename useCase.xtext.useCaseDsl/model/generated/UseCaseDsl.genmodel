@@ -29,7 +29,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//Step/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//Step/reference"/>
     </genClasses>
-    <genClasses ecoreClass="UseCaseDsl.ecore#//UseCaseStep"/>
+    <genClasses ecoreClass="UseCaseDsl.ecore#//UseCaseStep">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//UseCaseStep/include"/>
+    </genClasses>
     <genClasses ecoreClass="UseCaseDsl.ecore#//ExtensionStep">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//ExtensionStep/sentence"/>
     </genClasses>

@@ -9,6 +9,12 @@ package useCase.xtext.useCaseDsl.useCaseDsl;
  * A representation of the model object '<em><b>Use Case Step</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep#getInclude <em>Include</em>}</li>
+ * </ul>
  *
  * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCaseStep()
  * @model
@@ -16,4 +22,26 @@ package useCase.xtext.useCaseDsl.useCaseDsl;
  */
 public interface UseCaseStep extends Step
 {
+  /**
+   * Returns the value of the '<em><b>Include</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Include</em>' attribute.
+   * @see #setInclude(String)
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCaseStep_Include()
+   * @model
+   * @generated
+   */
+  String getInclude();
+
+  /**
+   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep#getInclude <em>Include</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Include</em>' attribute.
+   * @see #getInclude()
+   * @generated
+   */
+  void setInclude(String value);
+
 } // UseCaseStep

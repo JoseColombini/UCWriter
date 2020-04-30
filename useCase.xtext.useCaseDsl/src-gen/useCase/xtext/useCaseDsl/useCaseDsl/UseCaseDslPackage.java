@@ -297,13 +297,22 @@ public interface UseCaseDslPackage extends EPackage
   int USE_CASE_STEP__REFERENCE = STEP__REFERENCE;
 
   /**
+   * The feature id for the '<em><b>Include</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE_STEP__INCLUDE = STEP_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Use Case Step</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USE_CASE_STEP_FEATURE_COUNT = STEP_FEATURE_COUNT + 0;
+  int USE_CASE_STEP_FEATURE_COUNT = STEP_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.ExtensionStepImpl <em>Extension Step</em>}' class.
@@ -500,6 +509,15 @@ public interface UseCaseDslPackage extends EPackage
   int USER_STEP__REFERENCE = USE_CASE_STEP__REFERENCE;
 
   /**
+   * The feature id for the '<em><b>Include</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USER_STEP__INCLUDE = USE_CASE_STEP__INCLUDE;
+
+  /**
    * The feature id for the '<em><b>Sentence</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -546,6 +564,15 @@ public interface UseCaseDslPackage extends EPackage
   int SYSTEM_STEP__REFERENCE = USE_CASE_STEP__REFERENCE;
 
   /**
+   * The feature id for the '<em><b>Include</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYSTEM_STEP__INCLUDE = USE_CASE_STEP__INCLUDE;
+
+  /**
    * The feature id for the '<em><b>Sentence</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -590,6 +617,15 @@ public interface UseCaseDslPackage extends EPackage
    * @ordered
    */
   int REPEATING_STEP__REFERENCE = USE_CASE_STEP__REFERENCE;
+
+  /**
+   * The feature id for the '<em><b>Include</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPEATING_STEP__INCLUDE = USE_CASE_STEP__INCLUDE;
 
   /**
    * The feature id for the '<em><b>Repeating Condition</b></em>' attribute.
@@ -842,6 +878,17 @@ public interface UseCaseDslPackage extends EPackage
    * @generated
    */
   EClass getUseCaseStep();
+
+  /**
+   * Returns the meta object for the attribute '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep#getInclude <em>Include</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Include</em>'.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep#getInclude()
+   * @see #getUseCaseStep()
+   * @generated
+   */
+  EAttribute getUseCaseStep_Include();
 
   /**
    * Returns the meta object for class '{@link useCase.xtext.useCaseDsl.useCaseDsl.ExtensionStep <em>Extension Step</em>}'.
@@ -1215,6 +1262,14 @@ public interface UseCaseDslPackage extends EPackage
      * @generated
      */
     EClass USE_CASE_STEP = eINSTANCE.getUseCaseStep();
+
+    /**
+     * The meta object literal for the '<em><b>Include</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute USE_CASE_STEP__INCLUDE = eINSTANCE.getUseCaseStep_Include();
 
     /**
      * The meta object literal for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.ExtensionStepImpl <em>Extension Step</em>}' class.

@@ -474,18 +474,11 @@ ruleUseCaseStep returns [EObject current=null]
 	(
 		(
 			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getUseCaseStepAccess().getUserStepAction_0_0(),
-						$current);
-				}
-			)
-			(
 				(
 					{
-						newCompositeNode(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_0_1_0());
+						newCompositeNode(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_0_0_0());
 					}
-					lv_name_1_0=ruleStepName
+					lv_name_0_0=ruleStepName
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getUseCaseStepRule());
@@ -493,34 +486,34 @@ ruleUseCaseStep returns [EObject current=null]
 						set(
 							$current,
 							"name",
-							lv_name_1_0,
+							lv_name_0_0,
 							"useCase.xtext.useCaseDsl.UseCaseDsl.StepName");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_2=FullStop
+			otherlv_1=FullStop
 			{
-				newLeafNode(otherlv_2, grammarAccess.getUseCaseStepAccess().getFullStopKeyword_0_2());
+				newLeafNode(otherlv_1, grammarAccess.getUseCaseStepAccess().getFullStopKeyword_0_1());
 			}
-			otherlv_3=USER
+			otherlv_2=INCLUDE
 			{
-				newLeafNode(otherlv_3, grammarAccess.getUseCaseStepAccess().getUSERKeyword_0_3());
+				newLeafNode(otherlv_2, grammarAccess.getUseCaseStepAccess().getINCLUDEKeyword_0_2());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getUseCaseStepAccess().getSentenceLongNameParserRuleCall_0_4_0());
+						newCompositeNode(grammarAccess.getUseCaseStepAccess().getIncludeLongNameParserRuleCall_0_3_0());
 					}
-					lv_sentence_4_0=ruleLongName
+					lv_include_3_0=ruleLongName
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getUseCaseStepRule());
 						}
 						set(
 							$current,
-							"sentence",
-							lv_sentence_4_0,
+							"include",
+							lv_include_3_0,
 							"useCase.xtext.useCaseDsl.UseCaseDsl.LongName");
 						afterParserOrEnumRuleCall();
 					}
@@ -532,7 +525,7 @@ ruleUseCaseStep returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getUseCaseStepAccess().getSystemStepAction_1_0(),
+						grammarAccess.getUseCaseStepAccess().getUserStepAction_1_0(),
 						$current);
 				}
 			)
@@ -541,7 +534,7 @@ ruleUseCaseStep returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_1_1_0());
 					}
-					lv_name_6_0=ruleStepName
+					lv_name_5_0=ruleStepName
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getUseCaseStepRule());
@@ -549,26 +542,26 @@ ruleUseCaseStep returns [EObject current=null]
 						set(
 							$current,
 							"name",
-							lv_name_6_0,
+							lv_name_5_0,
 							"useCase.xtext.useCaseDsl.UseCaseDsl.StepName");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_7=FullStop
+			otherlv_6=FullStop
 			{
-				newLeafNode(otherlv_7, grammarAccess.getUseCaseStepAccess().getFullStopKeyword_1_2());
+				newLeafNode(otherlv_6, grammarAccess.getUseCaseStepAccess().getFullStopKeyword_1_2());
 			}
-			otherlv_8=SYSTEM
+			otherlv_7=USER
 			{
-				newLeafNode(otherlv_8, grammarAccess.getUseCaseStepAccess().getSYSTEMKeyword_1_3());
+				newLeafNode(otherlv_7, grammarAccess.getUseCaseStepAccess().getUSERKeyword_1_3());
 			}
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getUseCaseStepAccess().getSentenceLongNameParserRuleCall_1_4_0());
 					}
-					lv_sentence_9_0=ruleLongName
+					lv_sentence_8_0=ruleLongName
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getUseCaseStepRule());
@@ -576,7 +569,7 @@ ruleUseCaseStep returns [EObject current=null]
 						set(
 							$current,
 							"sentence",
-							lv_sentence_9_0,
+							lv_sentence_8_0,
 							"useCase.xtext.useCaseDsl.UseCaseDsl.LongName");
 						afterParserOrEnumRuleCall();
 					}
@@ -588,7 +581,7 @@ ruleUseCaseStep returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getUseCaseStepAccess().getRepeatingStepAction_2_0(),
+						grammarAccess.getUseCaseStepAccess().getSystemStepAction_2_0(),
 						$current);
 				}
 			)
@@ -597,7 +590,7 @@ ruleUseCaseStep returns [EObject current=null]
 					{
 						newCompositeNode(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_2_1_0());
 					}
-					lv_name_11_0=ruleStepName
+					lv_name_10_0=ruleStepName
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getUseCaseStepRule());
@@ -605,26 +598,82 @@ ruleUseCaseStep returns [EObject current=null]
 						set(
 							$current,
 							"name",
-							lv_name_11_0,
+							lv_name_10_0,
 							"useCase.xtext.useCaseDsl.UseCaseDsl.StepName");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_12=FullStop
+			otherlv_11=FullStop
 			{
-				newLeafNode(otherlv_12, grammarAccess.getUseCaseStepAccess().getFullStopKeyword_2_2());
+				newLeafNode(otherlv_11, grammarAccess.getUseCaseStepAccess().getFullStopKeyword_2_2());
 			}
-			otherlv_13=WHILE
+			otherlv_12=SYSTEM
 			{
-				newLeafNode(otherlv_13, grammarAccess.getUseCaseStepAccess().getWHILEKeyword_2_3());
+				newLeafNode(otherlv_12, grammarAccess.getUseCaseStepAccess().getSYSTEMKeyword_2_3());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getUseCaseStepAccess().getRepeatingConditionConditionParserRuleCall_2_4_0());
+						newCompositeNode(grammarAccess.getUseCaseStepAccess().getSentenceLongNameParserRuleCall_2_4_0());
 					}
-					lv_repeatingCondition_14_0=ruleCondition
+					lv_sentence_13_0=ruleLongName
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getUseCaseStepRule());
+						}
+						set(
+							$current,
+							"sentence",
+							lv_sentence_13_0,
+							"useCase.xtext.useCaseDsl.UseCaseDsl.LongName");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		    |
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getUseCaseStepAccess().getRepeatingStepAction_3_0(),
+						$current);
+				}
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_3_1_0());
+					}
+					lv_name_15_0=ruleStepName
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getUseCaseStepRule());
+						}
+						set(
+							$current,
+							"name",
+							lv_name_15_0,
+							"useCase.xtext.useCaseDsl.UseCaseDsl.StepName");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_16=FullStop
+			{
+				newLeafNode(otherlv_16, grammarAccess.getUseCaseStepAccess().getFullStopKeyword_3_2());
+			}
+			otherlv_17=WHILE
+			{
+				newLeafNode(otherlv_17, grammarAccess.getUseCaseStepAccess().getWHILEKeyword_3_3());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getUseCaseStepAccess().getRepeatingConditionConditionParserRuleCall_3_4_0());
+					}
+					lv_repeatingCondition_18_0=ruleCondition
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getUseCaseStepRule());
@@ -632,24 +681,24 @@ ruleUseCaseStep returns [EObject current=null]
 						set(
 							$current,
 							"repeatingCondition",
-							lv_repeatingCondition_14_0,
+							lv_repeatingCondition_18_0,
 							"useCase.xtext.useCaseDsl.UseCaseDsl.Condition");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			this_BEGIN_15=RULE_BEGIN
+			this_BEGIN_19=RULE_BEGIN
 			{
-				newLeafNode(this_BEGIN_15, grammarAccess.getUseCaseStepAccess().getBEGINTerminalRuleCall_2_5());
+				newLeafNode(this_BEGIN_19, grammarAccess.getUseCaseStepAccess().getBEGINTerminalRuleCall_3_5());
 			}
 			(
 				(
 					(
 						(
 							{
-								newCompositeNode(grammarAccess.getUseCaseStepAccess().getParentStepNameParserRuleCall_2_6_0_0_0());
+								newCompositeNode(grammarAccess.getUseCaseStepAccess().getParentStepNameParserRuleCall_3_6_0_0_0());
 							}
-							lv_parent_16_0=ruleStepName
+							lv_parent_20_0=ruleStepName
 							{
 								if ($current==null) {
 									$current = createModelElementForParent(grammarAccess.getUseCaseStepRule());
@@ -657,23 +706,23 @@ ruleUseCaseStep returns [EObject current=null]
 								add(
 									$current,
 									"parent",
-									lv_parent_16_0,
+									lv_parent_20_0,
 									"useCase.xtext.useCaseDsl.UseCaseDsl.StepName");
 								afterParserOrEnumRuleCall();
 							}
 						)
 					)
-					otherlv_17=FullStop
+					otherlv_21=FullStop
 					{
-						newLeafNode(otherlv_17, grammarAccess.getUseCaseStepAccess().getFullStopKeyword_2_6_0_1());
+						newLeafNode(otherlv_21, grammarAccess.getUseCaseStepAccess().getFullStopKeyword_3_6_0_1());
 					}
 				)+
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getUseCaseStepAccess().getRepeatflowUseCaseStepParserRuleCall_2_6_1_0());
+							newCompositeNode(grammarAccess.getUseCaseStepAccess().getRepeatflowUseCaseStepParserRuleCall_3_6_1_0());
 						}
-						lv_repeatflow_18_0=ruleUseCaseStep
+						lv_repeatflow_22_0=ruleUseCaseStep
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getUseCaseStepRule());
@@ -681,16 +730,16 @@ ruleUseCaseStep returns [EObject current=null]
 							add(
 								$current,
 								"repeatflow",
-								lv_repeatflow_18_0,
+								lv_repeatflow_22_0,
 								"useCase.xtext.useCaseDsl.UseCaseDsl.UseCaseStep");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)+
-			this_END_19=RULE_END
+			this_END_23=RULE_END
 			{
-				newLeafNode(this_END_19, grammarAccess.getUseCaseStepAccess().getENDTerminalRuleCall_2_7());
+				newLeafNode(this_END_23, grammarAccess.getUseCaseStepAccess().getENDTerminalRuleCall_3_7());
 			}
 		)
 	)

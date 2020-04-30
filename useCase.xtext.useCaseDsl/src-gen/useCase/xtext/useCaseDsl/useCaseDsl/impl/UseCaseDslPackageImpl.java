@@ -406,6 +406,17 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
+  public EAttribute getUseCaseStep_Include()
+  {
+    return (EAttribute)useCaseStepEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getExtensionStep()
   {
     return extensionStepEClass;
@@ -642,6 +653,7 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
     createEAttribute(stepEClass, STEP__REFERENCE);
 
     useCaseStepEClass = createEClass(USE_CASE_STEP);
+    createEAttribute(useCaseStepEClass, USE_CASE_STEP__INCLUDE);
 
     extensionStepEClass = createEClass(EXTENSION_STEP);
     createEAttribute(extensionStepEClass, EXTENSION_STEP__SENTENCE);
@@ -729,6 +741,7 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
     initEAttribute(getStep_Reference(), ecorePackage.getEString(), "reference", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(useCaseStepEClass, UseCaseStep.class, "UseCaseStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUseCaseStep_Include(), ecorePackage.getEString(), "include", null, 0, 1, UseCaseStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(extensionStepEClass, ExtensionStep.class, "ExtensionStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getExtensionStep_Sentence(), ecorePackage.getEString(), "sentence", null, 0, 1, ExtensionStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

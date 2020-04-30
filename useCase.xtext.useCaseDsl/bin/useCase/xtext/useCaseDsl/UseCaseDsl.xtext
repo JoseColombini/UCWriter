@@ -35,6 +35,7 @@ Step:
 	UseCaseStep|ExtensionStep;
 
 UseCaseStep:
+	(name = StepName) '.' 'INCLUDE' (include = LongName)|
 	{UserStep} (name = StepName) '.' 'USER' (sentence = LongName)|
 	{SystemStep} (name = StepName) '.' 'SYSTEM'(sentence = LongName)|
 	{RepeatingStep} (name = StepName) '.' 'WHILE'(repeatingCondition = Condition)

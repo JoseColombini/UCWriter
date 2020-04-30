@@ -3,7 +3,11 @@
  */
 package useCase.xtext.useCaseDsl.useCaseDsl.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
@@ -12,11 +16,37 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Use Case Step</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseStepImpl#getInclude <em>Include</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class UseCaseStepImpl extends StepImpl implements UseCaseStep
 {
+  /**
+   * The default value of the '{@link #getInclude() <em>Include</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInclude()
+   * @generated
+   * @ordered
+   */
+  protected static final String INCLUDE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getInclude() <em>Include</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInclude()
+   * @generated
+   * @ordered
+   */
+  protected String include = INCLUDE_EDEFAULT;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +66,114 @@ public class UseCaseStepImpl extends StepImpl implements UseCaseStep
   protected EClass eStaticClass()
   {
     return UseCaseDslPackage.Literals.USE_CASE_STEP;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getInclude()
+  {
+    return include;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setInclude(String newInclude)
+  {
+    String oldInclude = include;
+    include = newInclude;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.USE_CASE_STEP__INCLUDE, oldInclude, include));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case UseCaseDslPackage.USE_CASE_STEP__INCLUDE:
+        return getInclude();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case UseCaseDslPackage.USE_CASE_STEP__INCLUDE:
+        setInclude((String)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case UseCaseDslPackage.USE_CASE_STEP__INCLUDE:
+        setInclude(INCLUDE_EDEFAULT);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case UseCaseDslPackage.USE_CASE_STEP__INCLUDE:
+        return INCLUDE_EDEFAULT == null ? include != null : !INCLUDE_EDEFAULT.equals(include);
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (include: ");
+    result.append(include);
+    result.append(')');
+    return result.toString();
   }
 
 } //UseCaseStepImpl
