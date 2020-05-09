@@ -41,16 +41,17 @@ Step:
 	UseCaseStep|ExtensionStep;
 
 UseCaseStep:
-	(parent = [Step|QualifiedStepName] '.')? (name = StepName)'.' 'INCLUDE'(reference = [UseCase|LongName])|
-	{UserStep} (parent = [Step|QualifiedStepName] '.')? (name = StepName)'.' 'USER' (sentence = LongName)|
-	{SystemStep} (parent = [Step|QualifiedStepName] '.')? (name = StepName)'.' 'SYSTEM'(sentence = LongName)|
-	{RepeatingStep}(parent = [Step|QualifiedStepName] '.')? (name = StepName)'.' 'WHILE'(repeatingCondition = Condition)
+	(parent = [RepeatingStep|QualifiedStepName] '.')? (name = StepName)'.' 'INCLUDE'(reference = [UseCase|LongName])|
+	{UserStep} (parent = [RepeatingStep|QualifiedStepName] '.')? (name = StepName)'.' 'USER' (sentence = LongName)|
+	{SystemStep} (parent = [RepeatingStep|QualifiedStepName] '.')? (name = StepName)'.' 'SYSTEM'(sentence = LongName)|
+	{RepeatingStep}(parent = [RepeatingStep|QualifiedStepName] '.')? (name = StepName)'.' 'WHILE'(repeatingCondition = Condition)
 	BEGIN
-		(/*(parent += [RepeatingStep|StepName]'.')+*/(repeatflow += UseCaseStep))+
+		(/*(parent += [RepeatingStep|StepName]'.')+*/(steps += UseCaseStep))+
 	END;
 
 //I dont know how to use this shit
 ExtensionStep:
+	(name = StepName)'.' 'INCLUDE'(reference = [UseCase|LongName])|
 	(name = StepName)'.' ('USER'|'SYSTEM'|'WHILE')? (sentence = LongName)|
 	DeadEndStep;
 

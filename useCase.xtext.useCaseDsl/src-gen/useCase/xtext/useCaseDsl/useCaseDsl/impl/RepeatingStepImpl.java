@@ -31,7 +31,7 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
  * </p>
  * <ul>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.RepeatingStepImpl#getRepeatingCondition <em>Repeating Condition</em>}</li>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.RepeatingStepImpl#getRepeatflow <em>Repeatflow</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.RepeatingStepImpl#getSteps <em>Steps</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,14 +59,14 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
   protected String repeatingCondition = REPEATING_CONDITION_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getRepeatflow() <em>Repeatflow</em>}' containment reference list.
+   * The cached value of the '{@link #getSteps() <em>Steps</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRepeatflow()
+   * @see #getSteps()
    * @generated
    * @ordered
    */
-  protected EList<UseCaseStep> repeatflow;
+  protected EList<UseCaseStep> steps;
 
   /**
    * <!-- begin-user-doc -->
@@ -120,13 +120,13 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
    * @generated
    */
   @Override
-  public EList<UseCaseStep> getRepeatflow()
+  public EList<UseCaseStep> getSteps()
   {
-    if (repeatflow == null)
+    if (steps == null)
     {
-      repeatflow = new EObjectContainmentEList<UseCaseStep>(UseCaseStep.class, this, UseCaseDslPackage.REPEATING_STEP__REPEATFLOW);
+      steps = new EObjectContainmentEList<UseCaseStep>(UseCaseStep.class, this, UseCaseDslPackage.REPEATING_STEP__STEPS);
     }
-    return repeatflow;
+    return steps;
   }
 
   /**
@@ -139,8 +139,8 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
   {
     switch (featureID)
     {
-      case UseCaseDslPackage.REPEATING_STEP__REPEATFLOW:
-        return ((InternalEList<?>)getRepeatflow()).basicRemove(otherEnd, msgs);
+      case UseCaseDslPackage.REPEATING_STEP__STEPS:
+        return ((InternalEList<?>)getSteps()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -157,8 +157,8 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
     {
       case UseCaseDslPackage.REPEATING_STEP__REPEATING_CONDITION:
         return getRepeatingCondition();
-      case UseCaseDslPackage.REPEATING_STEP__REPEATFLOW:
-        return getRepeatflow();
+      case UseCaseDslPackage.REPEATING_STEP__STEPS:
+        return getSteps();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -177,9 +177,9 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
       case UseCaseDslPackage.REPEATING_STEP__REPEATING_CONDITION:
         setRepeatingCondition((String)newValue);
         return;
-      case UseCaseDslPackage.REPEATING_STEP__REPEATFLOW:
-        getRepeatflow().clear();
-        getRepeatflow().addAll((Collection<? extends UseCaseStep>)newValue);
+      case UseCaseDslPackage.REPEATING_STEP__STEPS:
+        getSteps().clear();
+        getSteps().addAll((Collection<? extends UseCaseStep>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -198,8 +198,8 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
       case UseCaseDslPackage.REPEATING_STEP__REPEATING_CONDITION:
         setRepeatingCondition(REPEATING_CONDITION_EDEFAULT);
         return;
-      case UseCaseDslPackage.REPEATING_STEP__REPEATFLOW:
-        getRepeatflow().clear();
+      case UseCaseDslPackage.REPEATING_STEP__STEPS:
+        getSteps().clear();
         return;
     }
     super.eUnset(featureID);
@@ -217,8 +217,8 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
     {
       case UseCaseDslPackage.REPEATING_STEP__REPEATING_CONDITION:
         return REPEATING_CONDITION_EDEFAULT == null ? repeatingCondition != null : !REPEATING_CONDITION_EDEFAULT.equals(repeatingCondition);
-      case UseCaseDslPackage.REPEATING_STEP__REPEATFLOW:
-        return repeatflow != null && !repeatflow.isEmpty();
+      case UseCaseDslPackage.REPEATING_STEP__STEPS:
+        return steps != null && !steps.isEmpty();
     }
     return super.eIsSet(featureID);
   }

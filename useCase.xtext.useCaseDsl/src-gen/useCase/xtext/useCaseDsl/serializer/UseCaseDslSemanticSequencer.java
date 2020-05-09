@@ -100,19 +100,10 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ExtensionStep returns ExtensionStep
 	 *
 	 * Constraint:
-	 *     (name=StepName sentence=LongName)
+	 *     ((name=StepName reference=[UseCase|LongName]) | (name=StepName sentence=LongName))
 	 */
 	protected void sequence_ExtensionStep(ISerializationContext context, ExtensionStep semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, UseCaseDslPackage.Literals.STEP__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.STEP__NAME));
-			if (transientValues.isValueTransient(semanticObject, UseCaseDslPackage.Literals.EXTENSION_STEP__SENTENCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UseCaseDslPackage.Literals.EXTENSION_STEP__SENTENCE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExtensionStepAccess().getNameStepNameParserRuleCall_0_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getExtensionStepAccess().getSentenceLongNameParserRuleCall_0_3_0(), semanticObject.getSentence());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -188,7 +179,7 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     UseCaseStep returns RepeatingStep
 	 *
 	 * Constraint:
-	 *     (parent=[Step|QualifiedStepName]? name=StepName repeatingCondition=Condition repeatflow+=UseCaseStep+)
+	 *     (parent=[RepeatingStep|QualifiedStepName]? name=StepName repeatingCondition=Condition steps+=UseCaseStep+)
 	 */
 	protected void sequence_UseCaseStep(ISerializationContext context, RepeatingStep semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -201,7 +192,7 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     UseCaseStep returns SystemStep
 	 *
 	 * Constraint:
-	 *     (parent=[Step|QualifiedStepName]? name=StepName sentence=LongName)
+	 *     (parent=[RepeatingStep|QualifiedStepName]? name=StepName sentence=LongName)
 	 */
 	protected void sequence_UseCaseStep(ISerializationContext context, SystemStep semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -214,7 +205,7 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     UseCaseStep returns UseCaseStep
 	 *
 	 * Constraint:
-	 *     (parent=[Step|QualifiedStepName]? name=StepName reference=[UseCase|LongName])
+	 *     (parent=[RepeatingStep|QualifiedStepName]? name=StepName reference=[UseCase|LongName])
 	 */
 	protected void sequence_UseCaseStep(ISerializationContext context, UseCaseStep semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -227,7 +218,7 @@ public class UseCaseDslSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     UseCaseStep returns UserStep
 	 *
 	 * Constraint:
-	 *     (parent=[Step|QualifiedStepName]? name=StepName sentence=LongName)
+	 *     (parent=[RepeatingStep|QualifiedStepName]? name=StepName sentence=LongName)
 	 */
 	protected void sequence_UseCaseStep(ISerializationContext context, UserStep semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

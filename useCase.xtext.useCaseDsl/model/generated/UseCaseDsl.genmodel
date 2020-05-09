@@ -27,10 +27,10 @@
     </genClasses>
     <genClasses ecoreClass="UseCaseDsl.ecore#//Step">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//Step/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UseCaseDsl.ecore#//Step/reference"/>
     </genClasses>
     <genClasses ecoreClass="UseCaseDsl.ecore#//UseCaseStep">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UseCaseDsl.ecore#//UseCaseStep/parent"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference UseCaseDsl.ecore#//UseCaseStep/reference"/>
     </genClasses>
     <genClasses ecoreClass="UseCaseDsl.ecore#//ExtensionStep">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//ExtensionStep/sentence"/>
@@ -50,7 +50,7 @@
     </genClasses>
     <genClasses ecoreClass="UseCaseDsl.ecore#//RepeatingStep">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UseCaseDsl.ecore#//RepeatingStep/repeatingCondition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCaseDsl.ecore#//RepeatingStep/repeatflow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UseCaseDsl.ecore#//RepeatingStep/steps"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

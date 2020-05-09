@@ -10,8 +10,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import useCase.xtext.useCaseDsl.useCaseDsl.Step;
-import useCase.xtext.useCaseDsl.useCaseDsl.UseCase;
+import useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
 
@@ -24,7 +23,6 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
  * </p>
  * <ul>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseStepImpl#getParent <em>Parent</em>}</li>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseStepImpl#getReference <em>Reference</em>}</li>
  * </ul>
  *
  * @generated
@@ -39,17 +37,7 @@ public class UseCaseStepImpl extends StepImpl implements UseCaseStep
    * @generated
    * @ordered
    */
-  protected Step parent;
-
-  /**
-   * The cached value of the '{@link #getReference() <em>Reference</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getReference()
-   * @generated
-   * @ordered
-   */
-  protected UseCase reference;
+  protected RepeatingStep parent;
 
   /**
    * <!-- begin-user-doc -->
@@ -78,12 +66,12 @@ public class UseCaseStepImpl extends StepImpl implements UseCaseStep
    * @generated
    */
   @Override
-  public Step getParent()
+  public RepeatingStep getParent()
   {
     if (parent != null && parent.eIsProxy())
     {
       InternalEObject oldParent = (InternalEObject)parent;
-      parent = (Step)eResolveProxy(oldParent);
+      parent = (RepeatingStep)eResolveProxy(oldParent);
       if (parent != oldParent)
       {
         if (eNotificationRequired())
@@ -98,7 +86,7 @@ public class UseCaseStepImpl extends StepImpl implements UseCaseStep
    * <!-- end-user-doc -->
    * @generated
    */
-  public Step basicGetParent()
+  public RepeatingStep basicGetParent()
   {
     return parent;
   }
@@ -109,57 +97,12 @@ public class UseCaseStepImpl extends StepImpl implements UseCaseStep
    * @generated
    */
   @Override
-  public void setParent(Step newParent)
+  public void setParent(RepeatingStep newParent)
   {
-    Step oldParent = parent;
+    RepeatingStep oldParent = parent;
     parent = newParent;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.USE_CASE_STEP__PARENT, oldParent, parent));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public UseCase getReference()
-  {
-    if (reference != null && reference.eIsProxy())
-    {
-      InternalEObject oldReference = (InternalEObject)reference;
-      reference = (UseCase)eResolveProxy(oldReference);
-      if (reference != oldReference)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UseCaseDslPackage.USE_CASE_STEP__REFERENCE, oldReference, reference));
-      }
-    }
-    return reference;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public UseCase basicGetReference()
-  {
-    return reference;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setReference(UseCase newReference)
-  {
-    UseCase oldReference = reference;
-    reference = newReference;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.USE_CASE_STEP__REFERENCE, oldReference, reference));
   }
 
   /**
@@ -175,9 +118,6 @@ public class UseCaseStepImpl extends StepImpl implements UseCaseStep
       case UseCaseDslPackage.USE_CASE_STEP__PARENT:
         if (resolve) return getParent();
         return basicGetParent();
-      case UseCaseDslPackage.USE_CASE_STEP__REFERENCE:
-        if (resolve) return getReference();
-        return basicGetReference();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -193,10 +133,7 @@ public class UseCaseStepImpl extends StepImpl implements UseCaseStep
     switch (featureID)
     {
       case UseCaseDslPackage.USE_CASE_STEP__PARENT:
-        setParent((Step)newValue);
-        return;
-      case UseCaseDslPackage.USE_CASE_STEP__REFERENCE:
-        setReference((UseCase)newValue);
+        setParent((RepeatingStep)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -213,10 +150,7 @@ public class UseCaseStepImpl extends StepImpl implements UseCaseStep
     switch (featureID)
     {
       case UseCaseDslPackage.USE_CASE_STEP__PARENT:
-        setParent((Step)null);
-        return;
-      case UseCaseDslPackage.USE_CASE_STEP__REFERENCE:
-        setReference((UseCase)null);
+        setParent((RepeatingStep)null);
         return;
     }
     super.eUnset(featureID);
@@ -234,8 +168,6 @@ public class UseCaseStepImpl extends StepImpl implements UseCaseStep
     {
       case UseCaseDslPackage.USE_CASE_STEP__PARENT:
         return parent != null;
-      case UseCaseDslPackage.USE_CASE_STEP__REFERENCE:
-        return reference != null;
     }
     return super.eIsSet(featureID);
   }

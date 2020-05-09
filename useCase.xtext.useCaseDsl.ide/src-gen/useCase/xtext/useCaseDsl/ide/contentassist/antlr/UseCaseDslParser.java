@@ -39,7 +39,7 @@ public class UseCaseDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getStepAccess().getAlternatives(), "rule__Step__Alternatives");
 			builder.put(grammarAccess.getUseCaseStepAccess().getAlternatives(), "rule__UseCaseStep__Alternatives");
 			builder.put(grammarAccess.getExtensionStepAccess().getAlternatives(), "rule__ExtensionStep__Alternatives");
-			builder.put(grammarAccess.getExtensionStepAccess().getAlternatives_0_2(), "rule__ExtensionStep__Alternatives_0_2");
+			builder.put(grammarAccess.getExtensionStepAccess().getAlternatives_1_2(), "rule__ExtensionStep__Alternatives_1_2");
 			builder.put(grammarAccess.getDeadEndStepAccess().getAlternatives_2(), "rule__DeadEndStep__Alternatives_2");
 			builder.put(grammarAccess.getLongNameAccess().getAlternatives(), "rule__LongName__Alternatives");
 			builder.put(grammarAccess.getConditionAccess().getAlternatives(), "rule__Condition__Alternatives");
@@ -57,6 +57,7 @@ public class UseCaseDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getUseCaseStepAccess().getGroup_3(), "rule__UseCaseStep__Group_3__0");
 			builder.put(grammarAccess.getUseCaseStepAccess().getGroup_3_1(), "rule__UseCaseStep__Group_3_1__0");
 			builder.put(grammarAccess.getExtensionStepAccess().getGroup_0(), "rule__ExtensionStep__Group_0__0");
+			builder.put(grammarAccess.getExtensionStepAccess().getGroup_1(), "rule__ExtensionStep__Group_1__0");
 			builder.put(grammarAccess.getDeadEndStepAccess().getGroup(), "rule__DeadEndStep__Group__0");
 			builder.put(grammarAccess.getPreconditionAccess().getGroup(), "rule__Precondition__Group__0");
 			builder.put(grammarAccess.getPostconditionAccess().getGroup(), "rule__Postcondition__Group__0");
@@ -90,9 +91,11 @@ public class UseCaseDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getUseCaseStepAccess().getParentAssignment_3_1_0(), "rule__UseCaseStep__ParentAssignment_3_1_0");
 			builder.put(grammarAccess.getUseCaseStepAccess().getNameAssignment_3_2(), "rule__UseCaseStep__NameAssignment_3_2");
 			builder.put(grammarAccess.getUseCaseStepAccess().getRepeatingConditionAssignment_3_5(), "rule__UseCaseStep__RepeatingConditionAssignment_3_5");
-			builder.put(grammarAccess.getUseCaseStepAccess().getRepeatflowAssignment_3_7(), "rule__UseCaseStep__RepeatflowAssignment_3_7");
+			builder.put(grammarAccess.getUseCaseStepAccess().getStepsAssignment_3_7(), "rule__UseCaseStep__StepsAssignment_3_7");
 			builder.put(grammarAccess.getExtensionStepAccess().getNameAssignment_0_0(), "rule__ExtensionStep__NameAssignment_0_0");
-			builder.put(grammarAccess.getExtensionStepAccess().getSentenceAssignment_0_3(), "rule__ExtensionStep__SentenceAssignment_0_3");
+			builder.put(grammarAccess.getExtensionStepAccess().getReferenceAssignment_0_3(), "rule__ExtensionStep__ReferenceAssignment_0_3");
+			builder.put(grammarAccess.getExtensionStepAccess().getNameAssignment_1_0(), "rule__ExtensionStep__NameAssignment_1_0");
+			builder.put(grammarAccess.getExtensionStepAccess().getSentenceAssignment_1_3(), "rule__ExtensionStep__SentenceAssignment_1_3");
 			builder.put(grammarAccess.getDeadEndStepAccess().getNameAssignment_0(), "rule__DeadEndStep__NameAssignment_0");
 			builder.put(grammarAccess.getDeadEndStepAccess().getSentenceAssignment_3(), "rule__DeadEndStep__SentenceAssignment_3");
 			builder.put(grammarAccess.getPreconditionAccess().getConditionAssignment_2(), "rule__Precondition__ConditionAssignment_2");

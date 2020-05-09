@@ -251,13 +251,22 @@ public interface UseCaseDslPackage extends EPackage
   int STEP__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Reference</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STEP__REFERENCE = 1;
+
+  /**
    * The number of structural features of the '<em>Step</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STEP_FEATURE_COUNT = 1;
+  int STEP_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseStepImpl <em>Use Case Step</em>}' class.
@@ -279,6 +288,15 @@ public interface UseCaseDslPackage extends EPackage
   int USE_CASE_STEP__NAME = STEP__NAME;
 
   /**
+   * The feature id for the '<em><b>Reference</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USE_CASE_STEP__REFERENCE = STEP__REFERENCE;
+
+  /**
    * The feature id for the '<em><b>Parent</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -288,22 +306,13 @@ public interface UseCaseDslPackage extends EPackage
   int USE_CASE_STEP__PARENT = STEP_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Reference</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int USE_CASE_STEP__REFERENCE = STEP_FEATURE_COUNT + 1;
-
-  /**
    * The number of structural features of the '<em>Use Case Step</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int USE_CASE_STEP_FEATURE_COUNT = STEP_FEATURE_COUNT + 2;
+  int USE_CASE_STEP_FEATURE_COUNT = STEP_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.ExtensionStepImpl <em>Extension Step</em>}' class.
@@ -323,6 +332,15 @@ public interface UseCaseDslPackage extends EPackage
    * @ordered
    */
   int EXTENSION_STEP__NAME = STEP__NAME;
+
+  /**
+   * The feature id for the '<em><b>Reference</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTENSION_STEP__REFERENCE = STEP__REFERENCE;
 
   /**
    * The feature id for the '<em><b>Sentence</b></em>' attribute.
@@ -360,6 +378,15 @@ public interface UseCaseDslPackage extends EPackage
    * @ordered
    */
   int DEAD_END_STEP__NAME = EXTENSION_STEP__NAME;
+
+  /**
+   * The feature id for the '<em><b>Reference</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEAD_END_STEP__REFERENCE = EXTENSION_STEP__REFERENCE;
 
   /**
    * The feature id for the '<em><b>Sentence</b></em>' attribute.
@@ -455,15 +482,6 @@ public interface UseCaseDslPackage extends EPackage
   int USER_STEP__NAME = USE_CASE_STEP__NAME;
 
   /**
-   * The feature id for the '<em><b>Parent</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int USER_STEP__PARENT = USE_CASE_STEP__PARENT;
-
-  /**
    * The feature id for the '<em><b>Reference</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -471,6 +489,15 @@ public interface UseCaseDslPackage extends EPackage
    * @ordered
    */
   int USER_STEP__REFERENCE = USE_CASE_STEP__REFERENCE;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int USER_STEP__PARENT = USE_CASE_STEP__PARENT;
 
   /**
    * The feature id for the '<em><b>Sentence</b></em>' attribute.
@@ -510,15 +537,6 @@ public interface UseCaseDslPackage extends EPackage
   int SYSTEM_STEP__NAME = USE_CASE_STEP__NAME;
 
   /**
-   * The feature id for the '<em><b>Parent</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SYSTEM_STEP__PARENT = USE_CASE_STEP__PARENT;
-
-  /**
    * The feature id for the '<em><b>Reference</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -526,6 +544,15 @@ public interface UseCaseDslPackage extends EPackage
    * @ordered
    */
   int SYSTEM_STEP__REFERENCE = USE_CASE_STEP__REFERENCE;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYSTEM_STEP__PARENT = USE_CASE_STEP__PARENT;
 
   /**
    * The feature id for the '<em><b>Sentence</b></em>' attribute.
@@ -565,15 +592,6 @@ public interface UseCaseDslPackage extends EPackage
   int REPEATING_STEP__NAME = USE_CASE_STEP__NAME;
 
   /**
-   * The feature id for the '<em><b>Parent</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REPEATING_STEP__PARENT = USE_CASE_STEP__PARENT;
-
-  /**
    * The feature id for the '<em><b>Reference</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -581,6 +599,15 @@ public interface UseCaseDslPackage extends EPackage
    * @ordered
    */
   int REPEATING_STEP__REFERENCE = USE_CASE_STEP__REFERENCE;
+
+  /**
+   * The feature id for the '<em><b>Parent</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPEATING_STEP__PARENT = USE_CASE_STEP__PARENT;
 
   /**
    * The feature id for the '<em><b>Repeating Condition</b></em>' attribute.
@@ -592,13 +619,13 @@ public interface UseCaseDslPackage extends EPackage
   int REPEATING_STEP__REPEATING_CONDITION = USE_CASE_STEP_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Repeatflow</b></em>' containment reference list.
+   * The feature id for the '<em><b>Steps</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REPEATING_STEP__REPEATFLOW = USE_CASE_STEP_FEATURE_COUNT + 1;
+  int REPEATING_STEP__STEPS = USE_CASE_STEP_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Repeating Step</em>' class.
@@ -805,6 +832,17 @@ public interface UseCaseDslPackage extends EPackage
   EAttribute getStep_Name();
 
   /**
+   * Returns the meta object for the reference '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getReference <em>Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Reference</em>'.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.Step#getReference()
+   * @see #getStep()
+   * @generated
+   */
+  EReference getStep_Reference();
+
+  /**
    * Returns the meta object for class '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep <em>Use Case Step</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -824,17 +862,6 @@ public interface UseCaseDslPackage extends EPackage
    * @generated
    */
   EReference getUseCaseStep_Parent();
-
-  /**
-   * Returns the meta object for the reference '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep#getReference <em>Reference</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Reference</em>'.
-   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep#getReference()
-   * @see #getUseCaseStep()
-   * @generated
-   */
-  EReference getUseCaseStep_Reference();
 
   /**
    * Returns the meta object for class '{@link useCase.xtext.useCaseDsl.useCaseDsl.ExtensionStep <em>Extension Step</em>}'.
@@ -973,15 +1000,15 @@ public interface UseCaseDslPackage extends EPackage
   EAttribute getRepeatingStep_RepeatingCondition();
 
   /**
-   * Returns the meta object for the containment reference list '{@link useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep#getRepeatflow <em>Repeatflow</em>}'.
+   * Returns the meta object for the containment reference list '{@link useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep#getSteps <em>Steps</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Repeatflow</em>'.
-   * @see useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep#getRepeatflow()
+   * @return the meta object for the containment reference list '<em>Steps</em>'.
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep#getSteps()
    * @see #getRepeatingStep()
    * @generated
    */
-  EReference getRepeatingStep_Repeatflow();
+  EReference getRepeatingStep_Steps();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1159,6 +1186,14 @@ public interface UseCaseDslPackage extends EPackage
     EAttribute STEP__NAME = eINSTANCE.getStep_Name();
 
     /**
+     * The meta object literal for the '<em><b>Reference</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STEP__REFERENCE = eINSTANCE.getStep_Reference();
+
+    /**
      * The meta object literal for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseStepImpl <em>Use Case Step</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1175,14 +1210,6 @@ public interface UseCaseDslPackage extends EPackage
      * @generated
      */
     EReference USE_CASE_STEP__PARENT = eINSTANCE.getUseCaseStep_Parent();
-
-    /**
-     * The meta object literal for the '<em><b>Reference</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference USE_CASE_STEP__REFERENCE = eINSTANCE.getUseCaseStep_Reference();
 
     /**
      * The meta object literal for the '{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.ExtensionStepImpl <em>Extension Step</em>}' class.
@@ -1303,12 +1330,12 @@ public interface UseCaseDslPackage extends EPackage
     EAttribute REPEATING_STEP__REPEATING_CONDITION = eINSTANCE.getRepeatingStep_RepeatingCondition();
 
     /**
-     * The meta object literal for the '<em><b>Repeatflow</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Steps</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REPEATING_STEP__REPEATFLOW = eINSTANCE.getRepeatingStep_Repeatflow();
+    EReference REPEATING_STEP__STEPS = eINSTANCE.getRepeatingStep_Steps();
 
   }
 

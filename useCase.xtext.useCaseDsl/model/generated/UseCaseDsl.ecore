@@ -30,10 +30,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Step">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="#//UseCase"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UseCaseStep" eSuperTypes="#//Step">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//Step"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="#//UseCase"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//RepeatingStep"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExtensionStep" eSuperTypes="#//Step">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sentence" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -53,7 +53,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RepeatingStep" eSuperTypes="#//UseCaseStep">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="repeatingCondition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="repeatflow" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="steps" upperBound="-1"
         eType="#//UseCaseStep" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

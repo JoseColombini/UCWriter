@@ -3,19 +3,28 @@
  */
 package useCase.xtext.useCaseDsl.scoping;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
-
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 
+import com.google.common.base.Function;
+import com.google.inject.Inject;
+
+import useCase.xtext.useCaseDsl.useCaseDsl.Extension;
 import useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep;
+import useCase.xtext.useCaseDsl.useCaseDsl.Step;
+import useCase.xtext.useCaseDsl.useCaseDsl.UseCase;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
+import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
 
 
 /**
@@ -30,7 +39,7 @@ public class UseCaseDslScopeProvider extends AbstractUseCaseDslScopeProvider {
 	public IScope getScope (EObject context, EReference reference) {
 		
 		if (context instanceof RepeatingStep && 
-				reference == UseCaseDslPackage.Literals.REPEATING_STEP__PARENT) {
+				reference == UseCaseDslPackage.Literals.EXTENSION__START_FROM) {
 			
 			EObject repref = EcoreUtil2.getRootContainer(context);
 	        List<RepeatingStep> candidates = EcoreUtil2.getAllContentsOfType(repref, RepeatingStep.class);
@@ -41,5 +50,30 @@ public class UseCaseDslScopeProvider extends AbstractUseCaseDslScopeProvider {
 	    return super.getScope(context, reference);
 			
 	}*/
+	@Inject IQualifiedNameProvider iq;
+	@Override
+	public IScope getScope(EObject context, EReference reference) {
+		if(context instanceof UseCaseStep && context.eContainer() instanceof RepeatingStep 
+			&& reference == UseCaseDslPackage.Literals.USE_CASE_STEP__PARENT) {
+	
+			List<RepeatingStep> candidates = new LinkedList<RepeatingStep>();
+			candidates.add((RepeatingStep) context.eContainer());
+			
+
+	        return Scopes.scopeFor(candidates, new Function<RepeatingStep, QualifiedName>() {
+				@Override
+				public QualifiedName apply(RepeatingStep from) {
+					String names[] = new String[iq.getFullyQualifiedName(context.eContainer()).getSegmentCount() -1];
+					for(int i = 0; i < iq.getFullyQualifiedName(context.eContainer()).getSegmentCount() - 1; i++) {
+						names[i] = iq.getFullyQualifiedName(context.eContainer()).getSegment(i + 1);
+					}
+					
+				//	names[iq.getFullyQualifiedName(context.eContainer()).getSegmentCount() - 1] = from.getName();
+					return QualifiedName.create(names);
+				}
+			}, IScope.NULLSCOPE);
+		}
+	    return super.getScope(context, reference);
+	}
 }
-		
+

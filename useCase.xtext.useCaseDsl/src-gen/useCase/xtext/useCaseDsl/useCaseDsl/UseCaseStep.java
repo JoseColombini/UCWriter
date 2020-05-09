@@ -14,7 +14,6 @@ package useCase.xtext.useCaseDsl.useCaseDsl;
  * </p>
  * <ul>
  *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep#getParent <em>Parent</em>}</li>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep#getReference <em>Reference</em>}</li>
  * </ul>
  *
  * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCaseStep()
@@ -28,12 +27,12 @@ public interface UseCaseStep extends Step
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Parent</em>' reference.
-   * @see #setParent(Step)
+   * @see #setParent(RepeatingStep)
    * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCaseStep_Parent()
    * @model
    * @generated
    */
-  Step getParent();
+  RepeatingStep getParent();
 
   /**
    * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep#getParent <em>Parent</em>}' reference.
@@ -43,28 +42,6 @@ public interface UseCaseStep extends Step
    * @see #getParent()
    * @generated
    */
-  void setParent(Step value);
-
-  /**
-   * Returns the value of the '<em><b>Reference</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Reference</em>' reference.
-   * @see #setReference(UseCase)
-   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCaseStep_Reference()
-   * @model
-   * @generated
-   */
-  UseCase getReference();
-
-  /**
-   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep#getReference <em>Reference</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Reference</em>' reference.
-   * @see #getReference()
-   * @generated
-   */
-  void setReference(UseCase value);
+  void setParent(RepeatingStep value);
 
 } // UseCaseStep

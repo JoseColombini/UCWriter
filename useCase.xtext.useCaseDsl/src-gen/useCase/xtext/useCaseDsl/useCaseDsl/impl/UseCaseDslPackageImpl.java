@@ -384,6 +384,17 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
+  public EReference getStep_Reference()
+  {
+    return (EReference)stepEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getUseCaseStep()
   {
     return useCaseStepEClass;
@@ -398,17 +409,6 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
   public EReference getUseCaseStep_Parent()
   {
     return (EReference)useCaseStepEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getUseCaseStep_Reference()
-  {
-    return (EReference)useCaseStepEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -560,7 +560,7 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
    * @generated
    */
   @Override
-  public EReference getRepeatingStep_Repeatflow()
+  public EReference getRepeatingStep_Steps()
   {
     return (EReference)repeatingStepEClass.getEStructuralFeatures().get(1);
   }
@@ -617,10 +617,10 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
 
     stepEClass = createEClass(STEP);
     createEAttribute(stepEClass, STEP__NAME);
+    createEReference(stepEClass, STEP__REFERENCE);
 
     useCaseStepEClass = createEClass(USE_CASE_STEP);
     createEReference(useCaseStepEClass, USE_CASE_STEP__PARENT);
-    createEReference(useCaseStepEClass, USE_CASE_STEP__REFERENCE);
 
     extensionStepEClass = createEClass(EXTENSION_STEP);
     createEAttribute(extensionStepEClass, EXTENSION_STEP__SENTENCE);
@@ -641,7 +641,7 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
 
     repeatingStepEClass = createEClass(REPEATING_STEP);
     createEAttribute(repeatingStepEClass, REPEATING_STEP__REPEATING_CONDITION);
-    createEReference(repeatingStepEClass, REPEATING_STEP__REPEATFLOW);
+    createEReference(repeatingStepEClass, REPEATING_STEP__STEPS);
   }
 
   /**
@@ -702,10 +702,10 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
 
     initEClass(stepEClass, Step.class, "Step", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStep_Name(), ecorePackage.getEString(), "name", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStep_Reference(), this.getUseCase(), null, "reference", null, 0, 1, Step.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(useCaseStepEClass, UseCaseStep.class, "UseCaseStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getUseCaseStep_Parent(), this.getStep(), null, "parent", null, 0, 1, UseCaseStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getUseCaseStep_Reference(), this.getUseCase(), null, "reference", null, 0, 1, UseCaseStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUseCaseStep_Parent(), this.getRepeatingStep(), null, "parent", null, 0, 1, UseCaseStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(extensionStepEClass, ExtensionStep.class, "ExtensionStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getExtensionStep_Sentence(), ecorePackage.getEString(), "sentence", null, 0, 1, ExtensionStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -726,7 +726,7 @@ public class UseCaseDslPackageImpl extends EPackageImpl implements UseCaseDslPac
 
     initEClass(repeatingStepEClass, RepeatingStep.class, "RepeatingStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRepeatingStep_RepeatingCondition(), ecorePackage.getEString(), "repeatingCondition", null, 0, 1, RepeatingStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRepeatingStep_Repeatflow(), this.getUseCaseStep(), null, "repeatflow", null, 0, -1, RepeatingStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRepeatingStep_Steps(), this.getUseCaseStep(), null, "steps", null, 0, -1, RepeatingStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);
