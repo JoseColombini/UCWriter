@@ -3,16 +3,15 @@
  */
 package useCase.xtext.useCaseDsl.scoping;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 
@@ -20,6 +19,7 @@ import com.google.common.base.Function;
 import com.google.inject.Inject;
 
 import useCase.xtext.useCaseDsl.useCaseDsl.Extension;
+import useCase.xtext.useCaseDsl.useCaseDsl.ExtensionStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.Step;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCase;
@@ -53,6 +53,7 @@ public class UseCaseDslScopeProvider extends AbstractUseCaseDslScopeProvider {
 	@Inject IQualifiedNameProvider iq;
 	@Override
 	public IScope getScope(EObject context, EReference reference) {
+		//Scoping for parent in loops
 		if(context instanceof UseCaseStep && context.eContainer() instanceof RepeatingStep 
 			&& reference == UseCaseDslPackage.Literals.USE_CASE_STEP__PARENT) {
 	
@@ -73,6 +74,53 @@ public class UseCaseDslScopeProvider extends AbstractUseCaseDslScopeProvider {
 				}
 			}, IScope.NULLSCOPE);
 		}
+		
+//		//Scoping for extensions
+//		if(context instanceof Extension && reference == UseCaseDslPackage.Literals.EXTENSION__START_FROM) {
+//			
+//			char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+//				//for(char c	:	alphabet) {
+//					//if(((Extension)context).getStartFrom().getName().indexOf(c) <= 0) {
+//							
+//						UseCase parent = (UseCase) context.eContainer();
+//						List<UseCaseStep> candidates = parent.getSteps();
+//				        return Scopes.scopeFor(candidates, new Function<Step, QualifiedName>() {
+//							public QualifiedName apply(Step from) {
+//								String names[] = new String[iq.getFullyQualifiedName(context.eContainer()).getSegmentCount() -1];
+//								for(int i = 0; i < iq.getFullyQualifiedName(context.eContainer()).getSegmentCount() - 1; i++) {
+//									names[i] = iq.getFullyQualifiedName(context.eContainer()).getSegment(i + 1);
+//								}
+//								
+//							//	names[iq.getFullyQualifiedName(context.eContainer()).getSegmentCount() - 1] = from.getName();
+//								return QualifiedName.create(names);
+//							}
+//						}, IScope.NULLSCOPE);
+//				        
+//					}else {
+//						UseCase parent = (UseCase) context.eContainer();
+//						EList<Extension> alt = parent.getAlternativeflows();
+//						Iterator<Extension> it = alt.iterator();
+//						List<ExtensionStep> candidates = new LinkedList<ExtensionStep> ();
+//						while(it.hasNext()) {
+//							Extension a = it.next();	
+//							candidates.addAll(a.getSteps());
+//						}
+//
+//				        return Scopes.scopeFor(candidates, new Function<ExtensionStep, QualifiedName>() {
+//							public QualifiedName apply(ExtensionStep from) {
+//								String names[] = new String[iq.getFullyQualifiedName(context.eContainer()).getSegmentCount() -1];
+//								for(int i = 0; i < iq.getFullyQualifiedName(context.eContainer()).getSegmentCount() - 1; i++) {
+//									names[i] = iq.getFullyQualifiedName(context.eContainer()).getSegment(i + 1);
+//								}
+//								
+//							//	names[iq.getFullyQualifiedName(context.eContainer()).getSegmentCount() - 1] = from.getName();
+//								return QualifiedName.create(names);
+//							}
+//						}, IScope.NULLSCOPE);
+//					}
+//				
+				//}
+//			}					
 	    return super.getScope(context, reference);
 	}
 }

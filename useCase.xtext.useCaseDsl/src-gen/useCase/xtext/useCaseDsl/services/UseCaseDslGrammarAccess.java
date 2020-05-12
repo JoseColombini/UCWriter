@@ -910,25 +910,33 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class QualifiedExtensionStepNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "useCase.xtext.useCaseDsl.UseCaseDsl.QualifiedExtensionStepName");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cCHARTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cQualifiedStepNameParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final RuleCall cQualifiedStepNameParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final RuleCall cCHARTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Keyword cFullStopKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final RuleCall cQualifiedStepNameParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		
 		//QualifiedExtensionStepName:
-		//	CHAR '.' QualifiedStepName;
+		//	(QualifiedStepName '.' CHAR '.' QualifiedStepName)+;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//CHAR '.' QualifiedStepName
+		//(QualifiedStepName '.' CHAR '.' QualifiedStepName)+
 		public Group getGroup() { return cGroup; }
 		
-		//CHAR
-		public RuleCall getCHARTerminalRuleCall_0() { return cCHARTerminalRuleCall_0; }
+		//QualifiedStepName
+		public RuleCall getQualifiedStepNameParserRuleCall_0() { return cQualifiedStepNameParserRuleCall_0; }
 		
 		//'.'
 		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
 		
+		//CHAR
+		public RuleCall getCHARTerminalRuleCall_2() { return cCHARTerminalRuleCall_2; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_3() { return cFullStopKeyword_3; }
+		
 		//QualifiedStepName
-		public RuleCall getQualifiedStepNameParserRuleCall_2() { return cQualifiedStepNameParserRuleCall_2; }
+		public RuleCall getQualifiedStepNameParserRuleCall_4() { return cQualifiedStepNameParserRuleCall_4; }
 	}
 	
 	
@@ -1160,7 +1168,7 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//QualifiedExtensionStepName:
-	//	CHAR '.' QualifiedStepName;
+	//	(QualifiedStepName '.' CHAR '.' QualifiedStepName)+;
 	public QualifiedExtensionStepNameElements getQualifiedExtensionStepNameAccess() {
 		return pQualifiedExtensionStepName;
 	}

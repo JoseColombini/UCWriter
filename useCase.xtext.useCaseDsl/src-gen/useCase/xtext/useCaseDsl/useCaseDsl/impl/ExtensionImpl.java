@@ -45,7 +45,6 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
  */
 public class ExtensionImpl extends MinimalEObjectImpl.Container implements Extension
 {
-	
   /**
    * The cached value of the '{@link #getStartFrom() <em>Start From</em>}' reference.
    * <!-- begin-user-doc -->
@@ -200,10 +199,7 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
   @Override
   public String getName()
   {
-	 if(this.getStartFrom() != null && this.getStartFrom().getName() != null) {
-		  return this.getStartFrom().getName() + "." + name;
-	 }else
-		 return name;
+    return name;
   }
 
   /**
@@ -215,7 +211,6 @@ public class ExtensionImpl extends MinimalEObjectImpl.Container implements Exten
   public void setName(String newName)
   {
     String oldName = name;
-   // String a = this.getStartFrom().getName();
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.EXTENSION__NAME, oldName, name));

@@ -82,8 +82,11 @@ QualifiedStepName:
 	StepName('.'StepName)*
 ;
 
+
+
 QualifiedExtensionStepName:
-	CHAR'.'QualifiedStepName;
+	(QualifiedStepName'.'CHAR'.'QualifiedStepName)+
+;
 
 
 

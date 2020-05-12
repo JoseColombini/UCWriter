@@ -1369,27 +1369,42 @@ ruleQualifiedExtensionStepName returns [AntlrDatatypeRuleToken current=new Antlr
 	leaveRule();
 }:
 	(
-		this_CHAR_0=RULE_CHAR
 		{
-			$current.merge(this_CHAR_0);
+			newCompositeNode(grammarAccess.getQualifiedExtensionStepNameAccess().getQualifiedStepNameParserRuleCall_0());
+		}
+		this_QualifiedStepName_0=ruleQualifiedStepName
+		{
+			$current.merge(this_QualifiedStepName_0);
 		}
 		{
-			newLeafNode(this_CHAR_0, grammarAccess.getQualifiedExtensionStepNameAccess().getCHARTerminalRuleCall_0());
+			afterParserOrEnumRuleCall();
 		}
 		kw=FullStop
 		{
 			$current.merge(kw);
 			newLeafNode(kw, grammarAccess.getQualifiedExtensionStepNameAccess().getFullStopKeyword_1());
 		}
+		this_CHAR_2=RULE_CHAR
 		{
-			newCompositeNode(grammarAccess.getQualifiedExtensionStepNameAccess().getQualifiedStepNameParserRuleCall_2());
+			$current.merge(this_CHAR_2);
 		}
-		this_QualifiedStepName_2=ruleQualifiedStepName
 		{
-			$current.merge(this_QualifiedStepName_2);
+			newLeafNode(this_CHAR_2, grammarAccess.getQualifiedExtensionStepNameAccess().getCHARTerminalRuleCall_2());
+		}
+		kw=FullStop
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getQualifiedExtensionStepNameAccess().getFullStopKeyword_3());
+		}
+		{
+			newCompositeNode(grammarAccess.getQualifiedExtensionStepNameAccess().getQualifiedStepNameParserRuleCall_4());
+		}
+		this_QualifiedStepName_4=ruleQualifiedStepName
+		{
+			$current.merge(this_QualifiedStepName_4);
 		}
 		{
 			afterParserOrEnumRuleCall();
 		}
-	)
+	)+
 ;

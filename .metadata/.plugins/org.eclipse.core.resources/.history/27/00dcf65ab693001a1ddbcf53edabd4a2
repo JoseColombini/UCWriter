@@ -1,0 +1,29 @@
+package useCase.xtext.useCaseDsl
+import com.google.inject.Inject
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.naming.DefaultDeclarativeQualifiedNameProvider
+import org.eclipse.xtext.naming.IQualifiedNameConverter 
+import org.eclipse.xtext.naming.QualifiedName
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils
+
+
+class useCaseDslIQualifiedNameProvider extends DefaultDeclarativeQualifiedNameProvider {
+	
+	@Inject
+	IQualifiedNameConverter converter = new IQualifiedNameConverter.DefaultImpl();
+	
+	override QualifiedName getFullyQualifiedName(EObject obj) {
+		if (obj instanceof HelloGreeting) {
+			val nodes = NodeModelUtils.findNodesForFeature(obj,
+							MyDslPackage.Literals.HELLO_GREETING__PERSON);
+							
+	 		for (node : nodes) {
+	 			val text = NodeModelUtils.getTokenText(node);
+				if (text !== null) {
+	 				return converter.toQualifiedName(text);
+	 			}
+			}
+		}
+	return super.getFullyQualifiedName(obj);
+	}
+}

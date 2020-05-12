@@ -545,7 +545,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_14, grammarAccess.getUseCaseAccess().getColonKeyword_12_1());
                     			
-                    this_BEGIN_15=(Token)match(input,RULE_BEGIN,FOLLOW_14); 
+                    this_BEGIN_15=(Token)match(input,RULE_BEGIN,FOLLOW_4); 
 
                     				newLeafNode(this_BEGIN_15, grammarAccess.getUseCaseAccess().getBEGINTerminalRuleCall_12_2());
                     			
@@ -556,7 +556,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
                         int alt5=2;
                         int LA5_0 = input.LA(1);
 
-                        if ( (LA5_0==RULE_CHAR||LA5_0==RULE_INT) ) {
+                        if ( (LA5_0==RULE_INT) ) {
                             alt5=1;
                         }
 
@@ -571,7 +571,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     	    						newCompositeNode(grammarAccess.getUseCaseAccess().getAlternativeflowsExtensionParserRuleCall_12_3_0());
                     	    					
-                    	    pushFollow(FOLLOW_15);
+                    	    pushFollow(FOLLOW_12);
                     	    lv_alternativeflows_16_0=ruleExtension();
 
                     	    state._fsp--;
@@ -704,20 +704,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             {
             // InternalUseCaseDslParser.g:292:3: ( ( ( ruleQualifiedStepName ) ) | ( ( ruleQualifiedExtensionStepName ) ) )
             int alt7=2;
-            int LA7_0 = input.LA(1);
-
-            if ( (LA7_0==RULE_INT) ) {
-                alt7=1;
-            }
-            else if ( (LA7_0==RULE_CHAR) ) {
-                alt7=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
-
-                throw nvae;
-            }
+            alt7 = dfa7.predict(input);
             switch (alt7) {
                 case 1 :
                     // InternalUseCaseDslParser.g:293:4: ( ( ruleQualifiedStepName ) )
@@ -736,7 +723,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     						newCompositeNode(grammarAccess.getExtensionAccess().getStartFromUseCaseStepCrossReference_0_0_0());
                     					
-                    pushFollow(FOLLOW_16);
+                    pushFollow(FOLLOW_14);
                     ruleQualifiedStepName();
 
                     state._fsp--;
@@ -770,7 +757,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     						newCompositeNode(grammarAccess.getExtensionAccess().getStartFromExtensionStepCrossReference_0_1_0());
                     					
-                    pushFollow(FOLLOW_16);
+                    pushFollow(FOLLOW_14);
                     ruleQualifiedExtensionStepName();
 
                     state._fsp--;
@@ -790,7 +777,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,FullStop,FOLLOW_17); 
+            otherlv_2=(Token)match(input,FullStop,FOLLOW_15); 
 
             			newLeafNode(otherlv_2, grammarAccess.getExtensionAccess().getFullStopKeyword_1());
             		
@@ -800,7 +787,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             // InternalUseCaseDslParser.g:332:4: (lv_name_3_0= RULE_CHAR )
             // InternalUseCaseDslParser.g:333:5: lv_name_3_0= RULE_CHAR
             {
-            lv_name_3_0=(Token)match(input,RULE_CHAR,FOLLOW_16); 
+            lv_name_3_0=(Token)match(input,RULE_CHAR,FOLLOW_14); 
 
             					newLeafNode(lv_name_3_0, grammarAccess.getExtensionAccess().getNameCHARTerminalRuleCall_2_0());
             				
@@ -820,11 +807,11 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,FullStop,FOLLOW_18); 
+            otherlv_4=(Token)match(input,FullStop,FOLLOW_16); 
 
             			newLeafNode(otherlv_4, grammarAccess.getExtensionAccess().getFullStopKeyword_3());
             		
-            otherlv_5=(Token)match(input,IF,FOLLOW_19); 
+            otherlv_5=(Token)match(input,IF,FOLLOW_17); 
 
             			newLeafNode(otherlv_5, grammarAccess.getExtensionAccess().getIFKeyword_4());
             		
@@ -952,7 +939,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     					newCompositeNode(grammarAccess.getExtensionAccess().getStepNameParserRuleCall_8_0_0());
                     				
-                    pushFollow(FOLLOW_16);
+                    pushFollow(FOLLOW_14);
                     ruleStepName();
 
                     state._fsp--;
@@ -960,34 +947,21 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     					afterParserOrEnumRuleCall();
                     				
-                    otherlv_10=(Token)match(input,FullStop,FOLLOW_20); 
+                    otherlv_10=(Token)match(input,FullStop,FOLLOW_18); 
 
                     					newLeafNode(otherlv_10, grammarAccess.getExtensionAccess().getFullStopKeyword_8_0_1());
                     				
-                    otherlv_11=(Token)match(input,RETURN,FOLLOW_21); 
+                    otherlv_11=(Token)match(input,RETURN,FOLLOW_19); 
 
                     					newLeafNode(otherlv_11, grammarAccess.getExtensionAccess().getRETURNKeyword_8_0_2());
                     				
-                    otherlv_12=(Token)match(input,TO,FOLLOW_14); 
+                    otherlv_12=(Token)match(input,TO,FOLLOW_4); 
 
                     					newLeafNode(otherlv_12, grammarAccess.getExtensionAccess().getTOKeyword_8_0_3());
                     				
                     // InternalUseCaseDslParser.g:420:5: ( ( ( ruleQualifiedStepName ) ) | ( ( ruleQualifiedExtensionStepName ) ) )
                     int alt9=2;
-                    int LA9_0 = input.LA(1);
-
-                    if ( (LA9_0==RULE_INT) ) {
-                        alt9=1;
-                    }
-                    else if ( (LA9_0==RULE_CHAR) ) {
-                        alt9=2;
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 9, 0, input);
-
-                        throw nvae;
-                    }
+                    alt9 = dfa9.predict(input);
                     switch (alt9) {
                         case 1 :
                             // InternalUseCaseDslParser.g:421:6: ( ( ruleQualifiedStepName ) )
@@ -1006,7 +980,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                             								newCompositeNode(grammarAccess.getExtensionAccess().getResumeAtUseCaseStepCrossReference_8_0_4_0_0());
                             							
-                            pushFollow(FOLLOW_22);
+                            pushFollow(FOLLOW_20);
                             ruleQualifiedStepName();
 
                             state._fsp--;
@@ -1040,7 +1014,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                             								newCompositeNode(grammarAccess.getExtensionAccess().getResumeAtExtensionStepCrossReference_8_0_4_1_0());
                             							
-                            pushFollow(FOLLOW_22);
+                            pushFollow(FOLLOW_20);
                             ruleQualifiedExtensionStepName();
 
                             state._fsp--;
@@ -1078,7 +1052,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     						newCompositeNode(grammarAccess.getExtensionAccess().getEndDeadEndStepParserRuleCall_8_1_0());
                     					
-                    pushFollow(FOLLOW_22);
+                    pushFollow(FOLLOW_20);
                     lv_end_15_0=ruleDeadEndStep();
 
                     state._fsp--;
@@ -1254,7 +1228,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                             							newCompositeNode(grammarAccess.getUseCaseStepAccess().getParentRepeatingStepCrossReference_0_0_0_0());
                             						
-                            pushFollow(FOLLOW_16);
+                            pushFollow(FOLLOW_14);
                             ruleQualifiedStepName();
 
                             state._fsp--;
@@ -1287,7 +1261,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     						newCompositeNode(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_0_1_0());
                     					
-                    pushFollow(FOLLOW_16);
+                    pushFollow(FOLLOW_14);
                     lv_name_2_0=ruleStepName();
 
                     state._fsp--;
@@ -1309,7 +1283,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_3=(Token)match(input,FullStop,FOLLOW_23); 
+                    otherlv_3=(Token)match(input,FullStop,FOLLOW_21); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getUseCaseStepAccess().getFullStopKeyword_0_2());
                     			
@@ -1401,7 +1375,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                             							newCompositeNode(grammarAccess.getUseCaseStepAccess().getParentRepeatingStepCrossReference_1_1_0_0());
                             						
-                            pushFollow(FOLLOW_16);
+                            pushFollow(FOLLOW_14);
                             ruleQualifiedStepName();
 
                             state._fsp--;
@@ -1434,7 +1408,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     						newCompositeNode(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_1_2_0());
                     					
-                    pushFollow(FOLLOW_16);
+                    pushFollow(FOLLOW_14);
                     lv_name_9_0=ruleStepName();
 
                     state._fsp--;
@@ -1456,7 +1430,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_10=(Token)match(input,FullStop,FOLLOW_24); 
+                    otherlv_10=(Token)match(input,FullStop,FOLLOW_22); 
 
                     				newLeafNode(otherlv_10, grammarAccess.getUseCaseStepAccess().getFullStopKeyword_1_3());
                     			
@@ -1551,7 +1525,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                             							newCompositeNode(grammarAccess.getUseCaseStepAccess().getParentRepeatingStepCrossReference_2_1_0_0());
                             						
-                            pushFollow(FOLLOW_16);
+                            pushFollow(FOLLOW_14);
                             ruleQualifiedStepName();
 
                             state._fsp--;
@@ -1584,7 +1558,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     						newCompositeNode(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_2_2_0());
                     					
-                    pushFollow(FOLLOW_16);
+                    pushFollow(FOLLOW_14);
                     lv_name_16_0=ruleStepName();
 
                     state._fsp--;
@@ -1606,7 +1580,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_17=(Token)match(input,FullStop,FOLLOW_25); 
+                    otherlv_17=(Token)match(input,FullStop,FOLLOW_23); 
 
                     				newLeafNode(otherlv_17, grammarAccess.getUseCaseStepAccess().getFullStopKeyword_2_3());
                     			
@@ -1701,7 +1675,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                             							newCompositeNode(grammarAccess.getUseCaseStepAccess().getParentRepeatingStepCrossReference_3_1_0_0());
                             						
-                            pushFollow(FOLLOW_16);
+                            pushFollow(FOLLOW_14);
                             ruleQualifiedStepName();
 
                             state._fsp--;
@@ -1734,7 +1708,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     						newCompositeNode(grammarAccess.getUseCaseStepAccess().getNameStepNameParserRuleCall_3_2_0());
                     					
-                    pushFollow(FOLLOW_16);
+                    pushFollow(FOLLOW_14);
                     lv_name_23_0=ruleStepName();
 
                     state._fsp--;
@@ -1756,11 +1730,11 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_24=(Token)match(input,FullStop,FOLLOW_26); 
+                    otherlv_24=(Token)match(input,FullStop,FOLLOW_24); 
 
                     				newLeafNode(otherlv_24, grammarAccess.getUseCaseStepAccess().getFullStopKeyword_3_3());
                     			
-                    otherlv_25=(Token)match(input,WHILE,FOLLOW_19); 
+                    otherlv_25=(Token)match(input,WHILE,FOLLOW_17); 
 
                     				newLeafNode(otherlv_25, grammarAccess.getUseCaseStepAccess().getWHILEKeyword_3_4());
                     			
@@ -1967,7 +1941,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     						newCompositeNode(grammarAccess.getExtensionStepAccess().getNameStepNameParserRuleCall_0_0_0());
                     					
-                    pushFollow(FOLLOW_16);
+                    pushFollow(FOLLOW_14);
                     lv_name_0_0=ruleStepName();
 
                     state._fsp--;
@@ -1989,7 +1963,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_1=(Token)match(input,FullStop,FOLLOW_23); 
+                    otherlv_1=(Token)match(input,FullStop,FOLLOW_21); 
 
                     				newLeafNode(otherlv_1, grammarAccess.getExtensionStepAccess().getFullStopKeyword_0_1());
                     			
@@ -2046,7 +2020,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     						newCompositeNode(grammarAccess.getExtensionStepAccess().getNameStepNameParserRuleCall_1_0_0());
                     					
-                    pushFollow(FOLLOW_16);
+                    pushFollow(FOLLOW_14);
                     lv_name_4_0=ruleStepName();
 
                     state._fsp--;
@@ -2068,7 +2042,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,FullStop,FOLLOW_27); 
+                    otherlv_5=(Token)match(input,FullStop,FOLLOW_25); 
 
                     				newLeafNode(otherlv_5, grammarAccess.getExtensionStepAccess().getFullStopKeyword_1_1());
                     			
@@ -2274,7 +2248,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getDeadEndStepAccess().getNameStepNameParserRuleCall_0_0());
             				
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_14);
             lv_name_0_0=ruleStepName();
 
             state._fsp--;
@@ -2296,7 +2270,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,FullStop,FOLLOW_28); 
+            otherlv_1=(Token)match(input,FullStop,FOLLOW_26); 
 
             			newLeafNode(otherlv_1, grammarAccess.getDeadEndStepAccess().getFullStopKeyword_1());
             		
@@ -2324,7 +2298,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalUseCaseDslParser.g:1005:4: otherlv_2= USER
                     {
-                    otherlv_2=(Token)match(input,USER,FOLLOW_29); 
+                    otherlv_2=(Token)match(input,USER,FOLLOW_27); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getDeadEndStepAccess().getUSERKeyword_2_0());
                     			
@@ -2334,7 +2308,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // InternalUseCaseDslParser.g:1010:4: otherlv_3= SYSTEM
                     {
-                    otherlv_3=(Token)match(input,SYSTEM,FOLLOW_29); 
+                    otherlv_3=(Token)match(input,SYSTEM,FOLLOW_27); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getDeadEndStepAccess().getSYSTEMKeyword_2_1());
                     			
@@ -2344,7 +2318,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // InternalUseCaseDslParser.g:1015:4: otherlv_4= WHILE
                     {
-                    otherlv_4=(Token)match(input,WHILE,FOLLOW_29); 
+                    otherlv_4=(Token)match(input,WHILE,FOLLOW_27); 
 
                     				newLeafNode(otherlv_4, grammarAccess.getDeadEndStepAccess().getWHILEKeyword_2_2());
                     			
@@ -2371,7 +2345,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
                     					newCompositeNode(grammarAccess.getDeadEndStepAccess().getSentenceLongNameParserRuleCall_3_0());
                     				
-                    pushFollow(FOLLOW_30);
+                    pushFollow(FOLLOW_28);
                     lv_sentence_5_0=ruleLongName();
 
                     state._fsp--;
@@ -2396,7 +2370,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,UC,FOLLOW_31); 
+            otherlv_6=(Token)match(input,UC,FOLLOW_29); 
 
             			newLeafNode(otherlv_6, grammarAccess.getDeadEndStepAccess().getUCKeyword_4());
             		
@@ -2486,7 +2460,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getPreconditionAccess().getPRECONDITIONKeyword_0());
             		
-            otherlv_1=(Token)match(input,Colon,FOLLOW_19); 
+            otherlv_1=(Token)match(input,Colon,FOLLOW_17); 
 
             			newLeafNode(otherlv_1, grammarAccess.getPreconditionAccess().getColonKeyword_1());
             		
@@ -2603,7 +2577,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getPostconditionAccess().getPOSTCONDITIONKeyword_0());
             		
-            otherlv_1=(Token)match(input,Colon,FOLLOW_19); 
+            otherlv_1=(Token)match(input,Colon,FOLLOW_17); 
 
             			newLeafNode(otherlv_1, grammarAccess.getPostconditionAccess().getColonKeyword_1());
             		
@@ -2761,7 +2735,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalUseCaseDslParser.g:1158:3: this_ID_0= RULE_ID
             	    {
-            	    this_ID_0=(Token)match(input,RULE_ID,FOLLOW_32); 
+            	    this_ID_0=(Token)match(input,RULE_ID,FOLLOW_30); 
 
             	    			current.merge(this_ID_0);
             	    		
@@ -2774,7 +2748,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             	case 2 :
             	    // InternalUseCaseDslParser.g:1166:3: this_ANY_OTHER_1= RULE_ANY_OTHER
             	    {
-            	    this_ANY_OTHER_1=(Token)match(input,RULE_ANY_OTHER,FOLLOW_32); 
+            	    this_ANY_OTHER_1=(Token)match(input,RULE_ANY_OTHER,FOLLOW_30); 
 
             	    			current.merge(this_ANY_OTHER_1);
             	    		
@@ -2787,7 +2761,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             	case 3 :
             	    // InternalUseCaseDslParser.g:1174:3: this_CHAR_2= RULE_CHAR
             	    {
-            	    this_CHAR_2=(Token)match(input,RULE_CHAR,FOLLOW_32); 
+            	    this_CHAR_2=(Token)match(input,RULE_CHAR,FOLLOW_30); 
 
             	    			current.merge(this_CHAR_2);
             	    		
@@ -2800,7 +2774,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             	case 4 :
             	    // InternalUseCaseDslParser.g:1182:3: kw= Colon
             	    {
-            	    kw=(Token)match(input,Colon,FOLLOW_32); 
+            	    kw=(Token)match(input,Colon,FOLLOW_30); 
 
             	    			current.merge(kw);
             	    			newLeafNode(kw, grammarAccess.getLongNameAccess().getColonKeyword_3());
@@ -2811,7 +2785,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             	case 5 :
             	    // InternalUseCaseDslParser.g:1188:3: kw= FullStop
             	    {
-            	    kw=(Token)match(input,FullStop,FOLLOW_32); 
+            	    kw=(Token)match(input,FullStop,FOLLOW_30); 
 
             	    			current.merge(kw);
             	    			newLeafNode(kw, grammarAccess.getLongNameAccess().getFullStopKeyword_4());
@@ -2822,7 +2796,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             	case 6 :
             	    // InternalUseCaseDslParser.g:1194:3: kw= QuotationMark
             	    {
-            	    kw=(Token)match(input,QuotationMark,FOLLOW_32); 
+            	    kw=(Token)match(input,QuotationMark,FOLLOW_30); 
 
             	    			current.merge(kw);
             	    			newLeafNode(kw, grammarAccess.getLongNameAccess().getQuotationMarkKeyword_5());
@@ -2833,7 +2807,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             	case 7 :
             	    // InternalUseCaseDslParser.g:1200:3: kw= Apostrophe
             	    {
-            	    kw=(Token)match(input,Apostrophe,FOLLOW_32); 
+            	    kw=(Token)match(input,Apostrophe,FOLLOW_30); 
 
             	    			current.merge(kw);
             	    			newLeafNode(kw, grammarAccess.getLongNameAccess().getApostropheKeyword_6());
@@ -2981,7 +2955,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalUseCaseDslParser.g:1224:3: this_ID_0= RULE_ID
             	    {
-            	    this_ID_0=(Token)match(input,RULE_ID,FOLLOW_33); 
+            	    this_ID_0=(Token)match(input,RULE_ID,FOLLOW_31); 
 
             	    			current.merge(this_ID_0);
             	    		
@@ -2994,7 +2968,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             	case 2 :
             	    // InternalUseCaseDslParser.g:1232:3: this_ANY_OTHER_1= RULE_ANY_OTHER
             	    {
-            	    this_ANY_OTHER_1=(Token)match(input,RULE_ANY_OTHER,FOLLOW_33); 
+            	    this_ANY_OTHER_1=(Token)match(input,RULE_ANY_OTHER,FOLLOW_31); 
 
             	    			current.merge(this_ANY_OTHER_1);
             	    		
@@ -3007,7 +2981,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             	case 3 :
             	    // InternalUseCaseDslParser.g:1240:3: this_CHAR_2= RULE_CHAR
             	    {
-            	    this_CHAR_2=(Token)match(input,RULE_CHAR,FOLLOW_33); 
+            	    this_CHAR_2=(Token)match(input,RULE_CHAR,FOLLOW_31); 
 
             	    			current.merge(this_CHAR_2);
             	    		
@@ -3020,7 +2994,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             	case 4 :
             	    // InternalUseCaseDslParser.g:1248:3: kw= Colon
             	    {
-            	    kw=(Token)match(input,Colon,FOLLOW_33); 
+            	    kw=(Token)match(input,Colon,FOLLOW_31); 
 
             	    			current.merge(kw);
             	    			newLeafNode(kw, grammarAccess.getConditionAccess().getColonKeyword_3());
@@ -3031,7 +3005,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             	case 5 :
             	    // InternalUseCaseDslParser.g:1254:3: kw= FullStop
             	    {
-            	    kw=(Token)match(input,FullStop,FOLLOW_33); 
+            	    kw=(Token)match(input,FullStop,FOLLOW_31); 
 
             	    			current.merge(kw);
             	    			newLeafNode(kw, grammarAccess.getConditionAccess().getFullStopKeyword_4());
@@ -3042,7 +3016,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             	case 6 :
             	    // InternalUseCaseDslParser.g:1260:3: kw= QuotationMark
             	    {
-            	    kw=(Token)match(input,QuotationMark,FOLLOW_33); 
+            	    kw=(Token)match(input,QuotationMark,FOLLOW_31); 
 
             	    			current.merge(kw);
             	    			newLeafNode(kw, grammarAccess.getConditionAccess().getQuotationMarkKeyword_5());
@@ -3053,7 +3027,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             	case 7 :
             	    // InternalUseCaseDslParser.g:1266:3: kw= Apostrophe
             	    {
-            	    kw=(Token)match(input,Apostrophe,FOLLOW_33); 
+            	    kw=(Token)match(input,Apostrophe,FOLLOW_31); 
 
             	    			current.merge(kw);
             	    			newLeafNode(kw, grammarAccess.getConditionAccess().getApostropheKeyword_6());
@@ -3064,7 +3038,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             	case 8 :
             	    // InternalUseCaseDslParser.g:1272:3: kw= AND
             	    {
-            	    kw=(Token)match(input,AND,FOLLOW_33); 
+            	    kw=(Token)match(input,AND,FOLLOW_31); 
 
             	    			current.merge(kw);
             	    			newLeafNode(kw, grammarAccess.getConditionAccess().getANDKeyword_7());
@@ -3075,7 +3049,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             	case 9 :
             	    // InternalUseCaseDslParser.g:1278:3: kw= OR
             	    {
-            	    kw=(Token)match(input,OR,FOLLOW_33); 
+            	    kw=(Token)match(input,OR,FOLLOW_31); 
 
             	    			current.merge(kw);
             	    			newLeafNode(kw, grammarAccess.getConditionAccess().getORKeyword_8());
@@ -3248,7 +3222,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
             			newCompositeNode(grammarAccess.getQualifiedStepNameAccess().getStepNameParserRuleCall_0());
             		
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_32);
             this_StepName_0=ruleStepName();
 
             state._fsp--;
@@ -3280,7 +3254,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
 
                         }
-                        else if ( (LA23_3==EOF||LA23_3==RULE_END) ) {
+                        else if ( (LA23_3==EOF||LA23_3==RULE_END||LA23_3==RULE_INT) ) {
                             alt23=1;
                         }
 
@@ -3303,7 +3277,7 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
             	    				newCompositeNode(grammarAccess.getQualifiedStepNameAccess().getStepNameParserRuleCall_1_1());
             	    			
-            	    pushFollow(FOLLOW_34);
+            	    pushFollow(FOLLOW_32);
             	    this_StepName_2=ruleStepName();
 
             	    state._fsp--;
@@ -3382,53 +3356,97 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQualifiedExtensionStepName"
-    // InternalUseCaseDslParser.g:1364:1: ruleQualifiedExtensionStepName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_CHAR_0= RULE_CHAR kw= FullStop this_QualifiedStepName_2= ruleQualifiedStepName ) ;
+    // InternalUseCaseDslParser.g:1364:1: ruleQualifiedExtensionStepName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_QualifiedStepName_0= ruleQualifiedStepName kw= FullStop this_CHAR_2= RULE_CHAR kw= FullStop this_QualifiedStepName_4= ruleQualifiedStepName )+ ;
     public final AntlrDatatypeRuleToken ruleQualifiedExtensionStepName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
-        Token this_CHAR_0=null;
         Token kw=null;
-        AntlrDatatypeRuleToken this_QualifiedStepName_2 = null;
+        Token this_CHAR_2=null;
+        AntlrDatatypeRuleToken this_QualifiedStepName_0 = null;
+
+        AntlrDatatypeRuleToken this_QualifiedStepName_4 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalUseCaseDslParser.g:1370:2: ( (this_CHAR_0= RULE_CHAR kw= FullStop this_QualifiedStepName_2= ruleQualifiedStepName ) )
-            // InternalUseCaseDslParser.g:1371:2: (this_CHAR_0= RULE_CHAR kw= FullStop this_QualifiedStepName_2= ruleQualifiedStepName )
+            // InternalUseCaseDslParser.g:1370:2: ( (this_QualifiedStepName_0= ruleQualifiedStepName kw= FullStop this_CHAR_2= RULE_CHAR kw= FullStop this_QualifiedStepName_4= ruleQualifiedStepName )+ )
+            // InternalUseCaseDslParser.g:1371:2: (this_QualifiedStepName_0= ruleQualifiedStepName kw= FullStop this_CHAR_2= RULE_CHAR kw= FullStop this_QualifiedStepName_4= ruleQualifiedStepName )+
             {
-            // InternalUseCaseDslParser.g:1371:2: (this_CHAR_0= RULE_CHAR kw= FullStop this_QualifiedStepName_2= ruleQualifiedStepName )
-            // InternalUseCaseDslParser.g:1372:3: this_CHAR_0= RULE_CHAR kw= FullStop this_QualifiedStepName_2= ruleQualifiedStepName
-            {
-            this_CHAR_0=(Token)match(input,RULE_CHAR,FOLLOW_16); 
+            // InternalUseCaseDslParser.g:1371:2: (this_QualifiedStepName_0= ruleQualifiedStepName kw= FullStop this_CHAR_2= RULE_CHAR kw= FullStop this_QualifiedStepName_4= ruleQualifiedStepName )+
+            int cnt24=0;
+            loop24:
+            do {
+                int alt24=2;
+                int LA24_0 = input.LA(1);
 
-            			current.merge(this_CHAR_0);
-            		
-
-            			newLeafNode(this_CHAR_0, grammarAccess.getQualifiedExtensionStepNameAccess().getCHARTerminalRuleCall_0());
-            		
-            kw=(Token)match(input,FullStop,FOLLOW_4); 
-
-            			current.merge(kw);
-            			newLeafNode(kw, grammarAccess.getQualifiedExtensionStepNameAccess().getFullStopKeyword_1());
-            		
-
-            			newCompositeNode(grammarAccess.getQualifiedExtensionStepNameAccess().getQualifiedStepNameParserRuleCall_2());
-            		
-            pushFollow(FOLLOW_2);
-            this_QualifiedStepName_2=ruleQualifiedStepName();
-
-            state._fsp--;
+                if ( (LA24_0==RULE_INT) ) {
+                    alt24=1;
+                }
 
 
-            			current.merge(this_QualifiedStepName_2);
-            		
+                switch (alt24) {
+            	case 1 :
+            	    // InternalUseCaseDslParser.g:1372:3: this_QualifiedStepName_0= ruleQualifiedStepName kw= FullStop this_CHAR_2= RULE_CHAR kw= FullStop this_QualifiedStepName_4= ruleQualifiedStepName
+            	    {
 
-            			afterParserOrEnumRuleCall();
-            		
+            	    			newCompositeNode(grammarAccess.getQualifiedExtensionStepNameAccess().getQualifiedStepNameParserRuleCall_0());
+            	    		
+            	    pushFollow(FOLLOW_14);
+            	    this_QualifiedStepName_0=ruleQualifiedStepName();
 
-            }
+            	    state._fsp--;
+
+
+            	    			current.merge(this_QualifiedStepName_0);
+            	    		
+
+            	    			afterParserOrEnumRuleCall();
+            	    		
+            	    kw=(Token)match(input,FullStop,FOLLOW_15); 
+
+            	    			current.merge(kw);
+            	    			newLeafNode(kw, grammarAccess.getQualifiedExtensionStepNameAccess().getFullStopKeyword_1());
+            	    		
+            	    this_CHAR_2=(Token)match(input,RULE_CHAR,FOLLOW_14); 
+
+            	    			current.merge(this_CHAR_2);
+            	    		
+
+            	    			newLeafNode(this_CHAR_2, grammarAccess.getQualifiedExtensionStepNameAccess().getCHARTerminalRuleCall_2());
+            	    		
+            	    kw=(Token)match(input,FullStop,FOLLOW_4); 
+
+            	    			current.merge(kw);
+            	    			newLeafNode(kw, grammarAccess.getQualifiedExtensionStepNameAccess().getFullStopKeyword_3());
+            	    		
+
+            	    			newCompositeNode(grammarAccess.getQualifiedExtensionStepNameAccess().getQualifiedStepNameParserRuleCall_4());
+            	    		
+            	    pushFollow(FOLLOW_33);
+            	    this_QualifiedStepName_4=ruleQualifiedStepName();
+
+            	    state._fsp--;
+
+
+            	    			current.merge(this_QualifiedStepName_4);
+            	    		
+
+            	    			afterParserOrEnumRuleCall();
+            	    		
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt24 >= 1 ) break loop24;
+                        EarlyExitException eee =
+                            new EarlyExitException(24, input);
+                        throw eee;
+                }
+                cnt24++;
+            } while (true);
 
 
             }
@@ -3451,15 +3469,57 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
     // Delegated rules
 
 
+    protected DFA7 dfa7 = new DFA7(this);
     protected DFA8 dfa8 = new DFA8(this);
+    protected DFA9 dfa9 = new DFA9(this);
     protected DFA16 dfa16 = new DFA16(this);
     protected DFA18 dfa18 = new DFA18(this);
-    static final String dfa_1s = "\21\uffff";
-    static final String dfa_2s = "\1\34\1\26\1\7\1\uffff\12\23\1\17\1\uffff\1\32";
-    static final String dfa_3s = "\1\34\1\26\1\41\1\uffff\12\41\1\17\1\uffff\1\34";
-    static final String dfa_4s = "\3\uffff\1\1\13\uffff\1\2\1\uffff";
-    static final String dfa_5s = "\21\uffff}>";
+    static final String dfa_1s = "\10\uffff";
+    static final String dfa_2s = "\1\34\1\26\1\30\2\26\1\20\2\uffff";
+    static final String dfa_3s = "\1\34\1\26\1\34\2\26\1\34\2\uffff";
+    static final String dfa_4s = "\6\uffff\1\2\1\1";
+    static final String dfa_5s = "\10\uffff}>";
     static final String[] dfa_6s = {
+            "\1\1",
+            "\1\2",
+            "\1\3\3\uffff\1\4",
+            "\1\5",
+            "\1\2",
+            "\1\7\13\uffff\1\6",
+            "",
+            ""
+    };
+
+    static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
+    static final char[] dfa_2 = DFA.unpackEncodedStringToUnsignedChars(dfa_2s);
+    static final char[] dfa_3 = DFA.unpackEncodedStringToUnsignedChars(dfa_3s);
+    static final short[] dfa_4 = DFA.unpackEncodedString(dfa_4s);
+    static final short[] dfa_5 = DFA.unpackEncodedString(dfa_5s);
+    static final short[][] dfa_6 = unpackEncodedStringArray(dfa_6s);
+
+    class DFA7 extends DFA {
+
+        public DFA7(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 7;
+            this.eot = dfa_1;
+            this.eof = dfa_1;
+            this.min = dfa_2;
+            this.max = dfa_3;
+            this.accept = dfa_4;
+            this.special = dfa_5;
+            this.transition = dfa_6;
+        }
+        public String getDescription() {
+            return "292:3: ( ( ( ruleQualifiedStepName ) ) | ( ( ruleQualifiedExtensionStepName ) ) )";
+        }
+    }
+    static final String dfa_7s = "\21\uffff";
+    static final String dfa_8s = "\1\34\1\26\1\7\1\uffff\12\23\1\17\1\uffff\1\32";
+    static final String dfa_9s = "\1\34\1\26\1\41\1\uffff\12\41\1\17\1\uffff\1\34";
+    static final String dfa_10s = "\3\uffff\1\1\13\uffff\1\2\1\uffff";
+    static final String dfa_11s = "\21\uffff}>";
+    static final String[] dfa_12s = {
             "\1\1",
             "\1\2",
             "\1\3\1\17\1\5\1\6\2\uffff\1\4\5\uffff\1\16\1\14\1\15\1\13\1\12\1\11\2\uffff\1\7\5\uffff\1\10",
@@ -3479,46 +3539,6 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             "\1\17\1\uffff\1\3"
     };
 
-    static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
-    static final char[] dfa_2 = DFA.unpackEncodedStringToUnsignedChars(dfa_2s);
-    static final char[] dfa_3 = DFA.unpackEncodedStringToUnsignedChars(dfa_3s);
-    static final short[] dfa_4 = DFA.unpackEncodedString(dfa_4s);
-    static final short[] dfa_5 = DFA.unpackEncodedString(dfa_5s);
-    static final short[][] dfa_6 = unpackEncodedStringArray(dfa_6s);
-
-    class DFA8 extends DFA {
-
-        public DFA8(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 8;
-            this.eot = dfa_1;
-            this.eof = dfa_1;
-            this.min = dfa_2;
-            this.max = dfa_3;
-            this.accept = dfa_4;
-            this.special = dfa_5;
-            this.transition = dfa_6;
-        }
-        public String getDescription() {
-            return "()* loopback of 380:3: ( (lv_steps_8_0= ruleExtensionStep ) )*";
-        }
-    }
-    static final String dfa_7s = "\10\uffff";
-    static final String dfa_8s = "\1\34\1\26\1\7\1\uffff\1\26\3\uffff";
-    static final String dfa_9s = "\1\34\1\26\1\34\1\uffff\1\26\3\uffff";
-    static final String dfa_10s = "\3\uffff\1\1\1\uffff\1\2\1\3\1\4";
-    static final String dfa_11s = "\10\uffff}>";
-    static final String[] dfa_12s = {
-            "\1\1",
-            "\1\2",
-            "\1\3\1\uffff\1\6\1\7\2\uffff\1\5\16\uffff\1\4",
-            "",
-            "\1\2",
-            "",
-            "",
-            ""
-    };
-
     static final short[] dfa_7 = DFA.unpackEncodedString(dfa_7s);
     static final char[] dfa_8 = DFA.unpackEncodedStringToUnsignedChars(dfa_8s);
     static final char[] dfa_9 = DFA.unpackEncodedStringToUnsignedChars(dfa_9s);
@@ -3526,11 +3546,11 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
     static final short[] dfa_11 = DFA.unpackEncodedString(dfa_11s);
     static final short[][] dfa_12 = unpackEncodedStringArray(dfa_12s);
 
-    class DFA16 extends DFA {
+    class DFA8 extends DFA {
 
-        public DFA16(BaseRecognizer recognizer) {
+        public DFA8(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 16;
+            this.decisionNumber = 8;
             this.eot = dfa_7;
             this.eof = dfa_7;
             this.min = dfa_8;
@@ -3540,16 +3560,89 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             this.transition = dfa_12;
         }
         public String getDescription() {
+            return "()* loopback of 380:3: ( (lv_steps_8_0= ruleExtensionStep ) )*";
+        }
+    }
+    static final String dfa_13s = "\6\uffff";
+    static final String dfa_14s = "\1\34\1\26\1\30\1\uffff\1\26\1\uffff";
+    static final String dfa_15s = "\1\34\1\32\1\34\1\uffff\1\32\1\uffff";
+    static final String dfa_16s = "\3\uffff\1\1\1\uffff\1\2";
+    static final String dfa_17s = "\6\uffff}>";
+    static final String[] dfa_18s = {
+            "\1\1",
+            "\1\2\3\uffff\1\3",
+            "\1\5\3\uffff\1\4",
+            "",
+            "\1\2\3\uffff\1\3",
+            ""
+    };
+
+    static final short[] dfa_13 = DFA.unpackEncodedString(dfa_13s);
+    static final char[] dfa_14 = DFA.unpackEncodedStringToUnsignedChars(dfa_14s);
+    static final char[] dfa_15 = DFA.unpackEncodedStringToUnsignedChars(dfa_15s);
+    static final short[] dfa_16 = DFA.unpackEncodedString(dfa_16s);
+    static final short[] dfa_17 = DFA.unpackEncodedString(dfa_17s);
+    static final short[][] dfa_18 = unpackEncodedStringArray(dfa_18s);
+
+    class DFA9 extends DFA {
+
+        public DFA9(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 9;
+            this.eot = dfa_13;
+            this.eof = dfa_13;
+            this.min = dfa_14;
+            this.max = dfa_15;
+            this.accept = dfa_16;
+            this.special = dfa_17;
+            this.transition = dfa_18;
+        }
+        public String getDescription() {
+            return "420:5: ( ( ( ruleQualifiedStepName ) ) | ( ( ruleQualifiedExtensionStepName ) ) )";
+        }
+    }
+    static final String dfa_19s = "\1\34\1\26\1\7\1\uffff\1\26\3\uffff";
+    static final String dfa_20s = "\1\34\1\26\1\34\1\uffff\1\26\3\uffff";
+    static final String dfa_21s = "\3\uffff\1\1\1\uffff\1\2\1\3\1\4";
+    static final String[] dfa_22s = {
+            "\1\1",
+            "\1\2",
+            "\1\3\1\uffff\1\6\1\7\2\uffff\1\5\16\uffff\1\4",
+            "",
+            "\1\2",
+            "",
+            "",
+            ""
+    };
+    static final char[] dfa_19 = DFA.unpackEncodedStringToUnsignedChars(dfa_19s);
+    static final char[] dfa_20 = DFA.unpackEncodedStringToUnsignedChars(dfa_20s);
+    static final short[] dfa_21 = DFA.unpackEncodedString(dfa_21s);
+    static final short[][] dfa_22 = unpackEncodedStringArray(dfa_22s);
+
+    class DFA16 extends DFA {
+
+        public DFA16(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 16;
+            this.eot = dfa_1;
+            this.eof = dfa_1;
+            this.min = dfa_19;
+            this.max = dfa_20;
+            this.accept = dfa_21;
+            this.special = dfa_5;
+            this.transition = dfa_22;
+        }
+        public String getDescription() {
             return "499:2: ( ( ( ( ( ruleQualifiedStepName ) ) otherlv_1= FullStop )? ( (lv_name_2_0= ruleStepName ) ) otherlv_3= FullStop otherlv_4= INCLUDE ( ( ruleLongName ) ) ) | ( () ( ( ( ruleQualifiedStepName ) ) otherlv_8= FullStop )? ( (lv_name_9_0= ruleStepName ) ) otherlv_10= FullStop otherlv_11= USER ( (lv_sentence_12_0= ruleLongName ) ) ) | ( () ( ( ( ruleQualifiedStepName ) ) otherlv_15= FullStop )? ( (lv_name_16_0= ruleStepName ) ) otherlv_17= FullStop otherlv_18= SYSTEM ( (lv_sentence_19_0= ruleLongName ) ) ) | ( () ( ( ( ruleQualifiedStepName ) ) otherlv_22= FullStop )? ( (lv_name_23_0= ruleStepName ) ) otherlv_24= FullStop otherlv_25= WHILE ( (lv_repeatingCondition_26_0= ruleCondition ) ) this_BEGIN_27= RULE_BEGIN ( (lv_steps_28_0= ruleUseCaseStep ) )+ this_END_29= RULE_END ) )";
         }
     }
-    static final String dfa_13s = "\20\uffff";
-    static final String dfa_14s = "\7\uffff\7\17\2\uffff";
-    static final String dfa_15s = "\1\34\1\26\1\7\1\uffff\12\23\2\uffff";
-    static final String dfa_16s = "\1\34\1\26\1\41\1\uffff\12\41\2\uffff";
-    static final String dfa_17s = "\3\uffff\1\1\12\uffff\1\3\1\2";
-    static final String dfa_18s = "\20\uffff}>";
-    static final String[] dfa_19s = {
+    static final String dfa_23s = "\20\uffff";
+    static final String dfa_24s = "\7\uffff\7\17\2\uffff";
+    static final String dfa_25s = "\1\34\1\26\1\7\1\uffff\12\23\2\uffff";
+    static final String dfa_26s = "\1\34\1\26\1\41\1\uffff\12\41\2\uffff";
+    static final String dfa_27s = "\3\uffff\1\1\12\uffff\1\3\1\2";
+    static final String dfa_28s = "\20\uffff}>";
+    static final String[] dfa_29s = {
             "\1\1",
             "\1\2",
             "\1\3\1\uffff\1\5\1\6\2\uffff\1\4\5\uffff\1\16\1\14\1\15\1\13\1\12\1\11\2\uffff\1\7\5\uffff\1\10",
@@ -3568,26 +3661,26 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
             ""
     };
 
-    static final short[] dfa_13 = DFA.unpackEncodedString(dfa_13s);
-    static final short[] dfa_14 = DFA.unpackEncodedString(dfa_14s);
-    static final char[] dfa_15 = DFA.unpackEncodedStringToUnsignedChars(dfa_15s);
-    static final char[] dfa_16 = DFA.unpackEncodedStringToUnsignedChars(dfa_16s);
-    static final short[] dfa_17 = DFA.unpackEncodedString(dfa_17s);
-    static final short[] dfa_18 = DFA.unpackEncodedString(dfa_18s);
-    static final short[][] dfa_19 = unpackEncodedStringArray(dfa_19s);
+    static final short[] dfa_23 = DFA.unpackEncodedString(dfa_23s);
+    static final short[] dfa_24 = DFA.unpackEncodedString(dfa_24s);
+    static final char[] dfa_25 = DFA.unpackEncodedStringToUnsignedChars(dfa_25s);
+    static final char[] dfa_26 = DFA.unpackEncodedStringToUnsignedChars(dfa_26s);
+    static final short[] dfa_27 = DFA.unpackEncodedString(dfa_27s);
+    static final short[] dfa_28 = DFA.unpackEncodedString(dfa_28s);
+    static final short[][] dfa_29 = unpackEncodedStringArray(dfa_29s);
 
     class DFA18 extends DFA {
 
         public DFA18(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 18;
-            this.eot = dfa_13;
-            this.eof = dfa_14;
-            this.min = dfa_15;
-            this.max = dfa_16;
-            this.accept = dfa_17;
-            this.special = dfa_18;
-            this.transition = dfa_19;
+            this.eot = dfa_23;
+            this.eof = dfa_24;
+            this.min = dfa_25;
+            this.max = dfa_26;
+            this.accept = dfa_27;
+            this.special = dfa_28;
+            this.transition = dfa_29;
         }
         public String getDescription() {
             return "846:2: ( ( ( (lv_name_0_0= ruleStepName ) ) otherlv_1= FullStop otherlv_2= INCLUDE ( ( ruleLongName ) ) ) | ( ( (lv_name_4_0= ruleStepName ) ) otherlv_5= FullStop (otherlv_6= USER | otherlv_7= SYSTEM | otherlv_8= WHILE )? ( (lv_sentence_9_0= ruleLongName ) ) ) | this_DeadEndStep_10= ruleDeadEndStep )";
@@ -3608,26 +3701,25 @@ public class InternalUseCaseDslParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000014000000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000000042L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000011000000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000015000000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000209F24000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000000100L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000209F02600L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000209F82600L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000209F80000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000209F00002L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000209F24002L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000209F24000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000000100L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000209F02600L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000209F82600L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000209F80000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000209F00002L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000209F24002L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000010000002L});
 
 }
