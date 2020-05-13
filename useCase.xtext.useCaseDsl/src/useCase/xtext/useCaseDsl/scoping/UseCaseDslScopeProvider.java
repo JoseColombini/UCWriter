@@ -3,10 +3,12 @@
  */
 package useCase.xtext.useCaseDsl.scoping;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.emf.common.util.EList;
@@ -25,6 +27,10 @@ import useCase.xtext.useCaseDsl.useCaseDsl.Step;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCase;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
+
+import org.eclipse.xtext.nodemodel.INode;
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
+
 
 
 /**
@@ -75,27 +81,92 @@ public class UseCaseDslScopeProvider extends AbstractUseCaseDslScopeProvider {
 			}, IScope.NULLSCOPE);
 		}
 		
-//		//Scoping for extensions
-//		if(context instanceof Extension && reference == UseCaseDslPackage.Literals.EXTENSION__START_FROM) {
+		//Scoping for extensions
+		if(context instanceof Extension && reference == UseCaseDslPackage.Literals.EXTENSION__START_FROM) {
+			
+			
+			UseCase parent = (UseCase) context.eContainer();
+			List<Step> candidates = EcoreUtil2.getAllContentsOfType(parent, Step.class);
+//			candidates.addAll(parent.getSteps());
+//			List<Extension> ext = parent.getAlternativeflows();
+//			Iterator<Extension> it = ext.iterator();
+//			while(it.hasNext()) {
+//				Extension a = it.next();
+//				candidates.addAll(a.getSteps());
+//			}
 //			
+			return Scopes.scopeFor(candidates, new Function<Step, QualifiedName>() {
+				@Override
+				public QualifiedName apply(Step from) {
+					String names[] = new String[iq.getFullyQualifiedName(from).getSegmentCount() -1];
+					for(int i = 0; i < iq.getFullyQualifiedName(from).getSegmentCount() - 1; i++) {
+						names[i] = iq.getFullyQualifiedName(from).getSegment(i + 1);
+					}
+//					List<INode> nodes = NodeModelUtils.findNodesForFeature(context,
+//							UseCaseDslPackage.Literals.EXTENSION__START_FROM);
+//					INode actual = NodeModelUtils.findActualNodeFor(context);
+//					Iterator<INode> it = nodes.iterator();
+//				//	List<String> intermediate = new LinkedList<String>();
+//					String names[] = null;
+//					while(it.hasNext()) {
+//						INode a = it.next();
+//						String text = NodeModelUtils.getTokenText(a);
+//						System.out.println("AQUI :" + text);
+//						if(text != null) {
+//							//String fullname = parent.getName() + "." + text;
+//							names = text.split("\\.");
+//							System.out.println("NAME :" + Arrays.toString(names));
+
+//							for (int i = 0, j = 0; i < text.length(); i++) {
+//								if(text.charAt(i) == '.') {
+//									intermediate.add(text.substring(j, i));
+//									j = i + 1;
+//								}
+//								if(i == text.length() - 1) {
+//									intermediate.add(text.substring(i, i + 1));
+//								}
+//								
+//							}
+
+						//}
+					//}
+			//		String names[] = new String[intermediate.size()];
+			//		Iterator<String> itinter = intermediate.iterator();
+//					for(int i = 0; itinter.hasNext(); i++) {
+//						names[i] = itinter.next();
+//					}
+					return QualifiedName.create(names);
+//					
+//					String names[] = new String[QualifiedName.create(((Extension)context).getStartFrom().getName()).getSegmentCount()];
+//					for(int i = 0; i < iq.getFullyQualifiedName(((Extension)context).getStartFrom()).getSegmentCount(); i++) {
+//						names[i] = iq.getFullyQualifiedName(((Extension)context).getStartFrom()).getSegment(i + 1);
+//					}
+//					
+//				//	names[iq.getFullyQualifiedName(context.eContainer()).getSegmentCount() - 1] = from.getName();
+//					return QualifiedName.create(((Extension)context).getStartFrom().getName());
+				}
+			}, IScope.NULLSCOPE);
+			
+			
+			
 //			char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
-//				//for(char c	:	alphabet) {
-//					//if(((Extension)context).getStartFrom().getName().indexOf(c) <= 0) {
+//				for(char c	:	alphabet) {
+//					if(((Extension)context).getStartFrom().getName().indexOf(c) >= 0) {
 //							
 //						UseCase parent = (UseCase) context.eContainer();
 //						List<UseCaseStep> candidates = parent.getSteps();
-//				        return Scopes.scopeFor(candidates, new Function<Step, QualifiedName>() {
-//							public QualifiedName apply(Step from) {
-//								String names[] = new String[iq.getFullyQualifiedName(context.eContainer()).getSegmentCount() -1];
-//								for(int i = 0; i < iq.getFullyQualifiedName(context.eContainer()).getSegmentCount() - 1; i++) {
-//									names[i] = iq.getFullyQualifiedName(context.eContainer()).getSegment(i + 1);
+//				        return Scopes.scopeFor(candidates, new Function<UseCaseStep, QualifiedName>() {
+//							public QualifiedName apply(UseCaseStep from) {
+//								String names[] = new String[iq.getFullyQualifiedName(((Extension) context).getStartFrom()).getSegmentCount() -1];
+//								for(int i = 0; i < iq.getFullyQualifiedName(((Extension) context).getStartFrom()).getSegmentCount() - 1; i++) {
+//									names[i] = iq.getFullyQualifiedName(((Extension) context).getStartFrom()).getSegment(i + 1);
 //								}
 //								
 //							//	names[iq.getFullyQualifiedName(context.eContainer()).getSegmentCount() - 1] = from.getName();
 //								return QualifiedName.create(names);
 //							}
 //						}, IScope.NULLSCOPE);
-//				        
+//					
 //					}else {
 //						UseCase parent = (UseCase) context.eContainer();
 //						EList<Extension> alt = parent.getAlternativeflows();
@@ -108,9 +179,9 @@ public class UseCaseDslScopeProvider extends AbstractUseCaseDslScopeProvider {
 //
 //				        return Scopes.scopeFor(candidates, new Function<ExtensionStep, QualifiedName>() {
 //							public QualifiedName apply(ExtensionStep from) {
-//								String names[] = new String[iq.getFullyQualifiedName(context.eContainer()).getSegmentCount() -1];
-//								for(int i = 0; i < iq.getFullyQualifiedName(context.eContainer()).getSegmentCount() - 1; i++) {
-//									names[i] = iq.getFullyQualifiedName(context.eContainer()).getSegment(i + 1);
+//								String names[] = new String[iq.getFullyQualifiedName(((Extension) context).getStartFrom()).getSegmentCount() -1];
+//								for(int i = 0; i < iq.getFullyQualifiedName(((Extension) context).getStartFrom()).getSegmentCount() - 1; i++) {
+//									names[i] = iq.getFullyQualifiedName(((Extension) context).getStartFrom()).getSegment(i + 1);
 //								}
 //								
 //							//	names[iq.getFullyQualifiedName(context.eContainer()).getSegmentCount() - 1] = from.getName();
@@ -119,8 +190,8 @@ public class UseCaseDslScopeProvider extends AbstractUseCaseDslScopeProvider {
 //						}, IScope.NULLSCOPE);
 //					}
 //				
-				//}
-//			}					
+//				}
+		}
 	    return super.getScope(context, reference);
 	}
 }
