@@ -165,6 +165,26 @@ public class UseCaseDslValidator extends AbstractUseCaseDslValidator {
 						INVALID_NAME);
 			}
 		}
+//		it = compare.iterator();
+//		if(it.hasNext()) {
+//			do {
+//				Extension a = it.next();
+//				if(a.getStartFrom() )
+//			}while(it.hasNext())
+//		}
+	}
+	
+	@Check
+	public void checkIncludeName(Step step) {
+		EObject parent = step.eContainer();
+		while(!(parent instanceof UseCase)) {
+			parent = parent.eContainer();
+		}
+		if(parent == step.getReference()) {
+			error("Call this use case",
+					UseCaseDslPackage.Literals.STEP__REFERENCE,
+					INVALID_REFERENCE);
+		}
 	}
 	
 	

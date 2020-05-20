@@ -604,7 +604,6 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSentenceLongNameParserRuleCall_1_3_0 = (RuleCall)cSentenceAssignment_1_3.eContents().get(0);
 		private final RuleCall cDeadEndStepParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
-		////I dont know how to use this shit
 		//ExtensionStep:
 		//	name=StepName '.' 'INCLUDE' reference=[UseCase|LongName] | name=StepName '.' ('USER' | 'SYSTEM' | 'WHILE')?
 		//	sentence=LongName | DeadEndStep;
@@ -1082,7 +1081,6 @@ public class UseCaseDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getUseCaseStepAccess().getRule();
 	}
 	
-	////I dont know how to use this shit
 	//ExtensionStep:
 	//	name=StepName '.' 'INCLUDE' reference=[UseCase|LongName] | name=StepName '.' ('USER' | 'SYSTEM' | 'WHILE')?
 	//	sentence=LongName | DeadEndStep;

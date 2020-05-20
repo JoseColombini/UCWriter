@@ -31,8 +31,7 @@ Extension:
 	BEGIN
 		(steps += ExtensionStep)*
 		((StepName'.' 'RETURN' 'TO' 
-			(resumeAt = [UseCaseStep|QualifiedStepName] |
-			 resumeAt = [ExtensionStep|QualifiedExtensionStepName])) |
+			(resumeAt = [UseCaseStep|QualifiedStepName] | resumeAt = [ExtensionStep|QualifiedExtensionStepName])) |
 		(end = DeadEndStep))
 	END;
 
@@ -46,10 +45,10 @@ UseCaseStep:
 	{SystemStep} (parent = [RepeatingStep|QualifiedStepName] '.')? (name = StepName)'.' 'SYSTEM'(sentence = LongName)|
 	{RepeatingStep}(parent = [RepeatingStep|QualifiedStepName] '.')? (name = StepName)'.' 'WHILE'(repeatingCondition = Condition)
 	BEGIN
-		(/*(parent += [RepeatingStep|StepName]'.')+*/(steps += UseCaseStep))+
+		(steps += UseCaseStep)+
 	END;
 
-//I dont know how to use this shit
+
 ExtensionStep:
 	(name = StepName)'.' 'INCLUDE'(reference = [UseCase|LongName])|
 	(name = StepName)'.' ('USER'|'SYSTEM'|'WHILE')? (sentence = LongName)|
@@ -64,6 +63,8 @@ Precondition:
 	
 Postcondition:
 	('POSTCONDITION')':' (condition = Condition);
+	
+
 /**********************	}
 ******* DataTypes *****
 ***********************/
@@ -96,42 +97,7 @@ QualifiedExtensionStepName:
 terminal CHAR:
 	('a'..'z'|'A'..'Z');
 
-/*terminal fragment ESCAPED_CHAR:
-    '\\' ('n'|'t'|'r'|'\\');
-
-terminal SP:
-	' ';
-*/
 
 terminal BEGIN: 'synthetic:BEGIN';  // increase indentation
 terminal END: 'synthetic:END';      // decrease indentation
 
-/***********************************
- ********* Codes that I don't want to discard*****
- * *********************************************
- * /*MainFlow:
-	{MainFlow} 	(name = 'MainFLow') ':'
-	BEGIN
-		(steps += UseCaseStep)+
-	END;
-/
-
-*AlternativeFlow:
-	(name = 'AlternativeFlow') ':'
-	BEGIN
-		(extension += Extension)+
-	END;
-*
-* Extension:
-	(ExtensionStep)
-	BEGIN
-		(steps += UseCaseStep)+
-		(resumeAt = DeadEndStep)? 
-	END;
-/*ExtensionStep:
-	'Ex' (startAt = [Step]) '.' name = CHAR '.' (condition += Condition);
-
-
-DeadEndStep:
-	(name = INT) '.' 'Return' 'to' (resumeAt = [Step]);
-***/
