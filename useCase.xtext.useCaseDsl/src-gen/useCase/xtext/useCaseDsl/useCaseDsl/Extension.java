@@ -31,16 +31,26 @@ import org.eclipse.emf.ecore.EObject;
 public interface Extension extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Start From</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Start From</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Start From</em>' attribute list.
+   * @return the value of the '<em>Start From</em>' reference.
+   * @see #setStartFrom(Step)
    * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getExtension_StartFrom()
-   * @model unique="false"
+   * @model
    * @generated
    */
-  EList<String> getStartFrom();
+  Step getStartFrom();
+
+  /**
+   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.Extension#getStartFrom <em>Start From</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Start From</em>' reference.
+   * @see #getStartFrom()
+   * @generated
+   */
+  void setStartFrom(Step value);
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -99,16 +109,26 @@ public interface Extension extends EObject
   EList<ExtensionStep> getSteps();
 
   /**
-   * Returns the value of the '<em><b>Resume At</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Resume At</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Resume At</em>' attribute list.
+   * @return the value of the '<em>Resume At</em>' reference.
+   * @see #setResumeAt(Step)
    * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getExtension_ResumeAt()
-   * @model unique="false"
+   * @model
    * @generated
    */
-  EList<String> getResumeAt();
+  Step getResumeAt();
+
+  /**
+   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.Extension#getResumeAt <em>Resume At</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Resume At</em>' reference.
+   * @see #getResumeAt()
+   * @generated
+   */
+  void setResumeAt(Step value);
 
   /**
    * Returns the value of the '<em><b>End</b></em>' containment reference.

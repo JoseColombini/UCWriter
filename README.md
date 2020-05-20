@@ -1,9 +1,11 @@
 # UseCase-concrete-syntax
 
 This language is a result of research project supported by *FAPESP*
-grant #2019/12641-7, São Paulo Research Foundation (FAPESP)
+
+*grant #2019/12641-7, São Paulo Research Foundation (FAPESP)*
 
 **The opinions, hypotheses and conclusions or recommendations express in this material are responsibilities of the authors and note necessarily reflect the vision of FAPESP** (free translate from the line below)
+
 *"As opiniões, hipóteses e conclusões ou recomendações expressas neste material são de responsabilidade do(s) autor(es) e não necessariamente refletem a visão da FAPESP"*
 
 
@@ -29,15 +31,11 @@ This concrete syntax is based on some other proposes, mainly Cockburn. The metam
 
    - Its capable to represent a use case with a Name **with several words**.
    - A main flow with any number of steps (*bug* steps can have same number).
-   - Steps are made of a number and a sentence. They can be specialized in *User*, *System* or *Repeating* Steps.
-   - *RpeatingSteps* have a condition and is composed of a several steps under one identation level of its.
+   - Steps are made of a number and a sentence. They can be specialized in *User*, *System* or *Repeating* Steps (the last one still under developing).
    - Steps are in one indentation level at Main flow.
    - Sentences are a sequence of words (*bug* simple quotation marks or apostrophe I do not know what is causing bugs);
    - Alternatives flows are now available. They contain Extensions and each extension has a several number of Extension Steps
    - Extension are in one identation level of use case, and its steps are in two identation level of use case (one when compare to Extension)
-   - We can express several use cases in the same file now.
-   
-   **Obs:** This version do not use cross reference, so all expression are interpreted as texts and saved in an attribute!!
 
   ## Reserved words
    - All reserved words has all letters **UPPERCASE**. This was design to avoid capturing common words as reserved ones.
@@ -56,10 +54,15 @@ This concrete syntax is based on some other proposes, mainly Cockburn. The metam
      - TO
      - PRECONDITION
      - POSTCONDITION
-     - INCLUDE
+
+
+
+
+
 
   ## Bugs
      - Symbol ', " are causing problems everywhere
      - Steps can have the same number
-     - No cross reference is made for now, because of this all the references are texts saved in attributes!!!
+     - attribute name do not recognize Number as a valid name, it demand an ID
+     - No cross reference is made for now, because of this the references for *Extensions* (*resumeAt*, *startFrom*) are just INT declaration
 # Example

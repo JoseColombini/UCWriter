@@ -6,11 +6,13 @@ package useCase.xtext.useCaseDsl.useCaseDsl.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import useCase.xtext.useCaseDsl.useCaseDsl.Step;
+import useCase.xtext.useCaseDsl.useCaseDsl.UseCase;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
 
 /**
@@ -50,24 +52,14 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getReference() <em>Reference</em>}' attribute.
+   * The cached value of the '{@link #getReference() <em>Reference</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getReference()
    * @generated
    * @ordered
    */
-  protected static final String REFERENCE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getReference() <em>Reference</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getReference()
-   * @generated
-   * @ordered
-   */
-  protected String reference = REFERENCE_EDEFAULT;
+  protected UseCase reference;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,7 +113,27 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @generated
    */
   @Override
-  public String getReference()
+  public UseCase getReference()
+  {
+    if (reference != null && reference.eIsProxy())
+    {
+      InternalEObject oldReference = (InternalEObject)reference;
+      reference = (UseCase)eResolveProxy(oldReference);
+      if (reference != oldReference)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UseCaseDslPackage.STEP__REFERENCE, oldReference, reference));
+      }
+    }
+    return reference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UseCase basicGetReference()
   {
     return reference;
   }
@@ -132,9 +144,9 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
    * @generated
    */
   @Override
-  public void setReference(String newReference)
+  public void setReference(UseCase newReference)
   {
-    String oldReference = reference;
+    UseCase oldReference = reference;
     reference = newReference;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.STEP__REFERENCE, oldReference, reference));
@@ -153,7 +165,8 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
       case UseCaseDslPackage.STEP__NAME:
         return getName();
       case UseCaseDslPackage.STEP__REFERENCE:
-        return getReference();
+        if (resolve) return getReference();
+        return basicGetReference();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -172,7 +185,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
         setName((String)newValue);
         return;
       case UseCaseDslPackage.STEP__REFERENCE:
-        setReference((String)newValue);
+        setReference((UseCase)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -192,7 +205,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
         setName(NAME_EDEFAULT);
         return;
       case UseCaseDslPackage.STEP__REFERENCE:
-        setReference(REFERENCE_EDEFAULT);
+        setReference((UseCase)null);
         return;
     }
     super.eUnset(featureID);
@@ -211,7 +224,7 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
       case UseCaseDslPackage.STEP__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case UseCaseDslPackage.STEP__REFERENCE:
-        return REFERENCE_EDEFAULT == null ? reference != null : !REFERENCE_EDEFAULT.equals(reference);
+        return reference != null;
     }
     return super.eIsSet(featureID);
   }
@@ -229,8 +242,6 @@ public class StepImpl extends MinimalEObjectImpl.Container implements Step
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", reference: ");
-    result.append(reference);
     result.append(')');
     return result.toString();
   }

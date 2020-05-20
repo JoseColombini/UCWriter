@@ -13,7 +13,7 @@ package useCase.xtext.useCaseDsl.useCaseDsl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep#getInclude <em>Include</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep#getParent <em>Parent</em>}</li>
  * </ul>
  *
  * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCaseStep()
@@ -23,25 +23,25 @@ package useCase.xtext.useCaseDsl.useCaseDsl;
 public interface UseCaseStep extends Step
 {
   /**
-   * Returns the value of the '<em><b>Include</b></em>' attribute.
+   * Returns the value of the '<em><b>Parent</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Include</em>' attribute.
-   * @see #setInclude(String)
-   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCaseStep_Include()
+   * @return the value of the '<em>Parent</em>' reference.
+   * @see #setParent(RepeatingStep)
+   * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getUseCaseStep_Parent()
    * @model
    * @generated
    */
-  String getInclude();
+  RepeatingStep getParent();
 
   /**
-   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep#getInclude <em>Include</em>}' attribute.
+   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep#getParent <em>Parent</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Include</em>' attribute.
-   * @see #getInclude()
+   * @param value the new value of the '<em>Parent</em>' reference.
+   * @see #getParent()
    * @generated
    */
-  void setInclude(String value);
+  void setParent(RepeatingStep value);
 
 } // UseCaseStep

@@ -6,9 +6,11 @@ package useCase.xtext.useCaseDsl.useCaseDsl.impl;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage;
 import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
 
@@ -20,7 +22,7 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseStepImpl#getInclude <em>Include</em>}</li>
+ *   <li>{@link useCase.xtext.useCaseDsl.useCaseDsl.impl.UseCaseStepImpl#getParent <em>Parent</em>}</li>
  * </ul>
  *
  * @generated
@@ -28,24 +30,14 @@ import useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep;
 public class UseCaseStepImpl extends StepImpl implements UseCaseStep
 {
   /**
-   * The default value of the '{@link #getInclude() <em>Include</em>}' attribute.
+   * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getInclude()
+   * @see #getParent()
    * @generated
    * @ordered
    */
-  protected static final String INCLUDE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getInclude() <em>Include</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getInclude()
-   * @generated
-   * @ordered
-   */
-  protected String include = INCLUDE_EDEFAULT;
+  protected RepeatingStep parent;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,9 +66,29 @@ public class UseCaseStepImpl extends StepImpl implements UseCaseStep
    * @generated
    */
   @Override
-  public String getInclude()
+  public RepeatingStep getParent()
   {
-    return include;
+    if (parent != null && parent.eIsProxy())
+    {
+      InternalEObject oldParent = (InternalEObject)parent;
+      parent = (RepeatingStep)eResolveProxy(oldParent);
+      if (parent != oldParent)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UseCaseDslPackage.USE_CASE_STEP__PARENT, oldParent, parent));
+      }
+    }
+    return parent;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RepeatingStep basicGetParent()
+  {
+    return parent;
   }
 
   /**
@@ -85,12 +97,12 @@ public class UseCaseStepImpl extends StepImpl implements UseCaseStep
    * @generated
    */
   @Override
-  public void setInclude(String newInclude)
+  public void setParent(RepeatingStep newParent)
   {
-    String oldInclude = include;
-    include = newInclude;
+    RepeatingStep oldParent = parent;
+    parent = newParent;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.USE_CASE_STEP__INCLUDE, oldInclude, include));
+      eNotify(new ENotificationImpl(this, Notification.SET, UseCaseDslPackage.USE_CASE_STEP__PARENT, oldParent, parent));
   }
 
   /**
@@ -103,8 +115,9 @@ public class UseCaseStepImpl extends StepImpl implements UseCaseStep
   {
     switch (featureID)
     {
-      case UseCaseDslPackage.USE_CASE_STEP__INCLUDE:
-        return getInclude();
+      case UseCaseDslPackage.USE_CASE_STEP__PARENT:
+        if (resolve) return getParent();
+        return basicGetParent();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +132,8 @@ public class UseCaseStepImpl extends StepImpl implements UseCaseStep
   {
     switch (featureID)
     {
-      case UseCaseDslPackage.USE_CASE_STEP__INCLUDE:
-        setInclude((String)newValue);
+      case UseCaseDslPackage.USE_CASE_STEP__PARENT:
+        setParent((RepeatingStep)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +149,8 @@ public class UseCaseStepImpl extends StepImpl implements UseCaseStep
   {
     switch (featureID)
     {
-      case UseCaseDslPackage.USE_CASE_STEP__INCLUDE:
-        setInclude(INCLUDE_EDEFAULT);
+      case UseCaseDslPackage.USE_CASE_STEP__PARENT:
+        setParent((RepeatingStep)null);
         return;
     }
     super.eUnset(featureID);
@@ -153,27 +166,10 @@ public class UseCaseStepImpl extends StepImpl implements UseCaseStep
   {
     switch (featureID)
     {
-      case UseCaseDslPackage.USE_CASE_STEP__INCLUDE:
-        return INCLUDE_EDEFAULT == null ? include != null : !INCLUDE_EDEFAULT.equals(include);
+      case UseCaseDslPackage.USE_CASE_STEP__PARENT:
+        return parent != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (include: ");
-    result.append(include);
-    result.append(')');
-    return result.toString();
   }
 
 } //UseCaseStepImpl

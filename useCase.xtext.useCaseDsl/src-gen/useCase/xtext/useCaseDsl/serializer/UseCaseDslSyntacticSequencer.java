@@ -22,15 +22,13 @@ public class UseCaseDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected UseCaseDslGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_DeadEndStep___SYSTEMKeyword_2_1_or_USERKeyword_2_0_or_WHILEKeyword_2_2__q;
-	protected AbstractElementAlias match_ExtensionStep___SYSTEMKeyword_0_2_1_or_USERKeyword_0_2_0_or_WHILEKeyword_0_2_2__q;
-	protected AbstractElementAlias match_Extension_FullStopKeyword_7_0_4_1_q;
+	protected AbstractElementAlias match_ExtensionStep___SYSTEMKeyword_1_2_1_or_USERKeyword_1_2_0_or_WHILEKeyword_1_2_2__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (UseCaseDslGrammarAccess) access;
 		match_DeadEndStep___SYSTEMKeyword_2_1_or_USERKeyword_2_0_or_WHILEKeyword_2_2__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getDeadEndStepAccess().getSYSTEMKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getDeadEndStepAccess().getUSERKeyword_2_0()), new TokenAlias(false, false, grammarAccess.getDeadEndStepAccess().getWHILEKeyword_2_2()));
-		match_ExtensionStep___SYSTEMKeyword_0_2_1_or_USERKeyword_0_2_0_or_WHILEKeyword_0_2_2__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getExtensionStepAccess().getSYSTEMKeyword_0_2_1()), new TokenAlias(false, false, grammarAccess.getExtensionStepAccess().getUSERKeyword_0_2_0()), new TokenAlias(false, false, grammarAccess.getExtensionStepAccess().getWHILEKeyword_0_2_2()));
-		match_Extension_FullStopKeyword_7_0_4_1_q = new TokenAlias(false, true, grammarAccess.getExtensionAccess().getFullStopKeyword_7_0_4_1());
+		match_ExtensionStep___SYSTEMKeyword_1_2_1_or_USERKeyword_1_2_0_or_WHILEKeyword_1_2_2__q = new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getExtensionStepAccess().getSYSTEMKeyword_1_2_1()), new TokenAlias(false, false, grammarAccess.getExtensionStepAccess().getUSERKeyword_1_2_0()), new TokenAlias(false, false, grammarAccess.getExtensionStepAccess().getWHILEKeyword_1_2_2()));
 	}
 	
 	@Override
@@ -39,8 +37,8 @@ public class UseCaseDslSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getBEGINToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getENDRule())
 			return getENDToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getINTRule())
-			return getINTToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getStepNameRule())
+			return getStepNameToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -57,9 +55,11 @@ public class UseCaseDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected String getENDToken(EObject semanticObject, RuleCall ruleCall, INode node) { return ""; }
 	
 	/**
-	 * terminal INT returns ecore::EInt: ('0'..'9')+;
+	 * StepName:
+	 * 	INT
+	 * ;
 	 */
-	protected String getINTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getStepNameToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return "";
@@ -73,10 +73,8 @@ public class UseCaseDslSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_DeadEndStep___SYSTEMKeyword_2_1_or_USERKeyword_2_0_or_WHILEKeyword_2_2__q.equals(syntax))
 				emit_DeadEndStep___SYSTEMKeyword_2_1_or_USERKeyword_2_0_or_WHILEKeyword_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_ExtensionStep___SYSTEMKeyword_0_2_1_or_USERKeyword_0_2_0_or_WHILEKeyword_0_2_2__q.equals(syntax))
-				emit_ExtensionStep___SYSTEMKeyword_0_2_1_or_USERKeyword_0_2_0_or_WHILEKeyword_0_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Extension_FullStopKeyword_7_0_4_1_q.equals(syntax))
-				emit_Extension_FullStopKeyword_7_0_4_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_ExtensionStep___SYSTEMKeyword_1_2_1_or_USERKeyword_1_2_0_or_WHILEKeyword_1_2_2__q.equals(syntax))
+				emit_ExtensionStep___SYSTEMKeyword_1_2_1_or_USERKeyword_1_2_0_or_WHILEKeyword_1_2_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -100,19 +98,7 @@ public class UseCaseDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     name=StepName '.' (ambiguity) sentence=LongName
 	 */
-	protected void emit_ExtensionStep___SYSTEMKeyword_0_2_1_or_USERKeyword_0_2_0_or_WHILEKeyword_0_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     '.'?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     resumeAt+=StepName (ambiguity) END (rule end)
-	 *     resumeAt+=StepName (ambiguity) resumeAt+=StepName
-	 */
-	protected void emit_Extension_FullStopKeyword_7_0_4_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_ExtensionStep___SYSTEMKeyword_1_2_1_or_USERKeyword_1_2_0_or_WHILEKeyword_1_2_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

@@ -47,25 +47,25 @@ public interface Step extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Reference</b></em>' attribute.
+   * Returns the value of the '<em><b>Reference</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Reference</em>' attribute.
-   * @see #setReference(String)
+   * @return the value of the '<em>Reference</em>' reference.
+   * @see #setReference(UseCase)
    * @see useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage#getStep_Reference()
    * @model
    * @generated
    */
-  String getReference();
+  UseCase getReference();
 
   /**
-   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getReference <em>Reference</em>}' attribute.
+   * Sets the value of the '{@link useCase.xtext.useCaseDsl.useCaseDsl.Step#getReference <em>Reference</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Reference</em>' attribute.
+   * @param value the new value of the '<em>Reference</em>' reference.
    * @see #getReference()
    * @generated
    */
-  void setReference(String value);
+  void setReference(UseCase value);
 
 } // Step

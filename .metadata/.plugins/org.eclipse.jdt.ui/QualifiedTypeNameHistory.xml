@@ -1,2 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage"/>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.validation.Check"/>
+    <fullyQualifiedTypeName name="org.eclipse.emf.ecore.util.EcoreUtil"/>
+    <fullyQualifiedTypeName name="useCase.xtext.useCaseDsl.useCaseDsl.RepeatingStep"/>
+    <fullyQualifiedTypeName name="useCase.xtext.useCaseDsl.useCaseDsl.UseCaseStep"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.naming.IQualifiedNameConverter"/>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.naming.IQualifiedNameProvider"/>
+    <fullyQualifiedTypeName name="com.google.inject.Inject"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.util.List"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="useCase.xtext.useCaseDsl.useCaseDsl.Extension"/>
+    <fullyQualifiedTypeName name="useCase.xtext.useCaseDsl.useCaseDsl.Step"/>
+    <fullyQualifiedTypeName name="useCase.xtext.useCaseDsl.useCaseDsl.UseCase"/>
+    <fullyQualifiedTypeName name="org.eclipse.emf.common.util.EList"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="useCase.xtext.useCaseDsl.useCaseDsl.ExtensionStep"/>
+    <fullyQualifiedTypeName name="org.eclipse.xtext.EcoreUtil2"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="useCase.xtext.useCaseDsl.useCaseDsl.UseCaseDslPackage.Literals"/>
+</qualifiedTypeNameHistroy>
