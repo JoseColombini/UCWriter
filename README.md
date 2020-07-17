@@ -25,7 +25,7 @@ This concrete syntax is based on some other proposes, mainly Cockburn. The metam
    - Create a file with '.usecase' Extension
    - Enjoy it
 
-   - **ASAP** I will figure out how to use it in a more simple way
+   - It's avaliable on **Web**: https://bit.ly/328tT97 
 
 # Features Version 0.3
 
