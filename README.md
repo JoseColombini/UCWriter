@@ -62,7 +62,4 @@ This concrete syntax is based on some other proposes, mainly Cockburn. The metam
 
   ## Bugs
      - Symbol ', " are causing problems everywhere
-     - Steps can have the same number
-     - attribute name do not recognize Number as a valid name, it demand an ID
-     - No cross reference is made for now, because of this the references for *Extensions* (*resumeAt*, *startFrom*) are just INT declaration
 # Example
