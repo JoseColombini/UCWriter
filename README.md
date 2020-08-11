@@ -1,4 +1,5 @@
-# UseCase-concrete-syntax
+# UCWriter
+## Use Case using MDE
 
 This language is a result of research project supported by *FAPESP*
 
