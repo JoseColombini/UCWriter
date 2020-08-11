@@ -25,7 +25,7 @@ This concrete syntax is based on some other proposes, mainly Cockburn. The metam
    - Create a file with '.usecase' Extension
    - Enjoy it
 
-   - It's avaliable on **Web**: https://bit.ly/328tT97 
+   - It's avaliable on [**Web**](https://bit.ly/328tT97) 
 
 # Features Version 0.3
 
