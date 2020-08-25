@@ -1,66 +1,41 @@
-# UCWriter
-## Use Case using MDE
+# Welcome to UCWriter
 
-This language is a result of research project supported by *FAPESP*
+UCWriter is a framework to develop use cases representation, it uses the concepts of MDE to improve the model quality, creating a structured format to reduce ambiguity, inconsistency, not in conformance to a standard, unclear documentation etc. All the documentation can be found in the [git wiki](https://github.com/JoseColombini/UCWriter/wiki)
 
-*grant #2019/12641-7, São Paulo Research Foundation (FAPESP)*
+It is a result of a research to propose a concrete syntax to an abstract syntax and semantics that exist. The bases of UCWriter to represent the behavioral requirements are the abstract syntax and semantics of GUIMeta, the concrete syntax are inspired mainly on Cockburn works, but also looks to RUCM and UCMeta, and others. The theorical approach for this research is avaliable on [Theoretical Approach page in this wiki](wiki/Theoretical-Approach)
 
-**The opinions, hypotheses and conclusions or recommendations express in this material are responsibilities of the authors and note necessarily reflect the vision of FAPESP** (free translate from the line below)
+## Features
 
-*"As opiniões, hipóteses e conclusões ou recomendações expressas neste material são de responsabilidade do(s) autor(es) e não necessariamente refletem a visão da FAPESP"*
+- Represent use cases adressed by names and a tag number
+- Pre and post condition
+- Main flow:
+  - Steps are numbered in ascend order;
+  - Steps are specialized in user steps, system steps or repeating steps
+  - Repeating steps are similar to while loops, with a condition and a flow of steps inside (it allows loops inside loops);
+- Alternative Flows:
+  - Point to steps that start from;
+  - Named with letters;
+  - steps are numbered in ascend order (but are not specialized);
+  - Can end the use case or return to another step;
+- Can include another use case
+- Can represent more than one use case in a single file
+- Has logical operators for conditions (and, or, not)
+- All steps inherit what they are inside as part of its qualified name:
+  - All steps has a number as a name like '3', but if this step is inside a loop named '5', our step a qualified name '5.3'. With extension is the same, our extension is named 'c', so the steps will be like 'c.3'.
 
+### Web Version features
 
-This is a language for use case representation. The idea is to make you life easy with it.
+- The web editor can save only one file (each file can have multiple use cases) per machine (use webstorage for local storage, unfortunately free servers are very limited in space to storage the use cases in then);
+- Syntax highlight
+- Warning and errors alert
 
-This concrete syntax is based on some other proposes, mainly Cockburn. The metamodel that guide this language is the GUIMeta, which is also based on Cockburn.
+To know how to enjoy with features of UCWrite accesses the wiki page [How to Use](wiki/How-to-use) 
 
-*I should put an image of metamodel here*
-
-
-  ## How to Use
-   - Git clone this repository
-   - Open with Eclipse IDE with Xtext
-   - Open "useCase.xtext.useCaseDsl/src/useCase/xtext/useCaseDsl" then you will find 'UseCaseDsl.xtext' file
-   - Open this file and execute it as 'Generated Xtext artifact'
-   - execute the project folder 'useCaseDsl.xtext.useCaseDsl' as Eclipse plugin
-   - Create a file with '.usecase' Extension
-   - Enjoy it
-
-   - It's avaliable on [**Web**](https://bit.ly/328tT97) 
-
-# Features Version 0.3
-
-   - Its capable to represent a use case with a Name **with several words**.
-   - A main flow with any number of steps (*bug* steps can have same number).
-   - Steps are made of a number and a sentence. They can be specialized in *User*, *System* or *Repeating* Steps (the last one still under developing).
-   - Steps are in one indentation level at Main flow.
-   - Sentences are a sequence of words (*bug* simple quotation marks or apostrophe I do not know what is causing bugs);
-   - Alternatives flows are now available. They contain Extensions and each extension has a several number of Extension Steps
-   - Extension are in one identation level of use case, and its steps are in two identation level of use case (one when compare to Extension)
-
-  ## Reserved words
-   - All reserved words has all letters **UPPERCASE**. This was design to avoid capturing common words as reserved ones.
-   - The reserved words are:
-     - USER
-     - SYSTEM
-     - WHILE
-     - IF
-     - UC
-     - END
-     - AND
-     - OR
-     - MAINFLOW
-     - ALTERNATIVEFLOW
-     - RETURN
-     - TO
-     - PRECONDITION
-     - POSTCONDITION
+## Futures work and what you can help with
 
 
+## Team
 
+This research was made by José Colombini with the advise of Professor Fabio Levy Siqueira, both at Escola Politécnica da USP, with the support of FAPESP, Fundação de Amparo a Pesquisa do Estado de São Paulo, grant #2019/12641-7, São Paulo Research Foundation (FAPESP)
 
-
-
-  ## Bugs
-     - Symbol ', " are causing problems everywhere
-# Example
+**The opinions, hypotheses and conclusions or recommendations express in this material are responsibilities of the authors and note necessarily reflect the vision of FAPESP.**
