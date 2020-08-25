@@ -1,38 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="creat"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="to"/>
 		<list key="findhistory">
-			<item value="to"/>
-			<item value="Str"/>
-			<item value="toQua"/>
-			<item value="div"/>
-			<item value="divider"/>
-			<item value="&quot;.&quot;"/>
-			<item value="apply"/>
-			<item value="array"/>
-			<item value="iter"/>
-			<item value="getF"/>
-			<item value="EObj"/>
-			<item value="qualifi"/>
-			<item value="qualif"/>
-			<item value="bool"/>
-			<item value="EReference"/>
+			<item value="creat"/>
+			<item value="exem"/>
+			<item value="xtext"/>
+			<item value="@WebServlet(name = &apos;XtextServices&apos;, urlPatterns = &apos;/xtext-service/*&apos;)&#x0A;class GDslServlet extends XtextServlet {&#x0A;&#x09;&#x0A;&#x09;DisposableRegistry disposableRegistry&#x0A;&#x09;&#x0A;&#x09;override init() {&#x0A;&#x09;&#x09;super.init()&#x0A;&#x09;&#x09;val injector = new GDslWebSetup().createInjectorAndDoEMFRegistration()&#x0A;&#x09;&#x09;disposableRegistry = injector.getInstance(DisposableRegistry)&#x0A;&#x09;}&#x0A;&#x09;&#x0A;&#x09;override destroy() {&#x0A;&#x09;&#x09;if (disposableRegistry !== null) {&#x0A;&#x09;&#x09;&#x09;disposableRegistry.dispose()&#x0A;&#x09;&#x09;&#x09;disposableRegistry = null&#x0A;&#x09;&#x09;}&#x0A;&#x09;&#x09;super.destroy()&#x0A;&#x09;}&#x0A;&#x09;&#x0A;}"/>
+			<item value=","/>
 		</list>
 		<list key="replacehistory">
-			<item value="(name = StepName)&apos;.&apos;"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="84"/>
-		<item key="DIALOG_Y_ORIGIN" value="330"/>
-		<item key="DIALOG_WIDTH" value="327"/>
-		<item key="DIALOG_HEIGHT" value="436"/>
-		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-30|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		<item key="DIALOG_X_ORIGIN" value="1172"/>
+		<item key="DIALOG_Y_ORIGIN" value="212"/>
+		<item key="DIALOG_WIDTH" value="362"/>
+		<item key="DIALOG_HEIGHT" value="459"/>
+		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
 	</section>
 </section>

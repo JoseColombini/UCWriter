@@ -1,0 +1,100 @@
+grammar ucwriter.xtext.guimeta.ucdsl.UCdsl with org.eclipse.xtext.common.Terminals
+
+generate uCdsl "http://www.xtext.ucwriter/guimeta/ucdsl/UCdsl"
+
+UseCaseDocument:
+	(usecase += UseCase)+;
+
+//Use case structures
+UseCase:
+	'UC' number = INT ':' (name = LongName)
+	
+	( precondition = Precondition)?
+	( postcondition = Postcondition)?
+	 
+	'MAIN''FLOW'':'
+	BEGIN
+		(steps += UseCaseStep)+
+	END
+	(('ALTERNATIVE' 'FLOW')':'
+	BEGIN
+		(alternativeflows += Extension)+
+	END)?;
+
+//Flows and behavorial
+Extension:
+	(startFrom = [UseCaseStep|QualifiedStepName] | startFrom =[ExtensionStep|QualifiedExtensionStepName])
+	'.' (name = CHAR)'.' 'IF' (condition = Condition)
+	BEGIN
+		(steps += ExtensionStep)*
+		((StepName'.' 'RETURN' 'TO' 
+			(resumeAt = [UseCaseStep|QualifiedStepName] | resumeAt = [ExtensionStep|QualifiedExtensionStepName])) |
+		(end = DeadEndStep))
+	END;
+
+//Steps
+Step:
+	UseCaseStep|ExtensionStep;
+
+UseCaseStep:
+	(parent = [RepeatingStep|QualifiedStepName] '.')? (name = StepName)'.' 'INCLUDE'(reference = [UseCase|LongName])|
+	{UserStep} (parent = [RepeatingStep|QualifiedStepName] '.')? (name = StepName)'.' 'USER' (sentence = LongName)|
+	{SystemStep} (parent = [RepeatingStep|QualifiedStepName] '.')? (name = StepName)'.' 'SYSTEM'(sentence = LongName)|
+	{RepeatingStep}(parent = [RepeatingStep|QualifiedStepName] '.')? (name = StepName)'.' 'WHILE'(repeatingCondition = Condition)
+	BEGIN
+		(steps += UseCaseStep)+
+	END;
+
+
+ExtensionStep:
+	(name = StepName)'.' 'INCLUDE'(reference = [UseCase|LongName])|
+	(name = StepName)'.' ('USER'|'SYSTEM'|'WHILE')? (sentence = LongName)|
+	DeadEndStep;
+
+DeadEndStep:
+	(name = StepName)'.' ('USER'|'SYSTEM'|'WHILE')? (sentence = LongName)? 'UC' 'END';
+
+//Conditions
+Precondition:
+	('PRECONDITION')':' (condition = Condition);
+	
+Postcondition:
+	('POSTCONDITION')':' (condition = Condition);
+	
+
+/**********************	}
+******* DataTypes *****
+***********************/
+
+LongName:
+	(ID|ANY_OTHER|CHAR|':'|'.'|'"'|"'")+;
+	
+Condition:
+	(ID|ANY_OTHER|CHAR|':'|'.'|'"'|"'"|'AND'|'OR')+;
+
+StepName:
+	INT
+;
+
+QualifiedStepName:
+	StepName('.'StepName)*
+;
+
+
+
+QualifiedExtensionStepName:
+	(QualifiedStepName'.'CHAR'.'QualifiedStepName)+
+;
+
+
+
+/***************************	
+******* TERMINAL RULES *****
+****************************/
+terminal CHAR:
+	('a'..'z'|'A'..'Z');
+
+
+terminal BEGIN: 'synthetic:BEGIN';  // increase indentation
+terminal END: 'synthetic:END';      // decrease indentation
+
