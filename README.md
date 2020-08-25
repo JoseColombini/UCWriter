@@ -1,6 +1,6 @@
 # Welcome to UCWriter
 
-UCWriter is a framework to develop use cases representation, it uses the concepts of MDE to improve the model quality, creating a structured format to reduce ambiguity, inconsistency, not in conformance to a standard, unclear documentation etc. All the documentation can be found in the [git wiki](https://github.com/JoseColombini/UCWriter/wiki)
+UCWriter is a framework to represent use cases , it uses the concepts of MDE to improve the model quality, creating a structured format to reduce ambiguity, inconsistency, not in conformance to a standard, unclear documentation etc. All the documentation can be found in the [git wiki](https://github.com/JoseColombini/UCWriter/wiki)
 
 It is a result of a research to propose a concrete syntax to an abstract syntax and semantics that exist. The bases of UCWriter to represent the behavioral requirements are the abstract syntax and semantics of GUIMeta, the concrete syntax are inspired mainly on Cockburn works, but also looks to RUCM and UCMeta, and others. The theorical approach for this research is avaliable on [Theoretical Approach page in this wiki](wiki/Theoretical-Approach)
 
