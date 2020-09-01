@@ -1,4 +1,4 @@
-!SESSION 2020-08-19 09:54:19.537 -----------------------------------------------
+!SESSION 2020-08-31 22:27:02.873 -----------------------------------------------
 eclipse.buildId=4.15.0.I20200305-0155
 java.version=1.8.0_265
 java.vendor=Private Build
@@ -6,296 +6,221 @@ BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
 Framework arguments:  -product org.eclipse.epp.package.dsl.product
 Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.dsl.product
 
-!ENTRY org.eclipse.ui 4 0 2020-08-19 11:37:09.626
-!MESSAGE Unhandled event loop exception
-!STACK 0
-org.eclipse.swt.SWTException: Widget is disposed
-	at org.eclipse.swt.SWT.error(SWT.java:4723)
-	at org.eclipse.swt.SWT.error(SWT.java:4638)
-	at org.eclipse.swt.SWT.error(SWT.java:4609)
-	at org.eclipse.swt.widgets.Widget.error(Widget.java:550)
-	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:470)
-	at org.eclipse.swt.widgets.Control.redraw(Control.java:4457)
-	at org.eclipse.swt.widgets.Link.gtk_event_after(Link.java:421)
-	at org.eclipse.swt.widgets.Widget.windowProc(Widget.java:2257)
-	at org.eclipse.swt.widgets.Control.windowProc(Control.java:6679)
-	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5928)
-	at org.eclipse.swt.internal.gtk.GTK.gtk_main_do_event(Native Method)
-	at org.eclipse.swt.widgets.Display.eventProc(Display.java:1486)
-	at org.eclipse.swt.internal.gtk.OS.g_main_context_iteration(Native Method)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4446)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
-	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:658)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:154)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:657)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:594)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1447)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1420)
-
-!ENTRY org.eclipse.ui 4 0 2020-08-19 13:28:48.131
-!MESSAGE Unhandled event loop exception
-!STACK 0
-java.lang.IllegalArgumentException: Argument cannot be null
-	at org.eclipse.swt.SWT.error(SWT.java:4704)
-	at org.eclipse.swt.SWT.error(SWT.java:4638)
-	at org.eclipse.swt.SWT.error(SWT.java:4609)
-	at org.eclipse.swt.widgets.Display.error(Display.java:1446)
-	at org.eclipse.swt.widgets.Display.removeFilter(Display.java:4785)
-	at org.eclipse.ui.internal.Workbench.shutdown(Workbench.java:3020)
-	at org.eclipse.ui.internal.Workbench.busyClose(Workbench.java:1158)
-	at org.eclipse.ui.internal.Workbench.lambda$4(Workbench.java:1426)
-	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:72)
-	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1426)
-	at org.eclipse.ui.internal.Workbench.close(Workbench.java:1402)
-	at org.eclipse.ui.internal.Workbench.lambda$17(Workbench.java:2796)
-	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
-	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5687)
-	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5679)
-	at org.eclipse.swt.widgets.Display$SessionManagerListener.isReadyToExit(Display.java:208)
-	at org.eclipse.swt.internal.SessionManagerDBus.queryReadyToExit(SessionManagerDBus.java:261)
-	at org.eclipse.swt.internal.SessionManagerDBus.handleQueryEndSession(SessionManagerDBus.java:272)
-	at org.eclipse.swt.internal.SessionManagerDBus.g_signal_handler(SessionManagerDBus.java:310)
-	at org.eclipse.swt.internal.gtk.OS.g_main_context_iteration(Native Method)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4446)
-	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:166)
-	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:368)
-	at org.eclipse.ui.internal.WorkbenchWindow.lambda$5(WorkbenchWindow.java:2375)
-	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:72)
-	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2373)
-	at org.eclipse.xtend.ide.quickfix.XtendQuickfixProvider.lambda$1(XtendQuickfixProvider.java:254)
-	at org.eclipse.xtext.ui.editor.model.edit.ReconcilingUnitOfWork.exec(ReconcilingUnitOfWork.java:57)
-	at org.eclipse.xtext.ui.editor.model.edit.ReconcilingUnitOfWork.exec(ReconcilingUnitOfWork.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:92)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:432)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.internalModify(XtextDocument.java:165)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.modify(XtextDocument.java:158)
-	at org.eclipse.xtend.ide.quickfix.XtendQuickfixProvider.lambda$0(XtendQuickfixProvider.java:249)
-	at org.eclipse.xtext.ui.editor.model.edit.SemanticModificationWrapper$1.process(SemanticModificationWrapper.java:37)
-	at org.eclipse.xtext.ui.editor.model.edit.SemanticModificationWrapper$1.process(SemanticModificationWrapper.java:1)
-	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:38)
-	at org.eclipse.xtext.ui.editor.model.edit.ReconcilingUnitOfWork.exec(ReconcilingUnitOfWork.java:57)
-	at org.eclipse.xtext.ui.editor.model.edit.ReconcilingUnitOfWork.exec(ReconcilingUnitOfWork.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:92)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:432)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.internalModify(XtextDocument.java:165)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.modify(XtextDocument.java:158)
-	at org.eclipse.xtext.ui.editor.model.edit.SemanticModificationWrapper.apply(SemanticModificationWrapper.java:33)
-	at org.eclipse.xtext.ui.editor.quickfix.IssueResolution.apply(IssueResolution.java:77)
-	at org.eclipse.xtext.ui.editor.quickfix.QuickAssistCompletionProposal.apply(QuickAssistCompletionProposal.java:37)
-	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.insertProposal(CompletionProposalPopup.java:1016)
-	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.insertSelectedProposalWithMask(CompletionProposalPopup.java:960)
-	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.access$8(CompletionProposalPopup.java:956)
-	at org.eclipse.jface.text.contentassist.CompletionProposalPopup$4.widgetDefaultSelected(CompletionProposalPopup.java:701)
-	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:123)
-	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
-	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5687)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1423)
-	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4955)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4448)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
-	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:658)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:154)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:657)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:594)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1447)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1420)
-
-!ENTRY org.eclipse.ui 4 0 2020-08-19 13:28:49.621
-!MESSAGE Unhandled event loop exception
-!STACK 0
-org.eclipse.emf.common.util.WrappedException: org.eclipse.swt.SWTException: Widget is disposed
-	at org.eclipse.xtext.ui.editor.quickfix.IssueResolution.apply(IssueResolution.java:79)
-	at org.eclipse.xtext.ui.editor.quickfix.QuickAssistCompletionProposal.apply(QuickAssistCompletionProposal.java:37)
-	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.insertProposal(CompletionProposalPopup.java:1016)
-	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.insertSelectedProposalWithMask(CompletionProposalPopup.java:960)
-	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.access$8(CompletionProposalPopup.java:956)
-	at org.eclipse.jface.text.contentassist.CompletionProposalPopup$4.widgetDefaultSelected(CompletionProposalPopup.java:701)
-	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:123)
-	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
-	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5687)
-	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1423)
-	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4955)
-	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4448)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
-	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
-	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
-	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:658)
-	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
-	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
-	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:154)
-	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:657)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:594)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1447)
-	at org.eclipse.equinox.launcher.Main.main(Main.java:1420)
-Caused by: org.eclipse.swt.SWTException: Widget is disposed
-	at org.eclipse.swt.SWT.error(SWT.java:4723)
-	at org.eclipse.swt.SWT.error(SWT.java:4638)
-	at org.eclipse.swt.SWT.error(SWT.java:4609)
-	at org.eclipse.swt.widgets.Display.error(Display.java:1446)
-	at org.eclipse.swt.widgets.Display.checkDevice(Display.java:947)
-	at org.eclipse.swt.widgets.Display.getShells(Display.java:2678)
-	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:74)
-	at org.eclipse.ui.internal.WorkbenchWindow.run(WorkbenchWindow.java:2373)
-	at org.eclipse.xtend.ide.quickfix.XtendQuickfixProvider.lambda$1(XtendQuickfixProvider.java:254)
-	at org.eclipse.xtext.ui.editor.model.edit.ReconcilingUnitOfWork.exec(ReconcilingUnitOfWork.java:57)
-	at org.eclipse.xtext.ui.editor.model.edit.ReconcilingUnitOfWork.exec(ReconcilingUnitOfWork.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:92)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:432)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.internalModify(XtextDocument.java:165)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.modify(XtextDocument.java:158)
-	at org.eclipse.xtend.ide.quickfix.XtendQuickfixProvider.lambda$0(XtendQuickfixProvider.java:249)
-	at org.eclipse.xtext.ui.editor.model.edit.SemanticModificationWrapper$1.process(SemanticModificationWrapper.java:37)
-	at org.eclipse.xtext.ui.editor.model.edit.SemanticModificationWrapper$1.process(SemanticModificationWrapper.java:1)
-	at org.eclipse.xtext.util.concurrent.IUnitOfWork$Void.exec(IUnitOfWork.java:38)
-	at org.eclipse.xtext.ui.editor.model.edit.ReconcilingUnitOfWork.exec(ReconcilingUnitOfWork.java:57)
-	at org.eclipse.xtext.ui.editor.model.edit.ReconcilingUnitOfWork.exec(ReconcilingUnitOfWork.java:1)
-	at org.eclipse.xtext.resource.OutdatedStateManager.exec(OutdatedStateManager.java:92)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument$XtextDocumentLocker.modify(XtextDocument.java:432)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.internalModify(XtextDocument.java:165)
-	at org.eclipse.xtext.ui.editor.model.XtextDocument.modify(XtextDocument.java:158)
-	at org.eclipse.xtext.ui.editor.model.edit.SemanticModificationWrapper.apply(SemanticModificationWrapper.java:33)
-	at org.eclipse.xtext.ui.editor.quickfix.IssueResolution.apply(IssueResolution.java:77)
-	... 33 more
-!SESSION 2020-08-19 13:37:50.820 -----------------------------------------------
-eclipse.buildId=4.15.0.I20200305-0155
-java.version=1.8.0_265
-java.vendor=Private Build
-BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.dsl.product
-Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.dsl.product
-
-!ENTRY org.eclipse.help.base 2 0 2020-08-19 13:50:48.807
-!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.wst.dtdeditor.doc.user_1.1.0.v201903222120 [420]'. The index should be rebuilt with Lucene 8.4.1
-
-!ENTRY org.eclipse.help.base 2 0 2020-08-19 13:50:48.858
-!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.wst.xmleditor.doc.user_1.1.0.v201903222120 [433]'. The index should be rebuilt with Lucene 8.4.1
-
-!ENTRY org.eclipse.help.base 2 0 2020-08-19 13:50:48.876
-!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.wst.xsdeditor.doc.user_1.0.800.v201903222120 [436]'. The index should be rebuilt with Lucene 8.4.1
-
-!ENTRY org.eclipse.help.base 2 0 2020-08-19 13:50:48.876
-!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.wst.sse.doc.user_1.2.0.v201903222120 [423]'. The index should be rebuilt with Lucene 8.4.1
-
-!ENTRY org.eclipse.m2e.logback.appender 4 0 2020-08-19 14:08:56.819
-!MESSAGE Unexpected URLConnection defaultUseCaches enabled
-
-!ENTRY org.eclipse.m2e.logback.appender 4 0 2020-08-19 14:08:57.211
-!MESSAGE Unexpected URLConnection defaultUseCaches enabled
-
-!ENTRY org.eclipse.m2e.logback.appender 4 0 2020-08-19 14:08:57.390
-!MESSAGE Unexpected URLConnection defaultUseCaches enabled
-
-!ENTRY org.eclipse.m2e.logback.appender 4 0 2020-08-19 14:08:57.404
-!MESSAGE Unexpected URLConnection defaultUseCaches enabled
-
-!ENTRY org.eclipse.m2e.logback.appender 4 0 2020-08-19 14:08:57.452
-!MESSAGE Unexpected URLConnection defaultUseCaches enabled
-
-!ENTRY org.eclipse.m2e.logback.appender 4 0 2020-08-19 14:08:57.573
-!MESSAGE Unexpected URLConnection defaultUseCaches enabled
-
-!ENTRY org.eclipse.m2e.logback.appender 4 0 2020-08-19 14:08:57.712
-!MESSAGE Unexpected URLConnection defaultUseCaches enabled
-
-!ENTRY org.eclipse.m2e.logback.appender 4 0 2020-08-19 14:08:57.866
-!MESSAGE Unexpected URLConnection defaultUseCaches enabled
-
-!ENTRY org.eclipse.m2e.logback.appender 4 0 2020-08-19 14:08:57.879
-!MESSAGE Unexpected URLConnection defaultUseCaches enabled
-
-!ENTRY org.eclipse.m2e.logback.appender 4 0 2020-08-19 14:08:57.892
-!MESSAGE Unexpected URLConnection defaultUseCaches enabled
-
-!ENTRY org.eclipse.m2e.logback.appender 4 0 2020-08-19 14:08:57.909
-!MESSAGE Unexpected URLConnection defaultUseCaches enabled
-
-!ENTRY org.eclipse.m2e.logback.appender 4 0 2020-08-19 14:08:57.930
-!MESSAGE Unexpected URLConnection defaultUseCaches enabled
-
-!ENTRY org.eclipse.m2e.logback.appender 4 0 2020-08-19 14:08:57.948
-!MESSAGE Unexpected URLConnection defaultUseCaches enabled
-
-!ENTRY org.eclipse.m2e.logback.appender 4 0 2020-08-19 14:08:58.067
-!MESSAGE Unexpected URLConnection defaultUseCaches enabled
-!SESSION 2020-08-24 20:41:36.709 -----------------------------------------------
-eclipse.buildId=4.15.0.I20200305-0155
-java.version=1.8.0_265
-java.vendor=Private Build
-BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.dsl.product
-Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.dsl.product
-
-!ENTRY org.eclipse.core.jobs 4 2 2020-08-24 20:51:03.415
-!MESSAGE An internal error occurred during: "Search Marketplace for compatible editors (*.css)".
-!STACK 0
-java.lang.NullPointerException
-	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.orderNodesByTagSubExtensionCount(DiscoverFileSupportJob.java:126)
-	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.run(DiscoverFileSupportJob.java:87)
-	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.run(DiscoverFileSupportJob.java:70)
+!ENTRY org.eclipse.jdt.core 4 4 2020-09-01 00:40:13.192
+!MESSAGE JavaBuilder handling CoreException
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException(/ucwriter.xtext.guimeta.ucdsl.tests/target/test-classes/ucwriter/xtext/guimeta/ucdsl/tests/UCdslInjectorProvider.class)[368]: java.lang.Exception: File not found: /home/jose/Desktop/git/UCWriter/UCWriter/UCWriter/ucwriter.xtext.guimeta.ucdsl.parent/ucwriter.xtext.guimeta.ucdsl.tests/target/test-classes/ucwriter/xtext/guimeta/ucdsl/tests/UCdslInjectorProvider.class.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:835)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:275)
+	at org.eclipse.jdt.internal.core.util.Util.getResourceContentsAsByteArray(Util.java:1146)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.writeClassFileCheck(IncrementalImageBuilder.java:945)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.writeClassFileContents(IncrementalImageBuilder.java:887)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.writeClassFile(AbstractImageBuilder.java:879)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.acceptResult(AbstractImageBuilder.java:203)
+	at org.eclipse.jdt.internal.compiler.Compiler.processCompiledUnits(Compiler.java:615)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:475)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:426)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:386)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.compile(IncrementalImageBuilder.java:374)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:318)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.incrementalBuildLoop(IncrementalImageBuilder.java:189)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.build(IncrementalImageBuilder.java:146)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.build(IncrementalImageBuilder.java:83)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildDeltas(JavaBuilder.java:292)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:212)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:832)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:220)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:263)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:316)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:319)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:371)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:392)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:154)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
-!SESSION 2020-08-24 21:52:40.151 -----------------------------------------------
-eclipse.buildId=4.15.0.I20200305-0155
-java.version=1.8.0_265
-java.vendor=Private Build
-BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
-Framework arguments:  -product org.eclipse.epp.package.dsl.product
-Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.dsl.product
-
-!ENTRY org.eclipse.core.jobs 4 2 2020-08-24 22:28:56.508
-!MESSAGE An internal error occurred during: "Search Marketplace for compatible editors (*.css)".
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2020-09-01 00:40:13.192
+!MESSAGE File not found: /home/jose/Desktop/git/UCWriter/UCWriter/UCWriter/ucwriter.xtext.guimeta.ucdsl.parent/ucwriter.xtext.guimeta.ucdsl.tests/target/test-classes/ucwriter/xtext/guimeta/ucdsl/tests/UCdslInjectorProvider.class.
 !STACK 0
-java.lang.NullPointerException
-	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.orderNodesByTagSubExtensionCount(DiscoverFileSupportJob.java:126)
-	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.run(DiscoverFileSupportJob.java:87)
-	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.run(DiscoverFileSupportJob.java:70)
+java.lang.Exception: File not found: /home/jose/Desktop/git/UCWriter/UCWriter/UCWriter/ucwriter.xtext.guimeta.ucdsl.parent/ucwriter.xtext.guimeta.ucdsl.tests/target/test-classes/ucwriter/xtext/guimeta/ucdsl/tests/UCdslInjectorProvider.class.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:835)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:275)
+	at org.eclipse.jdt.internal.core.util.Util.getResourceContentsAsByteArray(Util.java:1146)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.writeClassFileCheck(IncrementalImageBuilder.java:945)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.writeClassFileContents(IncrementalImageBuilder.java:887)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.writeClassFile(AbstractImageBuilder.java:879)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.acceptResult(AbstractImageBuilder.java:203)
+	at org.eclipse.jdt.internal.compiler.Compiler.processCompiledUnits(Compiler.java:615)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:475)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:426)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:386)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.compile(IncrementalImageBuilder.java:374)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:318)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.incrementalBuildLoop(IncrementalImageBuilder.java:189)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.build(IncrementalImageBuilder.java:146)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.build(IncrementalImageBuilder.java:83)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildDeltas(JavaBuilder.java:292)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:212)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:832)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:220)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:263)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:316)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:319)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:371)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:392)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:154)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
 
-!ENTRY org.eclipse.core.jobs 4 2 2020-08-24 22:31:10.194
-!MESSAGE An internal error occurred during: "Search Marketplace for compatible editors (*.css)".
+!ENTRY org.eclipse.jdt.core 4 4 2020-09-01 00:40:13.193
+!MESSAGE JavaBuilder handling CoreException
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException(/ucwriter.xtext.guimeta.ucdsl.tests/target/test-classes/ucwriter/xtext/guimeta/ucdsl/tests/UCdslInjectorProvider$2.class)[368]: java.lang.Exception: File not found: /home/jose/Desktop/git/UCWriter/UCWriter/UCWriter/ucwriter.xtext.guimeta.ucdsl.parent/ucwriter.xtext.guimeta.ucdsl.tests/target/test-classes/ucwriter/xtext/guimeta/ucdsl/tests/UCdslInjectorProvider$2.class.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:835)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:275)
+	at org.eclipse.jdt.internal.core.util.Util.getResourceContentsAsByteArray(Util.java:1146)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.writeClassFileCheck(IncrementalImageBuilder.java:945)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.writeClassFileContents(IncrementalImageBuilder.java:887)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.writeClassFile(AbstractImageBuilder.java:879)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.acceptResult(AbstractImageBuilder.java:203)
+	at org.eclipse.jdt.internal.compiler.Compiler.processCompiledUnits(Compiler.java:615)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:475)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:426)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:386)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.compile(IncrementalImageBuilder.java:374)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:318)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.incrementalBuildLoop(IncrementalImageBuilder.java:189)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.build(IncrementalImageBuilder.java:146)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.build(IncrementalImageBuilder.java:83)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildDeltas(JavaBuilder.java:292)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:212)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:832)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:220)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:263)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:316)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:319)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:371)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:392)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:154)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2020-09-01 00:40:13.193
+!MESSAGE File not found: /home/jose/Desktop/git/UCWriter/UCWriter/UCWriter/ucwriter.xtext.guimeta.ucdsl.parent/ucwriter.xtext.guimeta.ucdsl.tests/target/test-classes/ucwriter/xtext/guimeta/ucdsl/tests/UCdslInjectorProvider$2.class.
 !STACK 0
-java.lang.NullPointerException
-	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.orderNodesByTagSubExtensionCount(DiscoverFileSupportJob.java:126)
-	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.run(DiscoverFileSupportJob.java:87)
-	at org.eclipse.epp.internal.mpc.ui.discovery.DiscoverFileSupportJob.run(DiscoverFileSupportJob.java:70)
+java.lang.Exception: File not found: /home/jose/Desktop/git/UCWriter/UCWriter/UCWriter/ucwriter.xtext.guimeta.ucdsl.parent/ucwriter.xtext.guimeta.ucdsl.tests/target/test-classes/ucwriter/xtext/guimeta/ucdsl/tests/UCdslInjectorProvider$2.class.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:835)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:275)
+	at org.eclipse.jdt.internal.core.util.Util.getResourceContentsAsByteArray(Util.java:1146)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.writeClassFileCheck(IncrementalImageBuilder.java:945)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.writeClassFileContents(IncrementalImageBuilder.java:887)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.writeClassFile(AbstractImageBuilder.java:879)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.acceptResult(AbstractImageBuilder.java:203)
+	at org.eclipse.jdt.internal.compiler.Compiler.processCompiledUnits(Compiler.java:615)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:475)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:426)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:386)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.compile(IncrementalImageBuilder.java:374)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:318)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.incrementalBuildLoop(IncrementalImageBuilder.java:189)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.build(IncrementalImageBuilder.java:146)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.build(IncrementalImageBuilder.java:83)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildDeltas(JavaBuilder.java:292)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:212)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:832)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:220)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:263)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:316)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:319)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:371)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:392)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:154)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core 4 4 2020-09-01 00:40:13.194
+!MESSAGE JavaBuilder handling CoreException
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException(/ucwriter.xtext.guimeta.ucdsl.tests/target/test-classes/ucwriter/xtext/guimeta/ucdsl/tests/UCdslInjectorProvider$1.class)[368]: java.lang.Exception: File not found: /home/jose/Desktop/git/UCWriter/UCWriter/UCWriter/ucwriter.xtext.guimeta.ucdsl.parent/ucwriter.xtext.guimeta.ucdsl.tests/target/test-classes/ucwriter/xtext/guimeta/ucdsl/tests/UCdslInjectorProvider$1.class.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:835)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:275)
+	at org.eclipse.jdt.internal.core.util.Util.getResourceContentsAsByteArray(Util.java:1146)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.writeClassFileCheck(IncrementalImageBuilder.java:945)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.writeClassFileContents(IncrementalImageBuilder.java:887)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.writeClassFile(AbstractImageBuilder.java:879)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.acceptResult(AbstractImageBuilder.java:203)
+	at org.eclipse.jdt.internal.compiler.Compiler.processCompiledUnits(Compiler.java:615)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:475)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:426)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:386)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.compile(IncrementalImageBuilder.java:374)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:318)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.incrementalBuildLoop(IncrementalImageBuilder.java:189)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.build(IncrementalImageBuilder.java:146)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.build(IncrementalImageBuilder.java:83)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildDeltas(JavaBuilder.java:292)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:212)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:832)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:220)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:263)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:316)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:319)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:371)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:392)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:154)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.core.resources 4 368 2020-09-01 00:40:13.194
+!MESSAGE File not found: /home/jose/Desktop/git/UCWriter/UCWriter/UCWriter/ucwriter.xtext.guimeta.ucdsl.parent/ucwriter.xtext.guimeta.ucdsl.tests/target/test-classes/ucwriter/xtext/guimeta/ucdsl/tests/UCdslInjectorProvider$1.class.
+!STACK 0
+java.lang.Exception: File not found: /home/jose/Desktop/git/UCWriter/UCWriter/UCWriter/ucwriter.xtext.guimeta.ucdsl.parent/ucwriter.xtext.guimeta.ucdsl.tests/target/test-classes/ucwriter/xtext/guimeta/ucdsl/tests/UCdslInjectorProvider$1.class.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:835)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:275)
+	at org.eclipse.jdt.internal.core.util.Util.getResourceContentsAsByteArray(Util.java:1146)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.writeClassFileCheck(IncrementalImageBuilder.java:945)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.writeClassFileContents(IncrementalImageBuilder.java:887)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.writeClassFile(AbstractImageBuilder.java:879)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.acceptResult(AbstractImageBuilder.java:203)
+	at org.eclipse.jdt.internal.compiler.Compiler.processCompiledUnits(Compiler.java:615)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:475)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:426)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:386)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.compile(IncrementalImageBuilder.java:374)
+	at org.eclipse.jdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:318)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.incrementalBuildLoop(IncrementalImageBuilder.java:189)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.build(IncrementalImageBuilder.java:146)
+	at org.eclipse.jdt.internal.core.builder.IncrementalImageBuilder.build(IncrementalImageBuilder.java:83)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.buildDeltas(JavaBuilder.java:292)
+	at org.eclipse.jdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:212)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:832)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:220)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:263)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:316)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:319)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:371)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:392)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:154)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:244)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

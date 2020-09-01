@@ -12,15 +12,15 @@ import org.eclipse.xtext.web.servlet.XtextServlet
  */
 @WebServlet(name = 'XtextServices', urlPatterns = '/xtext-service/*')
 class UCdslServlet extends XtextServlet {
-
+	
 	DisposableRegistry disposableRegistry
-
+	
 	override init() {
 		super.init()
 		val injector = new UCdslWebSetup().createInjectorAndDoEMFRegistration()
 		disposableRegistry = injector.getInstance(DisposableRegistry)
 	}
-
+	
 	override destroy() {
 		if (disposableRegistry !== null) {
 			disposableRegistry.dispose()
@@ -28,11 +28,5 @@ class UCdslServlet extends XtextServlet {
 		}
 		super.destroy()
 	}
-  var editor = xtext.createEditor();
-$("#save-button").click(function() {
-    editor.xtextServices.saveResource();
-});
-$("#load-button").click(function() {
-    editor.xtextServices.loadResource();
-});
+	
 }

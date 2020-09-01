@@ -13,7 +13,9 @@ import org.eclipse.xtext.generator.IGeneratorContext;
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
+@SuppressWarnings("all")
 public class UCdslGenerator extends AbstractGenerator {
+  @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
   }
 }

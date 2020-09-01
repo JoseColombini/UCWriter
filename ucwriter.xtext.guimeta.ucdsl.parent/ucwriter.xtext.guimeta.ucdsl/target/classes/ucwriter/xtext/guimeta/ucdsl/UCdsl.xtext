@@ -97,4 +97,3 @@ terminal CHAR:
 
 terminal BEGIN: 'synthetic:BEGIN';  // increase indentation
 terminal END: 'synthetic:END';      // decrease indentation
-

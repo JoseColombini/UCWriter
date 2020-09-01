@@ -1,9 +1,0 @@
-grammar ucwriter.xtext.guimeta.ucdsl.UCdsl with org.eclipse.xtext.common.Terminals
-
-generate uCdsl "http://www.xtext.ucwriter/guimeta/ucdsl/UCdsl"
-
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';

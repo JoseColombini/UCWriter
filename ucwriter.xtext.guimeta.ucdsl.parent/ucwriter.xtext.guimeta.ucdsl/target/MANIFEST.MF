@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: ucwriter.xtext.guimeta.ucdsl
+Bundle-ManifestVersion: 2
+Bundle-Name: ucwriter.xtext.guimeta.ucdsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.202009010341
+Bundle-SymbolicName: ucwriter.xtext.guimeta.ucdsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,org.eclipse.xtext.xbase,org.eclipse.eq
+ uinox.common;bundle-version="3.5.0",org.eclipse.emf.ecore,org.eclipse.x
+ text.xbase.lib;bundle-version="2.14.0",org.eclipse.xtext.util,org.eclip
+ se.emf.common,org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: ucwriter.xtext.guimeta.ucdsl,ucwriter.xtext.guimeta.ucds
+ l.scoping,ucwriter.xtext.guimeta.ucdsl.uCdsl,ucwriter.xtext.guimeta.ucd
+ sl.generator,ucwriter.xtext.guimeta.ucdsl.validation,ucwriter.xtext.gui
+ meta.ucdsl.services,ucwriter.xtext.guimeta.ucdsl.parser.antlr,ucwriter.
+ xtext.guimeta.ucdsl.parser.antlr.internal,ucwriter.xtext.guimeta.ucdsl.
+ serializer,ucwriter.xtext.guimeta.ucdsl.uCdsl.util,ucwriter.xtext.guime
+ ta.ucdsl.uCdsl.impl,ucwriter.xtext.guimeta.ucdsl.parser.antlr.lexer
+Import-Package: org.apache.log4j
+

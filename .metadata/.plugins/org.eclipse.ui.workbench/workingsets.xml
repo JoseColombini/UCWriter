@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workingSetManager>
-<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1597842756383_0" label="Java Main Sources" name="Java Main Sources">
+<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1598463864775_0" label="Java Main Sources" name="Java Main Sources">
 <item elementID="=ucwriter.xtext.guimeta.ucdsl/src" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ucwriter.xtext.guimeta.ucdsl/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ucwriter.xtext.guimeta.ucdsl/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -14,7 +14,7 @@
 <item elementID="=ucwriter.xtext.guimeta.ucdsl.web/src-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ucwriter.xtext.guimeta.ucdsl.web/xtend-gen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
-<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1597842756396_1" label="Java Test Sources" name="Java Test Sources">
+<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1598463864786_1" label="Java Test Sources" name="Java Test Sources">
 <item elementID="=ucwriter.xtext.guimeta.ucdsl.tests/src=/test=/true=/" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ucwriter.xtext.guimeta.ucdsl.tests/src-gen=/test=/true=/" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ucwriter.xtext.guimeta.ucdsl.tests/xtend-gen=/test=/true=/" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -22,5 +22,5 @@
 <item elementID="=ucwriter.xtext.guimeta.ucdsl.ui.tests/src-gen=/test=/true=/" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ucwriter.xtext.guimeta.ucdsl.ui.tests/xtend-gen=/test=/true=/" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
-<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1597842757024_2" label="Window Working Set" name="Aggregate for window 1597842757024"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1598463865505_2" label="Window Working Set" name="Aggregate for window 1598463865504"/>
 </workingSetManager>

@@ -11,6 +11,6 @@ Require-Bundle: ucwriter.xtext.guimeta.ucdsl,
  org.eclipse.xtext.xbase.ide,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Export-Package: ucwriter.xtext.guimeta.ucdsl.ide.contentassist.antlr,
- ucwriter.xtext.guimeta.ucdsl.ide.contentassist.antlr.internal,
+Export-Package: ucwriter.xtext.guimeta.ucdsl.ide.contentassist.antlr.internal,
+ ucwriter.xtext.guimeta.ucdsl.ide.contentassist.antlr,
  ucwriter.xtext.guimeta.ucdsl.ide.contentassist.antlr.lexer
