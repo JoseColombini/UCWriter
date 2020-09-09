@@ -10,7 +10,7 @@
 //import org.junit.jupiter.api.Assertions
 //import org.junit.jupiter.api.Test
 //import org.junit.jupiter.api.^extension.ExtendWith
-////import ucwriter.xtext.guimeta.ucdsl.uCdsl.Model
+//import ucwriter.xtext.guimeta.ucdsl.uCdsl.Model
 //
 //@ExtendWith(InjectionExtension)
 //@InjectWith(UCdslInjectorProvider)

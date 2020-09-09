@@ -24,7 +24,7 @@ a:hover {
 	margin: 20px;
 }
 
-.header {
+/* .header {
 	display: block;
 	position: absolute;
 	background-color: #e8e8e8;
@@ -33,7 +33,7 @@ a:hover {
 	right: 0;
 	height: 60px;
 	padding: 10px;
-}
+} */
 
 .content {
 	display: block;
@@ -47,10 +47,34 @@ a:hover {
 #xtext-editor {
 	display: block;
 	position: absolute;
-	top: 0;
+	top: 50px;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	padding: 4px;
 	border: 1px solid #aaa;
+}
+
+.save{
+	position: absolute;
+	top: 150px;	
+	left: 700px;
+}
+
+.areac{
+	display: block;
+	position:absolute;
+	border-style: solid;
+	border-width: thin;
+	padding: 4px;
+	top: 120px;
+	left: 1000px;
+	right: 300px;
+	bottom: 500px;
+}
+
+.images{
+	position: absolute;
+	left: 1000px;
+
 }

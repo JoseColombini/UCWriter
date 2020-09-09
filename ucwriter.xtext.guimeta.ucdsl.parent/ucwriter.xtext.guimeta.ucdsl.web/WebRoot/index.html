@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -7,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css"/>
 	<script src="webjars/requirejs/2.3.6/require.min.js"></script>
 	<script type="text/javascript">
+	var editor;
 		var baseUrl = window.location.pathname;
 		var fileIndex = baseUrl.indexOf("index.html");
 		if (fileIndex > 0)
@@ -21,24 +23,46 @@
 		});
 		require(["webjars/ace/1.3.3/src/ace"], function() {
 			require(["xtext/xtext-ace"], function(xtext) {
-				xtext.createEditor({
+			editor = xtext.createEditor({
 					baseUrl: baseUrl,
 					syntaxDefinition: "xtext-resources/generated/mode-uc"
 				});
 			});
 		});
+
+		function save(){
+			localStorage.setItem("file", editor.getValue());
+		}
+
+		function load(){
+			editor.setValue(localStorage.getItem("file"));
+		}
+
 	</script>
 </head>
 <body>
 
 <div class="container">
 	<div class="header">
-		<h1>Example UCdsl Web Editor</h1>
+		<h1>UCWriter Web Editor</h1>
+			<p>The Source code is available on <a href = "https://github.com/JoseColombini/UCWriter"><b>GitHub</b></a>, with documentation and <a href="https://github.com/JoseColombini/UCWriter/wiki/How-to-use">tutorials</a> on its <a href="https://github.com/JoseColombini/UCWriter/wiki">wiki</a>.</p>
+		<p>Enjoy and help to improve UCWriter!</p>
 	</div>
 	<div class="content">
 		<div id="xtext-editor" data-editor-xtext-lang="uc"></div>
 	</div>
+	<div class = "save">
+	 	<p><button onclick="save()" type = "button">Save</button></p>
+		<p><button onclick="load()" type = "button">Load</button></p>
+	</div>
+	<div class = "images">
+		<img src="Fapesp.jpg" alt="Fapesp" width="300" height="150">
+		<img src="EP.jpg" alt="EP" width="150" height="150">
+		<p>FAPESP, Fundação de Amparo a Pesquisa do Estado de São Paulo, grant #2019/12641-7, São Paulo Research Foundation (FAPESP)</p>
+		<p>MIT 2.0 License, &copy José Otávio Brochado Colombini and Fábio Levy Siqueira</p>
+	</div>
 </div>
+
 
 </body>
 </html>
