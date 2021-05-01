@@ -3,7 +3,7 @@ Automatic-Module-Name: ucwriter.xtext.guimeta.ucdsl.ui.tests
 Bundle-ManifestVersion: 2
 Bundle-Name: ucwriter.xtext.guimeta.ucdsl.ui.tests
 Bundle-Vendor: My Company
-Bundle-Version: 1.0.0.202009010341
+Bundle-Version: 1.0.0.202011120111
 Bundle-SymbolicName: ucwriter.xtext.guimeta.ucdsl.ui.tests; singleton:=t
  rue
 Bundle-ActivationPolicy: lazy

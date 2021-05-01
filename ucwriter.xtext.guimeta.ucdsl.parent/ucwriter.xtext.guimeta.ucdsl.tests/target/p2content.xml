@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <units size='1'>
-  <unit id='ucwriter.xtext.guimeta.ucdsl.tests' version='1.0.0.202009010341' generation='2'>
-    <update id='ucwriter.xtext.guimeta.ucdsl.tests' range='[0.0.0,1.0.0.202009010341)' severity='0'/>
+  <unit id='ucwriter.xtext.guimeta.ucdsl.tests' version='1.0.0.202011120111' generation='2'>
+    <update id='ucwriter.xtext.guimeta.ucdsl.tests' range='[0.0.0,1.0.0.202011120111)' severity='0'/>
     <properties size='5'>
       <property name='org.eclipse.equinox.p2.name' value='ucwriter.xtext.guimeta.ucdsl.tests'/>
       <property name='org.eclipse.equinox.p2.provider' value='My Company'/>
@@ -10,10 +10,10 @@
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
     <provides size='5'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='ucwriter.xtext.guimeta.ucdsl.tests' version='1.0.0.202009010341'/>
-      <provided namespace='osgi.bundle' name='ucwriter.xtext.guimeta.ucdsl.tests' version='1.0.0.202009010341'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='ucwriter.xtext.guimeta.ucdsl.tests' version='1.0.0.202011120111'/>
+      <provided namespace='osgi.bundle' name='ucwriter.xtext.guimeta.ucdsl.tests' version='1.0.0.202011120111'/>
       <provided namespace='java.package' name='ucwriter.xtext.guimeta.ucdsl.tests' version='0.0.0'/>
-      <provided namespace='osgi.identity' name='ucwriter.xtext.guimeta.ucdsl.tests' version='1.0.0.202009010341'>
+      <provided namespace='osgi.identity' name='ucwriter.xtext.guimeta.ucdsl.tests' version='1.0.0.202011120111'>
         <properties size='1'>
           <property name='type' value='osgi.bundle'/>
         </properties>
@@ -29,13 +29,13 @@
       <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'/>
     </requires>
     <artifacts size='1'>
-      <artifact classifier='osgi.bundle' id='ucwriter.xtext.guimeta.ucdsl.tests' version='1.0.0.202009010341'/>
+      <artifact classifier='osgi.bundle' id='ucwriter.xtext.guimeta.ucdsl.tests' version='1.0.0.202011120111'/>
     </artifacts>
     <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
     <touchpointData size='1'>
       <instructions size='1'>
         <instruction key='manifest'>
-          Bundle-SymbolicName: ucwriter.xtext.guimeta.ucdsl.tests; singleton:=true&#xA;Bundle-Version: 1.0.0.202009010341&#xA;
+          Bundle-SymbolicName: ucwriter.xtext.guimeta.ucdsl.tests; singleton:=true&#xA;Bundle-Version: 1.0.0.202011120111&#xA;
         </instruction>
       </instructions>
     </touchpointData>

@@ -3,7 +3,7 @@ Automatic-Module-Name: ucwriter.xtext.guimeta.ucdsl
 Bundle-ManifestVersion: 2
 Bundle-Name: ucwriter.xtext.guimeta.ucdsl
 Bundle-Vendor: My Company
-Bundle-Version: 1.0.0.202009010341
+Bundle-Version: 1.0.0.202011120111
 Bundle-SymbolicName: ucwriter.xtext.guimeta.ucdsl; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,org.eclipse.xtext.xbase,org.eclipse.eq

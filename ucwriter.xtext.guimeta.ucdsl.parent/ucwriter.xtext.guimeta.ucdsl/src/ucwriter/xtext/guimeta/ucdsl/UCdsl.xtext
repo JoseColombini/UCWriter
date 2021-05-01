@@ -5,7 +5,7 @@ generate uCdsl "http://www.xtext.ucwriter/guimeta/ucdsl/UCdsl"
 UseCaseDocument:
 	(usecase += UseCase)+;
 
-//Use case structures
+//11Use case structures
 UseCase:
 	'UC' number = INT ':' (name = LongName)
 	
@@ -23,8 +23,8 @@ UseCase:
 
 //Flows and behavorial
 Extension:
-	(startFrom = [UseCaseStep|QualifiedStepName] | startFrom =[ExtensionStep|QualifiedExtensionStepName])
-	'.' (name = CHAR)'.' 'IF' (condition = Condition)
+	(startFrom = [UseCaseStep|QualifiedStepName] | startFrom =[ExtensionStep|QualifiedExtensionStepName] | '*')
+	'.' (name = CHAR)'.' (condition = ExtensioCondition)//'IF' (condition = Condition)
 	BEGIN
 		(steps += ExtensionStep)*
 		((StepName'.' 'RETURN' 'TO' 
@@ -60,6 +60,10 @@ Precondition:
 	
 Postcondition:
 	('POSTCONDITION')':' (condition = Condition);
+
+ExtensioCondition:
+	('IF')(condition = Condition);
+
 	
 
 /**********************	}

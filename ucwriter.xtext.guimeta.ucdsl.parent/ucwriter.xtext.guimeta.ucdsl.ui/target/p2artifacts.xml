@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?artifactRepository version='1.1.0'?>
 <artifacts size='1'>
-  <artifact classifier='osgi.bundle' id='ucwriter.xtext.guimeta.ucdsl.ui' version='1.0.0.202009010341'>
+  <artifact classifier='osgi.bundle' id='ucwriter.xtext.guimeta.ucdsl.ui' version='1.0.0.202011120111'>
     <properties size='5'>
-      <property name='artifact.size' value='17712'/>
-      <property name='download.size' value='17712'/>
+      <property name='artifact.size' value='17710'/>
+      <property name='download.size' value='17710'/>
       <property name='maven-groupId' value='ucwriter.xtext.guimeta.ucdsl'/>
       <property name='maven-artifactId' value='ucwriter.xtext.guimeta.ucdsl.ui'/>
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
