@@ -28,6 +28,7 @@ This tool is a result of a research that proposes a concrete syntax to an existi
 - The web editor can save only one file (each file can have multiple use cases) per machine (uses HTML webstorage for local storage);
 - Syntax highlight;
 - Alert warning and errors.
+- [You can test the web editor clicking here](https://bit.ly/328tT97)
 
 The wiki page [How to Use](https://github.com/JoseColombini/UCWriter/wiki/How-to-use) explains how to use the features of UCWrite.
 
