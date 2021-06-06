@@ -47,8 +47,6 @@ QuotationMark : '"';
 
 Apostrophe : '\'';
 
-Asterisk : '*';
-
 FullStop : '.';
 
 Colon : ':';

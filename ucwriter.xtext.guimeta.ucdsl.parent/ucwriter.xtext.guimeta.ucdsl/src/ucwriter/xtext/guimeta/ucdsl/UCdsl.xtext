@@ -23,7 +23,7 @@ UseCase:
 
 //Flows and behavorial
 Extension:
-	(startFrom = [UseCaseStep|QualifiedStepName] | startFrom =[ExtensionStep|QualifiedExtensionStepName] | '*')
+	(startFrom = [UseCaseStep|QualifiedStepName] | startFrom =[ExtensionStep|QualifiedExtensionStepName]) //add |'*' for global extensions
 	'.' (name = CHAR)'.' (condition = ExtensioCondition)//'IF' (condition = Condition)
 	BEGIN
 		(steps += ExtensionStep)*
@@ -40,7 +40,7 @@ UseCaseStep:
 	(parent = [RepeatingStep|QualifiedStepName] '.')? (name = StepName)'.' 'INCLUDE'(reference = [UseCase|LongName])|
 	{UserStep} (parent = [RepeatingStep|QualifiedStepName] '.')? (name = StepName)'.' 'USER' (sentence = LongName)|
 	{SystemStep} (parent = [RepeatingStep|QualifiedStepName] '.')? (name = StepName)'.' 'SYSTEM'(sentence = LongName)|
-	{RepeatingStep}(parent = [RepeatingStep|QualifiedStepName] '.')? (name = StepName)'.' 'WHILE'(repeatingCondition = Condition)
+	{RepeatingStep}(parent = [RepeatingStep|QualifiedStepName] '.')? (name = StepName)'.' (condition = RepeatingCondition)
 	BEGIN
 		(steps += UseCaseStep)+
 	END;
@@ -63,6 +63,9 @@ Postcondition:
 
 ExtensioCondition:
 	('IF')(condition = Condition);
+
+RepeatingCondition:
+	'WHILE'(condition = Condition);
 
 	
 

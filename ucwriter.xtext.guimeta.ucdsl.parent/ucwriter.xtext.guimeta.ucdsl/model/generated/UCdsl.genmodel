@@ -45,6 +45,9 @@
     <genClasses ecoreClass="UCdsl.ecore#//ExtensioCondition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UCdsl.ecore#//ExtensioCondition/condition"/>
     </genClasses>
+    <genClasses ecoreClass="UCdsl.ecore#//RepeatingCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UCdsl.ecore#//RepeatingCondition/condition"/>
+    </genClasses>
     <genClasses ecoreClass="UCdsl.ecore#//UserStep">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UCdsl.ecore#//UserStep/sentence"/>
     </genClasses>
@@ -52,7 +55,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UCdsl.ecore#//SystemStep/sentence"/>
     </genClasses>
     <genClasses ecoreClass="UCdsl.ecore#//RepeatingStep">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute UCdsl.ecore#//RepeatingStep/repeatingCondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UCdsl.ecore#//RepeatingStep/condition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference UCdsl.ecore#//RepeatingStep/steps"/>
     </genClasses>
   </genPackages>

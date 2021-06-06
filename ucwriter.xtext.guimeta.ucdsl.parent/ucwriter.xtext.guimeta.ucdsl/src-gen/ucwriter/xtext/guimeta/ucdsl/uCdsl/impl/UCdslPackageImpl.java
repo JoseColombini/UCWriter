@@ -16,6 +16,7 @@ import ucwriter.xtext.guimeta.ucdsl.uCdsl.Extension;
 import ucwriter.xtext.guimeta.ucdsl.uCdsl.ExtensionStep;
 import ucwriter.xtext.guimeta.ucdsl.uCdsl.Postcondition;
 import ucwriter.xtext.guimeta.ucdsl.uCdsl.Precondition;
+import ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingCondition;
 import ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingStep;
 import ucwriter.xtext.guimeta.ucdsl.uCdsl.Step;
 import ucwriter.xtext.guimeta.ucdsl.uCdsl.SystemStep;
@@ -103,6 +104,13 @@ public class UCdslPackageImpl extends EPackageImpl implements UCdslPackage
    * @generated
    */
   private EClass extensioConditionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass repeatingConditionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -524,6 +532,28 @@ public class UCdslPackageImpl extends EPackageImpl implements UCdslPackage
    * @generated
    */
   @Override
+  public EClass getRepeatingCondition()
+  {
+    return repeatingConditionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRepeatingCondition_Condition()
+  {
+    return (EAttribute)repeatingConditionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getUserStep()
   {
     return userStepEClass;
@@ -579,9 +609,9 @@ public class UCdslPackageImpl extends EPackageImpl implements UCdslPackage
    * @generated
    */
   @Override
-  public EAttribute getRepeatingStep_RepeatingCondition()
+  public EReference getRepeatingStep_Condition()
   {
-    return (EAttribute)repeatingStepEClass.getEStructuralFeatures().get(0);
+    return (EReference)repeatingStepEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -666,6 +696,9 @@ public class UCdslPackageImpl extends EPackageImpl implements UCdslPackage
     extensioConditionEClass = createEClass(EXTENSIO_CONDITION);
     createEAttribute(extensioConditionEClass, EXTENSIO_CONDITION__CONDITION);
 
+    repeatingConditionEClass = createEClass(REPEATING_CONDITION);
+    createEAttribute(repeatingConditionEClass, REPEATING_CONDITION__CONDITION);
+
     userStepEClass = createEClass(USER_STEP);
     createEAttribute(userStepEClass, USER_STEP__SENTENCE);
 
@@ -673,7 +706,7 @@ public class UCdslPackageImpl extends EPackageImpl implements UCdslPackage
     createEAttribute(systemStepEClass, SYSTEM_STEP__SENTENCE);
 
     repeatingStepEClass = createEClass(REPEATING_STEP);
-    createEAttribute(repeatingStepEClass, REPEATING_STEP__REPEATING_CONDITION);
+    createEReference(repeatingStepEClass, REPEATING_STEP__CONDITION);
     createEReference(repeatingStepEClass, REPEATING_STEP__STEPS);
   }
 
@@ -754,6 +787,9 @@ public class UCdslPackageImpl extends EPackageImpl implements UCdslPackage
     initEClass(extensioConditionEClass, ExtensioCondition.class, "ExtensioCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getExtensioCondition_Condition(), ecorePackage.getEString(), "condition", null, 0, 1, ExtensioCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(repeatingConditionEClass, RepeatingCondition.class, "RepeatingCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRepeatingCondition_Condition(), ecorePackage.getEString(), "condition", null, 0, 1, RepeatingCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(userStepEClass, UserStep.class, "UserStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getUserStep_Sentence(), ecorePackage.getEString(), "sentence", null, 0, 1, UserStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -761,7 +797,7 @@ public class UCdslPackageImpl extends EPackageImpl implements UCdslPackage
     initEAttribute(getSystemStep_Sentence(), ecorePackage.getEString(), "sentence", null, 0, 1, SystemStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(repeatingStepEClass, RepeatingStep.class, "RepeatingStep", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRepeatingStep_RepeatingCondition(), ecorePackage.getEString(), "repeatingCondition", null, 0, 1, RepeatingStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRepeatingStep_Condition(), this.getRepeatingCondition(), null, "condition", null, 0, 1, RepeatingStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRepeatingStep_Steps(), this.getUseCaseStep(), null, "steps", null, 0, -1, RepeatingStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource

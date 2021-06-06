@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingCondition;
 import ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingStep;
 import ucwriter.xtext.guimeta.ucdsl.uCdsl.UCdslPackage;
 import ucwriter.xtext.guimeta.ucdsl.uCdsl.UseCaseStep;
@@ -30,7 +31,7 @@ import ucwriter.xtext.guimeta.ucdsl.uCdsl.UseCaseStep;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link ucwriter.xtext.guimeta.ucdsl.uCdsl.impl.RepeatingStepImpl#getRepeatingCondition <em>Repeating Condition</em>}</li>
+ *   <li>{@link ucwriter.xtext.guimeta.ucdsl.uCdsl.impl.RepeatingStepImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link ucwriter.xtext.guimeta.ucdsl.uCdsl.impl.RepeatingStepImpl#getSteps <em>Steps</em>}</li>
  * </ul>
  *
@@ -39,24 +40,14 @@ import ucwriter.xtext.guimeta.ucdsl.uCdsl.UseCaseStep;
 public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
 {
   /**
-   * The default value of the '{@link #getRepeatingCondition() <em>Repeating Condition</em>}' attribute.
+   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRepeatingCondition()
+   * @see #getCondition()
    * @generated
    * @ordered
    */
-  protected static final String REPEATING_CONDITION_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getRepeatingCondition() <em>Repeating Condition</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRepeatingCondition()
-   * @generated
-   * @ordered
-   */
-  protected String repeatingCondition = REPEATING_CONDITION_EDEFAULT;
+  protected RepeatingCondition condition;
 
   /**
    * The cached value of the '{@link #getSteps() <em>Steps</em>}' containment reference list.
@@ -95,9 +86,26 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
    * @generated
    */
   @Override
-  public String getRepeatingCondition()
+  public RepeatingCondition getCondition()
   {
-    return repeatingCondition;
+    return condition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCondition(RepeatingCondition newCondition, NotificationChain msgs)
+  {
+    RepeatingCondition oldCondition = condition;
+    condition = newCondition;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UCdslPackage.REPEATING_STEP__CONDITION, oldCondition, newCondition);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -106,12 +114,20 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
    * @generated
    */
   @Override
-  public void setRepeatingCondition(String newRepeatingCondition)
+  public void setCondition(RepeatingCondition newCondition)
   {
-    String oldRepeatingCondition = repeatingCondition;
-    repeatingCondition = newRepeatingCondition;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UCdslPackage.REPEATING_STEP__REPEATING_CONDITION, oldRepeatingCondition, repeatingCondition));
+    if (newCondition != condition)
+    {
+      NotificationChain msgs = null;
+      if (condition != null)
+        msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UCdslPackage.REPEATING_STEP__CONDITION, null, msgs);
+      if (newCondition != null)
+        msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UCdslPackage.REPEATING_STEP__CONDITION, null, msgs);
+      msgs = basicSetCondition(newCondition, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UCdslPackage.REPEATING_STEP__CONDITION, newCondition, newCondition));
   }
 
   /**
@@ -139,6 +155,8 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
   {
     switch (featureID)
     {
+      case UCdslPackage.REPEATING_STEP__CONDITION:
+        return basicSetCondition(null, msgs);
       case UCdslPackage.REPEATING_STEP__STEPS:
         return ((InternalEList<?>)getSteps()).basicRemove(otherEnd, msgs);
     }
@@ -155,8 +173,8 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
   {
     switch (featureID)
     {
-      case UCdslPackage.REPEATING_STEP__REPEATING_CONDITION:
-        return getRepeatingCondition();
+      case UCdslPackage.REPEATING_STEP__CONDITION:
+        return getCondition();
       case UCdslPackage.REPEATING_STEP__STEPS:
         return getSteps();
     }
@@ -174,8 +192,8 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
   {
     switch (featureID)
     {
-      case UCdslPackage.REPEATING_STEP__REPEATING_CONDITION:
-        setRepeatingCondition((String)newValue);
+      case UCdslPackage.REPEATING_STEP__CONDITION:
+        setCondition((RepeatingCondition)newValue);
         return;
       case UCdslPackage.REPEATING_STEP__STEPS:
         getSteps().clear();
@@ -195,8 +213,8 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
   {
     switch (featureID)
     {
-      case UCdslPackage.REPEATING_STEP__REPEATING_CONDITION:
-        setRepeatingCondition(REPEATING_CONDITION_EDEFAULT);
+      case UCdslPackage.REPEATING_STEP__CONDITION:
+        setCondition((RepeatingCondition)null);
         return;
       case UCdslPackage.REPEATING_STEP__STEPS:
         getSteps().clear();
@@ -215,29 +233,12 @@ public class RepeatingStepImpl extends UseCaseStepImpl implements RepeatingStep
   {
     switch (featureID)
     {
-      case UCdslPackage.REPEATING_STEP__REPEATING_CONDITION:
-        return REPEATING_CONDITION_EDEFAULT == null ? repeatingCondition != null : !REPEATING_CONDITION_EDEFAULT.equals(repeatingCondition);
+      case UCdslPackage.REPEATING_STEP__CONDITION:
+        return condition != null;
       case UCdslPackage.REPEATING_STEP__STEPS:
         return steps != null && !steps.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (repeatingCondition: ");
-    result.append(repeatingCondition);
-    result.append(')');
-    return result.toString();
   }
 
 } //RepeatingStepImpl

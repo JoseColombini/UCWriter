@@ -126,6 +126,11 @@ public class UCdslAdapterFactory extends AdapterFactoryImpl
         return createExtensioConditionAdapter();
       }
       @Override
+      public Adapter caseRepeatingCondition(RepeatingCondition object)
+      {
+        return createRepeatingConditionAdapter();
+      }
+      @Override
       public Adapter caseUserStep(UserStep object)
       {
         return createUserStepAdapter();
@@ -308,6 +313,21 @@ public class UCdslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExtensioConditionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingCondition <em>Repeating Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingCondition
+   * @generated
+   */
+  public Adapter createRepeatingConditionAdapter()
   {
     return null;
   }

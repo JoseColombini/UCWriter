@@ -62,6 +62,7 @@ public class UCdslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPreconditionAccess().getGroup(), "rule__Precondition__Group__0");
 			builder.put(grammarAccess.getPostconditionAccess().getGroup(), "rule__Postcondition__Group__0");
 			builder.put(grammarAccess.getExtensioConditionAccess().getGroup(), "rule__ExtensioCondition__Group__0");
+			builder.put(grammarAccess.getRepeatingConditionAccess().getGroup(), "rule__RepeatingCondition__Group__0");
 			builder.put(grammarAccess.getQualifiedStepNameAccess().getGroup(), "rule__QualifiedStepName__Group__0");
 			builder.put(grammarAccess.getQualifiedStepNameAccess().getGroup_1(), "rule__QualifiedStepName__Group_1__0");
 			builder.put(grammarAccess.getQualifiedExtensionStepNameAccess().getGroup(), "rule__QualifiedExtensionStepName__Group__0");
@@ -91,8 +92,8 @@ public class UCdslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getUseCaseStepAccess().getSentenceAssignment_2_5(), "rule__UseCaseStep__SentenceAssignment_2_5");
 			builder.put(grammarAccess.getUseCaseStepAccess().getParentAssignment_3_1_0(), "rule__UseCaseStep__ParentAssignment_3_1_0");
 			builder.put(grammarAccess.getUseCaseStepAccess().getNameAssignment_3_2(), "rule__UseCaseStep__NameAssignment_3_2");
-			builder.put(grammarAccess.getUseCaseStepAccess().getRepeatingConditionAssignment_3_5(), "rule__UseCaseStep__RepeatingConditionAssignment_3_5");
-			builder.put(grammarAccess.getUseCaseStepAccess().getStepsAssignment_3_7(), "rule__UseCaseStep__StepsAssignment_3_7");
+			builder.put(grammarAccess.getUseCaseStepAccess().getConditionAssignment_3_4(), "rule__UseCaseStep__ConditionAssignment_3_4");
+			builder.put(grammarAccess.getUseCaseStepAccess().getStepsAssignment_3_6(), "rule__UseCaseStep__StepsAssignment_3_6");
 			builder.put(grammarAccess.getExtensionStepAccess().getNameAssignment_0_0(), "rule__ExtensionStep__NameAssignment_0_0");
 			builder.put(grammarAccess.getExtensionStepAccess().getReferenceAssignment_0_3(), "rule__ExtensionStep__ReferenceAssignment_0_3");
 			builder.put(grammarAccess.getExtensionStepAccess().getNameAssignment_1_0(), "rule__ExtensionStep__NameAssignment_1_0");
@@ -102,6 +103,7 @@ public class UCdslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPreconditionAccess().getConditionAssignment_2(), "rule__Precondition__ConditionAssignment_2");
 			builder.put(grammarAccess.getPostconditionAccess().getConditionAssignment_2(), "rule__Postcondition__ConditionAssignment_2");
 			builder.put(grammarAccess.getExtensioConditionAccess().getConditionAssignment_1(), "rule__ExtensioCondition__ConditionAssignment_1");
+			builder.put(grammarAccess.getRepeatingConditionAccess().getConditionAssignment_1(), "rule__RepeatingCondition__ConditionAssignment_1");
 		}
 	}
 	

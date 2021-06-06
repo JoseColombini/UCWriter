@@ -12,7 +12,11 @@ MAIN FLOW:
 	7. USER selects and assigns an adjuster
 	8. USER confirms they are finished
 	9. SYSTEM saves and triggers acknowledgement be sent to agent``
-	
+	10. WHILE CondA AND condB OR COndC
+		10.1. USER Do A
+		10.2. WHILE COnd
+			10.2.1. SYSTEM Do B
+
 ALTERNATIVE FLOW:
 	1.a. IF Found policy information does not match the insureds information
 		1. Clerk enters correct policy number or insured name and asks System topopulate with new policy index information.
@@ -29,5 +33,9 @@ ALTERNATIVE FLOW:
 		1. System warns Clerk.
 		2. Clerk Finds the policy using the search details for policy
 		3. RETURN TO 1.c.2
+
+UC 23: Case
+MAIN FLOW:
+	1. USER DO a
+	2. INCLUDE Register Loss
 		
-	

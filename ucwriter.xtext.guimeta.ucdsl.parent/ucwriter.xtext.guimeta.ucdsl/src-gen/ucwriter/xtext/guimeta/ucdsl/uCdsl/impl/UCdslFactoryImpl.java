@@ -75,6 +75,7 @@ public class UCdslFactoryImpl extends EFactoryImpl implements UCdslFactory
       case UCdslPackage.PRECONDITION: return createPrecondition();
       case UCdslPackage.POSTCONDITION: return createPostcondition();
       case UCdslPackage.EXTENSIO_CONDITION: return createExtensioCondition();
+      case UCdslPackage.REPEATING_CONDITION: return createRepeatingCondition();
       case UCdslPackage.USER_STEP: return createUserStep();
       case UCdslPackage.SYSTEM_STEP: return createSystemStep();
       case UCdslPackage.REPEATING_STEP: return createRepeatingStep();
@@ -201,6 +202,18 @@ public class UCdslFactoryImpl extends EFactoryImpl implements UCdslFactory
   {
     ExtensioConditionImpl extensioCondition = new ExtensioConditionImpl();
     return extensioCondition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public RepeatingCondition createRepeatingCondition()
+  {
+    RepeatingConditionImpl repeatingCondition = new RepeatingConditionImpl();
+    return repeatingCondition;
   }
 
   /**

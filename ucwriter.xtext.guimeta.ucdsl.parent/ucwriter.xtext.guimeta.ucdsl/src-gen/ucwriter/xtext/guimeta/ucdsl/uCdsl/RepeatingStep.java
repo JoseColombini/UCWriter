@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingStep#getRepeatingCondition <em>Repeating Condition</em>}</li>
+ *   <li>{@link ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingStep#getCondition <em>Condition</em>}</li>
  *   <li>{@link ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingStep#getSteps <em>Steps</em>}</li>
  * </ul>
  *
@@ -25,26 +25,26 @@ import org.eclipse.emf.common.util.EList;
 public interface RepeatingStep extends UseCaseStep
 {
   /**
-   * Returns the value of the '<em><b>Repeating Condition</b></em>' attribute.
+   * Returns the value of the '<em><b>Condition</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Repeating Condition</em>' attribute.
-   * @see #setRepeatingCondition(String)
-   * @see ucwriter.xtext.guimeta.ucdsl.uCdsl.UCdslPackage#getRepeatingStep_RepeatingCondition()
-   * @model
+   * @return the value of the '<em>Condition</em>' containment reference.
+   * @see #setCondition(RepeatingCondition)
+   * @see ucwriter.xtext.guimeta.ucdsl.uCdsl.UCdslPackage#getRepeatingStep_Condition()
+   * @model containment="true"
    * @generated
    */
-  String getRepeatingCondition();
+  RepeatingCondition getCondition();
 
   /**
-   * Sets the value of the '{@link ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingStep#getRepeatingCondition <em>Repeating Condition</em>}' attribute.
+   * Sets the value of the '{@link ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingStep#getCondition <em>Condition</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Repeating Condition</em>' attribute.
-   * @see #getRepeatingCondition()
+   * @param value the new value of the '<em>Condition</em>' containment reference.
+   * @see #getCondition()
    * @generated
    */
-  void setRepeatingCondition(String value);
+  void setCondition(RepeatingCondition value);
 
   /**
    * Returns the value of the '<em><b>Steps</b></em>' containment reference list.

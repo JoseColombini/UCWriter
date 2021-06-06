@@ -174,7 +174,6 @@ public class UCdslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cStartFromAssignment_0_1 = (Assignment)cAlternatives_0.eContents().get(1);
 		private final CrossReference cStartFromExtensionStepCrossReference_0_1_0 = (CrossReference)cStartFromAssignment_0_1.eContents().get(0);
 		private final RuleCall cStartFromExtensionStepQualifiedExtensionStepNameParserRuleCall_0_1_0_1 = (RuleCall)cStartFromExtensionStepCrossReference_0_1_0.eContents().get(1);
-		private final Keyword cAsteriskKeyword_0_2 = (Keyword)cAlternatives_0.eContents().get(2);
 		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameCHARTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
@@ -203,18 +202,18 @@ public class UCdslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		////Flows and behavorial
 		//Extension:
-		//	(startFrom=[UseCaseStep|QualifiedStepName] | startFrom=[ExtensionStep|QualifiedExtensionStepName] | '*')
+		//	(startFrom=[UseCaseStep|QualifiedStepName] | startFrom=[ExtensionStep|QualifiedExtensionStepName]) //add |'*' for global extensions
 		//	'.' name=CHAR '.' condition=ExtensioCondition BEGIN
 		//	steps+=ExtensionStep* (StepName '.' 'RETURN' 'TO' (resumeAt=[UseCaseStep|QualifiedStepName] |
 		//	resumeAt=[ExtensionStep|QualifiedExtensionStepName]) | end=DeadEndStep) END;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(startFrom=[UseCaseStep|QualifiedStepName] | startFrom=[ExtensionStep|QualifiedExtensionStepName] | '*') '.' name=CHAR
-		//'.' condition=ExtensioCondition BEGIN steps+=ExtensionStep* (StepName '.' 'RETURN' 'TO'
+		//(startFrom=[UseCaseStep|QualifiedStepName] | startFrom=[ExtensionStep|QualifiedExtensionStepName]) //add |'*' for global extensions
+		//'.' name=CHAR '.' condition=ExtensioCondition BEGIN steps+=ExtensionStep* (StepName '.' 'RETURN' 'TO'
 		//(resumeAt=[UseCaseStep|QualifiedStepName] | resumeAt=[ExtensionStep|QualifiedExtensionStepName]) | end=DeadEndStep) END
 		public Group getGroup() { return cGroup; }
 		
-		//(startFrom=[UseCaseStep|QualifiedStepName] | startFrom=[ExtensionStep|QualifiedExtensionStepName] | '*')
+		//(startFrom=[UseCaseStep|QualifiedStepName] | startFrom=[ExtensionStep|QualifiedExtensionStepName])
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
 		//startFrom=[UseCaseStep|QualifiedStepName]
@@ -235,9 +234,7 @@ public class UCdslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//QualifiedExtensionStepName
 		public RuleCall getStartFromExtensionStepQualifiedExtensionStepNameParserRuleCall_0_1_0_1() { return cStartFromExtensionStepQualifiedExtensionStepNameParserRuleCall_0_1_0_1; }
 		
-		//'*'
-		public Keyword getAsteriskKeyword_0_2() { return cAsteriskKeyword_0_2; }
-		
+		////add |'*' for global extensions
 		//'.'
 		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
 		
@@ -388,19 +385,18 @@ public class UCdslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cNameAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
 		private final RuleCall cNameStepNameParserRuleCall_3_2_0 = (RuleCall)cNameAssignment_3_2.eContents().get(0);
 		private final Keyword cFullStopKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
-		private final Keyword cWHILEKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
-		private final Assignment cRepeatingConditionAssignment_3_5 = (Assignment)cGroup_3.eContents().get(5);
-		private final RuleCall cRepeatingConditionConditionParserRuleCall_3_5_0 = (RuleCall)cRepeatingConditionAssignment_3_5.eContents().get(0);
-		private final RuleCall cBEGINTerminalRuleCall_3_6 = (RuleCall)cGroup_3.eContents().get(6);
-		private final Assignment cStepsAssignment_3_7 = (Assignment)cGroup_3.eContents().get(7);
-		private final RuleCall cStepsUseCaseStepParserRuleCall_3_7_0 = (RuleCall)cStepsAssignment_3_7.eContents().get(0);
-		private final RuleCall cENDTerminalRuleCall_3_8 = (RuleCall)cGroup_3.eContents().get(8);
+		private final Assignment cConditionAssignment_3_4 = (Assignment)cGroup_3.eContents().get(4);
+		private final RuleCall cConditionRepeatingConditionParserRuleCall_3_4_0 = (RuleCall)cConditionAssignment_3_4.eContents().get(0);
+		private final RuleCall cBEGINTerminalRuleCall_3_5 = (RuleCall)cGroup_3.eContents().get(5);
+		private final Assignment cStepsAssignment_3_6 = (Assignment)cGroup_3.eContents().get(6);
+		private final RuleCall cStepsUseCaseStepParserRuleCall_3_6_0 = (RuleCall)cStepsAssignment_3_6.eContents().get(0);
+		private final RuleCall cENDTerminalRuleCall_3_7 = (RuleCall)cGroup_3.eContents().get(7);
 		
 		//UseCaseStep:
 		//	(parent=[RepeatingStep|QualifiedStepName] '.')? name=StepName '.' 'INCLUDE' reference=[UseCase|LongName] | {UserStep}
 		//	(parent=[RepeatingStep|QualifiedStepName] '.')? name=StepName '.' 'USER' sentence=LongName | {SystemStep}
 		//	(parent=[RepeatingStep|QualifiedStepName] '.')? name=StepName '.' 'SYSTEM' sentence=LongName | {RepeatingStep}
-		//	(parent=[RepeatingStep|QualifiedStepName] '.')? name=StepName '.' 'WHILE' repeatingCondition=Condition BEGIN
+		//	(parent=[RepeatingStep|QualifiedStepName] '.')? name=StepName '.' condition=RepeatingCondition BEGIN
 		//	steps+=UseCaseStep+
 		//	END;
 		@Override public ParserRule getRule() { return rule; }
@@ -408,7 +404,7 @@ public class UCdslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//(parent=[RepeatingStep|QualifiedStepName] '.')? name=StepName '.' 'INCLUDE' reference=[UseCase|LongName] | {UserStep}
 		//(parent=[RepeatingStep|QualifiedStepName] '.')? name=StepName '.' 'USER' sentence=LongName | {SystemStep}
 		//(parent=[RepeatingStep|QualifiedStepName] '.')? name=StepName '.' 'SYSTEM' sentence=LongName | {RepeatingStep}
-		//(parent=[RepeatingStep|QualifiedStepName] '.')? name=StepName '.' 'WHILE' repeatingCondition=Condition BEGIN
+		//(parent=[RepeatingStep|QualifiedStepName] '.')? name=StepName '.' condition=RepeatingCondition BEGIN
 		//steps+=UseCaseStep+ END
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
@@ -529,8 +525,8 @@ public class UCdslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//LongName
 		public RuleCall getSentenceLongNameParserRuleCall_2_5_0() { return cSentenceLongNameParserRuleCall_2_5_0; }
 		
-		//{RepeatingStep} (parent=[RepeatingStep|QualifiedStepName] '.')? name=StepName '.' 'WHILE' repeatingCondition=Condition
-		//BEGIN steps+=UseCaseStep+ END
+		//{RepeatingStep} (parent=[RepeatingStep|QualifiedStepName] '.')? name=StepName '.' condition=RepeatingCondition BEGIN
+		//steps+=UseCaseStep+ END
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//{RepeatingStep}
@@ -560,26 +556,23 @@ public class UCdslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'.'
 		public Keyword getFullStopKeyword_3_3() { return cFullStopKeyword_3_3; }
 		
-		//'WHILE'
-		public Keyword getWHILEKeyword_3_4() { return cWHILEKeyword_3_4; }
+		//condition=RepeatingCondition
+		public Assignment getConditionAssignment_3_4() { return cConditionAssignment_3_4; }
 		
-		//repeatingCondition=Condition
-		public Assignment getRepeatingConditionAssignment_3_5() { return cRepeatingConditionAssignment_3_5; }
-		
-		//Condition
-		public RuleCall getRepeatingConditionConditionParserRuleCall_3_5_0() { return cRepeatingConditionConditionParserRuleCall_3_5_0; }
+		//RepeatingCondition
+		public RuleCall getConditionRepeatingConditionParserRuleCall_3_4_0() { return cConditionRepeatingConditionParserRuleCall_3_4_0; }
 		
 		//BEGIN
-		public RuleCall getBEGINTerminalRuleCall_3_6() { return cBEGINTerminalRuleCall_3_6; }
+		public RuleCall getBEGINTerminalRuleCall_3_5() { return cBEGINTerminalRuleCall_3_5; }
 		
 		//steps+=UseCaseStep+
-		public Assignment getStepsAssignment_3_7() { return cStepsAssignment_3_7; }
+		public Assignment getStepsAssignment_3_6() { return cStepsAssignment_3_6; }
 		
 		//UseCaseStep
-		public RuleCall getStepsUseCaseStepParserRuleCall_3_7_0() { return cStepsUseCaseStepParserRuleCall_3_7_0; }
+		public RuleCall getStepsUseCaseStepParserRuleCall_3_6_0() { return cStepsUseCaseStepParserRuleCall_3_6_0; }
 		
 		//END
-		public RuleCall getENDTerminalRuleCall_3_8() { return cENDTerminalRuleCall_3_8; }
+		public RuleCall getENDTerminalRuleCall_3_7() { return cENDTerminalRuleCall_3_7; }
 	}
 	public class ExtensionStepElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ucwriter.xtext.guimeta.ucdsl.UCdsl.ExtensionStep");
@@ -803,6 +796,29 @@ public class UCdslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Condition
 		public RuleCall getConditionConditionParserRuleCall_1_0() { return cConditionConditionParserRuleCall_1_0; }
 	}
+	public class RepeatingConditionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ucwriter.xtext.guimeta.ucdsl.UCdsl.RepeatingCondition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cWHILEKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cConditionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cConditionConditionParserRuleCall_1_0 = (RuleCall)cConditionAssignment_1.eContents().get(0);
+		
+		//RepeatingCondition:
+		//	'WHILE' condition=Condition;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'WHILE' condition=Condition
+		public Group getGroup() { return cGroup; }
+		
+		//'WHILE'
+		public Keyword getWHILEKeyword_0() { return cWHILEKeyword_0; }
+		
+		//condition=Condition
+		public Assignment getConditionAssignment_1() { return cConditionAssignment_1; }
+		
+		//Condition
+		public RuleCall getConditionConditionParserRuleCall_1_0() { return cConditionConditionParserRuleCall_1_0; }
+	}
 	public class LongNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ucwriter.xtext.guimeta.ucdsl.UCdsl.LongName");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -972,6 +988,7 @@ public class UCdslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	private final PreconditionElements pPrecondition;
 	private final PostconditionElements pPostcondition;
 	private final ExtensioConditionElements pExtensioCondition;
+	private final RepeatingConditionElements pRepeatingCondition;
 	private final LongNameElements pLongName;
 	private final ConditionElements pCondition;
 	private final StepNameElements pStepName;
@@ -1000,6 +1017,7 @@ public class UCdslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		this.pPrecondition = new PreconditionElements();
 		this.pPostcondition = new PostconditionElements();
 		this.pExtensioCondition = new ExtensioConditionElements();
+		this.pRepeatingCondition = new RepeatingConditionElements();
 		this.pLongName = new LongNameElements();
 		this.pCondition = new ConditionElements();
 		this.pStepName = new StepNameElements();
@@ -1068,7 +1086,7 @@ public class UCdslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	////Flows and behavorial
 	//Extension:
-	//	(startFrom=[UseCaseStep|QualifiedStepName] | startFrom=[ExtensionStep|QualifiedExtensionStepName] | '*')
+	//	(startFrom=[UseCaseStep|QualifiedStepName] | startFrom=[ExtensionStep|QualifiedExtensionStepName]) //add |'*' for global extensions
 	//	'.' name=CHAR '.' condition=ExtensioCondition BEGIN
 	//	steps+=ExtensionStep* (StepName '.' 'RETURN' 'TO' (resumeAt=[UseCaseStep|QualifiedStepName] |
 	//	resumeAt=[ExtensionStep|QualifiedExtensionStepName]) | end=DeadEndStep) END;
@@ -1095,7 +1113,7 @@ public class UCdslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//	(parent=[RepeatingStep|QualifiedStepName] '.')? name=StepName '.' 'INCLUDE' reference=[UseCase|LongName] | {UserStep}
 	//	(parent=[RepeatingStep|QualifiedStepName] '.')? name=StepName '.' 'USER' sentence=LongName | {SystemStep}
 	//	(parent=[RepeatingStep|QualifiedStepName] '.')? name=StepName '.' 'SYSTEM' sentence=LongName | {RepeatingStep}
-	//	(parent=[RepeatingStep|QualifiedStepName] '.')? name=StepName '.' 'WHILE' repeatingCondition=Condition BEGIN
+	//	(parent=[RepeatingStep|QualifiedStepName] '.')? name=StepName '.' condition=RepeatingCondition BEGIN
 	//	steps+=UseCaseStep+
 	//	END;
 	public UseCaseStepElements getUseCaseStepAccess() {
@@ -1156,6 +1174,16 @@ public class UCdslGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	public ParserRule getExtensioConditionRule() {
 		return getExtensioConditionAccess().getRule();
+	}
+	
+	//RepeatingCondition:
+	//	'WHILE' condition=Condition;
+	public RepeatingConditionElements getRepeatingConditionAccess() {
+		return pRepeatingCondition;
+	}
+	
+	public ParserRule getRepeatingConditionRule() {
+		return getRepeatingConditionAccess().getRule();
 	}
 	
 	///**********************	}

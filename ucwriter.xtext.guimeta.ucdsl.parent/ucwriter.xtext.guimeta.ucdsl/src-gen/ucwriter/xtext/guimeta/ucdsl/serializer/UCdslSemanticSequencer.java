@@ -21,6 +21,7 @@ import ucwriter.xtext.guimeta.ucdsl.uCdsl.Extension;
 import ucwriter.xtext.guimeta.ucdsl.uCdsl.ExtensionStep;
 import ucwriter.xtext.guimeta.ucdsl.uCdsl.Postcondition;
 import ucwriter.xtext.guimeta.ucdsl.uCdsl.Precondition;
+import ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingCondition;
 import ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingStep;
 import ucwriter.xtext.guimeta.ucdsl.uCdsl.SystemStep;
 import ucwriter.xtext.guimeta.ucdsl.uCdsl.UCdslPackage;
@@ -60,6 +61,9 @@ public class UCdslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 				return; 
 			case UCdslPackage.PRECONDITION:
 				sequence_Precondition(context, (Precondition) semanticObject); 
+				return; 
+			case UCdslPackage.REPEATING_CONDITION:
+				sequence_RepeatingCondition(context, (RepeatingCondition) semanticObject); 
 				return; 
 			case UCdslPackage.REPEATING_STEP:
 				sequence_UseCaseStep(context, (RepeatingStep) semanticObject); 
@@ -135,7 +139,7 @@ public class UCdslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *
 	 * Constraint:
 	 *     (
-	 *         (startFrom=[UseCaseStep|QualifiedStepName] | startFrom=[ExtensionStep|QualifiedExtensionStepName])? 
+	 *         (startFrom=[UseCaseStep|QualifiedStepName] | startFrom=[ExtensionStep|QualifiedExtensionStepName]) 
 	 *         name=CHAR 
 	 *         condition=ExtensioCondition 
 	 *         steps+=ExtensionStep* 
@@ -185,6 +189,24 @@ public class UCdslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	
 	/**
 	 * Contexts:
+	 *     RepeatingCondition returns RepeatingCondition
+	 *
+	 * Constraint:
+	 *     condition=Condition
+	 */
+	protected void sequence_RepeatingCondition(ISerializationContext context, RepeatingCondition semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UCdslPackage.Literals.REPEATING_CONDITION__CONDITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UCdslPackage.Literals.REPEATING_CONDITION__CONDITION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getRepeatingConditionAccess().getConditionConditionParserRuleCall_1_0(), semanticObject.getCondition());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     UseCaseDocument returns UseCaseDocument
 	 *
 	 * Constraint:
@@ -201,7 +223,7 @@ public class UCdslSemanticSequencer extends AbstractDelegatingSemanticSequencer 
 	 *     UseCaseStep returns RepeatingStep
 	 *
 	 * Constraint:
-	 *     (parent=[RepeatingStep|QualifiedStepName]? name=StepName repeatingCondition=Condition steps+=UseCaseStep+)
+	 *     (parent=[RepeatingStep|QualifiedStepName]? name=StepName condition=RepeatingCondition steps+=UseCaseStep+)
 	 */
 	protected void sequence_UseCaseStep(ISerializationContext context, RepeatingStep semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

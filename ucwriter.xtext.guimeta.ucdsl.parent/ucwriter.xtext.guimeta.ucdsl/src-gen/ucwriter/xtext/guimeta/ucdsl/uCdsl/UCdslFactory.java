@@ -114,6 +114,15 @@ public interface UCdslFactory extends EFactory
   ExtensioCondition createExtensioCondition();
 
   /**
+   * Returns a new object of class '<em>Repeating Condition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Repeating Condition</em>'.
+   * @generated
+   */
+  RepeatingCondition createRepeatingCondition();
+
+  /**
    * Returns a new object of class '<em>User Step</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

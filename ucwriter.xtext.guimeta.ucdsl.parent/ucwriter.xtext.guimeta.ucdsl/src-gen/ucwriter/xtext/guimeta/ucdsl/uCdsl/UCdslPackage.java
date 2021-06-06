@@ -491,6 +491,34 @@ public interface UCdslPackage extends EPackage
   int EXTENSIO_CONDITION_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link ucwriter.xtext.guimeta.ucdsl.uCdsl.impl.RepeatingConditionImpl <em>Repeating Condition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see ucwriter.xtext.guimeta.ucdsl.uCdsl.impl.RepeatingConditionImpl
+   * @see ucwriter.xtext.guimeta.ucdsl.uCdsl.impl.UCdslPackageImpl#getRepeatingCondition()
+   * @generated
+   */
+  int REPEATING_CONDITION = 10;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPEATING_CONDITION__CONDITION = 0;
+
+  /**
+   * The number of structural features of the '<em>Repeating Condition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REPEATING_CONDITION_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link ucwriter.xtext.guimeta.ucdsl.uCdsl.impl.UserStepImpl <em>User Step</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -498,7 +526,7 @@ public interface UCdslPackage extends EPackage
    * @see ucwriter.xtext.guimeta.ucdsl.uCdsl.impl.UCdslPackageImpl#getUserStep()
    * @generated
    */
-  int USER_STEP = 10;
+  int USER_STEP = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -553,7 +581,7 @@ public interface UCdslPackage extends EPackage
    * @see ucwriter.xtext.guimeta.ucdsl.uCdsl.impl.UCdslPackageImpl#getSystemStep()
    * @generated
    */
-  int SYSTEM_STEP = 11;
+  int SYSTEM_STEP = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -608,7 +636,7 @@ public interface UCdslPackage extends EPackage
    * @see ucwriter.xtext.guimeta.ucdsl.uCdsl.impl.UCdslPackageImpl#getRepeatingStep()
    * @generated
    */
-  int REPEATING_STEP = 12;
+  int REPEATING_STEP = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -638,13 +666,13 @@ public interface UCdslPackage extends EPackage
   int REPEATING_STEP__PARENT = USE_CASE_STEP__PARENT;
 
   /**
-   * The feature id for the '<em><b>Repeating Condition</b></em>' attribute.
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REPEATING_STEP__REPEATING_CONDITION = USE_CASE_STEP_FEATURE_COUNT + 0;
+  int REPEATING_STEP__CONDITION = USE_CASE_STEP_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Steps</b></em>' containment reference list.
@@ -986,6 +1014,27 @@ public interface UCdslPackage extends EPackage
   EAttribute getExtensioCondition_Condition();
 
   /**
+   * Returns the meta object for class '{@link ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingCondition <em>Repeating Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Repeating Condition</em>'.
+   * @see ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingCondition
+   * @generated
+   */
+  EClass getRepeatingCondition();
+
+  /**
+   * Returns the meta object for the attribute '{@link ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingCondition#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Condition</em>'.
+   * @see ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingCondition#getCondition()
+   * @see #getRepeatingCondition()
+   * @generated
+   */
+  EAttribute getRepeatingCondition_Condition();
+
+  /**
    * Returns the meta object for class '{@link ucwriter.xtext.guimeta.ucdsl.uCdsl.UserStep <em>User Step</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1038,15 +1087,15 @@ public interface UCdslPackage extends EPackage
   EClass getRepeatingStep();
 
   /**
-   * Returns the meta object for the attribute '{@link ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingStep#getRepeatingCondition <em>Repeating Condition</em>}'.
+   * Returns the meta object for the containment reference '{@link ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingStep#getCondition <em>Condition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Repeating Condition</em>'.
-   * @see ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingStep#getRepeatingCondition()
+   * @return the meta object for the containment reference '<em>Condition</em>'.
+   * @see ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingStep#getCondition()
    * @see #getRepeatingStep()
    * @generated
    */
-  EAttribute getRepeatingStep_RepeatingCondition();
+  EReference getRepeatingStep_Condition();
 
   /**
    * Returns the meta object for the containment reference list '{@link ucwriter.xtext.guimeta.ucdsl.uCdsl.RepeatingStep#getSteps <em>Steps</em>}'.
@@ -1343,6 +1392,24 @@ public interface UCdslPackage extends EPackage
     EAttribute EXTENSIO_CONDITION__CONDITION = eINSTANCE.getExtensioCondition_Condition();
 
     /**
+     * The meta object literal for the '{@link ucwriter.xtext.guimeta.ucdsl.uCdsl.impl.RepeatingConditionImpl <em>Repeating Condition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see ucwriter.xtext.guimeta.ucdsl.uCdsl.impl.RepeatingConditionImpl
+     * @see ucwriter.xtext.guimeta.ucdsl.uCdsl.impl.UCdslPackageImpl#getRepeatingCondition()
+     * @generated
+     */
+    EClass REPEATING_CONDITION = eINSTANCE.getRepeatingCondition();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REPEATING_CONDITION__CONDITION = eINSTANCE.getRepeatingCondition_Condition();
+
+    /**
      * The meta object literal for the '{@link ucwriter.xtext.guimeta.ucdsl.uCdsl.impl.UserStepImpl <em>User Step</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1389,12 +1456,12 @@ public interface UCdslPackage extends EPackage
     EClass REPEATING_STEP = eINSTANCE.getRepeatingStep();
 
     /**
-     * The meta object literal for the '<em><b>Repeating Condition</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute REPEATING_STEP__REPEATING_CONDITION = eINSTANCE.getRepeatingStep_RepeatingCondition();
+    EReference REPEATING_STEP__CONDITION = eINSTANCE.getRepeatingStep_Condition();
 
     /**
      * The meta object literal for the '<em><b>Steps</b></em>' containment reference list feature.
