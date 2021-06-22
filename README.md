@@ -34,6 +34,15 @@ The wiki page [How to Use](https://github.com/JoseColombini/UCWriter/wiki/How-to
 
 ## Futures work and what you can help with
 
+## Publication
+
+This work was publish in SBSI (Simpósio Brasiliero de Sistemas da informação) (Brazilian Symposium on Information Systems). Here is the [link to the publication](https://sol.sbc.org.br/index.php/sbsi_estendido/article/view/15353) where you can dowload the [pdf](https://sol.sbc.org.br/index.php/sbsi_estendido/article/view/15353/15196) and get the citations models (bibtex, IEEE, ABNT, etc).
+
+The article is in portuguese, but any doubt you can e-mail me (josecolombini@usp.br), I will be glad to help you!
+
+
+![image](https://user-images.githubusercontent.com/42770769/122929094-e9deea00-d340-11eb-95ce-78483d783905.png)
+
 
 ## Team
 
